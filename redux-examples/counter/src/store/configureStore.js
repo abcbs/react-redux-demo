@@ -5,7 +5,7 @@ import reducer from '../reducers'
 //applyMiddleware来自redux可以包装 store 的 dispatch
 //thunk作用是使action创建函数可以返回一个function代替一个action对象
 const createStoreWithMiddleware = compose(
-    reducer,
+
     applyMiddleware(
         thunk
     ),
@@ -13,7 +13,7 @@ const createStoreWithMiddleware = compose(
 )(createStore);
 
 export default function configureStore(initialState) {
-  /**
+
   const store = createStoreWithMiddleware(reducer, initialState);
 
   //热替换选项
@@ -25,11 +25,8 @@ export default function configureStore(initialState) {
       store.replaceReducer(nextReducer)
     })
   }
-`**/
-  const store = createStore(
-      reducer,
-      applyMiddleware(thunk)
-  );
+
+
 
   return store
 }
