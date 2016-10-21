@@ -4,6 +4,9 @@ const buildPath = path.resolve(__dirname, './build');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const publicPath =  "/build/";
 const contentBase = path.resolve(__dirname, '');
+
+const webpackhot= ['webpack-hot-middleware'];
+
 module.exports = {
   //devtool: 'eval-source-map',
   devServer:{
@@ -29,12 +32,15 @@ module.exports = {
   ],
   **/
   entry: {
+    /**
     app: [
       'webpack-dev-server/client?http://192.168.1.102:3000',// WebpackDevServer host and port
       'webpack-hot-middleware/client?reload=true',
       'webpack/hot/dev-server',
       './src/index'
-    ]
+    ],**/
+    app: './src/index',
+    //webpackhot:webpackhot
     /**
     editor: [
       './src/editor',
@@ -47,12 +53,12 @@ module.exports = {
   output: {
     //打包文件存放的绝对路径,html.js,css会在这个路径下
     path: buildPath,
-    filename: 'app.js',
+    filename: '[name].js',
     //设置为webpack-dev-server服务器下资源目录的绝对路径
     //网站运行时的访问路径
     //如果不设置的话，打包出的html中默认路径会是相对路径
     publicPath: publicPath,
-   
+
   },
   plugins: [
     new webpack.DllReferencePlugin({
@@ -66,7 +72,9 @@ module.exports = {
 
     new webpack.NoErrorsPlugin(),
 
-    new webpack.HotModuleReplacementPlugin(),
+    //new webpack.HotModuleReplacementPlugin(),
+    //new webpack.optimize.CommonsChunkPlugin('evn', 'evn.js'),
+    //new webpack.optimize.CommonsChunkPlugin('webpackhot', 'webpackhot.js'),
   ],
   module: {
     loaders: [

@@ -1,20 +1,26 @@
 var path = require('path')
 var webpack = require('webpack')
-
+const buildPath = path.resolve(__dirname, './build');
+const nodeModulesPath = path.resolve(__dirname, 'node_modules');
+const publicPath =  "/build/";
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    './src/index'
-  ],
+
+  //devtool: 'eval-source-map',
+  entry: {
+    app:'./src/index'
+ },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/dist/'
+    path: buildPath,
+    filename: 'app.js',
+    publicPath: publicPath
   },
   plugins: [
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require("./dist/manifest.json")
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    //new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
   module: {

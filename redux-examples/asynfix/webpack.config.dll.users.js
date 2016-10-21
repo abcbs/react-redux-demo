@@ -6,6 +6,7 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const publicPath =  "/build/";
 const contentBase = path.resolve(__dirname, '');
 
+const evn = ['webpack-dev-server','webpack-hot-middleware'];
 
 module.exports = {
 	// Server Configuration options
@@ -23,7 +24,7 @@ module.exports = {
 	entry: {
 		app:path.join(__dirname, 'src'),
 
-		//hots: hots
+		evn: evn
 	},
 	output: {
 		path: buildPath,
@@ -37,7 +38,7 @@ module.exports = {
 		new webpack.NoErrorsPlugin(),
 		//这个使用uglifyJs压缩你的js代码
 		//new webpack.optimize.UglifyJsPlugin({minimize: true}),
-		//new webpack.optimize.CommonsChunkPlugin('hots', 'hots.js'),
+		new webpack.optimize.CommonsChunkPlugin('evn', 'evn.js'),
 		
 		new webpack.DllReferencePlugin({
 			context: __dirname,

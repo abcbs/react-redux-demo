@@ -11,9 +11,9 @@
     "build": "webpack --config webpack-production.config.js --progress --colors",
     "ddl": "webpack --config webpack.config.vendors",
     "ddlserver": "webpack-dev-server --config webpack.config.server --progress  --hot --colors ",
-    "start:babel": "babel-node server.js",
+    "ddlpro": "webpack-dev-server --config webpack-production.config --progress  --colors ",
+    "nstart": "node server.js",
     "ddluser": "webpack --config webpack.config.dll.users",
-
     "ddldev": "webpack --config webpack.config.dev"
   },
   "private": true,
@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "history": "^4.3.0",
     "isomorphic-fetch": "^2.1.1",
     "lodash": "^3.10.1",
     "material-ui": "^0.16.0",

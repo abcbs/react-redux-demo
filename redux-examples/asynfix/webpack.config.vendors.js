@@ -8,7 +8,7 @@ const contentBase = path.resolve(__dirname, '');
 
 const vendors = ['react','react-dom','redux','react-redux',
   'redux-thunk','redux-logger','redux-act','redux-logger','reselect',
-  'isomorphic-fetch','babel-polyfill','classnames','lodash','material-ui','normalizr'];
+  'isomorphic-fetch','babel-polyfill','classnames','lodash','material-ui','normalizr','history'];
 
 module.exports =
 {
