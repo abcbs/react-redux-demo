@@ -17,7 +17,8 @@ module.exports = {
   entry: {
     app:path.join(__dirname, 'src'),
 
-    vendors: ['react','react-redux','redux','react-dom','redux-thunk']
+    reduxv352: ['react','react-dom','react-redux','redux','redux-thunk'],
+    reactv15: ['react','react-dom']
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -28,9 +29,29 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     //new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
+    }),
+
     //这个使用uglifyJs压缩你的js代码
     //new webpack.optimize.UglifyJsPlugin({minimize: true}),
-    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+    //new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
+    new  webpack.optimize.CommonsChunkPlugin({
+      // The order of this array matters
+      names: ["reactv15", "reduxv352"],
+      minChunks: 2
+    })
+    /**,
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
+      mangle: true
+    })**/
+
   ],
   module: {
     loaders: [{

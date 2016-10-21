@@ -17,7 +17,7 @@ module.exports = {
   entry: {
     app:path.join(__dirname, 'src'),
 
-    vendors: ['react','react-dom','redux','react-redux','reselect','redux-logger','redux-thunk']
+    vendors: ['react','react-dom','redux','react-redux']
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -33,18 +33,16 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: [ 'babel' ],
-      exclude: /node_modules/,
-      include: __dirname
-    },
-    {
-      test: /\.json$/,
-      loaders: [ 'json' ],
-      exclude: /node_modules/,
-      include: __dirname
-    }]
+    loaders: [
+      {
+        test:/\.js?$/,
+        exclude:/node_modules/,
+        loader:'babel',
+        query:{
+          presets:['react','es2015']
+        }
+      }
+    ]
   }
 }
 

@@ -7,19 +7,19 @@ webpackJsonp([1],{
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _react = __webpack_require__(21);
+	var _react = __webpack_require__(16);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(62);
+	var _reactDom = __webpack_require__(33);
 
-	var _reactRedux = __webpack_require__(37);
+	var _reactRedux = __webpack_require__(34);
 
-	var _containersApp = __webpack_require__(100);
+	var _containersApp = __webpack_require__(98);
 
 	var _containersApp2 = _interopRequireDefault(_containersApp);
 
-	var _storeConfigureStore = __webpack_require__(103);
+	var _storeConfigureStore = __webpack_require__(101);
 
 	var _storeConfigureStore2 = _interopRequireDefault(_storeConfigureStore);
 
@@ -33,7 +33,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 61:
+/***/ 60:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -65,7 +65,8 @@ webpackJsonp([1],{
 	  };
 	}
 
-	//导出奇数加一的方法，该方法返回一个方法，包含dispatch和getState两个参数，dispatch用于执行action的方法，getState返回state
+	//导出奇数加一的方法，该方法返回一个方法，
+	// 包含dispatch和getState两个参数，dispatch用于执行action的方法，getState返回state
 
 	function incrementIfOdd() {
 	  return function (dispatch, getState) {
@@ -100,7 +101,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 99:
+/***/ 97:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -119,7 +120,7 @@ webpackJsonp([1],{
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _react = __webpack_require__(21);
+	var _react = __webpack_require__(16);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -200,7 +201,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 100:
+/***/ 98:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -213,15 +214,15 @@ webpackJsonp([1],{
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _redux = __webpack_require__(28);
+	var _redux = __webpack_require__(26);
 
-	var _reactRedux = __webpack_require__(37);
+	var _reactRedux = __webpack_require__(34);
 
-	var _componentsCounter = __webpack_require__(99);
+	var _componentsCounter = __webpack_require__(97);
 
 	var _componentsCounter2 = _interopRequireDefault(_componentsCounter);
 
-	var _actionsCounter = __webpack_require__(61);
+	var _actionsCounter = __webpack_require__(60);
 
 	var CounterActions = _interopRequireWildcard(_actionsCounter);
 
@@ -242,7 +243,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 101:
+/***/ 99:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -252,7 +253,7 @@ webpackJsonp([1],{
 	});
 	exports['default'] = counter;
 
-	var _actionsCounter = __webpack_require__(61);
+	var _actionsCounter = __webpack_require__(60);
 
 	//reducer其实也是个方法而已,参数是state和action,返回值是新的state
 
@@ -273,7 +274,7 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 102:
+/***/ 100:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -284,9 +285,9 @@ webpackJsonp([1],{
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _redux = __webpack_require__(28);
+	var _redux = __webpack_require__(26);
 
-	var _counter = __webpack_require__(101);
+	var _counter = __webpack_require__(99);
 
 	var _counter2 = _interopRequireDefault(_counter);
 
@@ -300,49 +301,37 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 103:
+/***/ 101:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+	    value: true
 	});
 	exports['default'] = configureStore;
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _redux = __webpack_require__(28);
+	var _redux = __webpack_require__(26);
 
-	var _reduxThunk = __webpack_require__(94);
+	var _reduxThunk = __webpack_require__(92);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reducers = __webpack_require__(102);
+	var _reducers = __webpack_require__(100);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
 	//applyMiddleware来自redux可以包装 store 的 dispatch
 	//thunk作用是使action创建函数可以返回一个function代替一个action对象
-	var createStoreWithMiddleware = (0, _redux.compose)(_reducers2['default'], (0, _redux.applyMiddleware)(_reduxThunk2['default']), window.devToolsExtension ? window.devToolsExtension() : function (f) {
-	  return f;
+	var createStoreWithMiddleware = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2['default']), window.devToolsExtension ? window.devToolsExtension() : function (f) {
+	    return f;
 	})(_redux.createStore);
 
 	function configureStore(initialState) {
-	  /**
-	  const store = createStoreWithMiddleware(reducer, initialState);
-	   //热替换选项
-	   if (module.hot) {
-	    // Enable Webpack hot module replacement for reducers
-	    module.hot.accept('../reducers', () => {
-	      const nextReducer = require('../reducers')
-	      store.replaceReducer(nextReducer)
-	    })
-	  }
-	  `**/
-	  var store = (0, _redux.createStore)(_reducers2['default'], (0, _redux.applyMiddleware)(_reduxThunk2['default']));
-
-	  return store;
+	    var store = createStoreWithMiddleware(_reducers2['default'], initialState);
+	    return store;
 	}
 
 	module.exports = exports['default'];

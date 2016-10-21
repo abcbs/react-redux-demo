@@ -9,7 +9,7 @@ class TodoItem extends Component {
       editing: false
     }
   }
-
+  //双击动作
   handleDoubleClick() {
     this.setState({ editing: true })
   }
@@ -40,7 +40,12 @@ class TodoItem extends Component {
                  type="checkbox"
                  checked={todo.completed}
                  onChange={() => completeTodo(todo.id)} />
-          <label onDoubleClick={this.handleDoubleClick.bind(this)}>
+          {/*双击动作*/}
+          <label
+              /**
+              * 双击动作
+              */
+              onDoubleClick={this.handleDoubleClick.bind(this)}>
             {todo.text}
           </label>
           <button className="destroy"

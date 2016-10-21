@@ -10,8 +10,8 @@ const FILTER_TITLES = {
 
 class Footer extends Component {
   renderTodoCount() {
-    const { activeCount } = this.props
-    const itemWord = activeCount === 1 ? 'item' : 'items'
+    const { activeCount } = this.props;
+    const itemWord = activeCount === 1 ? 'item' : 'items';
 
     return (
       <span className="todo-count">
@@ -21,8 +21,8 @@ class Footer extends Component {
   }
 
   renderFilterLink(filter) {
-    const title = FILTER_TITLES[filter]
-    const { filter: selectedFilter, onShow } = this.props
+    const title = FILTER_TITLES[filter];
+    const { filter: selectedFilter, onShow } = this.props;
 
     return (
       <a className={classnames({ selected: filter === selectedFilter })}
@@ -34,7 +34,7 @@ class Footer extends Component {
   }
 
   renderClearButton() {
-    const { completedCount, onClearCompleted } = this.props
+    const { completedCount, onClearCompleted } = this.props;
     if (completedCount > 0) {
       return (
         <button className="clear-completed"

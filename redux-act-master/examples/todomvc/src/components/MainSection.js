@@ -11,7 +11,7 @@ const TODO_FILTERS = {
 
 class MainSection extends Component {
   constructor(props, context) {
-    super(props, context)
+    super(props, context);
     this.state = { filter: SHOW_ALL }
   }
 
@@ -24,7 +24,7 @@ class MainSection extends Component {
   }
 
   renderToggleAll(completedCount) {
-    const { todos, actions } = this.props
+    const { todos, actions } = this.props;
     if (todos.length > 0) {
       return (
         <input className="toggle-all"
@@ -38,9 +38,9 @@ class MainSection extends Component {
   }
 
   renderFooter(completedCount) {
-    const { todos } = this.props
-    const { filter } = this.state
-    const activeCount = todos.length - completedCount
+    const { todos } = this.props;
+    const { filter } = this.state;
+    const activeCount = todos.length - completedCount;
 
     if (todos.length) {
       return (
@@ -54,14 +54,14 @@ class MainSection extends Component {
   }
 
   render() {
-    const { todos, actions } = this.props
-    const { filter } = this.state
+    const { todos, actions } = this.props;
+    const { filter } = this.state;
 
-    const filteredTodos = todos.filter(TODO_FILTERS[filter])
+    const filteredTodos = todos.filter(TODO_FILTERS[filter]);
     const completedCount = todos.reduce((count, todo) =>
       todo.completed ? count + 1 : count,
       0
-    )
+    );
 
     return (
       <section className="main">

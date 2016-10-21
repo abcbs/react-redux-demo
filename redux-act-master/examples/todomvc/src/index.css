@@ -156,7 +156,7 @@ body {
     -ms-border-radius: 0 0 5px 5px;
     -o-border-radius: 0 0 5px 5px;
     border-radius: 0 0 5px 5px;
-    position: fixed;
+    position: absolute;
     bottom: -1px;
 }
 
