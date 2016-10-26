@@ -1,5 +1,7 @@
 import path from 'path';
 import yargs from 'yargs';
+import 'babel-polyfill';
+
 //工程路径配置常量
 const pathConfig = {
     buildPath: path.resolve(__dirname, '../dist'),
