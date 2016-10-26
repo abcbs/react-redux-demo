@@ -14,5 +14,8 @@ export default function gits() {
         ).then(()=>
             exec("git commit -m  'by prom'")
         )
+        .then(()=>
+            exec("git push -u origin master")
+        )
         .then(() => console.log('Git: '.cyan + 'Commit'.green));
 }
