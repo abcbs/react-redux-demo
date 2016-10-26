@@ -14,6 +14,8 @@ export default function gits() {
         ).then(()=>
             exec("git commit -m  'by prom'")
         )
-        
+        .then(()=>
+            exec("git status")
+        )
         .then(() => console.log('Git: '.cyan + 'Commit'.green));
 }
