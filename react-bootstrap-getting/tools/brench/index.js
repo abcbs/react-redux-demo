@@ -1,5 +1,5 @@
 
-export { default as startDevlop} from './start-devlop.js';
+export { default as startDevlop} from './start-devlop';
 //
 export { default as buildVendors} from './build-vendors';
 export { default as retainVendors} from './retain-vendors';

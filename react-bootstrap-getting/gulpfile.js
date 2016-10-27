@@ -35,4 +35,6 @@ gulp.task('webpack:buildVendors', getTask('buildvendors'));
 
 gulp.task('webpack:gits', getTask('gits'));
 
-gulp.task('default', ['webpack:gits']);
+gulp.task('examples:await', getTask('examples'));
+
+gulp.task('default', ['examples:await']);
