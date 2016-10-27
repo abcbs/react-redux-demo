@@ -3,6 +3,34 @@ import path from 'path';
 import fs from 'fs';
 import thunkify from '../../external/qbase/thunkify';
 
+function run(gen){
+    var g = gen();
+    function next(data){
+        var result = g.next(data);
+        if (result.done) return result.value;
+        result.value.then(function(data){
+            next(data);
+        });
+    }
+    next();
+}
+function runThunk(fn) {
+    if(fn==void 0){
+        throw new Error("没有方法");
+    }
+    var gen;
+    if (typeof fn === 'function'){
+        gen = fn();
+    }else{
+        gen=fn;
+    }
+    function next(err, data) {
+        var result = gen.next(data);//第一次进入，和回调函数
+        if (result.done) return;
+        result.value(next);//thunkify的第-步，fn方法执行，function(done)
+    }
+    next();
+}
 function readWithGen(callback) {
     //Generator函数封装了一个异步操作，该操作先读取一个远程接口，
     // 然后从JSON格式的数据解析信息。就像前面说过的，这段代码非常像同步操作，除了加上了yield命令。
@@ -57,53 +85,34 @@ function genFS(callback) {
             callback(f1.toString().concat(f2.toString()))
         }
     };
-    function run(gen){
-        var g = gen();
-        function next(data){
-            var result = g.next(data);
-            if (result.done) return result.value;
-            result.value.then(function(data){
-                next(data);
-            });
-        }
-        next();
-    }
     run(gen);
 }
 
 var genThunify = function* (callback){
+    try{
     var readF = thunkify(fs.readFile);
-    console.log("genThunify enter");
+    //console.log("genThunify enter");
     var f1 = yield readF(path.join(__dirname, './read.txt'));
-    console.log(f1.toString());
+    //console.log(f1.toString());
     var f2 = yield readF(path.join(__dirname, './readme.txt'));
-    console.log(f2.toString());
+    //console.log(f2.toString());
+    var f3 = yield readF(path.join(__dirname, './read.txt'));
+    //console.log(f3.toString());
     if(callback){
-        callback(f1.toString().concat(f2.toString()))
+        callback(void 0,f1.toString().concat(f2.toString()).concat(f3.toString()));
     }
-
+    }catch (e){
+        console.log(e);
+        if(callback){
+            callback(e);
+        }
+    }
 };
 
 function thunkifyRunFS(callback) {
-    function run(fn) {
-        if(fn==void 0){
-            throw new Error("没有方法");
-        }
-        var gen;
-        if (typeof fn === 'function'){
-            gen = fn();
-        }else{
-            gen=fn;
-        }
-        function next(err, data) {
-            var result = gen.next(data);//第一次进入，和回调函数
-            if (result.done) return;
-            result.value(next);//thunkify的第-步，fn方法执行，function(done)
-        }
-        next();
-    }
+
     var g = genThunify(callback);
-    run(g);
+    runThunk(g);
 
 }
 

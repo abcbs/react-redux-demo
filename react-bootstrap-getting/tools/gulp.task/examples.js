@@ -9,8 +9,12 @@ import  {start,end,add_many,mul_many,
     genFS,thunkifyFS,thunkifyRunFS
 } from '../../misrs'
 module.exports = function(gulp, plugins) {
-    function getData(data) {
-        console.log(data);
+    function getData(error,data) {
+        if(error){
+            console.log("error->",error);
+        }else{
+            console.log(data);
+        };
     }
     return function(done) {
 
