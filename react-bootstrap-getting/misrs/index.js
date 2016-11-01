@@ -18,10 +18,12 @@ export { decorateArmour } from './decorators/decorators';
 export { start} from './asynces/aynsawait';
 export { end } from './asynces/aynsawait';
 //Generator
-export { readWithGen } from './asynces/generatores';
-export { asyncFS } from './asynces/generatores';
-export { genFS } from './asynces/generatores';
-export { thunkifyFS } from './asynces/generatores';
-export { thunkifyRunFS } from './asynces/generatores';
+export { readWithGen } from './asynces/aynsreadfs';
+export { runFetch } from './asynces/aynsreadfs';
+export { asyncFS } from './asynces/aynsreadfs';
+export { genFS } from './asynces/aynsreadfs';
+export { thunkifyFS } from './asynces/aynsreadfs';
+export { thunkifyRunFS } from './asynces/aynsreadfs';
+
 
 

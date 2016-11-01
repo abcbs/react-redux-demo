@@ -6,7 +6,7 @@ import  {start,end,add_many,mul_many,
     decoratorReadonly,decoratorClassPromisify,
     decoratorClassPromisifyWithWrapper,
     decorateArmour,readWithGen,asyncFS,
-    genFS,thunkifyFS,thunkifyRunFS
+    genFS,thunkifyFS,thunkifyRunFS,runFetch
 } from '../../misrs'
 module.exports = function(gulp, plugins) {
     function getData(error,data) {
@@ -93,10 +93,13 @@ module.exports = function(gulp, plugins) {
 
          genFS(getData);
          thunkifyFS(getData);
+
+         genFS(getData);
+         thunkifyRunFS(getData)
          **/
         console.log("genFS over");
-
-        thunkifyRunFS(getData);
+        runFetch(getData)
+;
         console.log("all over");
 
     };

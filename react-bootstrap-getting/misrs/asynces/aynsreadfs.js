@@ -3,17 +3,23 @@ import path from 'path';
 import fs from 'fs';
 import thunkify from '../../external/qbase/thunkify';
 
-function run(gen){
+function runGenerator(gen){
     var g = gen();
     function next(data){
         var result = g.next(data);
         if (result.done) return result.value;
         result.value.then(function(data){
             next(data);
+        }//,function(err){
+        //    next(err);
+        //}
+        ).catch(function (err) {
+            next(err);
         });
     }
     next();
 }
+
 function runThunk(fn) {
     if(fn==void 0){
         throw new Error("没有方法");
@@ -31,6 +37,28 @@ function runThunk(fn) {
     }
     next();
 }
+
+function runFetch(callback) {
+    //Generator函数封装了一个异步操作，该操作先读取一个远程接口，
+    // 然后从JSON格式的数据解析信息。就像前面说过的，这段代码非常像同步操作，除了加上了yield命令。
+    function* gen(){
+        try{
+            var url = 'httpxs://api.github.com/users/github';
+            var result = yield fetch(url);//执行权将交给其他协程
+            var data =yield result.json();
+            if(callback){
+                callback(void 0,data);
+            }
+        }catch (err){
+            if(callback){
+                callback(new Error("fetch err:"));
+            }
+        }
+    }
+    runGenerator(gen);
+
+}
+
 function readWithGen(callback) {
     //Generator函数封装了一个异步操作，该操作先读取一个远程接口，
     // 然后从JSON格式的数据解析信息。就像前面说过的，这段代码非常像同步操作，除了加上了yield命令。
@@ -62,6 +90,7 @@ var readFile = function (fileName) {
         });
     });
 };
+
 function asyncFS(callback) {
     var asyncReadFile = async function (){
         try {
@@ -85,7 +114,7 @@ function genFS(callback) {
             callback(f1.toString().concat(f2.toString()))
         }
     };
-    run(gen);
+    runGenerator(gen);
 }
 
 var genThunify = function* (callback){
@@ -116,7 +145,6 @@ function thunkifyRunFS(callback) {
 
 }
 
-
 function thunkifyFS(callback) {
     var g = genThunify(callback);
     console.log("g.next-2");
@@ -135,10 +163,12 @@ function thunkifyFS(callback) {
         });
     });
 }
+
 module.exports={
     readWithGen:readWithGen,
     asyncFS:asyncFS,
     genFS:genFS,
     thunkifyFS:thunkifyFS,
-    thunkifyRunFS:thunkifyRunFS
+    thunkifyRunFS:thunkifyRunFS,
+    runFetch:runFetch
 }
