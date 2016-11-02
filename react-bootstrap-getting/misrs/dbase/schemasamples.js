@@ -27,7 +27,7 @@ BlogPost.pre('save', function(next, done) {//save
     next();
 });
 
-BlogPost.post('save', function(next, done) {
+BlogPost.post('save', function(next, done,callback) {//-3
     console.log("post save");
     done();
 });

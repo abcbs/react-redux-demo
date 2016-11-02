@@ -47,21 +47,22 @@ Kareem.prototype.execPre = function(name, context, callback) {
     var pre = pres[currentPre];
 
     if (pre.isAsync) {
-      pre.fn.call(
+      pre.fn.call(//
         context,
-        function(error) {//pre.isAsync-1
-          if (error) {
+        function(error) {//pre.isAsync-1-next
+          if (error) {//有异常并且完成了，则执行返回
             if (done) {
               return;
             }
             done = true;
+            //执行回调方法
             return callback(error);
           }
 
           ++currentPre;
           next.apply(context, arguments);
         },
-        function(error) {//pre.isAsync-2
+        function(error) {//pre.isAsync-2-done
           if (error) {
             if (done) {
               return;
@@ -69,13 +70,13 @@ Kareem.prototype.execPre = function(name, context, callback) {
             done = true;
             return callback(error);
           }
-
+          //是最后一个，执行回调
           if (--numAsyncPres === 0) {
             return callback(null);
           }
         });
-    } else if (pre.fn.length > 0) {
-      var args = [function(error) {
+    } else if (pre.fn.length > 0) {//不是异步,并且有参数
+      var args = [function(error) {//done方法
         if (error) {
           if (done) {
             return;
@@ -92,7 +93,7 @@ Kareem.prototype.execPre = function(name, context, callback) {
             return callback(null);
           }
         }
-
+        //
         next.apply(context, arguments);
       }];
       if (arguments.length >= 2) {
@@ -125,7 +126,7 @@ Kareem.prototype.post = function(name, fn) {
   return this;
 };
 
-
+                   //execPost('save:error', _this, [ _this], { error: error }, function(error)
 Kareem.prototype.execPost = function(name, context, args, options, callback) {
   if (arguments.length < 5) {//参数小于
     callback = options;
@@ -141,10 +142,10 @@ Kareem.prototype.execPost = function(name, context, args, options, callback) {
     firstError = options.error;
   }
 
-  if (!numPosts) {
+  if (!numPosts) {//没有post方法，此时把第一个参数设置为异常，执行回调
     return process.nextTick(function() {
       callback.apply(null, [firstError].concat(args));
-    });
+     });
   }
 
   var next = function() {
@@ -155,7 +156,7 @@ Kareem.prototype.execPost = function(name, context, args, options, callback) {
       //如果传入方法参数的长度为args长度+2时
       //执行第一个为error,最后一个为error的回调方法
       if (post.length === args.length + 2) {
-        post.apply(context, [firstError].concat(args).concat(function(error) {
+        post.apply(context, [firstError].concat(args).concat(function(error) {//kareem-added-err
           if (error) {
             firstError = error;
           }
@@ -171,15 +172,16 @@ Kareem.prototype.execPost = function(name, context, args, options, callback) {
         next();
       }
     } else {//如果不存在异常
+      //当post函数为args的个数加2时，
       if (post.length === args.length + 2) {//回调函数比参数多两个
         // Skip error handlers if no error
         if (++currentPost >= numPosts) {//第一个参数应当为error
           return callback.apply(null, [null].concat(args));
         }
         return next();//执行
-      }
-      if (post.length === args.length + 1) {//参数为长度加1
-        post.apply(context, args.concat(function(error) {//在参数尾部添加异常处理函数，
+      }//post===args+2
+      if (post.length === args.length + 1) {//参数为长度加1,执行此方法
+        post.apply(context, args.concat(function(error) {//kareem-added-err在参数尾部添加异常处理函数，
           // 如果有异常在把firstError设置为error
           if (error) {
             firstError = error;
@@ -193,9 +195,9 @@ Kareem.prototype.execPost = function(name, context, args, options, callback) {
           next();
         }));
       } else {//
-        //args和post参数个数一样
-        post.apply(context, args);
-
+        //post个数不是args+2和args+1时
+        post.apply(context, args);//执行当前方法
+        //post位置后移
         if (++currentPost >= numPosts) {//执行统一的回调，即callback
           return callback.apply(null, [null].concat(args));//第一个参数应当为error
         }
@@ -247,6 +249,24 @@ function _handleWrapError(instance, error, name, context, args, options, callbac
   }
 }
 
+/**
+ hooks.wrap(
+ 'wraps',
+ function(o, callback) {
+            assert.equal(3, obj.bacon);
+            assert.equal(4, obj.eggs);
+            assert.equal(false, obj.waffles);
+            assert.equal(undefined, obj.tofu);
+            callback(null, o);
+        },
+ obj,
+ args);
+ * @param name
+ * @param fn
+ * @param context
+ * @param args
+ * @param options
+ */
 Kareem.prototype.wrap = function(name, fn, context, args, options) {
   var lastArg = (args.length > 0 ? args[args.length - 1] : null);
   var argsWithoutCb = typeof lastArg === 'function' ?
@@ -261,8 +281,8 @@ Kareem.prototype.wrap = function(name, fn, context, args, options) {
     useLegacyPost = options;
   }
   options = options || {};
-
-  this.execPre(name, context, function(error) {
+  //
+  this.execPre(name, context, function(error) {//wrap-last-fun
     if (error) {
       return _handleWrapError(_this, error, name, context, argsWithoutCb,
         options, lastArg)

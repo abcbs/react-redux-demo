@@ -9,7 +9,7 @@ function  appRealDone(count) {
     console.log("done ok,count is ",count);
 
 }
-
+/**
 (function base() {
     var count = 0;
 
@@ -60,7 +60,7 @@ function  appRealDone(count) {
     var obj = { bacon: 0, eggs: 0 };
 
     // In the pre hooks, `this` will refer to `obj`
-    hooks.execPre('cook', obj, function(error) {
+    hooks.execPre('cook', obj, function(error,first) {//pre-callback
         assert.equal(null, error);
         assert.equal(3, obj.bacon);
         assert.equal(4, obj.eggs);
@@ -68,7 +68,7 @@ function  appRealDone(count) {
     });
 
 })();
-
+**/
 (function parallelPreHooks() {
     hooks.pre('parallelPreHooks', true, function(next, done) {
         this.bacon = 3;
@@ -102,77 +102,76 @@ function  appRealDone(count) {
     });
 
 })();
-
+/**
 (function postHooks() {
     var execed = {};
     //post的参数数量与execPost中的args个数相等
-    hooks.post('cook', function(eggs) {//4
-        console.log("eggs");
+    hooks.post('cook', function(eggs) {//1
+        console.log("eggs 1");
         execed.second = true;
         assert.equal(1, eggs);
 
     });
-    hooks.post('cook', function(eggs, bacon) {//1
-        console.log("eggs, bacon");
+    hooks.post('cook', function(eggs, bacon) {//2
+        console.log("eggs, bacon 2");
         execed.first = true;
         assert.equal(1, eggs);
         assert.equal(2, bacon);
     });
     //callback为异常处理方法
-    hooks.post('cook', function(eggs, bacon,callback) {//2
-        console.log("eggs, bacon, callback,\n",callback);
+    hooks.post('cook', function(eggs, bacon,callback) {//3
+        console.log("eggs, bacon, callback,2");
         execed.second = true;
         assert.equal(1, eggs);
         assert.equal(2, bacon);
 
     });
     //callback为异常处理方法
-    hooks.post('cook', function(eggs, bacon, cook,callback) {//3
-        console.log("eggs, bacon, cook,callback");
+    hooks.post('cook', function(eggs, bacon, cook,callback) {//4
+        console.log("eggs, bacon, cook,callback 4 ");
         execed.second = true;
         assert.equal(1, eggs);
         assert.equal(2, bacon);
         //callback(new Error("ok"));
-        throw new Error("出现异常")
+        //throw new Error("出现异常")
     });
 
 
     hooks.post('cook', function(eggs, bacon,cook,callback) {//5
-        console.log("eggs, bacon, callback 1,",callback);
+        console.log("eggs, bacon, callback 5,",callback);
         execed.second = true;
         assert.equal(1, eggs);
         assert.equal(2, bacon);
     });
 
     hooks.post('cook', function(eggs, cook,third,forth,five,callback) {//6
-        console.log("eggs, bacon, callback 2,",callback);
+        console.log("eggs, bacon, callback 6,",callback);
         execed.second = true;
         assert.equal(1, eggs);
         assert.equal(2, cook);
     });
 
     hooks.post('cook', function(eggs, cook,third,forth) {//7
-        console.log("eggs, bacon, callback 3,",third);
+        console.log("eggs, bacon, callback 7,",third);
         execed.second = true;
         assert.equal(1, eggs);
         assert.equal(2, cook);
     });
 
     hooks.post('cook', function(eggs, cook,callback) {//8
-        console.log("eggs, bacon, callback 4,",callback);
+        console.log("eggs, bacon, callback 8,",callback);
         execed.second = true;
         assert.equal(1, eggs);
         assert.equal(2, cook);
     });
     hooks.post('cook', function(eggs, cook,callback) {//9
-        console.log("eggs, bacon, callback 5,",callback);
+        console.log("eggs, bacon, callback 9,",callback);
         execed.second = true;
         assert.equal(1, eggs);
         assert.equal(2, cook);
     });
 
     //差两个
-    /**
     hooks.execPost('cook', null, [1, 2], function callback(error, eggs, bacon) {
          assert.ifError(error);
          assert.equal(2, Object.keys(execed).length);
@@ -181,14 +180,14 @@ function  appRealDone(count) {
          assert.equal(2, bacon);
          appRealDone(execed);
     });
-     **/
+
     var _this=this;
     var error;
-    hooks.execPost('cook', this, [ 1,2,3,4], { error: error }, function(error) {
+    hooks.execPost('cook', this, [ 1,2,3,4], { error: error }, function(error) {//execPost-error
         //next(error);
-        console.log(error);
+        console.log("Ok");
     });
 })();
-
+ **/
 
 

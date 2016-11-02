@@ -37,34 +37,35 @@ var _={extend: Object.assign};
 **/
 
 //should run only posts up until an error
-/**
+
 (function() {
     var A = function () {};
     Object.assign(A, hooks);
-    A.hook('save', function () {
+    A.hook('save', function () {//save
         this.value = 1;
     }, function (err) {
         console.log(err);
     });
-    A.post('save', function (next) {
+    A.post('save', function (next) {//post-1
         console.log("post save",this.value);
         this.value = 2;
         next();
-    }).post('save', function (next) {
+    }).post('save', function (next) {//post-2
         console.log("post save",this.value);
         this.value = 3;
-        next(new Error("3-error"));
-    }).post('save', function (next) {
+        //next(new Error("3-error"));
+        next();
+    }).post('save', function (next) {////post-3
         console.log("post save",this.value);
         this.value = 4;
         next();
     });
     var a = new A();
     a.save();
-    assert.equal(a.value,3);
+    //assert.equal(a.value,3);
 })();
 
-
+/**
 //should fall back first to the hook method's last argument as the error handler if it is a function of arity 1 or 2
 (function () {
     var A = function () {};

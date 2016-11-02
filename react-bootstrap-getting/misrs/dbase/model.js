@@ -5,13 +5,18 @@ var EventEmitter = require('events').EventEmitter;
 
 Model.prototype.__proto__ = Document.prototype;
 Model.prototype.modelName;
-Model.schema;
+//Model.schema;
 Model.base;
 
 
 function Model(doc, fields, skipId) {
   Document.call(this, doc, fields, skipId);
 }
+
+Model.createModel = function(name, newSchema) {
+  model = Model.compile(name, newSchema,this);
+  return model;
+};
 
 Object.defineProperty(Model.prototype, 'Promise', {
   get: function() {
@@ -24,45 +29,9 @@ Object.defineProperty(Model.prototype, 'Promise', {
 
 Model.prototype.__proto__ = Document.prototype;
 
-Model.prototype.$__handleSave = function(options, callback) {
-  var _this = this;
-  _this.response={saved:"Beijing"};
-  console.log("Model__handleSave service...");
-  setTimeout(function () {
-    console.log("sleep...");
-    callback(null, {saved:"Beijing"});
-
-  }, 10000);
-
-
-};
-
-Model.prototype.save = function(options, fn) {
-  if (typeof options === 'function') {
-    fn = options;
-    options = undefined;
-  }
-  if (!options) {
-    options = {};
-  }
-  if (fn) {
-    fn = this.constructor.wrapCallback(fn);
-  }
-  var _this=this;
-  this.$__handleSave(options, function(error, result) {
-    if (error) {
-      return _this.schema.s.hooks.execPost('save:error', _this, [_this], { error: error }, function(error) {
-        callback(error);
-      });
-    }
-    fn(null, _this, {_response:"_response"});
-  });
-  return this;
-};
-
 Model.wrapCallback = function(callback) {
   var _this = this;
-  return function() {
+  return function() {//Model.wrapCallback 
     try {
       callback.apply(null, arguments);
     } catch (error) {
@@ -106,32 +75,10 @@ Model.compile = function compile(name, schema,base) {
   model.Query = function() {
     Query.apply(this, arguments);
   };
-
   model.Query.prototype = Object.create(Query.prototype);
-  //applyQueryMethods(model, schema.query);
-
   return model;
 };
 
-
-Model.find = function find(conditions, projection, options, callback) {
-  if (typeof conditions === 'function') {
-    callback = conditions;
-    conditions = {};
-    projection = null;
-    options = null;
-  } else if (typeof projection === 'function') {
-    callback = projection;
-    projection = null;
-    options = null;
-  } else if (typeof options === 'function') {
-    callback = options;
-    options = null;
-  }
-
-  var mq = new this.Query({}, {}, this );
-  return mq.find(conditions, callback);
-};
 
 var applyMethods = function(model, schema) {
   function apply(method, schema) {
@@ -165,9 +112,89 @@ var applyStatics = function(model, schema) {
   }
 };
 
-function applyQueryMethods(model, methods) {
+var applyQueryMethods=function applyQueryMethods(model, methods) {
   for (var i in methods) {
     model.Query.prototype[i] = methods[i];
   }
-}
+};
+
+///////////////////////////////////////////////////////////////////////////
+Model.find = function find(conditions, projection, options, callback) {
+  if (typeof conditions === 'function') {
+    callback = conditions;
+    conditions = {};
+    projection = null;
+    options = null;
+  } else if (typeof projection === 'function') {
+    callback = projection;
+    projection = null;
+    options = null;
+  } else if (typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+
+  var mq = new this.Query({}, {}, this );
+  return mq.find(conditions, callback);
+};
+
+////////////////////////////////////////////////////////////////////////////
+Model.prototype.$__handleSave = function(options, callback) {
+  var _this = this;
+  _this.response={saved:"Beijing"};
+  console.log("Model__handleSave service...");
+  setTimeout(function () {
+    console.log("sleep...");
+    callback(null, {saved:"Beijing"});
+
+  }, 1);
+
+};
+
+Model.prototype.save = function(options, fn) {
+  if (typeof options === 'function') {
+    fn = options;
+    options = undefined;
+  }
+  if (!options) {
+    options = {};
+  }
+  if (fn) {
+    fn = this.constructor.wrapCallback(fn);
+  }
+  var _this=this;
+  this.$__handleSave(options, function(error, result) {
+    if (error) {
+      return _this.schema.s.hooks.execPost('save:error', _this, [_this], { error: error }, function(error) {
+        callback(error);
+      });
+    }
+    fn(null, _this, result);
+  });
+  return this;
+};
+
+Document.prototype.doneSave = function(options, callback) {
+  var _this = this;
+  var schema = this.schema;
+  if (typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  callback();
+
+};
+
+Document.prototype.doingSave = function(options, callback) {
+  var _this = this;
+  if (typeof options === 'function') {
+    callback = options;
+    options = null;
+  }
+  callback();
+
+};
+
+////////////////////////////////////////////////////////////////////////////////////
+
 module.exports = exports = Model;

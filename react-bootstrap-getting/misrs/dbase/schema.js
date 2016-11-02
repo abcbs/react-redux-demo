@@ -1,33 +1,42 @@
 var EventEmitter = require('events').EventEmitter;
-var utils = require('../utils/objects');
+//var utils = require('../utils/objects');
 var Kareem  = require('../../external/kareem-1.1.3');
 
 var IS_KAREEM_HOOK = {
   find: true,
+  //save:true
 };
-
+var objs=[];
 function Schema(obj, options) {
   if (!(this instanceof Schema)) {
     return new Schema(obj, options);
   }
-  this.obj = obj;
+  this.obj = obj.obj;
   this.tree = {};
   this.callQueue = [];
   this.methods = {};
   this.statics = {};
-  this.query = {};
 
   //钩子结构
   this.s = {
     hooks: new Kareem(),
     kareemHooks: IS_KAREEM_HOOK
   };
-
+  if (obj) {
+    var struct={name:obj.name,obj:obj.obj};
+    objs.push(struct);
+  }
   this.options = this.defaultOptions(options);
 
   for (var i = 0; i < this._defaultMiddleware.length; ++i) {
     var m = this._defaultMiddleware[i];
-    this[m.kind](m.hook, !!m.isAsync, m.fn);
+    // this[m.kind](m.hook, !!m.isAsync, m.fn);
+    if(!m.isAsync){
+      this[m.kind](m.hook,  m.fn);
+    }else{
+      this[m.kind](m.hook, !!m.isAsync, m.fn);
+    }
+
   }
   //
 }
@@ -44,15 +53,31 @@ Object.defineProperty(Schema.prototype, '_defaultMiddleware', {
     {
       kind: 'pre',
       hook: 'save',
-      fn: function(next, options) {//pre-save
+      isAsync:false,
+      fn: function(next, options) {//sc-pre-save
         var _this = this;
         // Validate
-        this.validate({__noPromise: true}, function(error) {
-          return _this.schema.s.hooks.execPost('save:error', _this, [ _this], { error: error }, function(error) {
-            next(error);
+        this.doingSave({__noPromise: true}, function(error) {//
+          return _this.schema.s.hooks.execPre('save', _this, function(error) {//sc-execPost-last
+            console.log("保存之前处理");
+            next(error);//next为hooks的方法
           });
         });
 
+      }
+    },
+    {
+      kind: 'post',
+      hook: 'save',
+      fn:  function(options, next){
+        var _this = this;
+        this.doneSave({__noPromise: true}, function(done) {//
+          return _this.schema.s.hooks.execPost('save', _this, [ _this],  function(error) {//sc-execPost-last
+            console.log("保存之后处理");
+            next(error);//next为hooks的方法
+
+          });
+        });
       }
     },
 
@@ -60,9 +85,9 @@ Object.defineProperty(Schema.prototype, '_defaultMiddleware', {
 });
 
 Schema.prototype.defaultOptions = function(options) {
-  options = utils.options({
-    
-  }, options);
+  // options = utils.options({
+  //
+  // }, options);
 
   return options;
 };
@@ -95,15 +120,15 @@ Schema.prototype.post = function(method, fn) {
     }]);
   }
 
-  if (fn.length === 3) {
+  if (fn.length === 1) {
     this.s.hooks.post(method + ':error', fn);
     return this;
   }
 
-  return this.queue('post', [arguments[0], function(next) {
+  return this.queue('post', [arguments[0], function(next) {//sc-post
     var _this = this;
     var args = Array.prototype.slice.call(arguments, 1);
-    fn.call(this, this, function(err) {
+    fn.call(this, this, function(err) {//sc-post-fn
       return next.apply(_this, [err].concat(args));
     });
   }]);

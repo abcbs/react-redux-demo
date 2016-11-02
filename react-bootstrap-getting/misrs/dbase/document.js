@@ -6,7 +6,9 @@ var EventEmitter = require('events').EventEmitter;
 var Schema = require('./schema');
 var hooks = require('../../external/hooks-fixed-promised-1.2.0/hooks');
 
+//文档操作内容
 Document.prototype._doc;
+//后端交互返回结果
 Document.prototype._response;
 
 function Document(obj, fields, skipId) {
@@ -60,7 +62,7 @@ Document.prototype.$__registerHooksFromSchema = function() {//hookes
     if (!(pointCut in seed)) {
       seed[pointCut] = {post: [], pre: []};
     }
-    if (pair[0] === 'post') {
+    if (pair[0] === 'post') {//配置的为post
       seed[pointCut].post.push(args);
     } else if (pair[0] === 'on') {
       seed[pointCut].push(args);
@@ -78,44 +80,19 @@ Document.prototype.$__registerHooksFromSchema = function() {//hookes
   });
   delete toWrap.post;
 
-  // 'init' should be synchronous on subdocuments
-  if (toWrap.init && _this instanceof Embedded) {
-    if (toWrap.init.pre) {
-      toWrap.init.pre.forEach(function(args) {
-        _this.$pre.apply(_this, args);
-      });
-    }
-    if (toWrap.init.post) {
-      toWrap.init.post.forEach(function(args) {
-        _this.$post.apply(_this, args);
-      });
-    }
-    delete toWrap.init;
-  } else if (toWrap.set) {
-    // Set hooks also need to be sync re: gh-3479
-    if (toWrap.set.pre) {
-      toWrap.set.pre.forEach(function(args) {
-        _this.$pre.apply(_this, args);
-      });
-    }
-    if (toWrap.set.post) {
-      toWrap.set.post.forEach(function(args) {
-        _this.$post.apply(_this, args);
-      });
-    }
-    delete toWrap.set;
-  }
-
+  //toWrap为pre和post中"方法名-函数"组成的值对
   Object.keys(toWrap).forEach(function(pointCut) {
     // this is so we can wrap everything into a promise;
     var newName = ('$__original_' + pointCut);
-    if (!_this[pointCut]) {
+    if (!_this[pointCut]) {//检验实例中是否有切点方法
       return;
     }
     _this[newName] = _this[pointCut];
-    _this[pointCut] = function wrappedPointCut() {
-      var args = [].slice.call(arguments);
-      var lastArg = args.pop();
+    //切点，如save、find、update等方法,
+    //这种封装之后，在客户端调用原来的save、find时将调用此方法
+    _this[pointCut] = function wrappedPointCut() {//执行hooks的方法
+      var args = [].slice.call(arguments);//客户端调用的参数
+      var lastArg = args.pop();//弹出最后一个
       var fn;
       var originalStack = new Error().stack;
       var $results;
@@ -126,24 +103,24 @@ Document.prototype.$__registerHooksFromSchema = function() {//hookes
       }
 
       var promise = new Promise(function(resolve, reject) {
-        args.push(function(error) {
+        //第一个参数定义为回调函数
+        args.push(function(error) {//promise-error
           if (error) {
             reject(error);
             return;
           }
           $results = Array.prototype.slice.call(arguments, 1);
           resolve.apply(promise, $results);
-        });
-
-        _this[newName].apply(_this, args);
-      });
+        });//
+        _this[newName].apply(_this, args);//调用方法,该方法的参数加上最后一个异常方法
+      });//promise over
       if (fn) {
-        if (_this.constructor.$wrapCallback) {
-          fn = _this.constructor.$wrapCallback(fn);
-        }
+        // if (_this.constructor.$wrapCallback) {
+        //   fn = _this.constructor.$wrapCallback(fn);
+        // }
         return promise.then(
           function() {
-            process.nextTick(function() {
+            process.nextTick(function() {//客户端回调方法
               fn.apply(null, [null].concat($results));
             });
           },
@@ -154,17 +131,18 @@ Document.prototype.$__registerHooksFromSchema = function() {//hookes
           });
       }
       return promise;
-    };
-
+    };//function wrappedPointCut over
+    //切点的pre方法
     toWrap[pointCut].pre.forEach(function(args) {
-      args[0] = newName;
+      args[0] = newName;//hooks的方法名称
       _this.$pre.apply(_this, args);
     });
+    //切点的post方法
     toWrap[pointCut].post.forEach(function(args) {
       args[0] = newName;
       _this.$post.apply(_this, args);
     });
-  });
+  });//forEach-over
   return _this;
 };
 
@@ -176,13 +154,6 @@ Document.prototype.$__handleReject = function handleReject(err) {
     this.emit('error', err);
   }
 };
-Document.prototype.validate = function(options, callback) {
-  if (typeof options === 'function') {
-    callback = options;
-    options = null;
-  }
-  callback();
 
-};
 
 module.exports = exports = Document;

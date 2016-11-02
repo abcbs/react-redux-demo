@@ -53,7 +53,7 @@ Query.prototype._find = function(callback) {
     if(callback){
       callback(null,{test:"test"});
     }
-  }, 10000);
+  }, 1);
 
   return this;
 };
