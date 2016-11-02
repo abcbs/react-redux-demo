@@ -26,10 +26,16 @@ let add_many = reducer(add);
 let mul_many = reducer(mul);
 let concat_many = reducer(concat);
 
-
+/**
+ * multicast包装函数
+ * @param target
+ * @returns {Function}
+ */
 function multicast(target){
+    //把参数分为两部分，第一部分为第一个元素，二部分为其余元素
     return function(list, ...rest) {
         if(Array.isArray(list)){
+            //遍历数组，把数组中的每个元素执行target方法
             return list.map(item => target.apply(this, [item].concat(rest)));
         }else{
             let item = list;

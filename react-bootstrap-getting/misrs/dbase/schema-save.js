@@ -12,13 +12,13 @@ var BlogPost = new Schema(
         }
     });
 
-var BlogPostCommon = new Schema({
-    name: "BlogPost",
-    obj: {
-        title: String,
-        id: Number
-    }
-});
+// var BlogPostCommon = new Schema({
+//     name: "BlogPost",
+//     obj: {
+//         title: String,
+//         id: Number
+//     }
+// });
 /**
  * Pre hook.
  */
@@ -37,10 +37,9 @@ BlogPost.post('save', function(data, done) {//simple-post-save
     done();
 });
 
-BlogPost.post('save', function(data, done,first,sconde) {//simple-post-save-with-error
+BlogPost.post('save', function(data, done) {//simple-post-save-with-error
     console.log("kareem post save,");
-    //console.log("arguments,\n",arguments);
-    //done();
+    done();
 });
 
 var createModel = function(name, schema) {
@@ -62,5 +61,6 @@ Blog.save(function(err,data,result) {  //存储
     }else{
         console.log('save success,',result);
     }
+    throw new Error("Error")
 
 });

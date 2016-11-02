@@ -156,6 +156,40 @@ Schema.prototype.static = function(name, fn) {
   return this;
 };
 
+Schema.reserved = Object.create(null);
+var reserved = Schema.reserved;
+// EventEmitter
+reserved.emit =
+reserved.on =
+reserved.once =
+reserved.listeners =
+reserved.removeListener =
+// document properties and functions
+reserved.collection =
+reserved.db =
+reserved.errors =
+reserved.init =
+reserved.isModified =
+reserved.isNew =
+reserved.modelName =
+reserved.save =
+reserved.schema =
+reserved.set =
+reserved.toObject =
+reserved.validate =
+// hooks.js
+reserved._pres = reserved._posts = 1;
+for (var i in EventEmitter.prototype) {
+  Schema[i] = EventEmitter.prototype[i];
+}
+var enent=new EventEmitter;
+enent.on('model:saved', function(option,data) {
+  console.log(option.type,option.description);
+});
+
+Schema.prototype.emit=function (type,option,data) {
+  enent.emit(type,option,data)
+}
 /*!
  * Module exports.
  */

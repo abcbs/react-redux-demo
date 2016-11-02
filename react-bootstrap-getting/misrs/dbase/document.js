@@ -121,8 +121,19 @@ Document.prototype.$__registerHooksFromSchema = function() {//hookes
         return promise.then(
           function() {
             process.nextTick(function() {//客户端回调方法
-              fn.apply(null, [null].concat($results));
-            });
+              try{
+                fn.apply(null, [null].concat($results));
+                _this.schema.emit('model:saved',
+                    {description:"数据保存成功，并且回调执行成功",
+                      type:"Sucess"
+                },$results);
+              }catch (err){
+                _this.schema.emit('model:saved',
+                    {description:err,
+                      type:"Fail"
+                    },$results);
+              }
+             });
           },
           function(error) {
             process.nextTick(function() {

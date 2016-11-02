@@ -40,9 +40,7 @@ Model.wrapCallback = function(callback) {
   };
 };
 
-for (var i in EventEmitter.prototype) {
-  Model[i] = EventEmitter.prototype[i];
-}
+
 /////////////////////////////////////////////////////////
 Model.prototype.model = function model(name) {
   return this.db.model(name);
@@ -62,7 +60,7 @@ Model.compile = function compile(name, schema,base) {
   model.__proto__ = Model;
   model.prototype.__proto__ = Model.prototype;
   model.model = Model.prototype.model;
-
+  model.prototype = Model.prototype;
   model.prototype.$__setSchema(schema);
 
   // apply methods and statics
@@ -76,6 +74,7 @@ Model.compile = function compile(name, schema,base) {
     Query.apply(this, arguments);
   };
   model.Query.prototype = Object.create(Query.prototype);
+
   return model;
 };
 
@@ -160,7 +159,7 @@ Model.prototype.save = function(options, fn) {
     options = {};
   }
   if (fn) {
-    fn = this.constructor.wrapCallback(fn);
+    //fn = this.constructor.wrapCallback(fn);
   }
   var _this=this;
   this.$__handleSave(options, function(error, result) {
