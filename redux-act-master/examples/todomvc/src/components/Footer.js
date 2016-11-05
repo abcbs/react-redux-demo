@@ -6,7 +6,7 @@ const FILTER_TITLES = {
   [SHOW_ALL]: 'All',
   [SHOW_ACTIVE]: 'Active',
   [SHOW_COMPLETED]: 'Completed'
-}
+};
 
 class Footer extends Component {
   renderTodoCount() {
@@ -68,6 +68,6 @@ Footer.propTypes = {
   filter: PropTypes.string.isRequired,
   onClearCompleted: PropTypes.func.isRequired,
   onShow: PropTypes.func.isRequired
-}
+};
 
 export default Footer

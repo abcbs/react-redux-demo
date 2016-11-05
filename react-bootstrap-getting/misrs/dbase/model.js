@@ -158,16 +158,15 @@ Model.prototype.save = function(options, fn) {
   if (!options) {
     options = {};
   }
-  if (fn) {
-    //fn = this.constructor.wrapCallback(fn);
-  }
   var _this=this;
+  //调用函数
   this.$__handleSave(options, function(error, result) {
     if (error) {
       return _this.schema.s.hooks.execPost('save:error', _this, [_this], { error: error }, function(error) {
         callback(error);
       });
     }
+    //调用本方法的回调函数
     fn(null, _this, result);
   });
   return this;

@@ -14,11 +14,14 @@ class App extends Component {
   //初始化渲染后触发
   componentDidMount() {
     console.log('执行componentDidMount');
+    //store由index注入到React顶层组件属性中
     const { dispatch, selectedReddit } = this.props;
     dispatch(fetchPostsIfNeeded(selectedReddit));
   }
 
   //每次接受新的props触发
+  //在组件接收到新的props的时候调用。在初始化渲染的时候，该方法不会调用。
+  //用此函数可以作为react在prop传入之后，render()渲染之前更新state的机会。
   componentWillReceiveProps(nextProps) {
     console.log('执行componentWillReceiveProps',nextProps);
     if (nextProps.selectedReddit !== this.props.selectedReddit) {
@@ -40,7 +43,7 @@ class App extends Component {
   }
 
   render() {
-    const { selectedReddit, posts, isFetching, lastUpdated } = this.props;;
+    const { selectedReddit, posts, isFetching, lastUpdated } = this.props;
     return (
       <div>
         <Picker value={selectedReddit}

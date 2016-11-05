@@ -6,25 +6,25 @@ import User from '../components/User'
 import List from '../components/List'
 
 function loadData(props) {
-  const { fullName } = props
-  props.loadRepo(fullName, [ 'description' ])
+  const { fullName } = props;
+  props.loadRepo(fullName, [ 'description' ]);
   props.loadStargazers(fullName)
 }
 
 class RepoPage extends Component {
   constructor(props) {
-    super(props)
-    this.renderUser = this.renderUser.bind(this)
+    super(props);
+    this.renderUser = this.renderUser.bind(this);
     this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this)
   }
 
   componentWillMount() {
-    loadData(this.props)
+    loadData(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.fullName !== this.props.fullName) {
-      loadData(nextProps)
+      loadData(nextProps);
     }
   }
 
@@ -75,17 +75,17 @@ RepoPage.propTypes = {
 function mapStateToProps(state, ownProps) {
   // We need to lower case the login/name due to the way GitHub's API behaves.
   // Have a look at ../middleware/api.js for more details.
-  const login = ownProps.params.login.toLowerCase()
-  const name = ownProps.params.name.toLowerCase()
+  const login = ownProps.params.login.toLowerCase();
+  const name = ownProps.params.name.toLowerCase();
 
   const {
     pagination: { stargazersByRepo },
     entities: { users, repos }
-  } = state
+  } = state;
 
-  const fullName = `${login}/${name}`
-  const stargazersPagination = stargazersByRepo[fullName] || { ids: [] }
-  const stargazers = stargazersPagination.ids.map(id => users[id])
+  const fullName = `${login}/${name}`;
+  const stargazersPagination = stargazersByRepo[fullName] || { ids: [] };
+  const stargazers = stargazersPagination.ids.map(id => users[id]);
 
   return {
     fullName,

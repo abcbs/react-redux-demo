@@ -4,7 +4,7 @@ import TodoTextInput from './TodoTextInput'
 
 class TodoItem extends Component {
   constructor(props, context) {
-    super(props, context)
+    super(props, context);
     this.state = {
       editing: false
     }
@@ -24,9 +24,9 @@ class TodoItem extends Component {
   }
 
   render() {
-    const { todo, completeTodo, deleteTodo } = this.props
+    const { todo, completeTodo, deleteTodo } = this.props;
 
-    let element
+    let element;
     if (this.state.editing) {
       element = (
         <TodoTextInput text={todo.text}
@@ -70,6 +70,6 @@ TodoItem.propTypes = {
   editTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
   completeTodo: PropTypes.func.isRequired
-}
+};
 
 export default TodoItem

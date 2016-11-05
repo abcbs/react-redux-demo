@@ -6,13 +6,13 @@ import { resetErrorMessage } from '../actions'
 
 class App extends Component {
   constructor(props) {
-    super(props)
-    this.handleChange = this.handleChange.bind(this)
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
     this.handleDismissClick = this.handleDismissClick.bind(this)
   }
 
   handleDismissClick(e) {
-    this.props.resetErrorMessage()
+    this.props.resetErrorMessage();
     e.preventDefault()
   }
 
@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   renderErrorMessage() {
-    const { errorMessage } = this.props
+    const { errorMessage } = this.props;
     if (!errorMessage) {
       return null
     }
@@ -39,7 +39,7 @@ class App extends Component {
   }
 
   render() {
-    const { children, inputValue } = this.props
+    const { children, inputValue } = this.props;
     return (
       <div>
         <Explore value={inputValue}
@@ -59,7 +59,7 @@ App.propTypes = {
   inputValue: PropTypes.string.isRequired,
   // Injected by React Router
   children: PropTypes.node
-}
+};
 
 function mapStateToProps(state, ownProps) {
   return {

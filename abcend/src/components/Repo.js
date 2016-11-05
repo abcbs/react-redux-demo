@@ -4,9 +4,9 @@ import { Link } from 'react-router'
 export default class Repo extends Component {
 
   render() {
-    const { repo, owner } = this.props
-    const { login } = owner
-    const { name, description } = repo
+    const { repo, owner } = this.props;
+    const { login } = owner;
+    const { name, description } = repo;
 
     return (
       <div className="Repo">

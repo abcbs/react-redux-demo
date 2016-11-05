@@ -6,7 +6,7 @@ const initialState = [
     completed: false,
     id: 0
   }
-]
+];
 
 export const addTodo = createAction('add todo');
 export const deleteTodo = createAction('delete todo');
@@ -25,15 +25,17 @@ export default createReducer({
     ...state
   ],
 
-  [deleteTodo]: (state, id) => state.filter(todo =>
-    todo.id !== id
+  [deleteTodo]: (state, id) => state.filter(
+      todo =>todo.id !== id
   ),
 
-  [editTodo]: (state, { id, text }) => state.map(todo =>
-    todo.id === id ?
-      Object.assign({}, todo, { text }) :
-      todo
-  ),
+  [editTodo]: (
+      state,
+      { id, text }) => state.map(
+        todo =>
+          todo.id === id ?
+          Object.assign({}, todo, { text }) :todo
+    ),
 
   [completeTodo]: (state, id) => state.map(todo =>
     todo.id === id ?
@@ -42,10 +44,14 @@ export default createReducer({
   ),
 
   [completeAll]: (state) => {
-    const areAllMarked = state.every(todo => todo.completed)
-    return state.map(todo => Object.assign({}, todo, {
-      completed: !areAllMarked
-    }))
+    const areAllMarked = state.every(
+        todo => todo.completed);
+    return state.map(
+        todo => Object.assign({}, todo,
+            {
+          completed: !areAllMarked
+        }
+        ))
   },
 
   [clearCompleted]: (state) => state.filter(todo => todo.completed === false)

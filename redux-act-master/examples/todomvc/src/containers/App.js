@@ -7,7 +7,7 @@ import * as TodoActions from '../reducers/todos'
 
 class App extends Component {
   render() {
-    const { todos, actions } = this.props
+    const { todos, actions } = this.props;
     return (
       <div>
         <Header addTodo={actions.addTodo} />
@@ -20,8 +20,9 @@ class App extends Component {
 App.propTypes = {
   todos: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
-}
+};
 
+//将state.todos绑定到props的todos
 function mapStateToProps(state) {
   return {
     todos: state.todos

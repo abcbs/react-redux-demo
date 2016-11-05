@@ -4,6 +4,7 @@ import Counter from '../components/Counter'
 import * as CounterActions from '../actions/counter'
 
 //将state.counter绑定到props的counter
+//哪些Redux全局的state是我们组件想要通过props获取的？
 function mapStateToProps(state) {
   return {
     counter: state.counter

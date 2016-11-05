@@ -240,7 +240,11 @@ function decoratorMult(item) {
 //promisify
 function  promisifySimple(url) {
     let request = require("request");
-    //
+    //request('http://www.google.com', function (error, response, body) {
+    // if (!error && response.statusCode == 200) {
+    //     console.log(body) // Show the HTML for the Google homepage.
+    // }
+    // })
     function promisify(func){
         return function(...args){
             return new Promise((resolve, reject) => {

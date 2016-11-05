@@ -2,7 +2,7 @@ import 'isomorphic-fetch';
 import path from 'path';
 import fs from 'fs';
 import thunkify from '../../external/qbase/thunkify';
-
+//自动运行Generator，它首先是个Promise对象
 function runGenerator(gen){
     var g = gen();
     function next(data){
@@ -10,16 +10,14 @@ function runGenerator(gen){
         if (result.done) return result.value;
         result.value.then(function(data){
             next(data);
-        }//,function(err){
-        //    next(err);
-        //}
+          }
         ).catch(function (err) {
             next(err);
         });
     }
     next();
 }
-
+//自动运行
 function runThunk(fn) {
     if(fn==void 0){
         throw new Error("没有方法");
@@ -30,14 +28,21 @@ function runThunk(fn) {
     }else{
         gen=fn;
     }
+    //next函数就是Thunk的回调函数
     function next(err, data) {
+        //先将指针移到Generator函数的下一步
         var result = gen.next(data);//第一次进入，和回调函数
-        if (result.done) return;
+        //判断Generator函数是否结束
+        if (result.done) {
+            return;
+        }
+        //如果没结束，就将next函数再传入Thunk函数（result.value属性）
         result.value(next);//thunkify的第-步，fn方法执行，function(done)
     }
     next();
 }
 
+//自动解析Fetch方式
 function runFetch(callback) {
     //Generator函数封装了一个异步操作，该操作先读取一个远程接口，
     // 然后从JSON格式的数据解析信息。就像前面说过的，这段代码非常像同步操作，除了加上了yield命令。
@@ -59,6 +64,7 @@ function runFetch(callback) {
 
 }
 
+//手工解析Fecth方式
 function readWithGen(callback) {
     //Generator函数封装了一个异步操作，该操作先读取一个远程接口，
     // 然后从JSON格式的数据解析信息。就像前面说过的，这段代码非常像同步操作，除了加上了yield命令。
@@ -91,6 +97,17 @@ var readFile = function (fileName) {
     });
 };
 
+function genFS(callback) {
+    var gen = function* (){
+        var f1 =yield readFile(path.join(__dirname, './read.txt'));
+        var f2 =yield readFile(path.join(__dirname,'./readme.txt'));
+        if(callback){
+            callback(f1.toString().concat(f2.toString()))
+        }
+    };
+    runGenerator(gen);
+}
+
 function asyncFS(callback) {
     var asyncReadFile = async function (){
         try {
@@ -105,16 +122,6 @@ function asyncFS(callback) {
     };
     asyncReadFile();
     
-}
-function genFS(callback) {
-    var gen = function* (){
-        var f1 =yield readFile(path.join(__dirname, './read.txt'));
-        var f2 =yield readFile(path.join(__dirname,'./readme.txt'));
-        if(callback){
-            callback(f1.toString().concat(f2.toString()))
-        }
-    };
-    runGenerator(gen);
 }
 
 var genThunify = function* (callback){
@@ -144,7 +151,7 @@ function thunkifyRunFS(callback) {
     runThunk(g);
 
 }
-
+//手工解析
 function thunkifyFS(callback) {
     var g = genThunify(callback);
     console.log("g.next-2");
