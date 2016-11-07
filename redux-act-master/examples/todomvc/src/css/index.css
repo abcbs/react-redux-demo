@@ -61,7 +61,7 @@ body {
 	color: #e6e6e6;
 }
 
-.todoapp input::input-placeholder {
+.todoapp input:input-placeholder {
 	font-style: italic;
 	font-weight: 300;
 	color: #e6e6e6;
@@ -140,13 +140,14 @@ label[for='toggle-all'] {
 .toggle-all:hover{
 	/*left: 0.05em;
 	background-color: #c6c6c6;
-*/
+
 	top: -28px;
 	left: 8px;
 	-webkit-transform: rotate(-90deg);
 	transform: rotate(-90deg);
 	-webkit-appearance: none;
 	color: #0b97c4;
+	*/
 }
 
 .todo-list {
@@ -231,9 +232,12 @@ label[for='toggle-all'] {
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
 }
-
+/*label增加删除线*/
+.todo-list li label:hover,
 .todo-list li .destroy:hover {
 	color: #af5b5e;
+
+	text-decoration: line-through;
 }
 
 .todo-list li .destroy:after {
@@ -325,18 +329,42 @@ label[for='toggle-all'] {
 	border-color: rgba(175, 47, 47, 0.2);
 }
 
-.clear-completed,
-html .clear-completed:active {
+.clear-completed {
 	float: right;
 	position: relative;
 	line-height: 20px;
 	text-decoration: none;
 	cursor: pointer;
+
+	text-decoration: none;
+	background: rgba(159, 255, 137, 0.1);
+	color: #555555;
+	font-size: 11px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 0 10px 1px;
+	cursor: pointer;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+	border-radius: 12px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+	-ms-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+	-o-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0 0;
 }
 
 .clear-completed:hover {
-	text-decoration: underline;
+	background: rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+	-ms-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+	-o-box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
+	box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 0 0;
 }
+
 
 .info {
 	margin: 65px auto 0;

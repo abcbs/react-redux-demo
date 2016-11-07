@@ -2,11 +2,11 @@ import React, { Component, PropTypes } from 'react'
 
 export default class AddTodo extends Component {
   handleSubmit(e) {
-    e.preventDefault()
-    const node = this.refs.input
+    e.preventDefault();
+    const node = this.refs.input;
     const text = node.value.trim()
     if (text) {
-      this.props.onAddSubmit(text)
+      this.props.onAddSubmit(text);
       node.value = ''
     }
   }

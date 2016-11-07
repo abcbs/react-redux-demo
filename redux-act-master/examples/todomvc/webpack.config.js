@@ -17,7 +17,7 @@ module.exports = {
   entry: {
     app:path.join(__dirname, 'src'),
 
-    vendors: ['react','react-dom','redux','react-redux','redux-thunk','redux-act',
+    vendors: ['react','react-dom','redux','react-redux','redux-thunk','redux-act','react-router',
       'babel-polyfill','classnames','style-loader']
   },
   output: {

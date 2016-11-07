@@ -4,7 +4,7 @@ var webpack = require("webpack");
 
 module.exports = {
  entry: {
-     main: './common/Router.es6',  // 入口配置路由
+     main: './common/Router.js',  // 入口配置路由
  },
  output: {
      // 项目输出到output目录

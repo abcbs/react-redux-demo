@@ -76,7 +76,7 @@ export default class MsgListPage extends React.Component {
             type: 'GET',
             dataType: 'json',
             success: (response) => {
-                if (isRefresh) {    // 刷新操作
+                if (isRefresh) {// 刷新操作
                     if (this.state.pullDownStatus == 3) {
                         this.setState({
                             pullDownStatus: 4,
@@ -84,7 +84,7 @@ export default class MsgListPage extends React.Component {
                         });
                         this.iScrollInstance.scrollTo(0, -1 * $(this.refs.PullDown).height(), 500);
                     }
-                } else {    // 加载操作
+                } else {// 加载操作
                     if (this.state.pullUpStatus == 2) {
                         this.setState({
                             pullUpStatus: 0,
@@ -142,14 +142,14 @@ export default class MsgListPage extends React.Component {
     onScroll() {
         let pullDown = $(this.refs.PullDown);
 
-        // 上拉区域
+        //上拉区域
         if (this.iScrollInstance.y > -1 * pullDown.height()) {
             this.onPullDown();
         } else {
             this.state.pullDownStatus != 0 && this.setState({pullDownStatus: 0});
         }
 
-        // 下拉区域
+        //下拉区域
         if (this.iScrollInstance.y <= this.iScrollInstance.maxScrollY + 5) {
             this.onPullUp();
         }
@@ -160,19 +160,19 @@ export default class MsgListPage extends React.Component {
 
         let pullDown = $(this.refs.PullDown);
 
-        // 滑动结束后，停在刷新区域
+        //滑动结束后，停在刷新区域
         if (this.iScrollInstance.y > -1 * pullDown.height()) {
-            if (this.state.pullDownStatus <= 1) {   // 没有发起刷新,那么弹回去
+            if (this.state.pullDownStatus <= 1) {//没有发起刷新,那么弹回去
                 this.iScrollInstance.scrollTo(0, -1 * $(this.refs.PullDown).height(), 200);
-            } else if (this.state.pullDownStatus == 2) { // 发起了刷新,那么更新状态
+            } else if (this.state.pullDownStatus == 2) {//发起了刷新,那么更新状态
                 this.setState({pullDownStatus: 3});
                 this.fetchItems(true);
             }
         }
 
-        // 滑动结束后，停在加载区域
+        //滑动结束后，停在加载区域
         if (this.iScrollInstance.y <= this.iScrollInstance.maxScrollY) {
-            if (this.state.pullUpStatus == 1) { // 发起了加载，那么更新状态
+            if (this.state.pullUpStatus == 1) {//发起了加载，那么更新状态
                 this.setState({pullUpStatus: 2});
                 this.fetchItems(false);
             }
@@ -203,7 +203,7 @@ export default class MsgListPage extends React.Component {
             );
         })
 
-        // 外层容器要固定高度，才能使用滚动条
+        //外层容器要固定高度，才能使用滚动条
         return (
             <div id={style.ScrollContainer}>
                 <div id={style.ListOutsite} style={{height: window.innerHeight}}

@@ -1,14 +1,17 @@
 {
-  "presets": ["es2015", "stage-1", "react"],
+  "presets": ["es2015", "stage-0", "react"],
   "plugins": [
     ["transform-replace-object-assign", "simple-assign"],
-    "transform-dev-warning"
+    "transform-runtime",
+    //"transform-es2015-classes",//同transform-decorators-legacy冲突
+    "transform-dev-warning",
+    "transform-decorators-legacy"
   ],
   "env": {
     "test": {
       "sourceMaps": "both"
     },
-    "docs-production": {
+    "development": {
       "plugins": [
         ["transform-replace-object-assign", "simple-assign"],
         "transform-react-remove-prop-types",

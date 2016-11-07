@@ -6,7 +6,7 @@ import Cart from '../components/Cart'
 
 class CartContainer extends Component {
   render() {
-    const { products, total } = this.props
+    const { products, total } = this.props;
 
     return (
       <Cart
@@ -26,14 +26,14 @@ CartContainer.propTypes = {
   })).isRequired,
   total: PropTypes.string,
   checkout: PropTypes.func.isRequired
-}
+};
 
 const mapStateToProps = (state) => {
   return {
     products: getCartProducts(state),
     total: getTotal(state)
   }
-}
+};
 
 export default connect(
   mapStateToProps,

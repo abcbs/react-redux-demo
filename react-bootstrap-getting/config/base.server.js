@@ -37,8 +37,10 @@ const baseServer = {
         loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
         exclude: [nodeModulesPath],
       },
-      { test: /\.css/,//在chrome中我们通过sourcemap可以直接调试less、sass源文件文件
-        loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}`) },
+        {
+            test: /\.css/,
+            loader: 'style-loader!css-loader'
+        },
       { test: /\.less$/,//多个loader之间用“!”连接起来。
         loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!less${cssSourceMap}`) },
       { test: /\.json$/, loader: 'json' },

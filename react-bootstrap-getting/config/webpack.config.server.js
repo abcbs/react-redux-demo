@@ -5,7 +5,7 @@ import configure,{options,buildConfig} from './config.path';
 
 const webpackDevServerAddress = `http://${ip.address()}:${options.port}`;
 //具体应用的配置
-configure.entryFile='./src/bapp/App';
+configure.entryFile='./src/todomvc/index';
 if (options.debug) {
   baseServer.plugins.push(new webpack.NoErrorsPlugin());
 }

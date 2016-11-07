@@ -7,14 +7,17 @@ import ProductsList from '../components/ProductsList'
 
 class ProductsContainer extends Component {
   render() {
-    const { products } = this.props
+    const { products } = this.props;
     return (
       <ProductsList title="Products">
         {products.map(product =>
           <ProductItem
             key={product.id}
             product={product}
-            onAddToCartClicked={() => this.props.addToCart(product.id)} />
+            onAddToCartClicked={
+              () => this.props.addToCart(product.id)
+            }
+          />
         )}
       </ProductsList>
     )
@@ -30,7 +33,7 @@ ProductsContainer.propTypes = {
   })).isRequired,
   addToCart: PropTypes.func.isRequired
 }
-
+;
 function mapStateToProps(state) {
   return {
     products: getVisibleProducts(state.products)
