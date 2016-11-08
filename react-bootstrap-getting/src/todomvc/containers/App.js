@@ -7,6 +7,7 @@ import * as TodoActions from '../reducers/todos'
 
 class App extends Component {
   render() {
+
     const { todos, actions } = this.props;
     return (
       <div>

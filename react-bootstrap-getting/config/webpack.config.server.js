@@ -5,12 +5,13 @@ import configure,{options,buildConfig} from './config.path';
 
 const webpackDevServerAddress = `http://${ip.address()}:${options.port}`;
 //具体应用的配置
-configure.entryFile='./src/todomvc/index';
+//configure.entryFile='./src/todomvc/index';
 if (options.debug) {
   baseServer.plugins.push(new webpack.NoErrorsPlugin());
 }
 
-const entryFile = configure.entryFile;
+var entryFile = configure.entryFile;
+
 const devEntryBundle = [
   'webpack/hot/dev-server',
   `webpack-dev-server/client?${webpackDevServerAddress}`,
