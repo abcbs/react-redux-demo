@@ -7,7 +7,7 @@ const Root = ({ store }) => (
     <Provider store={store}>
         <Router history={browserHistory}
         >
-            <Route path="/(:filter)" component={App} />
+            <Route name='app' path="/(:filter)" component={App} />
         </Router>
     </Provider>
 );

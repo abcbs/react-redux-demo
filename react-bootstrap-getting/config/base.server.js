@@ -42,7 +42,12 @@ const baseServer = {
             loader: 'style-loader!css-loader'
         },
       { test: /\.less$/,//多个loader之间用“!”连接起来。
-        loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!less${cssSourceMap}`) },
+        loader: 'less-loader'
+      },
+        {
+            test: /\.scss/,
+            loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
+        },
       { test: /\.json$/, loader: 'json' },
       { test: /\.jpe?g$|\.gif$|\.png|\.ico$/, loader: 'file?name=[name].[ext]' },
       { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]' },

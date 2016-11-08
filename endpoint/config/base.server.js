@@ -31,19 +31,21 @@ const baseServer = {
   },
   module: {
     loaders: [
+      {
+        // React-hot loader and
+        test: /\.js$/, // All .js files
+        loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
+        exclude: [nodeModulesPath],
+      },
         {
-            // React-hot loader and
-            test: /\.js$/, // All .js files
-            loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
-            exclude: [nodeModulesPath],
+            test: /\.css/,
+            loader: 'style-loader!css-loader'
         },
-        { test: /\.css/,//在chrome中我们通过sourcemap可以直接调试less、sass源文件文件
-            loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}`) },
-        { test: /\.less$/,//多个loader之间用“!”连接起来。
-            loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!less${cssSourceMap}`) },
-        { test: /\.json$/, loader: 'json' },
-        { test: /\.jpe?g$|\.gif$|\.png|\.ico$/, loader: 'file?name=[name].[ext]' },
-        { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]' },
+      { test: /\.less$/,//多个loader之间用“!”连接起来。
+        loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!less${cssSourceMap}`) },
+      { test: /\.json$/, loader: 'json' },
+      { test: /\.jpe?g$|\.gif$|\.png|\.ico$/, loader: 'file?name=[name].[ext]' },
+      { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]' },
     ],
   },
 

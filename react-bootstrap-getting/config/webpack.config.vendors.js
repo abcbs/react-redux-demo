@@ -4,6 +4,7 @@ import configure,{options,buildConfig} from './config.path';
 const {buildPath, buildLibPath,publicPath,contentBase,nodeModulesPath}= configure;
 
 const reactvendor = ['react','react-dom'];
+
 const reduxvendor=['redux','react-redux',
   'redux-thunk','redux-logger','redux-act','reselect','react-router-redux'];
 
@@ -11,6 +12,7 @@ const baseframevendor=['babel-polyfill','classnames','lodash','normalizr',
   'isomorphic-fetch','react-tap-event-plugin','fastclick','humps'];
 
 const materialuivendor=['material-ui'];
+
 const bootvendor=['react-bootstrap'];
 
 const baseVendors  =

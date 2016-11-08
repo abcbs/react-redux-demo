@@ -7,12 +7,11 @@
     "url": "https://github.com/abcbs/react-redux-demo.git"
   },
   "scripts": {
-    "ddl": "webpack --config webpack.config.vendors",
-    "ddlserver": "webpack-dev-server --config webpack.config.server --progress  --hot --colors ",
-
     "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "build": "webpack --config webpack-production.config.js --progress --colors",
     "buildServer": "webpack --config webpack.config.server --progress --colors",
+    "ddl": "webpack --config webpack.config.vendors",
+    "ddlserver": "webpack-dev-server --config webpack.config.server --progress  --hot --colors ",
     "ddlpro": "webpack-dev-server --config webpack-production.config --progress  --colors ",
     "nstart": "node server.js",
     "ddluser": "webpack --config webpack.config.dll.users",

@@ -1,47 +1,25 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '../actions'
-import AddTodo from '../components/AddTodo'
-import TodoList from '../components/TodoList'
-import Footer from '../components/Footer'
+//import AddTodo from '../components/AddTodo'
+//import TodoList from '../components/TodoList'
+//import Footer from '../components/Footer'
+import AddTodo from '../view-bootsrap/AddTodo'
+import TodoList from '../view-bootsrap/TodoList'
+import Footer from '../view-bootsrap/Footer'
+import Header from '../view-bootsrap/Header'
+import FormExample from '../view-bootsrap/FormExample'
+import {ListGroupItem, ListGroup,Panel} from 'react-bootstrap'
+//
 
 class App extends Component {
-    //原来的没有加工过的函数
-    renderRaw() {
-        return (
-            <div>
-                <AddTodo
-                    onAddClick={text =>
-                         console.log('add todo', text)
-                } />
-                <TodoList
-                    todos={[{
-                        text: 'Use Redux',
-                        completed: true
-                    }, {
-                    text: 'Learn to connect it to React',
-                         completed: false
-                    }]}
-                    onTodoClick={todo =>
-                         console.log('todo clicked', todo)
-                } />
-                <Footer
-                    filter='SHOW_ALL'
-                    onFilterChange={filter =>
-                        console.log('filter change', filter)
-                } />
-            </div>
-        );
-    }
-
     render() {
         // Injected by connect() call:
         const { dispatch, visibleTodos, visibilityFilter } = this.props;
         return (
-            <div>{
-                    //在Redux=Store中没有注册Dispatch处理的Action，
-                    // 默认为Redux原的dipatch
-                 }
+            <div style={{margin:20+'px'}}>
+                <Header/>
+                <FormExample />
                 <AddTodo
                     onAddClick={text =>
                         dispatch(addTodo(text))

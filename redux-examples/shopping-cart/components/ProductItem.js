@@ -3,7 +3,7 @@ import Product from './Product'
 
 export default class ProductItem extends Component {
   render() {
-    const { product } = this.props
+    const { product } = this.props;
 
     return (
       <div

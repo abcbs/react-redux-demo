@@ -5,7 +5,8 @@ import { Provider } from 'react-redux'
 import App from './containers/App'
 import reducer from './reducers'
 import Rooter from './routeres/rootes'
-
+import '../../external/bootstrap-3.3.7/dist/css/bootstrap-theme.css'
+import '../../external/bootstrap-3.3.7/dist/css/bootstrap.css'
 import FastClick from 'fastclick';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
