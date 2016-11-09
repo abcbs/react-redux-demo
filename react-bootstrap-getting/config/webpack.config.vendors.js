@@ -6,14 +6,14 @@ const {buildPath, buildLibPath,publicPath,contentBase,nodeModulesPath}= configur
 const reactvendor = ['react','react-dom'];
 
 const reduxvendor=['redux','react-redux',
-  'redux-thunk','redux-logger','redux-act','reselect','react-router-redux'];
+  'redux-thunk','redux-logger','redux-act','reselect','react-router-redux','redux-undo'];
 
 const baseframevendor=['babel-polyfill','classnames','lodash','normalizr',
   'isomorphic-fetch','react-tap-event-plugin','fastclick','humps'];
 
 const materialuivendor=['material-ui'];
 
-const bootvendor=['react-bootstrap'];
+const bootvendor=['react-bootstrap','bootstrap'];
 
 const baseVendors  =
 {

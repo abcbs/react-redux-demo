@@ -1,5 +1,5 @@
 import React, { findDOMNode, Component, PropTypes } from 'react';
-import {FormGroup, ControlLabel, HelpBlock,FormControl ,
+import {FormGroup, ControlLabel, HelpBlock,FormControl ,Panel,
     Button,Checkbox,Radio ,Glyphicon,InputGroup,Col,Form} from 'react-bootstrap'
 
 
@@ -13,13 +13,13 @@ export default class AddTodo extends Component {
 
     render() {
         return (
-            <div>
-                <div>
+                <div style={{marginTop:'20px'}}>
+                        <ControlLabel style={{lineHeight:'40px'}}>增加条目</ControlLabel>
                         <FormGroup
                             controlId="formBasicText"
                             validationState={this.getValidationState()}
                         >
-                            <ControlLabel>增加条目</ControlLabel>
+
                             <FormControl
                                 type="text"
                                 value={this.state.todovalue}
@@ -32,13 +32,12 @@ export default class AddTodo extends Component {
                             </HelpBlock>
                         </FormGroup>
 
-                        <Button type="button"
+                        <Button type="button" bsStyle="success"
                                 onClick={e =>this.handleClick(e)}>
-                            Submit
+                            添加
                         </Button>
 
                 </div>
-            </div>
         );
     }
 

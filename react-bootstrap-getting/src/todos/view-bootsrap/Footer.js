@@ -36,7 +36,7 @@ export default class Footer extends Component {
                 {this.renderFilter('SHOW_COMPLETED', 'Completed')}
                 {', '}
                 {this.renderFilter('SHOW_ACTIVE', 'Active')}
-                .
+                
             </p>
         );
     }

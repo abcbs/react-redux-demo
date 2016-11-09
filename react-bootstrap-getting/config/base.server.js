@@ -41,16 +41,22 @@ const baseServer = {
             test: /\.css/,
             loader: 'style-loader!css-loader'
         },
-      { test: /\.less$/,//多个loader之间用“!”连接起来。
-        loader: 'less-loader'
-      },
+        { test: /\.less$/,
+            //loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!less${cssSourceMap}`)
+            loader: 'style!css!less'
+       },
         {
             test: /\.scss/,
             loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
         },
       { test: /\.json$/, loader: 'json' },
-      { test: /\.jpe?g$|\.gif$|\.png|\.ico$/, loader: 'file?name=[name].[ext]' },
-      { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]' },
+      { test: /\.jpe?g$|\.gif$|\.png|\.ico$/,
+          //loader: 'file?name=[name].[ext]'
+          loader: 'url-loader?limit=8192&name=images/[name]_[hash].[ext]' // 图片提取到images目录
+      },
+      { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]'
+      },
+
     ],
   },
 
@@ -64,7 +70,8 @@ const baseServer = {
       context: __dirname,
       manifest: require(path.join(buildConfig.dllReferencePath,"reactvendor-manifest.json"))
     }),
-    new ExtractTextPlugin('[name].css')
+    //new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin("css/bundle-[name]-[hash:8].css"), // css输出到css目录
   ]
 };
 

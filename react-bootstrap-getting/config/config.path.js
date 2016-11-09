@@ -13,7 +13,7 @@ const pathConfig = {
 };
 
 export const buildConfig={
-    buildPath : 'build',
+    buildPath : '/build',
     nodeModulesPath : 'node_modules',
     publicPath :  "/build/",
     contentBase : "",
@@ -29,7 +29,7 @@ export const options = yargs
     .alias('d', 'debug')
     .default('host', '192.168.1.102')
     .default('port', '3000')
-    .default('debug', true)
+    .default('debug', false)
     .argv;
 
 export  default pathConfig;

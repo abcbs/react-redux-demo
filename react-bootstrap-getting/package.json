@@ -1,5 +1,5 @@
 {
-  "name": "material-ui-example-webpack",
+  "name": "ABC-Endpoint",
   "version": "0.15.0",
   "description": "ABC Endpoint Demo",
   "repository": {
@@ -7,9 +7,9 @@
     "url": "https://github.com/abcbs/react-redux-demo.git"
   },
   "scripts": {
+    "server": "node server.js",
     "start": "webpack-dev-server --config webpack.config.js --progress --hot --colors",
-    "build": "webpack --config webpack-production.config.js --progress --colors",
-    "buildServer": "webpack --config webpack.config.server --progress --colors",
+    "build": "webpack --config webpack.config.js --progress --colors",
     "ddl": "webpack --config webpack.config.vendors",
     "ddlserver": "webpack-dev-server --config webpack.config.server --progress  --hot --colors ",
     "ddlpro": "webpack-dev-server --config webpack-production.config --progress  --colors ",
@@ -42,9 +42,13 @@
     "babel-preset-stage-3": "^6.17.0",
     "babel-register": "^6.16.3",
     "babel-runtime": "^6.11.6",
+    "body-parser": "^1.15.2",
     "child-process-promise": "^2.1.3",
     "colors": "^1.1.2",
     "css-loader": "^0.25.0",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "fs-promise": "^0.5.0",
@@ -57,11 +61,14 @@
     "gulp-util": "^3.0.7",
     "html-webpack-plugin": "^2.7.2",
     "ip": "^1.1.3",
+    "jade": "^1.11.0",
     "kareem": "^1.1.3",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "matchdep": "^1.0.1",
+    "method-override": "^2.3.6",
     "mongoose": "^4.6.5",
+    "morgan": "^1.7.0",
     "node-sass": "^3.11.2",
     "portfinder": "^1.0.9",
     "postcss": "^5.2.5",
@@ -76,6 +83,7 @@
     "simple-assign": "^0.1.0",
     "style-loader": "^0.13.1",
     "transfer-webpack-plugin": "^0.1.4",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^1.14.0",
@@ -102,6 +110,7 @@
     "redux-act": "^1.1.0",
     "redux-logger": "^2.7.0",
     "redux-thunk": "^2.1.0",
+    "redux-undo": "^0.6.1",
     "reselect": "^2.5.4"
   }
 }

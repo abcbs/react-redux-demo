@@ -4,36 +4,36 @@ import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from '.
 //import AddTodo from '../components/AddTodo'
 //import TodoList from '../components/TodoList'
 //import Footer from '../components/Footer'
+import { bindActionCreators } from 'redux'
 import AddTodo from '../view-bootsrap/AddTodo'
 import TodoList from '../view-bootsrap/TodoList'
 import Footer from '../view-bootsrap/Footer'
 import Header from '../view-bootsrap/Header'
 import FormExample from '../view-bootsrap/FormExample'
 import {ListGroupItem, ListGroup,Panel} from 'react-bootstrap'
+import {visibleTodosSelector} from '../selectors/TodoSelectors'
+import UndoRedoUtil from './UndoRedo'
 //
 
 class App extends Component {
     render() {
         // Injected by connect() call:
-        const { dispatch, visibleTodos, visibilityFilter } = this.props;
+        const { dispatch, visibleTodos, visibilityFilter ,
+            addTodoAction,completeTodoAction,setVisibilityFilterAtion} = this.props;
         return (
             <div style={{margin:20+'px'}}>
                 <Header/>
                 <FormExample />
                 <AddTodo
-                    onAddClick={text =>
-                        dispatch(addTodo(text))
-                     } />
+                    onAddClick={addTodoAction} />
+                <UndoRedoUtil/>
                 <TodoList
                     todos={visibleTodos}
-                    onTodoClick={index =>
-                        dispatch(completeTodo(index))
-                     } />
+                    onTodoClick={completeTodoAction} />
                 <Footer
                     filter={visibilityFilter}
-                    onFilterChange={nextFilter =>
-                        dispatch(setVisibilityFilter(nextFilter))
-                 } />
+                    onFilterChange={setVisibilityFilterAtion} />
+
             </div>
         )
     }
@@ -49,34 +49,15 @@ App.propTypes = {
         'SHOW_COMPLETED',
         'SHOW_ACTIVE'
     ]).isRequired
-}
-
-function selectTodos(todos, filter) {
-    switch (filter) {
-        case VisibilityFilters.SHOW_ALL:
-            return todos;
-        case VisibilityFilters.SHOW_COMPLETED:
-            return todos.filter(todo => todo.completed);
-        case VisibilityFilters.SHOW_ACTIVE:
-            return todos.filter(todo => !todo.completed)
-    }
-}
-
-// Which props do we want to inject, given the global state?
-// Note: use https://github.com/faassen/reselect for better performance.
-function select(state) {
-    return {
-        visibleTodos: selectTodos(state.todos, state.visibilityFilter),
-        visibilityFilter: state.visibilityFilter
-    }
-}
-
-const mapStateToProps = (state, ownProps) => {
-    return {
-        todos: getVisibleTodos(state.todos, ownProps.filter)
-        // previously was getVisibleTodos(state.todos, state.visibilityFilter)
-    };
 };
 
+function mapDispatchToProps(dispatch) {
+    return {
+        addTodoAction:bindActionCreators(addTodo, dispatch),
+        completeTodoAction:bindActionCreators(completeTodo, dispatch),
+        setVisibilityFilterAtion:bindActionCreators(setVisibilityFilter, dispatch)
+    };
+}
+
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-export default connect(select)(App)
+export default connect(visibleTodosSelector,mapDispatchToProps)(App)

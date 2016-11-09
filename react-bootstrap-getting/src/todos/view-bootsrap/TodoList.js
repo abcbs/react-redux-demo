@@ -4,19 +4,8 @@ import {ListGroupItem, ListGroup,Panel} from 'react-bootstrap'
 export default class TodoList extends Component {
     render() {
         return (
-
         <ListGroup>
             {this.props.todos.map((todo, index) =>
-            /**
-                <ListGroupItem
-                    key={index}
-                    style={{
-                        textDecoration: this.props.completed ? 'line-through' : 'none',
-                        cursor: this.props.completed ? 'default' : 'pointer'}}
-                    onClick={() => this.props.onTodoClick(index)} >
-                    {todo}
-                </ListGroupItem>
-                **/
                 <ListGroupItem onClick={
                 () => this.props.onTodoClick(index)}
                                key={index}
