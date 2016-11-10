@@ -8,11 +8,11 @@ import AddTodo from '../view-bootsrap/AddTodo'
 import TodoList from '../view-bootsrap/TodoList'
 import Footer from '../view-bootsrap/Footer'
 import Header from '../view-bootsrap/Header'
-import FormExample from '../view-bootsrap/FormExample'
+
 import {ListGroupItem, ListGroup,Panel} from 'react-bootstrap'
 //
 
-class App extends Component {
+class AppRaw extends Component {
     //原来的没有加工过的函数
     render() {
         return (
@@ -44,7 +44,7 @@ class App extends Component {
    
 }
 
-App.propTypes = {
+AppRaw.propTypes = {
     visibleTodos: PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string.isRequired,
         completed: PropTypes.bool.isRequired
@@ -55,33 +55,4 @@ App.propTypes = {
         'SHOW_ACTIVE'
     ]).isRequired
 }
-
-function selectTodos(todos, filter) {
-    switch (filter) {
-        case VisibilityFilters.SHOW_ALL:
-            return todos;
-        case VisibilityFilters.SHOW_COMPLETED:
-            return todos.filter(todo => todo.completed);
-        case VisibilityFilters.SHOW_ACTIVE:
-            return todos.filter(todo => !todo.completed)
-    }
-}
-
-// Which props do we want to inject, given the global state?
-// Note: use https://github.com/faassen/reselect for better performance.
-function select(state) {
-    return {
-        visibleTodos: selectTodos(state.todos, state.visibilityFilter),
-        visibilityFilter: state.visibilityFilter
-    }
-}
-
-const mapStateToProps = (state, ownProps) => {
-    return {
-        todos: getVisibleTodos(state.todos, ownProps.filter)
-        // previously was getVisibleTodos(state.todos, state.visibilityFilter)
-    };
-};
-
-// 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-export default connect(select)(App)
+export default AppRaw

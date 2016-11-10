@@ -1,12 +1,12 @@
 import React, { findDOMNode, Component, PropTypes } from 'react';
-import {Navbar, Button,FormGroup,FormControl,Nav} from 'react-bootstrap'
+import {Navbar,Panel,Well} from 'react-bootstrap'
 
 import Link from '../components/Link'
 export default class Footer extends Component {
 
     render() {
         return (
-            <Navbar fixedBottom>
+            <Navbar fixedBottom className="container">
                 {this.renderLiners()}
             </Navbar>
         )
@@ -28,7 +28,7 @@ export default class Footer extends Component {
     }
     renderLiners() {
         return (
-            <p>
+            <span>
                 Show:
                 {' '}
                 {this.renderFilter('SHOW_ALL', 'All')}
@@ -37,7 +37,7 @@ export default class Footer extends Component {
                 {', '}
                 {this.renderFilter('SHOW_ACTIVE', 'Active')}
                 
-            </p>
+            </span>
         );
     }
 }

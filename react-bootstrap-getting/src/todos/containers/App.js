@@ -8,10 +8,10 @@ import { bindActionCreators } from 'redux'
 import AddTodo from '../view-bootsrap/AddTodo'
 import TodoList from '../view-bootsrap/TodoList'
 import Footer from '../view-bootsrap/Footer'
-import Header from '../view-bootsrap/Header'
-import FormExample from '../view-bootsrap/FormExample'
-import {ListGroupItem, ListGroup,Panel} from 'react-bootstrap'
+import Header from '../frames/NavMain'
+import {PanelGroup, ListGroup,Panel} from 'react-bootstrap'
 import {visibleTodosSelector} from '../selectors/TodoSelectors'
+
 import UndoRedoUtil from './UndoRedo'
 //
 
@@ -21,20 +21,19 @@ class App extends Component {
         const { dispatch, visibleTodos, visibilityFilter ,
             addTodoAction,completeTodoAction,setVisibilityFilterAtion} = this.props;
         return (
-            <div style={{margin:20+'px'}}>
-                <Header/>
-                <FormExample />
+            <span>
+                <Header activePage="app" />
                 <AddTodo
                     onAddClick={addTodoAction} />
+
                 <UndoRedoUtil/>
-                <TodoList
-                    todos={visibleTodos}
-                    onTodoClick={completeTodoAction} />
+                 <TodoList
+                        todos={visibleTodos}
+                        onTodoClick={completeTodoAction} />
                 <Footer
                     filter={visibilityFilter}
                     onFilterChange={setVisibilityFilterAtion} />
-
-            </div>
+             </span>
         )
     }
 }

@@ -1,7 +1,9 @@
 import React , { PropTypes } from 'react'
-import {ButtonGroup, Button,ButtonToolbar} from 'react-bootstrap'
+import { Button,ButtonToolbar} from 'react-bootstrap'
 let UndoRedo = ({ canUndo, canRedo, onUndo, onRedo }) => (
-    <ButtonToolbar style={{ position: 'relative',float:'right', top:'-33px'}}>
+    <div className="container">
+    <ButtonToolbar style={{ position: 'relative',
+    float:'right', right:'20px', top:'-32px'}}>
         <Button onClick={onUndo} disabled={!canUndo}>
             撤销
         </Button>
@@ -9,6 +11,7 @@ let UndoRedo = ({ canUndo, canRedo, onUndo, onRedo }) => (
             恢复
         </Button>
     </ButtonToolbar>
+    </div>
 );
 
 UndoRedo.propTypes = {
