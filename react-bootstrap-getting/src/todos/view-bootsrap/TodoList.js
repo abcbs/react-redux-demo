@@ -1,6 +1,7 @@
 import React, { findDOMNode, Component,PropTypes  } from 'react';
-import {ListGroupItem, ListGroup,Panel,HelpBlock} from 'react-bootstrap'
+import {ListGroupItem, ListGroup,ControlLabel,HelpBlock,Checkbox,FormGroup} from 'react-bootstrap'
 import '../../todomvc/css/index.css'
+import AbcContainer from '../frames/AbcContainer'
 export default class TodoList extends Component {
     
     handleTodo=
@@ -8,34 +9,20 @@ export default class TodoList extends Component {
 
     render() {
         return (
-        <ListGroup className="todo-list" componentClass="ul">
+          <AbcContainer isMovedTop={false}>
+            <ListGroup className="todo-list" componentClass="ul" >
 
-            {this.props.todos.map((todo, index) =>
-                 // <li>
-                <ListGroupItem
-                    bsClass ="list-group-item"
-                    onClick={//this.handleTodo.bind(this)
-                        () => this.props.onTodoClick(index)
-                        }
-                               key={index}
-                     // bsStyle="info"
-                    style={{
-                        textDecoration: todo.completed ? 'line-through' : 'none',
-                        cursor: todo.completed ? 'default' : 'pointer',
-                        background :"none",
-                        border:"none"
-                      }
-                    }
-                >
-                    {todo.text}
-                  </ListGroupItem>
-                   // <label>{todo.text}</label>
-                 // </li>
-                //
-                //          <label>{todo.text}</label>
-                // </li>
-            )}
-        </ListGroup>
+                {this.props.todos.map((todo, index) =>
+                    <li>
+                         <input type="checkbox" />
+                        <label className="control-label">{todo.text}</label>
+                    </li>
+                    //
+                    //          <label>{todo.text}</label>
+                    // </li>
+                )}
+            </ListGroup>
+        </AbcContainer>
         )
     }
 }

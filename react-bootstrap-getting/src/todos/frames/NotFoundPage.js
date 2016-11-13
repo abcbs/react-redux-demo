@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes, Children } from 'react'
 
 import NavMain from './NavMain';
 import PageHeader from './PageHeader';
@@ -12,12 +12,22 @@ const NotFoundPage = React.createClass({
                 <NavMain activePage="" />
                 <PageHeader
                     title="404"
-                    subTitle="Hmmm this is awkward." />
+                    subTitle={this.props.subTitle} />
 
                 <PageFooter />
             </span>
         );
     }
 });
+
+NotFoundPage.propTypes = {
+    code: PropTypes.string,
+    subTitle: PropTypes.string,
+    message:PropTypes.string,
+}
+
+NotFoundPage.defaultProps={
+    subTitle:"ABC-Error"
+}
 
 export default NotFoundPage;

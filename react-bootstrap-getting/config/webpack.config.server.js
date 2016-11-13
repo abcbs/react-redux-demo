@@ -34,7 +34,10 @@ const server= {
     inline:true,
     port: options.port, // Port Number
     progress:true,
-    host:options.host
+    host:options.host,
+    //是否启用gzip压缩
+    compress:true,
+
   },
 };
 export default server;

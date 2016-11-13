@@ -1,12 +1,14 @@
 import React from 'react';
-import {Navbar, Panel} from 'react-bootstrap'
+import {Navbar} from 'react-bootstrap'
+
 const PageFooter = React.createClass({
     render() {
         return (
-
-            <Navbar fixedBottom>
-                <p className="container">
-                    Testaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+            <Navbar fixedBottom className="container">
+                <div className="container">
+                    <p>
+                    Testaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                </div>
             </Navbar>
         );
     }

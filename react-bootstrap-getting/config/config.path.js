@@ -13,7 +13,7 @@ const pathConfig = {
 };
 
 export const buildConfig={
-    buildPath : 'build',
+    buildPath : '/build',
     nodeModulesPath : 'node_modules',
     publicPath :  "/build/",
     contentBase : "",

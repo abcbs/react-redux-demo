@@ -1,23 +1,17 @@
 import React from 'react';
-import NavMain from './NavMain';
-import PageHeader from './PageHeader';
-import PageFooter from './PageFooter';
-import {Label, Glyphicon,Grid,Panel} from 'react-bootstrap'
+import AbcContainer from './AbcContainer'
+import AbcPage from './AbcPage'
+
 const IntroductionPage = React.createClass({
     render() {
         return (
-            <p>
-                <NavMain activePage="introduction" />
-
-                <PageHeader
-                    title="Introduction"
-                    subTitle="The most popular front-end framework, rebuilt for React."/>
-
-                <div className="container">
-                      
-                </div>
-                <PageFooter />
-                </p>
+            <AbcPage title="展示互动" subTitle="欢迎光临">
+               <AbcContainer>
+                <p>
+                    Hello,商品介绍
+                    </p>
+                </AbcContainer>
+            </AbcPage>
         );
     }
 });

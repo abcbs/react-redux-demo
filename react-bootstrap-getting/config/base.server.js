@@ -76,7 +76,7 @@ const baseServer = {
 };
 
 if (process.env.NODE_ENV === 'production'||options.debug===false) {
-  baseServer.devtool = 'source-map';
+  // baseServer.devtool = 'source-map';
   // http://vue-loader.vuejs.org/en/workflow/production.html
   baseServer.plugins = (baseServer.plugins || []).concat([
     new webpack.DefinePlugin({
@@ -89,7 +89,7 @@ if (process.env.NODE_ENV === 'production'||options.debug===false) {
       compress: {
         warnings: false
       },
-      sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
+      //sourceMap: true,//这里的soucemap 不能少，可以在线上生成soucemap文件，便于调试
       mangle: true
     }),
     //为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID

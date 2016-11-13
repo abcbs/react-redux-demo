@@ -11,7 +11,7 @@ const NAV_LINKS = {
     },
     'getting-started': {
         link: '/app',
-        title: '信息'
+        title: '信息查询'
     },
     components: {
         link: '/introduction/pages',

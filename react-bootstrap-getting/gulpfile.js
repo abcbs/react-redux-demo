@@ -11,6 +11,9 @@ require ('babel-polyfill') ;
 
 var gulp = require('gulp');
 var babel = require('gulp-babel');
+var jest = require('gulp-jest').default;
+
+
 //var flatten = require('gulp-flatten');
 //var del = require('del');
 
@@ -25,6 +28,18 @@ function getTask(name) {
 	return require(`./tools/gulp.task/${name}`)(gulp, plugins);
 }
 
+gulp.task('jest', function () {
+	return gulp.src('__tests__').pipe(
+		jest({
+		config: {
+			"rootDir": "",
+			"testPathDirs": [
+				// "./test",
+				"./__tests__",
+			],
+		}
+	}));
+});
 
 
 gulp.task('webpack:startDevlop', getTask('startdevlop'));

@@ -8,9 +8,10 @@ import IntroductionPage from '../frames/IntroductionPage'
 import HomePage from '../frames/HomePage'
 const Root = ({ store }) => (
     <Provider store={store}>
-        <Router history={browserHistory} path="/" component={App}
+        <Router history={browserHistory} path="/" component={HomePage}
         >
             <IndexRoute component={App} />
+            <Route  path="/" component={App} />
             <Route  path="/:filter" component={App} />
             <Route  path="/home/pages" component={HomePage} />
             <Route  path="/introduction/pages" component={IntroductionPage} />

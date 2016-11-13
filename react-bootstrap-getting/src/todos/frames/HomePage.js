@@ -1,24 +1,18 @@
 import React from 'react';
-
-import NavMain from './NavMain';
-import PageFooter from './PageFooter';
-
-import {Label, Glyphicon,Grid,Panel} from 'react-bootstrap'
-
+import AbcContainer from './AbcContainer'
+import AbcPage from './AbcPage'
+import Label from '../abc-bootstrap/components/Label'
+// import $ from "jquery"
 export default class HomePage extends React.Component {
     render() {
+        var root=$("root");
         return (
-            <p>
-                <NavMain activePage="home" />
-                <div className="container">
-                    <p>
-                        The most popular front-end framework, rebuilt for React.
-                        The most popular front-end framework, rebuilt for React.
-                        The most popular front-end framework, rebuilt for React.
-                    </p>
-                </div>
-                <PageFooter />
-                </p>
+            <AbcPage title="首页" router="home" subTitle="欢迎光临">
+                    <AbcContainer>
+                     <Label bsStyle="warning" bsSize="bg" bsClass="abc-label"> Home
+                        Beijing，主页<p>testest</p></Label>
+                    </AbcContainer>
+            </AbcPage>
         );
     }
 }

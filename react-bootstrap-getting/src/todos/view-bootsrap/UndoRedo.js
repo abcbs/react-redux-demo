@@ -3,7 +3,7 @@ import { Button,ButtonToolbar} from 'react-bootstrap'
 let UndoRedo = ({ canUndo, canRedo, onUndo, onRedo }) => (
     <div className="container">
     <ButtonToolbar style={{ position: 'relative',
-    float:'right', right:'20px', top:'-32px'}}>
+    float:'left', right:'-70px', top:'-33px'}}>
         <Button onClick={onUndo} disabled={!canUndo}>
             撤销
         </Button>
