@@ -1,1 +1,1 @@
-export NavMain from '../frames/NavMain'
+export NavMain from '../framework/ui/AbcNavMain'

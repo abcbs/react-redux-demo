@@ -6,7 +6,6 @@
     "type": "git",
     "url": "https://github.com/abcbs/react-redux-demo.git"
   },
-
   "scripts": {
     "server": "node server.js",
     "start": "webpack-dev-server --config webpack.config.js --progress --hot --colors",
@@ -59,8 +58,10 @@
     "express-session": "^1.14.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "fs": "0.0.1-security",
     "fs-extra": "^1.0.0",
     "fs-promise": "^0.5.0",
+    "glob": "^7.1.1",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-webpack": "^1.0.18",
@@ -95,6 +96,7 @@
     "mocha": "^3.1.2",
     "mongoose": "^4.6.5",
     "morgan": "^1.7.0",
+    "ncp": "^2.0.0",
     "node-sass": "^3.11.2",
     "output-file-sync": "^1.1.2",
     "phantomjs": "^2.1.7",
@@ -118,6 +120,7 @@
     "style-loader": "^0.13.1",
     "transfer-webpack-plugin": "^0.1.4",
     "url-loader": "^0.5.7",
+    "warning": "^3.0.0",
     "webpack": "^1.12.9",
     "webpack-dev-middleware": "^1.8.4",
     "webpack-dev-server": "^1.14.0",
@@ -149,24 +152,12 @@
     "reselect": "^2.5.4"
   },
   "jest": {
-    "modulePathIgnorePatterns": [
-        "/build/",
-        "/assets/",
-        "/config/",
-        "/dist/"
-    ],
-    "persistModuleRegistryBetweenSpecs": true,
-    "rootDir": "",
-    "testFileExtensions": [
+    "moduleFileExtensions": [
       "js",
-      "jsx"
+      "json",
+      "jsx",
+      "es"
     ],
-    "testPathDirs": [
-      "<rootDir>/src",
-      "node_modules/fbjs"
-    ],
-    "unmockedModulePathPatterns": [
-      ""
-    ]
+    "unmockedModulePathPatterns": []
   }
 }

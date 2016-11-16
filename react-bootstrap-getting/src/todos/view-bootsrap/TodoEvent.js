@@ -1,41 +1,67 @@
 import React , { PropTypes } from 'react'
 
 import {ButtonGroup, Button,ButtonToolbar} from 'react-bootstrap'
-import UndoRedoUtil from './UndoRedo'
-let onAdd;
-let sendData;
-let TodoEvent = ({ onAddClick, onAddBtnName,enentEmitter }) => {
-    //监听事件
-    if(enentEmitter){
-        enentEmitter.on('todos:adding', function(option,data) {
-            console.log(option.type,option.description,data);
-            sendData=data;
-        });
-    }
-    if(onAddClick){
-        onAdd=onAddClick;
-    }
-    return (
-        <div className="container">
-            <ButtonToolbar style={{ position: 'relative',float:'left', left:'10px'}}>
-                <Button type="button" bsStyle="success"
-                        onClick={handleClick}>
-                    {onAddBtnName}
-                </Button>
-            </ButtonToolbar>
-        </div>
-)
-};
+import info from '../framework/utils/logger'
 
-function handleClick (e) {
-    if (sendData) {
-        onAdd(sendData);
+export default class TodoEvent extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.sendData;
+
+    }
+    render() {
+       const { onAddClick,onAddTodoVerfiyClick, onAddBtnName,enentEmitter }=this.props;
+        return (
+            <div className="container">
+                <ButtonToolbar style={{ position: 'relative',float:'left', left:'10px'}}>
+                    <Button type="button" bsStyle="success"
+                            onClick={this.handleClick.bind(this)}>
+                        {onAddBtnName}
+                    </Button>
+                </ButtonToolbar>
+            </div>
+        )
+    }
+
+    handleClick (e) {
+         if (this.sendData) {
+            //this.props.onAddClick(this.sendData);
+            this.props.submmitTodo(this.sendData);
+        } else {
+            this.props.onAddTodoVerfiyClick("* Dodo不能为空");
+            // if(this.props.enentEmitter){
+            //     this.props.enentEmitter.emit('todos:adding-verfiy',  {description:"验证不通过",
+            //         type:"Verify-Error"
+            //     },"* Dodo不能为空,长度大于10");
+            // }
+        }
+    }
+    // componentDidMount(){
+    //     if(this.props.submitResult){
+    //         const that=this;
+    //         this.props.enentEmitter.on('todos:adding', function(option,data) {
+    //             console.log(option.type,option.description,data);
+    //             that.sendData=data;
+    //         });
+    //     }
+    // }
+    shouldComponentUpdate() {
+        return true;
+    }
+    componentWillUpdate() {
+        if (this.props.submitResult) {
+            this.sendData = this.props.submitResult;
+        }
     }
 }
 
 TodoEvent.propTypes = {
     onAddClick: PropTypes.func,
+    onAddTodoVerfiyClick: PropTypes.func,
     onAddBtnName:PropTypes.string.isRequired,
+    enentEmitter:PropTypes.object,
+    submitResult:PropTypes.string,
+    submmitTodo:PropTypes.func
 };
 
-export default TodoEvent
+// export default TodoEvent

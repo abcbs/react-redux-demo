@@ -2,17 +2,39 @@ import React, { findDOMNode, Component, PropTypes } from 'react';
 import {FormGroup, ControlLabel, HelpBlock,FormControl ,Panel,
     Button,Checkbox,Radio ,Glyphicon,InputGroup,Col,Form} from 'react-bootstrap'
 import TodoEvent from '../view-bootsrap/TodoEvent'
-import AbcContainer from '../frames/AbcContainer'
+import AbcContainer from '../framework/ui/AbcContainer'
+import info from '../framework/utils/logger'
+
 export default class TodoDetail extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             todovalue:""
         }
+        this.verify;
+    }
+    shouldComponentUpdate() {
+        return true;
+    }
+    componentWillUpdate(){
+         if(this.props.verfiedResult&&this.props.verfiedResult.text){
+            this.verify=this.props.verfiedResult.text;
+        }
     }
 
     render() {
-        var {formName,btnName,onAddClick ,enentEmitter}=this.props;
+        info("render,props,",this.props);
+        info("render,state,",this.state);
+
+        var {formName,btnName,onAddClick ,enentEmitter,...other}=this.props;
+        var valid=this.state.todovalueHelp;
+        if(enentEmitter){
+            let that=this;
+            enentEmitter.on('todos:adding-verfiy', (option,data) =>{
+                that.setState({
+                    todovalueHelp: data
+                })
+        })}
         return (
             <AbcContainer isMovedTop={false}>
                 <FormGroup
@@ -28,12 +50,11 @@ export default class TodoDetail extends Component {
                     />
                     <FormControl.Feedback />
                     <HelpBlock>
-                        <span>{this.state.todovalueHelp}</span>
+                        <span>{this.state.todovalueHelp||this.verify}</span>
                     </HelpBlock>
+
                 </FormGroup>
-                {
-                //<TodoEvent  onAddClick={this.handleClick.bind(this)} onAddBtnName={this.props.btnName}/>
-                }
+
             </AbcContainer>
         );
     }
@@ -56,7 +77,7 @@ export default class TodoDetail extends Component {
             this.props.onAddClick(this.state.todovalue);
         }else{
             this.setState({
-                todovalueHelp: "* Dodo不能为空,目前长度为:".concat(this.state.todovalue.length)
+                todovalueHelp: "* Dodo不能为空,长度大于10,目前长度为:".concat(this.state.todovalue.length)
             });
             return ;
         }
@@ -84,14 +105,17 @@ export default class TodoDetail extends Component {
             this.setState({
                 todovalueHelp: ""
             });
-            if(this.props.enentEmitter){
-                //event.emit("todo-adding",null,value);
-                this.props.enentEmitter.emit('todos:adding',  {description:"数据保存成功，并且回调执行成功",
-                    type:"Sucess"
-                },e.target.value);
-            }
+            //提交数据
+            this.props.onAddClick(this.state.todovalue);
+            // if(this.props.enentEmitter){
+            //     //event.emit("todo-adding",null,value);
+            //     this.props.enentEmitter.emit('todos:adding',  {description:"数据保存成功，并且回调执行成功",
+            //         type:"Sucess"
+            //     },e.target.value);
+            // }
         }else{
             this.setState({
+
                 todovalueHelp: "* Dodo不能为空,目前长度为:".concat(this.state.todovalue.length)
             });
             return ;
@@ -105,6 +129,7 @@ TodoDetail.propTypes = {
     onEditClick:PropTypes.func,
     formName:PropTypes.string,
     btnName:PropTypes.string,
-
+    onAddTodoVerfiyClick: PropTypes.func,
+    verfiedResult:PropTypes.object
 
 }

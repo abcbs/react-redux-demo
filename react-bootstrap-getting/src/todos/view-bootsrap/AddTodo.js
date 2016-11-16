@@ -6,20 +6,30 @@ import TodoEvent from '../view-bootsrap/TodoEvent'
 //使用事件监听方式实现组件中的消息传递
 var EventEmitter = require('events').EventEmitter;
 var enentEmitter=new EventEmitter;
+import info from '../framework/utils/logger'
 export default class AddTodo extends Component {
     constructor(props){
         super(props);
     }
     render() {
-        const {todos ,onAddClick} = this.props;
+        const {todos ,onAddClick,onAddTodoVerfiy,verfiedResult,
+            submitResult,submmitTodo,...other} = this.props;
+        info("...other,",other);
         return (
             <div>
-                <TodoDetail  onAddClick={onAddClick}
-                            formName="添加详细"
-                            enentEmitter={enentEmitter}
+                <TodoDetail  other
+                             onAddClick={onAddClick}
+                             formName="添加详细"
+                             enentEmitter={enentEmitter}
+                             onAddTodoVerfiyClick={onAddTodoVerfiy}
+                             verfiedResult={verfiedResult}
 
                 />
-                <TodoEvent  onAddClick={onAddClick} onAddBtnName="确定" enentEmitter={enentEmitter}/>
+                <TodoEvent  onAddClick={onAddClick}
+                            onAddTodoVerfiyClick={onAddTodoVerfiy}
+                            onAddBtnName="确定" enentEmitter={enentEmitter}
+                            submitResult={submitResult}  submmitTodo={submmitTodo}
+                />
             </div>
         );
     }
@@ -27,5 +37,9 @@ export default class AddTodo extends Component {
 
 AddTodo.propTypes = {
     onAddClick: PropTypes.func.isRequired,
+    onAddTodoVerfiy: PropTypes.func.isRequired,
+    verfiedResult:PropTypes.string,
+    submitResult:PropTypes.string,
+    submmitTodo:PropTypes.func
 
 }

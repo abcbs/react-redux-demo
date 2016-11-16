@@ -8,23 +8,23 @@ import exampleConfig from './webpack.config.example.babel';
 
 const {webpackConfig, ip, port} = exampleConfig;
 const $ = gulpLoadPlugins();
-
-function compiler(config, callback) {
-  const compiler = webpack(config);
-  // run webpack
-  compiler.run((err, stats) => {
-    if (err) {
-      throw new $.util.PluginError('webpack', err);
-    }
-    $.util.log('[webpack]', stats.toString({
-      colors: true
-    }));
-
-    if (callback) {
-      return callback();
-    }
-  });
-}
+//
+// function compiler(config, callback) {
+//   const compiler = webpack(config);
+//   // run webpack
+//   compiler.run((err, stats) => {
+//     if (err) {
+//       throw new $.util.PluginError('webpack', err);
+//     }
+//     $.util.log('[webpack]', stats.toString({
+//       colors: true
+//     }));
+//
+//     if (callback) {
+//       return callback();
+//     }
+//   });
+// }
 
 //清理临时和打包目录
 gulp.task('clean', () => {

@@ -1,9 +1,9 @@
 import React from 'react';                     // required to get test to work.  we can get around this later with more configuration
 import { shallow } from 'enzyme';              // method from enzyme which allows us to do shallow render
-import Root from '../src/examples/Root';  // import our soon to be component
+  // import our soon to be component
 
 import { expect } from 'chai';
-// import sinon from 'sinon';
+import Root from '../src/examples/Root';
 
 global.expect = expect;
 // global.sinon = sinon;

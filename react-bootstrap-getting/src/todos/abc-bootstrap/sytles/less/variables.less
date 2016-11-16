@@ -18,15 +18,22 @@
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
 
-//== Typography
-//
-//## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family-serif:       Georgia, "Times New Roman", Times, serif;
-//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
-@font-family-base:        @font-family-sans-serif;
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg: #f9ffee;
+//** Global text color on `<body>`.
+@text-color:            @gray-dark;
+
+//** Global textual link color.
+@link-color:            @brand-primary;
+//** Link hover color set via `darken()` function.
+@link-hover-color:      darken(@link-color, 15%);
+//** Link hover decoration.
+@link-hover-decoration: underline;
 
 @font-size-base:          14px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
@@ -55,77 +62,15 @@
 @zindex-modal:             1050;
 
 
-//== Media queries breakpoints
+//== Badges
 //
-//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
-
-// Extra small screen / phone
-//** Deprecated `@screen-xs` as of v3.0.1
-@screen-xs:                  480px;
-//** Deprecated `@screen-xs-min` as of v3.2.0
-@screen-xs-min:              @screen-xs;
-//** Deprecated `@screen-phone` as of v3.0.1
-@screen-phone:               @screen-xs-min;
-
-// Small screen / tablet
-//** Deprecated `@screen-sm` as of v3.0.1
-@screen-sm:                  768px;
-@screen-sm-min:              @screen-sm;
-//** Deprecated `@screen-tablet` as of v3.0.1
-@screen-tablet:              @screen-sm-min;
-
-// Medium screen / desktop
-//** Deprecated `@screen-md` as of v3.0.1
-@screen-md:                  992px;
-@screen-md-min:              @screen-md;
-//** Deprecated `@screen-desktop` as of v3.0.1
-@screen-desktop:             @screen-md-min;
-
-// Large screen / wide desktop
-//** Deprecated `@screen-lg` as of v3.0.1
-@screen-lg:                  1200px;
-@screen-lg-min:              @screen-lg;
-//** Deprecated `@screen-lg-desktop` as of v3.0.1
-@screen-lg-desktop:          @screen-lg-min;
-
-// So media queries don't overlap when required, provide a maximum
-@screen-xs-max:              (@screen-sm-min - 1);
-@screen-sm-max:              (@screen-md-min - 1);
-@screen-md-max:              (@screen-lg-min - 1);
-
-
-//== Grid system
-//
-//## Define your custom responsive grid.
-
-//** Number of columns in the grid.
-@grid-columns:              12;
-//** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width:         30px;
-// Navbar collapse
-//** Point at which the navbar becomes uncollapsed.
-@grid-float-breakpoint:     @screen-sm-min;
-//** Point at which the navbar begins collapsing.
-@grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
-
+//##
+@abc-badge-color: #ff0099;
+@abc-label-background: #fff;
 //== Labels
 //
 //##
-
-//** Default label background color
-@label-default-bg:            @gray-light;
-//** Primary label background color
-@label-primary-bg:            @brand-primary;
-//** Success label background color
-@label-success-bg:            @brand-success;
-//** Info label background color
-@label-info-bg:               @brand-info;
-//** Warning label background color
-@label-warning-bg:            @brand-warning;
-//** Danger label background color
-@label-danger-bg:             @brand-danger;
-
 //** Default label text color
-@label-color: #555555;
-//** Default text color of a linked label
-@label-link-hover-color:      #fff;
+@abc-label-color: @gray-base;
+
+

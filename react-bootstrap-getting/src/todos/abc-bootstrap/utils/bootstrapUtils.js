@@ -4,8 +4,10 @@ import { PropTypes } from 'react';
 import { SIZE_MAP } from './StyleConfig';
 
 import values from 'lodash/values';
+import entries from 'lodash/entries';
 
 Object.values=Object.values||values;
+Object.entries=  Object.entries|| entries;
 
 function curry(fn) {
   return (...args) => {
@@ -139,7 +141,7 @@ function getBsProps(props) {
     bsRole: props.bsRole,
   };
 }
-
+//Bootstap的四个属性
 function isBsProp(propName) {
   return (
     propName === 'bsClass' ||

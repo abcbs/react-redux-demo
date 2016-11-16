@@ -1,11 +1,22 @@
 import { combineReducers } from 'redux'
-import { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER} from '../actions'
+import { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER ,ADD_TODO_VERFIY,SUBMMIT_TODO} from '../actions'
+import info from '../framework/utils/logger'
 
-import undoable from 'redux-undo'
+import undoable,{excludeAction} from 'redux-undo'
 
-function todos(state = [], action) {
+function reducer(state = [], action) {
     switch (action.type) {
+        // case ADD_TODO:
+        //     return  action;
         case ADD_TODO:
+            return [//在Redux中加入数据
+                ...state,
+                {
+                    action
+                }
+            ]
+        case SUBMMIT_TODO:
+            info("action.text",action.text);
             return [//在Redux中加入数据
                 ...state,
                 {
@@ -25,6 +36,11 @@ function todos(state = [], action) {
             return state
     }
 }
-const undoableTodos = undoable(todos);
+const undoableTodos = undoable(reducer);
+// const undoableTodos  =undoable(reducer, function filterActions(action, currentState, previousState) {
+//     return action.type === ADD_TODO_VERFIY; // only add to history if action is SOME_ACTION
+// });
+// const undoableTodos=undoable(reducer, { filter: excludeAction(ADD_TODO_VERFIY,SET_VISIBILITY_FILTER) })
+
 
 export default undoableTodos

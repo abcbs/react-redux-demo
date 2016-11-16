@@ -1,3 +1,6 @@
-/**
- * Created by admin on 2016/11/13.
- */
+import './sytles/less/abcindex.less';
+export Label from './components/Label';
+export Badge from './components/Badge';
+export Button from './components/Button';
+export ButtonToolbar from './components/ButtonToolbar';
+export Checkbox from './components/Checkbox'

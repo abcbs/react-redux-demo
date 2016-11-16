@@ -6,7 +6,8 @@ import { bsClass, bsStyles, getClassSet, splitBsProps }
 import { State, Style } from '../utils/StyleConfig';
 
 import values from 'lodash/values';
-import '../sytles/less/abcindex.less'
+
+import info from '../../framework/utils/logger'
 
 Object.values=Object.values||values;
 
@@ -29,6 +30,7 @@ class Label extends React.Component {
 
   render() {
     const { className, children, ...props } = this.props;
+    info(this.props);
     const [bsProps, elementProps] = splitBsProps(props);
 
     const classes = {
@@ -48,11 +50,27 @@ class Label extends React.Component {
     );
   }
 }
-
-export default bsClass('label',
-  bsStyles(
+//bsStyles(styles, defaultStyle, Component)
+//bsClass = (defaultClass, Component)
+/**
+ export const State = {
+  SUCCESS: 'success',
+  WARNING: 'warning',
+  DANGER: 'danger',
+  INFO: 'info',
+};
+ export const Style = {
+  DEFAULT: 'default',
+  PRIMARY: 'primary',
+  LINK: 'link',
+  INVERSE: 'inverse',
+};
+ */
+var bsStylesComponent=  bsStyles(
     [...Object.values(State), Style.DEFAULT, Style.PRIMARY],
     Style.DEFAULT,
     Label
-  )
+)
+export default bsClass('label',
+    bsStylesComponent
 );

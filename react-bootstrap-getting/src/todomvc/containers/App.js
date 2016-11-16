@@ -37,7 +37,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
+  return {//把所有的Action注册到Redux中
     actions: bindActionCreators(TodoActions, dispatch)
   }
 }

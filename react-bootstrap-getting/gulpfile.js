@@ -23,6 +23,7 @@ var jest = require('gulp-jest').default;
 
 // Load all of the Gulp plugins.
 var plugins = require('gulp-load-plugins')();
+
 //const eslint = require('gulp-eslint');
 function getTask(name) {
 	return require(`./tools/gulp.task/${name}`)(gulp, plugins);

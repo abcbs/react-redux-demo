@@ -1,9 +1,14 @@
 import React, { findDOMNode, Component,PropTypes  } from 'react';
 import {ListGroupItem, ListGroup,ControlLabel,HelpBlock,Checkbox,FormGroup} from 'react-bootstrap'
 import '../../todomvc/css/index.css'
-import AbcContainer from '../frames/AbcContainer'
+import AbcContainer from '../framework/ui/AbcContainer'
+import Todo from './Todo'
+
 export default class TodoList extends Component {
-    
+    constructor(props, context) {
+        super(props, context);
+        this.idx=1;
+    }
     handleTodo=
             (index) => this.props.onTodoClick(index);
 
@@ -11,15 +16,13 @@ export default class TodoList extends Component {
         return (
           <AbcContainer isMovedTop={false}>
             <ListGroup className="todo-list" componentClass="ul" >
-
-                {this.props.todos.map((todo, index) =>
-                    <li>
-                         <input type="checkbox" />
-                        <label className="control-label">{todo.text}</label>
+                {this.props.todos&&this.props.todos.map&&this.props.todos.map((todo, index) =>
+                    <li key={this.idx++}>
+                        <input type="checkbox" />
+                        <Todo {...todo}
+                            key={this.idx++}
+                            onClick={() => this.props.onTodoClick(index)} />
                     </li>
-                    //
-                    //          <label>{todo.text}</label>
-                    // </li>
                 )}
             </ListGroup>
         </AbcContainer>

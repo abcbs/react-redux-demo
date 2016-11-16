@@ -1,6 +1,6 @@
 import React from 'react';
-import AbcContainer from './AbcContainer'
-import AbcPage from './AbcPage'
+import AbcContainer from '../framework/ui/AbcContainer'
+import AbcPage from '../framework/ui/AbcPage'
 
 const IntroductionPage = React.createClass({
     render() {

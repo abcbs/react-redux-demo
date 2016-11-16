@@ -1,6 +1,6 @@
 var argv = require('yargs').argv;
 var path = require('path');
-
+const webpackConfigBase = require('./webpack.config').default;
 module.exports = function(config) {
     config.set({
         // only use PhantomJS for our 'test' browser
@@ -29,6 +29,7 @@ module.exports = function(config) {
         // A lot of people will reuse the same webpack config that they use
         // in development for karma but remove any production plugins like UglifyJS etc.
         // I chose to just re-write the config so readers can see what it needs to have
+
         webpack: {
             devtool: 'inline-source-map',
             resolve: {
@@ -44,16 +45,7 @@ module.exports = function(config) {
                     'sinon': 'sinon/pkg/sinon'
                 }
             },
-            module: {
-                // don't run babel-loader through the sinon module
-                noParse: [
-                    /node_modules\/sinon\//
-                ],
-                // run babel loader for our tests
-                loaders: [
-                    { test: /\.js?$/, exclude: /node_modules/, loader: 'babel' },
-                ],
-            },
+            module: webpackConfigBase.module,
             // required for enzyme to work properly
             externals: {
                 'jsdom': 'window',
