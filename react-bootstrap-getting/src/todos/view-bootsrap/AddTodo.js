@@ -12,23 +12,24 @@ export default class AddTodo extends Component {
         super(props);
     }
     render() {
-        const {todos ,onAddClick,onAddTodoVerfiy,verfiedResult,
-            submitResult,submmitTodo,...other} = this.props;
-        info("...other,",other);
+        const {todos ,onAddClick
+             // ,onAddTodoVerfiy,verfiedResult,
+            // submitResult,submmitTodo,...other
+        } = this.props;
         return (
             <div>
                 <TodoDetail  other
                              onAddClick={onAddClick}
                              formName="添加详细"
                              enentEmitter={enentEmitter}
-                             onAddTodoVerfiyClick={onAddTodoVerfiy}
-                             verfiedResult={verfiedResult}
+                             // onAddTodoVerfiyClick={onAddTodoVerfiy}
+                             // verfiedResult={verfiedResult}
 
                 />
                 <TodoEvent  onAddClick={onAddClick}
-                            onAddTodoVerfiyClick={onAddTodoVerfiy}
+                            // onAddTodoVerfiyClick={onAddTodoVerfiy}
                             onAddBtnName="确定" enentEmitter={enentEmitter}
-                            submitResult={submitResult}  submmitTodo={submmitTodo}
+                            // submitResult={submitResult}  submmitTodo={submmitTodo}
                 />
             </div>
         );
@@ -37,9 +38,9 @@ export default class AddTodo extends Component {
 
 AddTodo.propTypes = {
     onAddClick: PropTypes.func.isRequired,
-    onAddTodoVerfiy: PropTypes.func.isRequired,
-    verfiedResult:PropTypes.string,
-    submitResult:PropTypes.string,
-    submmitTodo:PropTypes.func
+    // onAddTodoVerfiy: PropTypes.func.isRequired,
+    // verfiedResult:PropTypes.string,
+    // submitResult:PropTypes.string,
+    // submmitTodo:PropTypes.func
 
 }

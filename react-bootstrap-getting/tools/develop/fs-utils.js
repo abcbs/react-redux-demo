@@ -27,7 +27,6 @@ export function copy(src, dest, options) {
         if (err) {
           reject(err);
         }
-
         resolve();
       });
     });

@@ -1,4 +1,4 @@
-import {buildVendors} from '../../tools/brench';
+import buildVendors from '../../tools/develop/';
 
 module.exports = function(gulp, plugins) {
     return function(done) {

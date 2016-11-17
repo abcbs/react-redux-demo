@@ -1,8 +1,7 @@
-/* eslint no-process-exit: 0 */
+
 
 import 'colors';
 import build from './build';
-import docs from '../docs/build';
 import { setExecOptions } from './exec';
 
 import yargs from 'yargs';
@@ -27,15 +26,9 @@ const argv = yargs
 
 setExecOptions(argv);
 
-let buildProcess;
+export let buildProcess=build(argv);
 
-if (argv.docsOnly) {
-  buildProcess = docs(argv);
-} else {
-  buildProcess = build(argv);
-}
-
-buildProcess
+  buildProcess
   .catch(err => {
     if (err.stack) {
       console.error(err.stack.red);

@@ -17,9 +17,13 @@ export default class TodoDetail extends Component {
         return true;
     }
     componentWillUpdate(){
-         if(this.props.verfiedResult&&this.props.verfiedResult.text){
-            this.verify=this.props.verfiedResult.text;
-        }
+        if(this.props.enentEmitter&&this.props.enentEmitter){
+            let that=this;
+            this.props.enentEmitter.on('todos:adding-verfiy', (option,data) =>{
+                that.setState({
+                    todovalueHelp: data
+                })
+            })}
     }
 
     render() {
@@ -28,13 +32,7 @@ export default class TodoDetail extends Component {
 
         var {formName,btnName,onAddClick ,enentEmitter,...other}=this.props;
         var valid=this.state.todovalueHelp;
-        if(enentEmitter){
-            let that=this;
-            enentEmitter.on('todos:adding-verfiy', (option,data) =>{
-                that.setState({
-                    todovalueHelp: data
-                })
-        })}
+
         return (
             <AbcContainer isMovedTop={false}>
                 <FormGroup
@@ -106,13 +104,13 @@ export default class TodoDetail extends Component {
                 todovalueHelp: ""
             });
             //提交数据
-            this.props.onAddClick(this.state.todovalue);
-            // if(this.props.enentEmitter){
-            //     //event.emit("todo-adding",null,value);
-            //     this.props.enentEmitter.emit('todos:adding',  {description:"数据保存成功，并且回调执行成功",
-            //         type:"Sucess"
-            //     },e.target.value);
-            // }
+            // this.props.onAddClick(this.state.todovalue);
+            if(this.props.enentEmitter){
+                //event.emit("todo-adding",null,value);
+                this.props.enentEmitter.emit('todos:adding',  {description:"数据保存成功，并且回调执行成功",
+                    type:"Sucess"
+                },e.target.value);
+            }
         }else{
             this.setState({
 
@@ -129,7 +127,8 @@ TodoDetail.propTypes = {
     onEditClick:PropTypes.func,
     formName:PropTypes.string,
     btnName:PropTypes.string,
-    onAddTodoVerfiyClick: PropTypes.func,
-    verfiedResult:PropTypes.object
+    enentEmitter:PropTypes.object.isRequired
+    // onAddTodoVerfiyClick: PropTypes.func,
+    // verfiedResult:PropTypes.object
 
 }

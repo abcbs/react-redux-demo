@@ -6,7 +6,7 @@ import info from '../framework/utils/logger'
 export default class TodoEvent extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.sendData;
+        this.sendData=null;
 
     }
     render() {
@@ -25,43 +25,43 @@ export default class TodoEvent extends React.Component {
 
     handleClick (e) {
          if (this.sendData) {
-            //this.props.onAddClick(this.sendData);
-            this.props.submmitTodo(this.sendData);
+            this.props.onAddClick(this.sendData);
+            // this.props.submmitTodo(this.sendData);
         } else {
-            this.props.onAddTodoVerfiyClick("* Dodo不能为空");
-            // if(this.props.enentEmitter){
-            //     this.props.enentEmitter.emit('todos:adding-verfiy',  {description:"验证不通过",
-            //         type:"Verify-Error"
-            //     },"* Dodo不能为空,长度大于10");
-            // }
+            // this.props.onAddTodoVerfiyClick("* Dodo不能为空");
+            if(this.props.enentEmitter){
+                this.props.enentEmitter.emit('todos:adding-verfiy',  {description:"验证不通过",
+                    type:"Verify-Error"
+                },"* Dodo不能为空,长度大于10");
+            }
         }
     }
-    // componentDidMount(){
-    //     if(this.props.submitResult){
-    //         const that=this;
-    //         this.props.enentEmitter.on('todos:adding', function(option,data) {
-    //             console.log(option.type,option.description,data);
-    //             that.sendData=data;
-    //         });
-    //     }
-    // }
+    componentDidMount(){
+        if(this.props.enentEmitter){
+            const that=this;
+            this.props.enentEmitter.on('todos:adding', function(option,data) {
+                console.log(option.type,option.description,data);
+                that.sendData=data;
+            });
+        }
+    }
     shouldComponentUpdate() {
         return true;
     }
-    componentWillUpdate() {
-        if (this.props.submitResult) {
-            this.sendData = this.props.submitResult;
-        }
-    }
+    // componentWillUpdate() {
+    //     if (this.props.submitResult) {
+    //         this.sendData = this.props.submitResult;
+    //     }
+    // }
 }
 
 TodoEvent.propTypes = {
     onAddClick: PropTypes.func,
-    onAddTodoVerfiyClick: PropTypes.func,
     onAddBtnName:PropTypes.string.isRequired,
-    enentEmitter:PropTypes.object,
-    submitResult:PropTypes.string,
-    submmitTodo:PropTypes.func
+    enentEmitter:PropTypes.object.isRequired,
+    // onAddTodoVerfiyClick: PropTypes.func,
+    // submitResult:PropTypes.string,
+    // submmitTodo:PropTypes.func
 };
 
 // export default TodoEvent

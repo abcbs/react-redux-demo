@@ -1,4 +1,4 @@
-import 'colors';
+// import 'colors';
 import portfinder from 'portfinder';
 import { exec } from 'child-process-promise';
 import ip from 'ip';
@@ -12,10 +12,10 @@ function output(prefix, message) {
 
     console.log(formattedMessage);
 }
-
+//console.log('Building: '.cyan + 'Vendors'.green);
 function listen({stdout, stderr}, name) {
-    stdout.on('data', data => output(`[${name}] `.grey, data));
-    //stderr.on('data', data => output(`[${name}] `.grey, data));
+    stdout.on('data', data => output(`[${name}] `, data));
+    //stderr.on('data', data => output(`[${name}] `, data));
 }
 
 function shutdown() {

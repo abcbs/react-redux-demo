@@ -12,18 +12,19 @@ function reducer(state = [], action) {
             return [//在Redux中加入数据
                 ...state,
                 {
-                    action
-                }
-            ]
-        case SUBMMIT_TODO:
-            info("action.text",action.text);
-            return [//在Redux中加入数据
-                ...state,
-                {
                     text: action.text,
                     completed: false
                 }
             ]
+        // case SUBMMIT_TODO:
+        //     info("action.text",action.text);
+        //     return [//在Redux中加入数据
+        //         ...state,
+        //         {
+        //             text: action.text,
+        //             completed: false
+        //         }
+        //     ]
         case COMPLETE_TODO:
             return [
                 ...state.slice(0, action.index),

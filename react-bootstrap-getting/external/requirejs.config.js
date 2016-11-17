@@ -150,96 +150,103 @@ function loadHome() {
     return p;
 }
 
-require( ["q"],
-    function (Q) {
-        console.log("start..");
-        Promise =Q.Promise;
-        (function loadALL() {
-             Q.all(
-                 loadJQuery(),
-                 loadReact(),
-                 loadBaseframevendor(),
-              
-                // loadBootstrap(),
-                loadApp()
-            ).then(function (value){
-                 loadRedux().then(function (value) {
-                     console.log("loadBootstrap, ",value);
-                 })
+// require( ["q"],
+//     function (Q) {
+//         console.log("start..");
+//         Promise =Q.Promise;
+//         (function loadALL() {
+//              Q.all(
+//                  loadJQuery(),
+//                  loadReact(),
+//                  loadBaseframevendor(),
+//
+//                 // loadBootstrap(),
+//                 loadApp()
+//             ).then(function (value){
+//                  loadRedux().then(function (value) {
+//                      console.log("loadBootstrap, ",value);
+//                  })
+//
+//                 $(".pos").remove();
+//                 console.log("Loaded All");
+//             }).then(function (value) {
+//                  loadBootstrap().then(function (value) {
+//                      console.log("loadRedux, ",value);
+//                  })
+//              })
+//              .then(function (value) {
+//                  loadMaterialuivendor().then(function (value) {
+//                      console.log("loadMaterialuivendor, ",value);
+//                  })
+//              },function (value) {
+//
+//              });
+//         })();
+//   });
 
-                $(".pos").remove();
-                console.log("Loaded All");
-            }).then(function (value) {
-                 loadBootstrap().then(function (value) {
-                     console.log("loadRedux, ",value);
-                 })
-             })
-             .then(function (value) {
-                 loadMaterialuivendor().then(function (value) {
-                     console.log("loadMaterialuivendor, ",value);
-                 })
-             },function (value) {
-                 
-             });
-        })();
-        // try{
-        //     require(["jquery-mobile"] ,function(jquerymobile){
-        //         console.log("jquery-mobile loading...");
-        //
-        //     })
-        // }catch(e){
-        //     console.log("jquery-mobile error...")
-        // }
-        // try{
-        //     require(["react"] ,function(react){
-        //         console.log("react loading...");
-        //
-        //     })
-        // }catch(e){
-        //     console.log("react error...")
-        // }
-        // try{
-        //     require(["baseframevendor"] ,function(react){
-        //         console.log("baseframevendor loading...");
-        //
-        //     })
-        //
-        // }catch(e){
-        //     console.log("Loading baseframevendor error")
-        // }
 
-        // try{
-        //     require(["redux"] ,function(redux){
-        //         console.log("redux loading..");
-        //
-        //     })
-        // }catch(e){
-        //     console.log("Loading redux error")
-        // }
-        // try{
-        //     require(["materialuivendor"] ,function(redux){
-        //         console.log("materialuivendor loading..");
-        //
-        //     })
-        // }catch(e){
-        //     console.log("Loading materialuivendor error.")
-        // }
-        // try{
-        //     require(["react-bootstrap"] ,function(reactbootstrap){
-        //         console.log("reactbootstrap loading..");
-        //
-        //
-        //     })
-        // }catch(e){
-        //     console.log("Loading bootstrap error.")
-        // }
-        // try{
-        //     require(["app"] ,function(app){
-        //         console.log("app loading..");
-        //         //$(".pos").remove();
-        //     })
-        // }catch(e){
-        //     console.log("Loading app error.")
-        // }
+require( ["react","baseframevendor","redux",
+    'react-bootstrap',"materialuivendor"],function (react,base,redux,bootstrap,mui){
+    // try{
+    //     require(["jquery-mobile"] ,function(jquerymobile){
+    //         console.log("jquery-mobile loading...");
+    //
+    //     })
+    // }catch(e){
+    //     console.log("jquery-mobile error...")
+    // }
+    // try{
+    //     require(["react"] ,function(react){
+    //         console.log("react loading...");
+    //
+    //     })
+    // }catch(e){
+    //     console.log("react error...")
+    // }
+    // try{
+    //     require(["baseframevendor"] ,function(react){
+    //         console.log("baseframevendor loading...");
+    //
+    //     })
+    //
+    // }catch(e){
+    //     console.log("Loading baseframevendor error")
+    // }
+    //
+    // try{
+    //     require(["redux"] ,function(redux){
+    //         console.log("redux loading..");
+    //
+    //     })
+    // }catch(e){
+    //     console.log("Loading redux error")
+    // }
+    // try{
+    //     require(["materialuivendor"] ,function(redux){
+    //         console.log("materialuivendor loading..");
+    //
+    //     })
+    // }catch(e){
+    //     console.log("Loading materialuivendor error.")
+    // }
+    // try{
+    //     require(["react-bootstrap"] ,function(reactbootstrap){
+    //         console.log("reactbootstrap loading..");
+    //
+    //
+    //     })
+    // }catch(e){
+    //     console.log("Loading bootstrap error.")
+    // }
+    try{
+        require(["app"] ,function(app){
+            console.log("app loading..");
+            //$(".pos").remove();
+        })
+    }catch(e){
+        console.log("Loading app error.")
+    }
+
     });
+
 

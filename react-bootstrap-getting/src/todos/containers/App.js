@@ -18,10 +18,11 @@ import UndoRedoUtil from './UndoRedo'
 class App extends Component {
     render() {
         // Injected by connect() call:
-        const { dispatch, todos, visibilityFilter ,
+        const { dispatch, visibleTodos, visibilityFilter ,
             addTodoAction,verfiedResult,addTodoVerfiyAction,
             completeTodoAction,setVisibilityFilterAtion,
-            submitResult,submmitTodoAction} = this.props;
+            submitResult,submmitTodoAction
+        } = this.props;
         return (
             <AbcPage title="新增产品" router="app">
                 <span>
@@ -35,7 +36,7 @@ class App extends Component {
                  <UndoRedoUtil/>
                 
                  <TodoList
-                        todos={todos}
+                        todos={visibleTodos}
                         onTodoClick={completeTodoAction} />
                 <Footer
                     filter={visibilityFilter}
@@ -49,7 +50,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-    todos: PropTypes.arrayOf(PropTypes.shape({
+    visibleTodos: PropTypes.arrayOf(PropTypes.shape({
         text: PropTypes.string.isRequired,
         completed: PropTypes.bool.isRequired
     }).isRequired).isRequired,
@@ -58,8 +59,8 @@ App.propTypes = {
         'SHOW_COMPLETED',
         'SHOW_ACTIVE'
     ]).isRequired,
-    verfiedResult:PropTypes.string,
-    submitResult:PropTypes.string
+    // verfiedResult:PropTypes.string,
+    // submitResult:PropTypes.string
 };
 
 const getVisibleTodos = (state, filter) => {
@@ -67,11 +68,11 @@ const getVisibleTodos = (state, filter) => {
     let todos=state.todos;
     switch (filter) {
         case 'SHOW_ALL':
-            return state.todos.present
+            return state
         case 'SHOW_COMPLETED':
-            return state.todos.present.filter(t => t.completed)
+            return state.filter(t => t.completed)
         case 'SHOW_ACTIVE':
-            return state.todos.present.filter(t => !t.completed)
+            return state.filter(t => !t.completed)
         default:
             throw new Error('Unknown filter: ' + filter)
     }
@@ -82,9 +83,7 @@ const getVisibleTodos = (state, filter) => {
  * @param state
  * @returns {*}
  */
-const getFormInfo = (state) => {
-
-     let actions= state.todos.present;
+const getFormInfo = (actions,state) => {
      let action=actions&&actions.splice&&actions.splice(-1,1);
      let todo=action[0];
      if(!action[0]||!todo){
@@ -92,13 +91,12 @@ const getFormInfo = (state) => {
      }else{
          let act=todo.action;
          if(todo.text&&state.visibilityFilter){
-             state.todos.present.push(todo)
+             actions.push(todo)
          }
          return todo.text||act.text;
      }
 }
 const getTodoVerfiy = (todos) => {
-
     return todos.addTodoVerfiy;
 }
 
@@ -107,20 +105,21 @@ function mapStateToProps(state,ownProps) {
     return {
         verfiedResult:getTodoVerfiy(state),
         visibilityFilter:state.visibilityFilter,
-        submitResult:getFormInfo(state),
-        todos:getVisibleTodos(state, state.visibilityFilter)
+        submitResult:getFormInfo( state.todos.present,state),
+        todos:getVisibleTodos(state.todos.present, state.visibilityFilter)
 
     }
 }
+
 function mapDispatchToProps(dispatch) {
     return {
         addTodoAction:bindActionCreators(addTodo, dispatch),
-        addTodoVerfiyAction:bindActionCreators(addTodoVerfiy, dispatch),
         completeTodoAction:bindActionCreators(completeTodo, dispatch),
         setVisibilityFilterAtion:bindActionCreators(setVisibilityFilter, dispatch),
-        submmitTodoAction:bindActionCreators(submmitTodo, dispatch)
+        //submmitTodoAction:bindActionCreators(submmitTodo, dispatch)
+        //addTodoVerfiyAction:bindActionCreators(addTodoVerfiy, dispatch),
     };
 }
 
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-export default connect(mapStateToProps,mapDispatchToProps)(App)
+export default connect(visibleTodosSelector,mapDispatchToProps)(App)

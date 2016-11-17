@@ -3,7 +3,7 @@ import yargs from 'yargs';
 import 'babel-polyfill';
 
 //工程路径配置常量
-const pathConfig = {
+export const pathConfig = {
     buildPath: path.resolve(__dirname, '../dist'),
     buildLibPath: path.resolve(__dirname,  '../dist','[name]-manifest.json'),
     publicPath:  "/build/",
@@ -11,9 +11,9 @@ const pathConfig = {
     nodeModulesPath : path.resolve(__dirname, '../node_modules')
 
 };
-
+//项目App
 export const buildConfig={
-    buildPath : '/build',
+    buildPath : 'build',
     nodeModulesPath : 'node_modules',
     publicPath :  "/build/",
     contentBase : "",

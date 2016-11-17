@@ -2,7 +2,7 @@ import webpack from 'webpack';
 import ip from 'ip';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import configure,{options,buildConfig} from './config.path';
+import configure,{options,buildConfig,pathConfig} from './config.path';
 
 const webpackDevServerAddress = `http://${ip.address()}:${options.port}`;
 
@@ -13,9 +13,15 @@ const entryFile = configure.entryFile;
 
 const nodeModulesPath=configure.nodeModulesPath;
 
+const rectVendor=path.join(buildConfig.dllReferencePath,"reactvendor-manifest.json");
+const baseframevendor=path.join(buildConfig.dllReferencePath,"baseframevendor-manifest.json");
+const reduxvendor=path.join(buildConfig.dllReferencePath,"reduxvendor-manifest.json");
+const bootvendor=path.join(buildConfig.dllReferencePath,"bootvendor-manifest.json");
+const materialuivendor=path.join(buildConfig.dllReferencePath,"materialuivendor-manifest.json");
+
 const baseServer = {
   devtool: options.debug ? 'source-map' : null,
-  dependencies: ["vendors","baseframevendor","reactvendor","bootvendor"],
+  dependencies: ["reactvendor","baseframevendor","reduxvendor","bootvendor","materialuivendor"],
   entry: {
     app: entryFile
   },
@@ -26,7 +32,7 @@ const baseServer = {
     //设置为webpack-dev-server服务器下资源目录的绝对路径
     //网站运行时的访问路径
     //如果不设置的话，打包出的html中默认路径会是相对路径
-    publicPath: options.debug ? `${webpackDevServerAddress}${buildConfig.publicPath}` 
+    publicPath: options.debug ? `${webpackDevServerAddress}${buildConfig.publicPath}`
         : buildConfig.publicPath
   },
   module: {
@@ -61,15 +67,27 @@ const baseServer = {
   },
 
   plugins: [
-   /**
+
     new webpack.DllReferencePlugin({
       context: __dirname,
-      manifest: require(path.join(buildConfig.dllReferencePath,"baseframevendor-manifest.json"))
-    }),**/
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require(path.join(buildConfig.dllReferencePath,"reactvendor-manifest.json"))
+      manifest: require(baseframevendor)
     }),
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require(rectVendor)
+    }),
+      new webpack.DllReferencePlugin({
+          context: __dirname,
+          manifest: require(reduxvendor)
+      }),
+      new webpack.DllReferencePlugin({
+          context: __dirname,
+          manifest: require(bootvendor)
+      }),
+      new webpack.DllReferencePlugin({
+          context: __dirname,
+          manifest: require(materialuivendor)
+      }),
     //new ExtractTextPlugin('[name].css')
     new ExtractTextPlugin("css/bundle-[name]-[hash:8].css"), // css输出到css目录
   ]

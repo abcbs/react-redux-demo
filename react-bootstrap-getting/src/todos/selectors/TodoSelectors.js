@@ -21,20 +21,6 @@ const todosSelector = (state) => {
     //const stateParent=state.todos.present;
     return state.todos.present;
 }
-//////////////////////////////////////////////////////////////////
-function addTodoVerfiy(todos, filter) {
-    switch (filter) {
-        case VisibilityFilters.ADD_TODO_VERFIY:
-            return todos;
-        default:
-           return {};
-    }
-}
-
-const addTodoVerfiySelect= (state) => {
-    //const stateParent=state.todos.present;
-    return state.addTodoVerfiy;
-}
 
 //visibleTodosSelector是一个可记忆的selector。
 // 他接收visibilityFilterSelector和todosSelector为input-selector，

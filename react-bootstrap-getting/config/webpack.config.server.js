@@ -1,7 +1,7 @@
 import webpack from 'webpack';
 import ip from 'ip';
 import baseServer from './base.server';
-import configure,{options,buildConfig} from './config.path';
+import configure,{options,buildConfig,} from './config.path';
 
 const webpackDevServerAddress = `http://${ip.address()}:${options.port}`;
 //具体应用的配置

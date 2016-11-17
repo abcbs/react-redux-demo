@@ -34,11 +34,12 @@ server.plugins = (baseServer.default.plugins || []).concat([
     }),
 
 ]);
+/**
 server.entry = Object.assign(
     baseServer.default.entry,
     {"introduction/pages":"./src/todos/frames/IntroductionPage"},
     {"/home/pages":"./src/todos/frames/HomePage"}
 
-);
+);**/
 
 module.exports = server;

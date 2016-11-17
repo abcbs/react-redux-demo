@@ -1,13 +1,17 @@
 import { exec } from '../exec';
-import { distRoot } from '../constants';
-
+import {buildServer} from './buildServer'
+import {buildVenders} from './buildVenders'
+import {publicRoot} from '../constants';
+import {vendersRoot} from '../constants';
 export default function BuildDistributable() {
   console.log('Building: '.cyan + 'distributable'.green);
-
-  return exec(`rimraf ${distRoot}`)
-    .then(() => Promise.all([
-      exec(`webpack --bail`),
-      exec(`webpack --bail -p`)
-    ]))
-    .then(() => console.log('Built: '.cyan + 'distributable'.green));
+    return exec(`rm -rf ${publicRoot}`).then(//rimraf
+        ()=>exec('webpack --config webpack.config.js --progress --colors')
+    )
+        .then(
+            ()=>exec('rm -rf ${vendersRoot}')//
+        ).then(
+            ()=>exec('webpack --config webpack.config.vendors')
+        ).then(() => console.log('Built: '.cyan + 'distributable'.green));
 }
+
