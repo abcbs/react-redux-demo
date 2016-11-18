@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Checkbox = exports.ButtonToolbar = exports.Button = exports.Badge = exports.Label = undefined;
 
-require('./sytles/less/abcindex.less');
-
 var _Label2 = require('./components/Label');
 
 var _Label3 = _interopRequireDefault(_Label2);

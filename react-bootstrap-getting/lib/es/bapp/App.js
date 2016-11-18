@@ -8,10 +8,6 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-require('bootstrap/less/bootstrap.less');
-
-require('./styles/custom-styles.css');
-
 var _Body = require('./Body');
 
 var _Body2 = _interopRequireDefault(_Body);

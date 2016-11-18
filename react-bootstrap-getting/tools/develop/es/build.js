@@ -4,10 +4,11 @@ import fsp from 'fs-promise';
 import { srcRoot, esRoot } from '../constants';
 import buildBabel from '../buildBabel';
 
+import devExpressionWithCodes from '../../error-codes-babel/dev-expression-with-codes';
 export default function BuildES() {
   console.log('Building: '.cyan + 'es module'.green);
 
-  return exec(`rm -rf ${esRoot}`)//rimraf
+  return exec(`rimraf ${esRoot}`)//rimraf
     .then(() => fsp.mkdirs(esRoot))
     .then(() => buildBabel(srcRoot, esRoot, {
       babelrc: true,
@@ -24,7 +25,8 @@ export default function BuildES() {
         'transform-es3-property-literals',
           'transform-dev-warning',
           'transform-decorators-legacy',
-          ["transform-replace-object-assign", "simple-assign"]
+          ["transform-replace-object-assign", "simple-assign"],
+           devExpressionWithCodes,
       ]
     }))
     .then(() => console.log('Built: '.cyan + 'es module'.green));

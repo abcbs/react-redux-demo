@@ -28,9 +28,6 @@ var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-//var app = new (require('express'))();
-
-
 // 每当收到请求时都会触发
 //app.use(handleRender);
 module.exports = function (req, res) {
@@ -45,7 +42,6 @@ module.exports = function (req, res) {
     ));
     //从store中获得初始state
     var initialState = store.getState();
-
     // 把渲染后的页面内容发送给客户端
     res.send(renderFullPage(html, initialState));
 };

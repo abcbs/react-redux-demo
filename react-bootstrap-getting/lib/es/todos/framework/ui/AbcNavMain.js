@@ -24,23 +24,13 @@ var _entries4 = _interopRequireDefault(_entries3);
 
 var _reactBootstrap = require('react-bootstrap');
 
+var _NavLinks = require('../../routeres/NavLinks');
+
+var _NavLinks2 = _interopRequireDefault(_NavLinks);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 Object.entries = _entries2['default'] || _entries4['default'];
-var NAV_LINKS = {
-    introduction: {
-        link: '/home/pages',
-        title: '主页'
-    },
-    'getting-started': {
-        link: '/app',
-        title: '信息查询'
-    },
-    components: {
-        link: '/introduction/pages',
-        title: '介绍'
-    }
-};
 
 function Wrapper(_ref) {
     var children = _ref.children;
@@ -68,7 +58,7 @@ function NavMain(_ref2) {
                 null,
                 _react2['default'].createElement(
                     _reactRouter.Link,
-                    { to: '/app' },
+                    { to: '/' },
                     'ABC-Endpoint'
                 )
             ),
@@ -80,12 +70,12 @@ function NavMain(_ref2) {
             _react2['default'].createElement(
                 _reactBootstrap.Nav,
                 null,
-                (0, _entries2['default'])(NAV_LINKS).map(function (_ref3) {
+                (0, _entries2['default'])(_NavLinks2['default']).map(function (_ref3) {
                     var _ref4 = (0, _slicedToArray3['default'])(_ref3, 2);
 
                     var linkName = _ref4[0];
                     var _ref4$ = _ref4[1];
-                    var link = _ref4$.link;
+                    var path = _ref4$.path;
                     var title = _ref4$.title;
                     return _react2['default'].createElement(
                         Wrapper,
@@ -95,7 +85,7 @@ function NavMain(_ref2) {
                             { className: linkName === activePage ? 'active' : null },
                             _react2['default'].createElement(
                                 _reactRouter.Link,
-                                { to: link },
+                                { to: path },
                                 title
                             )
                         )

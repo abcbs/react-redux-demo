@@ -10,10 +10,6 @@ var _redux = require('redux');
 
 var _reactRedux = require('react-redux');
 
-var _App = require('./containers/App');
-
-var _App2 = _interopRequireDefault(_App);
-
 var _reducers = require('./reducers');
 
 var _reducers2 = _interopRequireDefault(_reducers);
@@ -21,10 +17,6 @@ var _reducers2 = _interopRequireDefault(_reducers);
 var _rootes = require('./routeres/rootes');
 
 var _rootes2 = _interopRequireDefault(_rootes);
-
-require('bootstrap/less/theme.less');
-
-require('bootstrap/less/bootstrap.less');
 
 var _fastclick = require('fastclick');
 
@@ -38,10 +30,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 //import '../../external/bootstrap-3.3.7/dist/css/bootstrap-theme.css'
 //import '../../external/bootstrap-3.3.7/dist/css/bootstrap.css'
+
+// import App from './containers/App'
 (0, _reactTapEventPlugin2['default'])();
 // Make taps on links and buttons work fast on mobiles
 _fastclick2['default'].attach(document.body);
-
+//在服务端渲染中，这是客户端
 //store(Redux Store): 应用程序中唯一的Redux store对象
 //通过服务端注入的全局变量得到初始state
 var initialState = window.__INITIAL_STATE_;

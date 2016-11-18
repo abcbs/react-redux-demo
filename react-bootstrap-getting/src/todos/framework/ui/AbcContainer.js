@@ -1,6 +1,6 @@
 import React,{ Component, PropTypes, Children } from 'react'
 import classnames from 'classnames'
-import '../../../todomvc/css/index.css'
+// import '../../../todomvc/css/index.css'
 export default class AbcContainer extends Component {
        render() {
         const { children,isMovedTop,isContainer,...others} = this.props;

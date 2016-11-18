@@ -41,10 +41,9 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-require('../../../todomvc/css/index.css');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+// import '../../../todomvc/css/index.css'
 var AbcContainer = function (_Component) {
     (0, _inherits3['default'])(AbcContainer, _Component);
 

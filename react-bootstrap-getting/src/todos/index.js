@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import App from './containers/App'
+// import App from './containers/App'
 import reducer from './reducers'
 import Root from './routeres/rootes'
 //import '../../external/bootstrap-3.3.7/dist/css/bootstrap-theme.css'
@@ -14,7 +14,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 // Make taps on links and buttons work fast on mobiles
 FastClick.attach(document.body);
-
+//在服务端渲染中，这是客户端
 //store(Redux Store): 应用程序中唯一的Redux store对象
 //通过服务端注入的全局变量得到初始state
 const initialState = window.__INITIAL_STATE_;

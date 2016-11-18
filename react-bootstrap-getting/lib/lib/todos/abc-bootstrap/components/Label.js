@@ -83,9 +83,6 @@ var Label = function (_React$Component) {
 
       var props = _objectWithoutProperties(_props, ['className', 'children']);
 
-      (0, _logger2.default)(this.props);
-      (0, _invariant2.default)(className === null, '此属性不能为空 ' + '`%s`  ' + '注意.', name);
-
       var _splitBsProps = (0, _bootstrapUtils.splitBsProps)(props);
 
       var _splitBsProps2 = _slicedToArray(_splitBsProps, 2);

@@ -26,10 +26,6 @@ var _configureStore = require('./store/configureStore');
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
-require('./css/index.css');
-
-require('./css/common.css');
-
 var _reactRouter = require('react-router');
 
 var _Root = require('./containers/Root');

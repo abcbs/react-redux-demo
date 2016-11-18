@@ -4,6 +4,18 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _values = require('babel-runtime/core-js/object/values');
+
+var _values2 = _interopRequireDefault(_values);
+
+var _keys = require('babel-runtime/core-js/object/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _entries = require('babel-runtime/core-js/object/entries');
+
+var _entries2 = _interopRequireDefault(_entries);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -28,22 +40,38 @@ var _HomePage = require('../frames/HomePage');
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
+var _NavLinks = require('./NavLinks');
+
+var _NavLinks2 = _interopRequireDefault(_NavLinks);
+
+var _logger = require('../framework/utils/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var Root = function Root(_ref) {
     var store = _ref.store;
+
+    var navEntries = (0, _entries2['default'])(_NavLinks2['default']);
+    var navKeys = (0, _keys2['default'])(_NavLinks2['default']);
+    var navValues = (0, _values2['default'])(_NavLinks2['default']);
+    (0, _logger2['default'])('navEntries,', navEntries);
+    (0, _logger2['default'])("navKeys,", navKeys);
+    (0, _logger2['default'])("navValues,", navValues);
+
     return _react2['default'].createElement(
         _reactRedux.Provider,
         { store: store },
         _react2['default'].createElement(
             _reactRouter.Router,
-            { history: _reactRouter.browserHistory, path: '/', component: _HomePage2['default']
+            { history: _reactRouter.browserHistory, path: '/', component: _App2['default']
             },
             _react2['default'].createElement(_reactRouter.IndexRoute, { component: _App2['default'] }),
             _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _App2['default'] }),
-            _react2['default'].createElement(_reactRouter.Route, { path: '/:filter', component: _App2['default'] }),
-            _react2['default'].createElement(_reactRouter.Route, { path: '/home/pages', component: _HomePage2['default'] }),
-            _react2['default'].createElement(_reactRouter.Route, { path: '/introduction/pages', component: _IntroductionPage2['default'] }),
+            _react2['default'].createElement(_reactRouter.Route, { path: '/app/:filter', component: _App2['default'] }),
+            _react2['default'].createElement(_reactRouter.Route, { path: '/home', component: _HomePage2['default'] }),
+            _react2['default'].createElement(_reactRouter.Route, { path: '/introduct', component: _IntroductionPage2['default'] }),
             _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _AbcNotFoundPage2['default'] })
         )
     );

@@ -4,6 +4,7 @@ import baseServer from './base.server';
 import configure,{options,buildConfig,} from './config.path';
 
 const webpackDevServerAddress = `http://${ip.address()}:${options.port}`;
+
 //具体应用的配置
 //configure.entryFile='./src/todomvc/index';
 if (options.debug) {
@@ -12,16 +13,16 @@ if (options.debug) {
 
 var entryFile = configure.entryFile;
 
-const devEntryBundle = [
+export const devEntryBundle = [
   'webpack/hot/dev-server',
   `webpack-dev-server/client?${webpackDevServerAddress}`,
-  entryFile,
+  // entryFile,
 ];
-
+const app=devEntryBundle.concat(entryFile);
 const server= {
   ...baseServer,
   entry:{
-    app:options.debug ? devEntryBundle : entryFile,
+    app:options.debug ?  entryFile:app 
   },
   devServer:{
     //这里contentBase是访问路径，如果html文件和css img等文件打包后都在这个路径下是没有问题，否则会找不到文件的。

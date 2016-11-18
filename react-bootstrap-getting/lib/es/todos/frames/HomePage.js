@@ -39,10 +39,6 @@ var _AbcPage2 = _interopRequireDefault(_AbcPage);
 
 var _abcBootstrap = require('../abc-bootstrap');
 
-require('bootstrap/less/theme.less');
-
-require('bootstrap/less/bootstrap.less');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var HomePage = function (_React$Component) {

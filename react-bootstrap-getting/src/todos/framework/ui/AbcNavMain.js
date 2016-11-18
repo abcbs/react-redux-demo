@@ -2,22 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import entries from 'lodash/entries'
 import {Navbar, Nav} from 'react-bootstrap'
-
+import NAV_LINKS from '../../routeres/NavLinks'
 Object.entries=Object.entries||entries;
-const NAV_LINKS = {
-    introduction: {
-        link: '/home/pages',
-        title: '主页'
-    },
-    'getting-started': {
-        link: '/app',
-        title: '信息查询'
-    },
-    components: {
-        link: '/introduction/pages',
-        title: '介绍'
-    },
-};
 
 function Wrapper({ children }) {
     return children;
@@ -34,17 +20,17 @@ function NavMain({ activePage }) {
         >
             <Navbar.Header>
                 <Navbar.Brand>
-                    <Link to="/app">ABC-Endpoint</Link>
+                    <Link to="/">ABC-Endpoint</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>
             <Navbar.Collapse>
                 <Nav>
                     {
-                        Object.entries(NAV_LINKS).map(([linkName, { link, title }]) => (
+                        Object.entries(NAV_LINKS).map(([linkName, { path, title }]) => (
                         <Wrapper key={linkName}>
                             <li className={linkName === activePage ? 'active' : null}>
-                                <Link to={link}>
+                                <Link to={path}>
                                     {title}
                                 </Link>
                             </li>

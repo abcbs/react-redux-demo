@@ -11,8 +11,6 @@ import { renderToString } from 'react-dom/server'
 import reducer from '../reducers';
 import App from '../containers/App';
 
-//var app = new (require('express'))();
-
 
 // 每当收到请求时都会触发
 //app.use(handleRender);
@@ -28,10 +26,8 @@ module.exports  =function(req, res) {
     )
     //从store中获得初始state
     const initialState = store.getState();
-
     // 把渲染后的页面内容发送给客户端
     res.send(renderFullPage(html, initialState));
-
 }
 
 function renderFullPage(html, initialState) {

@@ -105,9 +105,6 @@ var Label = function (_React$Component) {
       var children = _props.children;
       var props = (0, _objectWithoutProperties3['default'])(_props, ['className', 'children']);
 
-      (0, _logger2['default'])(this.props);
-      !(className === null) ? process.env.NODE_ENV !== 'production' ? (0, _invariant2['default'])(false, '此属性不能为空 ' + '`%s`  ' + '注意.', name) : (0, _invariant2['default'])(false) : void 0;
-
       var _splitBsProps = (0, _bootstrapUtils.splitBsProps)(props);
 
       var _splitBsProps2 = (0, _slicedToArray3['default'])(_splitBsProps, 2);

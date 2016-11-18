@@ -35,8 +35,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactBootstrap = require('react-bootstrap');
 
-require('../../todomvc/css/index.css');
-
 var _AbcContainer = require('../framework/ui/AbcContainer');
 
 var _AbcContainer2 = _interopRequireDefault(_AbcContainer);

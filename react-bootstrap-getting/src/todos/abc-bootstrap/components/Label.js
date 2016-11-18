@@ -32,14 +32,7 @@ class Label extends React.Component {
 
   render() {
     const { className, children, ...props } = this.props;
-    info(this.props);
-    invariant(
-        className === null,
-        '此属性不能为空 ' +
-        '`%s`  ' +
-        '注意.',
-        name
-    );
+
     const [bsProps, elementProps] = splitBsProps(props);
 
     const classes = {

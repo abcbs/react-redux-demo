@@ -1,4 +1,4 @@
-import configure  from  './config/config.path';
+import configure ,{options} from  './config/config.path';
 import path from 'path';
 import webpack from 'webpack';
 //var configure  =require ( './config/config.path');
@@ -34,12 +34,16 @@ server.plugins = (baseServer.default.plugins || []).concat([
     }),
 
 ]);
-/**
-server.entry = Object.assign(
-    baseServer.default.entry,
-    {"introduction/pages":"./src/todos/frames/IntroductionPage"},
-    {"/home/pages":"./src/todos/frames/HomePage"}
 
-);**/
+
+const home=baseServer.devEntryBundle.concat("./src/enteries/home.js");
+const introduct=baseServer.devEntryBundle.concat("./src/enteries/introduct.js");
+const manager=baseServer.devEntryBundle.concat("./src/enteries/manager.js");
+server.entry = Object.assign(
+    baseServer.default.entry,{
+        home:options.debug ? "./src/enteries/home.js" : home,
+        introduct:options.debug ? "./src/enteries/introduct.js" : introduct,
+        manager:options.debug ? "./src/enteries/manager.js" : manager
+ });
 
 module.exports = server;

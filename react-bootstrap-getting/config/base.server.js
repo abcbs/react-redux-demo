@@ -5,7 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import configure,{options,buildConfig,pathConfig} from './config.path';
 
 const webpackDevServerAddress = `http://${ip.address()}:${options.port}`;
-
+const reactHot = options.debug ? 'react-hot!' : '';
 const cssSourceMap = options.debug ? '?sourceMap' : '';
 
 const entryFile = configure.entryFile;
@@ -18,6 +18,23 @@ const baseframevendor=path.join(buildConfig.dllReferencePath,"baseframevendor-ma
 const reduxvendor=path.join(buildConfig.dllReferencePath,"reduxvendor-manifest.json");
 const bootvendor=path.join(buildConfig.dllReferencePath,"bootvendor-manifest.json");
 const materialuivendor=path.join(buildConfig.dllReferencePath,"materialuivendor-manifest.json");
+
+
+
+var bootstrapLess = new ExtractTextPlugin({
+    filename: "css/[name].less?[hash]-[chunkhash]-[contenthash]-[name]",
+    disable: true,
+    allChunks: true
+});
+
+var extractCSS = new ExtractTextPlugin('index.css');
+
+var cssLoader = extractCSS.extract("style-loader", "css-loader");
+
+
+var lessLoader = bootstrapLess.extract("style-loader","css-loader","less-loader");
+
+var sassLoader = extractCSS.extract('style-loader','css-loader','postcss-loader','sass-loader')
 
 const baseServer = {
   devtool: options.debug ? 'source-map' : null,
@@ -46,10 +63,15 @@ const baseServer = {
         {
             test: /\.css/,
             loader: 'style-loader!css-loader'
+            //loader:cssLoader
+            //loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}`)
+            //loader: ExtractTextPlugin.extract({loader:`style-loader!css-loader`})
         },
         { test: /\.less$/,
+            //loader: ExtractTextPlugin.extract({loader:`style!css!less`})
             //loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!less${cssSourceMap}`)
-            loader: 'style!css!less'
+             loader: 'style!css!less'
+            //loader:lessLoader
        },
         {
             test: /\.scss/,
@@ -67,16 +89,15 @@ const baseServer = {
   },
 
   plugins: [
-
+      // new webpack.DllReferencePlugin({
+      //     context: __dirname,
+      //     manifest: require(rectVendor)
+      // }),
     new webpack.DllReferencePlugin({
       context: __dirname,
       manifest: require(baseframevendor)
     }),
-    new webpack.DllReferencePlugin({
-      context: __dirname,
-      manifest: require(rectVendor)
-    }),
-      new webpack.DllReferencePlugin({
+     new webpack.DllReferencePlugin({
           context: __dirname,
           manifest: require(reduxvendor)
       }),
@@ -88,8 +109,9 @@ const baseServer = {
           context: __dirname,
           manifest: require(materialuivendor)
       }),
-    //new ExtractTextPlugin('[name].css')
-    new ExtractTextPlugin("css/bundle-[name]-[hash:8].css"), // css输出到css目录
+      extractCSS,
+      bootstrapLess
+
   ]
 };
 

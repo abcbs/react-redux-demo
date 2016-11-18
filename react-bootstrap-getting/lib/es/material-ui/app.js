@@ -24,7 +24,7 @@ var _Home = require('./Home');
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _ToolbarExamplesSimple = require('./ToolbarExamplesSimple');
+var _ToolbarExamplesSimple;
 
 var _ToolbarExamplesSimple2 = _interopRequireDefault(_ToolbarExamplesSimple);
 
