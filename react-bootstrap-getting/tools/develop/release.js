@@ -8,22 +8,22 @@ import { releaseVendersRoot, vendersRoot,
     repoRoot,releaseRoot
 } from './constants';
 import ncp from 'ncp'
-import yargs from 'yargs';
-const argv = yargs
-    .help('h')
-    .option('port', {
-        port: 3000,
-        default: false,
-        describe: 'Increased debug output'
-    })
-    .option('debug', {
-        demand: false,
-        default: false,
-        describe: 'Only used when supplied with the --docs-only flag'
-    })
-    .argv;
+// import yargs from 'yargs';
+// const argv = yargs
+//     .help('h')
+//     .option('port', {
+//         port: 3000,
+//         default: false,
+//         describe: 'Increased debug output'
+//     })
+//     .option('debug', {
+//         demand: false,
+//         default: false,
+//         describe: 'Only used when supplied with the --docs-only flag'
+//     })
+//     .argv;
 
-setExecOptions(argv);
+// setExecOptions(argv);
 
 function retain(fn) {
     console.log('Building: '.cyan + '目录重做，'.green);
@@ -50,17 +50,17 @@ function retain(fn) {
 
 function copy() {
     console.log('Building: '.cyan + 'copy'.green);
-    return Promise.all([
+       return Promise.all([
         ncp(vendersRoot, releaseVendersRoot),
         ncp(publicRoot, releaseProductRoot),
         ncp(externalRoot, releaseExternalRoot),
-        ncp(repoRoot+'/index.html', releaseRoot+'/index.html')
+        ncp(repoRoot+'/index.html', releaseRoot+'index.html')
     ]).then(()=>"成功"
     );
 }
 
 export default function release() {
-    console.log('Building: '.cyan + 'release'.green);
+    console.log('构建: '.cyan + '产品发布开始'.green);
     return  buildVenders().then((data)=>{ console.log("第三方发布成功,",data);}).then(
         ()=>
         buildServer().then((data) => {

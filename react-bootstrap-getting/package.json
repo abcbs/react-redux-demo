@@ -10,7 +10,7 @@
     "build-cli": "babel-node tools/develop/build-cli.js",
     "server": "babel-node src/todos/renders/server.js",
     "start": "webpack-dev-server --config webpack.config.js --progress --hot --colors",
-    "build": "webpack --config webpack.config.js --debug false --progress --colors",
+    "build": "webpack --config webpack.config.js --progress --colors",
     "ddl": "webpack --config webpack.config.vendors",
     "ddlserver": "webpack-dev-server --config webpack.config.server --progress  --hot --colors ",
     "ddlpro": "webpack-dev-server --config webpack.config.js --progress  --colors ",

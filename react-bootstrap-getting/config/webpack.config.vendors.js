@@ -55,7 +55,7 @@ const baseVendors  =
   ]
 }
 
-if (process.env.NODE_ENV === 'production'||options.debug===false) {
+if (process.env.NODE_ENV === 'production'||options.debug===true) {
   //baseVendors.devtool = 'source-map';
 
   baseVendors.plugins = (baseVendors.plugins || []).concat([

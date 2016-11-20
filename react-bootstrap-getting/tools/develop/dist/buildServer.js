@@ -2,27 +2,32 @@ import {exec} from '../exec';
 import fsp from 'fs-promise';
 import {publicRoot as buildPath} from '../constants';
 import cmdExec from '../cmdExec'
+import yargs from 'yargs';
+
 //webpack --config webpack.config.js --progress --colors
 export default function buildServer(fn) {
-    console.log('Building: '.cyan + 'Product'.green);
+    console.log('构建阶段: '.cyan + '产品库'.green);
+    const options = yargs
+        .alias('abcm', 'abcmodel')//--vendmodel debug
+        .default('abcmodel', "production")
+        .argv;
     return  new Promise((resolve, reject) => {
             exec(`rm -rf ${buildPath}`)//rimraf rm -rf
                 .then(() => fsp.mkdirs(buildPath)).then(//debug
-                    cmdExec('buid server',
-                        `webpack --config webpack.config.js --debug false --progress --colors`,{
+                    cmdExec('构建产品',
+                        `webpack --config webpack.config.js --${options.abcmodel}  --progress --colors`,{
                             hot:false,
                             debug:false,
                             env: {
                                 // PORT: 3000,
                                 // NODE_ENV:"production",
                                 // ...process.env
-                                debug:false
                             }},
                             (err ,data)=> {
                             if (err) {
                                 reject(err);
                             }else{
-                                console.log("产品发布成功");
+                                console.log("构建产品成功");
                             }
                             resolve("成功");
                          })
