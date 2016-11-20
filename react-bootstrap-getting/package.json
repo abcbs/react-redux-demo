@@ -17,7 +17,9 @@
     "nstart": "node server.js",
     "ddluser": "webpack --config webpack.config.dll.users",
     "ddldev": "webpack --config webpack.config.dev",
+    "release":"gulp abc:release --vendmodel debug --abcmodel debug",
     "debug": "gulp",
+
     "mtest": "mocha --compilers js:babel-register  --recursive",
     "test:watch": "npm test -- --watch",
     "jtest": "jest",

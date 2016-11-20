@@ -19,18 +19,14 @@ const reduxvendor=path.join(buildConfig.dllReferencePath,"reduxvendor-manifest.j
 const bootvendor=path.join(buildConfig.dllReferencePath,"bootvendor-manifest.json");
 const materialuivendor=path.join(buildConfig.dllReferencePath,"materialuivendor-manifest.json");
 
-var bootstrapLess = new ExtractTextPlugin({
-    filename: "css/[name].less?[hash]-[chunkhash]-[contenthash]-[name]",
-    disable: true,
-    allChunks: true
-});
+var bootstrapLess = new ExtractTextPlugin("css/[name].css?[hash]-[chunkhash]-[contenthash]-[name]");
 
-var extractCSS = new ExtractTextPlugin('index.css');
+var extractCSS = new ExtractTextPlugin("css/[name].css?[hash]-[chunkhash]-[contenthash]-[name]");
+var cssLoader = //extractCSS.extract("style-loader","css-loader");
+extractCSS.extract('style', `css${cssSourceMap}`)
 
-var cssLoader = extractCSS.extract("style-loader", "css-loader");
-
-
-var lessLoader = bootstrapLess.extract("style-loader","css-loader","less-loader");
+var lessLoader = //bootstrapLess.extract("style-loader","css-loader","less-loader");
+    extractCSS.extract('style', `css${cssSourceMap}!less${cssSourceMap}`);
 
 var sassLoader = extractCSS.extract('style-loader','css-loader','postcss-loader','sass-loader')
 
@@ -60,16 +56,12 @@ const baseServer = {
       // },
         {
             test: /\.css/,
-            loader: 'style-loader!css-loader'
-            //loader:cssLoader
-            //loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}`)
-            //loader: ExtractTextPlugin.extract({loader:`style-loader!css-loader`})
+            //loader: 'style-loader!css-loader'
+            loader:cssLoader
         },
         { test: /\.less$/,
-            //loader: ExtractTextPlugin.extract({loader:`style!css!less`})
-            //loader: ExtractTextPlugin.extract('style', `css${cssSourceMap}!less${cssSourceMap}`)
-             loader: 'style!css!less'
-            //loader:lessLoader
+             //loader: 'style!css!less'
+            loader:lessLoader
        },
         {
             test: /\.scss/,
@@ -112,8 +104,7 @@ const baseServer = {
 
   ]
 };
-console.log("react hot,value,",options.hot);
-console.log("react hot,typeof,",typeof  options.hot);
+
 if(options.debug===false){
     baseServer.module.loaders = (baseServer.module.loaders || []).concat([
         {
