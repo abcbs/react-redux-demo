@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Navbar from '../../src/Navbar';
-import Nav from '../../src/Nav';
+import {Navbar} from 'react-bootstrap';
+import {Nav} from 'react-bootstrap';
 
 const NAV_LINKS = {
   introduction: {
@@ -21,10 +21,6 @@ const NAV_LINKS = {
     title: 'Support'
   },
 };
-
-// We don't want to include react-router-bootstrap as a dependency here, so we
-// need to fudge our own `<NavItem>` substitutes, and hide unknown props from
-// them.
 
 function Wrapper({ children }) {
   return children;

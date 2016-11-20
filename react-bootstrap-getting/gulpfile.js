@@ -95,6 +95,9 @@ gulp.task('webpack:cleanVendors', getTask('clean-vendors'));
 //删除并打包库
 gulp.task('webpack:buildVendors', getTask('buildvendors'));
 
+//
+gulp.task('abc:release', getTask('release'));
+
 //待调试
 gulp.task('gits', getTask('gits'));
 

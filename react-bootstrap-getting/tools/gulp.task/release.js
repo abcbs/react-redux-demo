@@ -1,9 +1,9 @@
-import buildVendors from '../../tools/develop/dist/buildVenders';
+import release from '../develop/release';
 
 module.exports = function(gulp, plugins) {
     return function(done) {
-        let buildProcess=buildVendors();
-        buildProcess
+        let buildProcess=release;
+        buildProcess()
             .catch(err => {
                 if (err.stack) {
                     console.error(err.stack.red);

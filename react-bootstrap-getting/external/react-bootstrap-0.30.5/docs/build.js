@@ -21,13 +21,6 @@ const license = path.join(repoRoot, 'LICENSE');
 const readmeSrc = path.join(__dirname, 'README.docs.md');
 const readmeDest = path.join(docsBuilt, 'README.md');
 
-/**
- * Generates HTML code for `fileName` page.
- *
- * @param {string} fileName Path for Router.Route
- * @return {Promise} promise
- * @internal
- */
 function generateHTML(fileName) {
   return new Promise( resolve => {
     const location = fileName === 'index.html' ? '/' : `/${fileName}`;
@@ -47,20 +40,21 @@ export default function BuildDocs({dev}) {
 
   const devOption = dev ? '' : '-p';
 
-  return exec(`rimraf ${docsBuilt}`)
+  return exec(`rm -rf ${docsBuilt}`)
     .then(() => fsp.mkdir(docsBuilt))
-    .then(metadata)
+    // .then(metadata)
     .then(propData => {
       Root.assetBaseUrl = '';
       Root.propData = propData;
 
-      const pagesGenerators = Root.getPages().map(generateHTML);
+       const pagesGenerators = Root.getPages().map(generateHTML);
 
       return Promise.all(pagesGenerators.concat([
-        exec(`webpack --config webpack.docs.js --bail ${devOption}`),
+        // exec(`webpack --config webpack.docs.js --bail ${devOption}`),
         copy(license, docsBuilt),
         copy(readmeSrc, readmeDest)
       ]));
     })
     .then(() => console.log('Built: '.cyan + 'docs'.green + (dev ? ' [DEV]'.grey : '')));
+
 }

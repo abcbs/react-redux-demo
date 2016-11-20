@@ -1,5 +1,6 @@
 import path from 'path';
 import {pathConfig ,buildConfig} from '../../config/config.path'
+
 export const repoRoot = path.resolve(__dirname, '../../');
 
 export const srcRoot = path.join(repoRoot, 'src/');
@@ -9,5 +10,19 @@ export const esRoot = path.join(repoRoot, 'lib/es/');
 export const bowerRoot = path.join(repoRoot, 'lib/amd/');
 export const docsRoot = path.join(repoRoot, 'lib/docs-built/');
 
+export const styleRoot = path.join(repoRoot, 'lib/styles/');
+export const mediaRoot = path.join(repoRoot, 'lib/media/');
+export const templateRoot = path.join(repoRoot, 'lib/template/');
+
 export const vendersRoot = pathConfig.buildPath;
 export const publicRoot = buildConfig.buildPath;
+
+//release
+export const releaseRoot = path.join(repoRoot, 'public');
+//第三方打包的库，打包之前在根目录dist，对应变量为vendersRoot
+export const releaseVendersRoot = path.join(repoRoot, 'public/dist');
+//项目打包后的代码，打包之前目录为build，对应变量为publicRoot
+export const releaseProductRoot = path.join(repoRoot, 'public/build');
+//第三方，非npm库，打包之前为external
+export const externalRoot = path.join(repoRoot, 'external');
+export const releaseExternalRoot = path.join(repoRoot, 'public/external');

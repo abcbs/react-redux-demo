@@ -1,7 +1,19 @@
-import buildProcess from '../../tools/develop/build-cli';
+import build from '../../tools/develop/build';
+
+import yargs from 'yargs';
+
 
 module.exports = function(gulp, plugins) {
     return function(done) {
-        console.log("start...")
+        let buildProcess=build(argv);
+        buildProcess
+            .catch(err => {
+                if (err.stack) {
+                    console.error(err.stack.red);
+                } else {
+                    console.error(err.toString().red);
+                }
+                process.exit(1);
+            });
     };
 };

@@ -7,72 +7,20 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 // Keep these in sync with src/index.js.
-const Accordion = require('../../src/Accordion');
-const Alert = require('../../src/Alert');
-const Badge = require('../../src/Badge');
-const Breadcrumb = require('../../src/Breadcrumb');
-const Button = require('../../src/Button');
-const ButtonGroup = require('../../src/ButtonGroup');
-const ButtonToolbar = require('../../src/ButtonToolbar');
-const Carousel = require('../../src/Carousel');
-const CarouselItem = require('../../src/CarouselItem');
-const Checkbox = require('../../src/Checkbox');
-const Clearfix = require('../../src/Clearfix');
-const Col = require('../../src/Col');
-const Collapse = require('../../src/Collapse');
-const ControlLabel = require('../../src/ControlLabel');
-const Dropdown = require('../../src/Dropdown');
-const DropdownButton = require('../../src/DropdownButton');
-const Fade = require('../../src/Fade');
-const Form = require('../../src/Form');
-const FormControl = require('../../src/FormControl');
-const FormGroup = require('../../src/FormGroup');
-const Glyphicon = require('../../src/Glyphicon');
-const Grid = require('../../src/Grid');
-const HelpBlock = require('../../src/HelpBlock');
-const Image = require('../../src/Image');
-const InputGroup = require('../../src/InputGroup');
-const Jumbotron = require('../../src/Jumbotron');
-const Label = require('../../src/Label');
-const ListGroup = require('../../src/ListGroup');
-const ListGroupItem = require('../../src/ListGroupItem');
-const Media = require('../../src/Media');
-const MenuItem = require('../../src/MenuItem');
-const Modal = require('../../src/Modal');
-const Nav = require('../../src/Nav');
-const Navbar = require('../../src/Navbar');
-const NavbarBrand = require('../../src/NavbarBrand');
-const NavDropdown = require('../../src/NavDropdown');
-const NavItem = require('../../src/NavItem');
-const Overlay = require('../../src/Overlay');
-const OverlayTrigger = require('../../src/OverlayTrigger');
-const PageHeader = require('../../src/PageHeader');
-const Pager = require('../../src/Pager');
-const Pagination = require('../../src/Pagination');
-const Panel = require('../../src/Panel');
-const PanelGroup = require('../../src/PanelGroup');
-const Popover = require('../../src/Popover');
-const ProgressBar = require('../../src/ProgressBar');
-const Radio = require('../../src/Radio');
-const ResponsiveEmbed = require('../../src/ResponsiveEmbed');
-const Row = require('../../src/Row');
-const SafeAnchor = require('../../src/SafeAnchor');
-const SplitButton = require('../../src/SplitButton');
-const Tab = require('../../src/Tab');
-const TabContainer = require('../../src/TabContainer');
-const TabContent = require('../../src/TabContent');
-const Table = require('../../src/Table');
-const TabPane = require('../../src/TabPane');
-const Tabs = require('../../src/Tabs');
-const Thumbnail = require('../../src/Thumbnail');
-const Tooltip = require('../../src/Tooltip');
-const Well = require('../../src/Well');
+const {Accordion} = require('react-bootstrap');
+const {Alert} = require('react-bootstrap');
+const {Badge} = require('react-bootstrap');
+const {Breadcrumb} = require('react-bootstrap');
+const {Button }= require('react-bootstrap');
+const {ButtonGroup} = require('react-bootstrap');
+const {ButtonToolbar} = require('react-bootstrap');
+
 
 const bootstrapUtils = require('../../src/utils/bootstrapUtils');
 
 /* eslint-enable */
 
-import {transform} from 'babel-standalone';
+// import {transform} from 'babel-standalone';
 import CodeExample from './CodeExample';
 
 const IS_MOBILE = typeof navigator !== 'undefined' && (
@@ -165,12 +113,12 @@ const ReactPlayground = React.createClass({
 
   getDefaultProps() {
     return {
-      transformer(code) {
-        return transform(code, {
-          // TODO: Use preset options once babel-standalone v6.13 is released.
-          presets: ['es2015-loose', 'react', 'stage-1']
-        }).code;
-      }
+      // transformer(code) {
+      //   return transform(code, {
+      //     // TODO: Use preset options once babel-standalone v6.13 is released.
+      //     presets: ['es2015-loose', 'react', 'stage-1']
+      //   }).code;
+      // }
     };
   },
 

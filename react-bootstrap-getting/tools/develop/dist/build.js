@@ -1,6 +1,4 @@
 import { exec } from '../exec';
-import {buildServer} from './buildServer'
-import {buildVenders} from './buildVenders'
 import {publicRoot} from '../constants';
 import {vendersRoot} from '../constants';
 export default function BuildDistributable() {

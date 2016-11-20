@@ -1,6 +1,6 @@
 import React, { findDOMNode, Component,PropTypes  } from 'react';
 import {ListGroupItem, ListGroup,ControlLabel,HelpBlock,Checkbox,FormGroup} from 'react-bootstrap'
-import '../../todomvc/css/index.css'
+import '../../styles/css/index.css'
 import AbcContainer from '../framework/ui/AbcContainer'
 import Todo from './Todo'
 

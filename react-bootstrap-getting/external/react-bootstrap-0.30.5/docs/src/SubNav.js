@@ -1,10 +1,9 @@
 import React, { cloneElement } from 'react';
 import classNames from 'classnames';
 
-import Nav from '../../src/Nav';
-import SafeAnchor from '../../src/SafeAnchor';
-import ValidComponentChildren from '../../src/utils/ValidComponentChildren';
-import createChainedFunction from '../../src/utils/createChainedFunction';
+import {Nav} from 'react-bootstrap';
+
+
 
 const propTypes = {
   onSelect: React.PropTypes.func,
@@ -52,11 +51,7 @@ class SubNav extends React.Component {
       return true;
     }
 
-    if (ValidComponentChildren.some(props.children, (child) => (
-      this.isActive(child, activeKey, activeHref)
-    ))) {
-      return true;
-    }
+
 
     return props.active;
   }
@@ -88,14 +83,6 @@ class SubNav extends React.Component {
           {text}
         </SafeAnchor>
 
-        <Nav>
-          {ValidComponentChildren.map(children, child => (
-            cloneElement(child, {
-              active: this.isActive(child, activeKey, activeHref),
-              onSelect: createChainedFunction(child.props.onSelect, onSelect),
-            })
-          ))}
-        </Nav>
       </li>
     );
   }

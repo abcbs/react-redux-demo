@@ -9,7 +9,7 @@
     "test": {
       "sourceMaps": "both"
     },
-    "docs-production": {
+    "production": {
       "plugins": [
         ["transform-replace-object-assign", "simple-assign"],
         "transform-react-remove-prop-types",

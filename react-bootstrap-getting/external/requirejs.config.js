@@ -21,7 +21,8 @@ requirejs.config({
 });
 require(["jquery","react"],function ($,sreact) {
     require( ["baseframevendor","redux",
-        'react-bootstrap',"materialuivendor"],function (base,redux,bootstrap,mui){
+        'react-bootstrap'],function (base,redux,bootstrap){
+        
         try{
             require(["app"] ,function(app){
                 console.log("app loading..");

@@ -19,8 +19,9 @@ const port = process.env.PORT || 4000;
 
 const app = express();
 
-if (development) {
+if (development) {//开发方式
   const proxy = httpProxy.createProxyServer();
+  //获取配置端口,端口在命名行设置
   const webpackPort = process.env.WEBPACK_DEV_PORT;
 
   const target = `http://${ip.address()}:${webpackPort}`;
@@ -36,15 +37,16 @@ if (development) {
   });
 
   console.log('Prop data generation started:'.green);
-
+  //
   metadata().then(props => {
     console.log('Prop data generation finished:'.green);
     Root.propData = props;
-
+    //
     app.use(function renderApp(req, res) {
       res.header('Access-Control-Allow-Origin', target);
       res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-
+      //获取数据可以调用action，routes在服务器端的处理参考react-router server rendering，
+      // 在服务器端用一个match方法将拿到的request url匹配到我们之前定义的routes，解析成和客户端一致的props对象传递给组件。
       const location = req.url;
       match({routes, location}, (error, redirectLocation, renderProps) => {
         const html = ReactDOMServer.renderToString(

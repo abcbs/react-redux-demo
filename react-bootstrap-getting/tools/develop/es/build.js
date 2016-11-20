@@ -1,7 +1,7 @@
 import 'colors';
 import { exec } from '../exec';
 import fsp from 'fs-promise';
-import { srcRoot, esRoot } from '../constants';
+import { srcRoot, esRoot,styleRoot,mediaRoot,templateRoot } from '../constants';
 import buildBabel from '../buildBabel';
 
 import devExpressionWithCodes from '../../error-codes-babel/dev-expression-with-codes';
@@ -9,7 +9,21 @@ export default function BuildES() {
   console.log('Building: '.cyan + 'es module'.green);
 
   return exec(`rimraf ${esRoot}`)//rimraf
-    .then(() => fsp.mkdirs(esRoot))
+      .then(() => fsp.mkdirs(esRoot))
+      .then(()=>
+          Promise.all([
+              exec(`rimraf ${styleRoot}`),
+              exec(`rimraf ${mediaRoot}`),
+              exec(`rimraf ${templateRoot}`)
+          ])
+      )
+      .then(()=>
+          Promise.all([
+              fsp.mkdirs(styleRoot),
+              fsp.mkdirs(mediaRoot),
+              fsp.mkdirs(templateRoot)
+          ])
+      )
     .then(() => buildBabel(srcRoot, esRoot, {
       babelrc: true,
       // presets: [

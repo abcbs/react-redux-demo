@@ -1,11 +1,9 @@
 /* eslint-disable no-console, no-process-exit */
 
 import 'colors';
-import portfinder from 'portfinder';
-import { exec } from 'child-process-promise';
-import ip from 'ip';
 
-portfinder.basePort = 4000;
+import { exec } from 'child-process-promise';
+
 
 const SIGINT = 'SIGINT';
 let processMap = {};
@@ -32,49 +30,43 @@ function catchExec(name, err) {
     shutdown();
     return false;
   }
-
   console.log(`${name} -- Failed`.red);
   console.log(err.toString().red);
   return true;
 }
 
-function runCmd(name, cmd, options) {
+export default function runCmd(name, cmd, options,fn) {
   exec(cmd, options)
     .progress(childProcess => {
       listen(childProcess, name);
       processMap[name] = childProcess;
       return;
     })
-    .then(() => console.log('Shutdown: '.cyan + name.green))
+    .then((data) => {console.log('Shutdown: '.cyan + name.green)
+      if(fn){
+        fn(void 0,data);
+      }
+    })
     .catch(err => {
       if (catchExec(name, err)) {
         // Restart if not explicitly shutdown
-        runCmd(name, cmd, options);
+        // runCmd(name, cmd, options);
+        if(fn){
+          fn(err);
+        }
       }
     });
+
 }
 
 console.log('Starting docs in Development mode'.cyan);
 
 process.on(SIGINT, shutdown);
-
-portfinder.getPorts(2, {}, (portFinderErr, [docsPort, webpackPort]) => {
-  if (portFinderErr) {
-    console.log('Failed to acquire ports'.red);
-    process.exit(1);
-  }
-
-  runCmd('webpack-dev-server',
-    `nodemon --watch webpack --watch webpack.docs.js '+
-    '--exec webpack-dev-server -- --config webpack.docs.js --color --port ${webpackPort} '+
-    --debug --hot --host ${ip.address()}`);
-
-  //执行命令时设置环境值
-  runCmd('docs-server', 'nodemon --watch docs --watch src --exec babel-node docs/server.js', {
-    env: {
-      PORT: docsPort,
-      WEBPACK_DEV_PORT: webpackPort,
-      ...process.env
-    }
-  });
-});
+//
+// runCmd('docs-server', 'nodemon --watch docs --watch src --exec babel-node docs/server.js', {
+//   env: {
+//     PORT: docsPort,
+//     WEBPACK_DEV_PORT: webpackPort,
+//     ...process.env
+//   }
+// });

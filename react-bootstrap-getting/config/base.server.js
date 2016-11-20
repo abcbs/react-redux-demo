@@ -54,12 +54,12 @@ const baseServer = {
   },
   module: {
     loaders: [
-      {
-        // React-hot loader and
-        test: /\.js$/, // All .js files
-        loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
-        exclude: [nodeModulesPath],
-      },
+      // {
+      //   // React-hot loader and
+      //   test: /\.js$/, // All .js files
+      //   loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
+      //   exclude: [nodeModulesPath],
+      // },
         {
             test: /\.css/,
             loader: 'style-loader!css-loader'
@@ -105,16 +105,34 @@ const baseServer = {
           context: __dirname,
           manifest: require(bootvendor)
       }),
-      new webpack.DllReferencePlugin({
-          context: __dirname,
-          manifest: require(materialuivendor)
-      }),
+      // new webpack.DllReferencePlugin({
+      //     context: __dirname,
+      //     manifest: require(materialuivendor)
+      // }),
       extractCSS,
       bootstrapLess
 
   ]
 };
-
+if(options.hot===true){
+    baseServer.module.loaders = (baseServer.module.loaders || []).concat([
+        {
+          // React-hot loader and
+          test: /\.js$/, // All .js files
+          loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
+          exclude: [nodeModulesPath],
+        },
+    ])
+}else{
+    baseServer.module.loaders = (baseServer.module.loaders || []).concat([
+        {
+            // React-hot loader and
+            test: /\.js$/, // All .js files
+            loaders: [ 'babel-loader'], //babel loads jsx and es6-7
+            exclude: [nodeModulesPath],
+        },
+    ])
+}
 if (process.env.NODE_ENV === 'production'||options.debug===false) {
   // baseServer.devtool = 'source-map';
   // http://vue-loader.vuejs.org/en/workflow/production.html
