@@ -15,18 +15,18 @@ export default class HomePage extends React.Component {
         return (
             <AbcPage title="首页" router="home" subTitle="欢迎光临">
                     <AbcContainer>
-                        <div>
+                        <span style={{ position: 'absolute' ,display:'inline-block'}}>
                             <Checkbox onClick={this.handleClick.bind(this)}></Checkbox>
                             <Label bsStyle="abc" bsSize="bg">test</Label>
-                        <ButtonToolbar style={{ position: 'relative' ,display:'inline-block'}}>
-                            <Button type="button" bsStyle="default" style={{ position: 'relative'}}>
-                            确定
+                            {"testtttttttttttttt"}
+                             <Button type="button" bsStyle="default" style={{display:'inline'}}>
+                             确定
                             </Button><Badge bsStyle="info" bsSize="abc">4</Badge>
-                        </ButtonToolbar>
+
                             <ButtonToolbar style={{ position: 'relative'}}>
                                 Messages<Badge bsStyle="abc">17</Badge>
                                 </ButtonToolbar>
-                            </div>
+                            </span>
                     </AbcContainer>
 
             </AbcPage>

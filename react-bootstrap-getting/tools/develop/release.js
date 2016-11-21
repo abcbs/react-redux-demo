@@ -54,7 +54,7 @@ function copy() {
         ncp(vendersRoot, releaseVendersRoot),
         ncp(publicRoot, releaseProductRoot),
         ncp(externalRoot, releaseExternalRoot),
-        ncp(repoRoot+'/index.html', releaseRoot+'index.html')
+        ncp(repoRoot+'/index.html', releaseRoot+'/index.html')
     ]).then(()=>"成功"
     );
 }
