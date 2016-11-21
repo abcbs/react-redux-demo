@@ -46,10 +46,12 @@ var repoRoot = _path2.default.resolve(__dirname, '../../');
 
 var dist = _path2.default.join(repoRoot, '/dist');
 var external = _path2.default.join(repoRoot, '/external');
+var build = _path2.default.join(repoRoot, '/build');
 (0, _logger2.default)("dist,", dist);
 (0, _logger2.default)("external,", external);
 app.use('/dist', _express2.default.static(dist));
 app.use('/external', _express2.default.static(external));
+app.use('/build', _express2.default.static(build));
 
 app.use('/', _renders2.default);
 app.listen(port, function (error) {

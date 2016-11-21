@@ -40,7 +40,7 @@ var NAV_LINKS = {
     },
     HomePage: {
         path: '/home',
-        nav: '/introduct',
+        nav: '/home',
         title: '介绍',
         subTitle: "介绍ABC内容",
         role: "needLogined"

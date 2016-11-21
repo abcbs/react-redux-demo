@@ -1,11 +1,11 @@
-import build from '../../tools/develop/build';
+import compile from '../develop/compile';
 
 import yargs from 'yargs';
 
 
 module.exports = function(gulp, plugins) {
     return function(done) {
-        let buildProcess=build(argv);
+        let buildProcess=compile();
         buildProcess
             .catch(err => {
                 if (err.stack) {

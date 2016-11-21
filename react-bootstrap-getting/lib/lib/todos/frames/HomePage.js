@@ -59,20 +59,24 @@ var HomePage = function (_React$Component) {
                     _AbcContainer2.default,
                     null,
                     _react2.default.createElement(
-                        'div',
-                        null,
+                        'span',
+                        { style: { position: 'absolute', display: 'inline-block' } },
                         _react2.default.createElement(_abcBootstrap.Checkbox, { onClick: this.handleClick.bind(this) }),
+                        _react2.default.createElement('input', { type: 'checkbox' }),
+                        _react2.default.createElement('input', { type: 'checkbox' }),
+                        _react2.default.createElement('input', { type: 'checkbox' }),
                         _react2.default.createElement(
                             _abcBootstrap.Label,
                             { bsStyle: 'abc', bsSize: 'bg' },
                             'test'
                         ),
+                        "testtttttttttttttt",
                         _react2.default.createElement(
-                            _abcBootstrap.ButtonToolbar,
-                            { style: { position: 'relative', display: 'inline-block' } },
+                            'span',
+                            null,
                             _react2.default.createElement(
                                 _abcBootstrap.Button,
-                                { type: 'button', bsStyle: 'default', style: { position: 'relative' } },
+                                { type: 'button', bsStyle: 'default', style: { display: 'inline' } },
                                 '\u786E\u5B9A'
                             ),
                             _react2.default.createElement(

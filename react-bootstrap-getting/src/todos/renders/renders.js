@@ -29,24 +29,66 @@ module.exports  =function(req, res) {
     // 把渲染后的页面内容发送给客户端
     res.send(renderFullPage(html, initialState));
 }
-
+/**
+<div id="root">${html}</div>
+<script>
+window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
+</script>
+**/
 function renderFullPage(html, initialState) {
     return `
-    <!doctype html>
+    <!DOCTYPE html>
     <html>
       <head>
-        <title>Redux Universal Example</title>
+        <title>ABC-Endpoint</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Material-UI Example</title>
+        <meta name="description" content="ABC-End-UI Example">
+        <!-- Use minimum-scale=1 to enable GPU rasterization -->
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"
+        >
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+        -->
+        <link rel="stylesheet" href="/build/css/app.css" />
+        <!--<link rel="stylesheet" href="/external/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />-->
+        <!--[if lt IE 9]>
+          <script>
+          (function(){
+            var ef = function(){};
+            window.console = window.console || {log:ef,warn:ef,error:ef,dir:ef};
+          }());
+          </script>
+    
+          <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv-printshiv.min.js"></script>
+    
+        <![endif]-->
+          <link rel="stylesheet" href="/external/home.css">
       </head>
-      <body>
-        <div id="root">${html}</div>
+      <body >
+      <div class="pos images">
+          <span class="top a1" >Hello Beijing</span>
+          <span class="top a2">Hello China</span>
+          <span class="top a3">Hello World</span>
+      </div>
+       <div id="root">${html}</div>
         <script>
-          window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
+        window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
         </script>
-        <script src="dist/reactvendor.js"></script>
-        <script src="dist/bootvendor.js"></script>
-        <script src="/build/app.js"></script>
+        <div id="home">
+        </div>
+     
+      <script src="/external/requirejs/require.js"></script>
+      <script src="/external/requirejs.config.js"></script>
       </body>
     </html>
+
     `
 }
 

@@ -8,20 +8,20 @@ import devExpressionWithCodes from '../../error-codes-babel/dev-expression-with-
 export default function BuildES() {
   console.log('Building: '.cyan + 'es module'.green);
 
-  return exec(`rimraf ${esRoot}`)//rimraf
+  return exec(`rm -rf  ${esRoot}`)//rimraf
       .then(() => fsp.mkdirs(esRoot))
       .then(()=>
           Promise.all([
-              exec(`rimraf ${styleRoot}`),
-              exec(`rimraf ${mediaRoot}`),
-              exec(`rimraf ${templateRoot}`)
+              exec(`rm -rf ${styleRoot}`),
+              exec(`rm -rf ${mediaRoot}`),
+              // exec(`rm -rf ${templateRoot}`)
           ])
       )
       .then(()=>
           Promise.all([
               fsp.mkdirs(styleRoot),
               fsp.mkdirs(mediaRoot),
-              fsp.mkdirs(templateRoot)
+              // fsp.mkdirs(templateRoot)
           ])
       )
     .then(() => buildBabel(srcRoot, esRoot, {

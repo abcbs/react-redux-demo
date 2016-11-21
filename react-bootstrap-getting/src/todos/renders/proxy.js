@@ -17,10 +17,12 @@ const repoRoot = path.resolve(__dirname, '../../');
 
 var dist=path.join(repoRoot, '/dist');
 var external=path.join(repoRoot, '/external');
+var build=path.join(repoRoot, '/build');
 info("dist,",dist);
 info("external,",external);
 app.use('/dist', express.static(dist));
 app.use('/external', express.static(external));
+app.use('/build', express.static(build));
 
 app.use('/',client);
 app.listen(port, function(error) {

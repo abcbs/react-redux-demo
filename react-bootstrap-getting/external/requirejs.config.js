@@ -9,6 +9,7 @@ requirejs.config({
          "jquery": "/external/jquery/jquery.min",
         "materialuivendor":"dist/materialuivendor",
         "q":"/external/qbase/q",
+        "jquerymobile": "/external/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min",
         // "home": "/build/home",
     },
     waitSeconds:60,
@@ -17,9 +18,10 @@ requirejs.config({
         "react-bootstrap": [ "react" ],
         "redux":[ "react" ],
         "materialuivendor":[ "react" ],
+
     }
 });
-
+//
 // require(["jquery","react"],function ($,sreact) {
 //     require( ["baseframevendor","redux",
 //         'react-bootstrap'],function (base,redux,bootstrap){
@@ -55,6 +57,10 @@ require(["baseframevendor"],function (baseframevendor) {
     require( ["jquery"],function ($){
         console.log("jquery...");
     });
+    // require( ["jquerymobile"],function (jquerymobile){
+    //     console.log("jquerymobile...");
+    // });
+
 });
 
 
