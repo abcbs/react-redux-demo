@@ -1,8 +1,14 @@
 //  enable runtime transpilation to use ES6/7 in node
 
+var path = require('path');
+
+var repoRoot = path.resolve(__dirname, './');
+
+var babelrcRoot = path.join(repoRoot, './.babelrc');
+
 var fs = require('fs');
 
-var babelrc = fs.readFileSync('./.babelrc');
+var babelrc = fs.readFileSync(babelrcRoot);
 var config;
 
 try {

@@ -54,6 +54,7 @@ module.exports = function (req, res) {
     //
     // // 把渲染后的页面内容发送给客户端
     // res.send(renderFullPage(html, initialState));
+    var idx = 0;
     (0, _reactRouter.match)({ routes: _Rooter2.default, location: req.url }, function (err, redirectLocation, renderProps) {
         if (err) {
             res.status(500).end('Internal Server Error ' + err);
@@ -64,7 +65,7 @@ module.exports = function (req, res) {
             // const intinal={state:{text: "one"},action:{text: "testest", type: "ADD_TODO"}}
             //创建新的 Redux store 实例
             //得到初始 state
-            var data = { present: [{ text: "testest", completed: false }, { text: "testest", completed: false }] };
+            var data = { present: [{ text: "testest" + new Date(), completed: false }, { text: "testest", completed: false }] };
             var action = { type: "ADD_TODO", text: "testestest" };
             var intinal = {
                 visibilityFilter: "SHOW_ALL",

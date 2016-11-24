@@ -14,11 +14,11 @@ import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 
 import Helmet from 'react-helmet';
-import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
-import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
+import { isLoaded as isInfoLoaded, load as loadInfo } from '../../redux/modules/info';
+import { isLoaded as isAuthLoaded, load as loadAuth, logout } from '../../redux/modules/auth';
 
 import config from '../../config';
-import { InfoBar } from 'components';
+import { InfoBar } from '../../components';
 
 //1. Connect data, similar to react-redux @connect
 @asyncConnect([{
@@ -123,7 +123,7 @@ export default class App extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-       
+
         <div className={styles.appContent}>
           {this.props.children}
         </div>

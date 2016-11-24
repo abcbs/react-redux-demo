@@ -5,10 +5,11 @@ import App from '../containers/App';
 import NotFoundPage from '../framework/ui/AbcNotFoundPage'
 import IntroductionPage from '../frames/IntroductionPage'
 import HomePage from '../frames/HomePage'
-import NAV_LINKS from './NavLinks'
+import AbcMainPage from '../framework/ui/AbcMainPage'
 
 export default (
-    <Route path="/" component={App}>
+    <Route path="/" component={AbcMainPage}>
+        <IndexRoute component={App}/>
         <Route  path="/app/:filter" component={App} />
         <Route  path="/home" component={HomePage} />
         <Route  path="/introduct" component={IntroductionPage} />

@@ -90,7 +90,6 @@ var AbcPage = function (_Component) {
             return _react2['default'].createElement(
                 'span',
                 other,
-                _react2['default'].createElement(_AbcNavMain2['default'], { activePage: router }),
                 _react2['default'].createElement(_AbcPageHeader2['default'], { title: title, subTitle: subTitle }),
                 this.rederChildren(children),
                 _react2['default'].createElement(_AbcPageFooter2['default'], null)

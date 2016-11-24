@@ -42,7 +42,7 @@ _fastclick2.default.attach(document.body);
 //在服务端渲染中，这是客户端
 //store(Redux Store): 应用程序中唯一的Redux store对象
 //通过服务端注入的全局变量得到初始state
-var initialState = window.__INITIAL_STATE_;
+var initialState = window.__INITIAL_STATE__;
 var store = void 0;
 if (initialState) {
     store = (0, _redux.createStore)(_reducers2.default, initialState);

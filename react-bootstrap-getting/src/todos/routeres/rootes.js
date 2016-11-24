@@ -6,6 +6,7 @@ import App from '../containers/App';
 import NotFoundPage from '../framework/ui/AbcNotFoundPage'
 import IntroductionPage from '../frames/IntroductionPage'
 import HomePage from '../frames/HomePage'
+import AbcNavMain from '../framework/ui/AbcNavMain'
 import info from '../framework/utils/logger'
 import routes from './Rooter'
 import { syncHistoryWithStore } from 'react-router-redux'
@@ -14,13 +15,18 @@ const Root = ({ store }) =>
 {
     //const history = syncHistoryWithStore(browserHistory, store);
    //支持服务端渲染
+   //  return (<Provider store={store}>
+    //      <Router history={browserHistory}>
+    //          <Route  path="/" component={NavMain} />
+    //          <Route  path="/app/:filter" component={App} />
+    //          <Route  path="/home" component={HomePage} />
+    //          <Route  path="/introduct" component={IntroductionPage} />
+    //          <Route  path="*" component={NotFoundPage} />
+    //      </Router>
+    //  </Provider>);
     return (<Provider store={store}>
         <Router history={browserHistory}>
-            <Route  path="/" component={App} />
-            <Route  path="/app/:filter" component={App} />
-            <Route  path="/home" component={HomePage} />
-            <Route  path="/introduct" component={IntroductionPage} />
-            <Route  path="*" component={NotFoundPage} />
+            {routes}
         </Router>
     </Provider>);
 }

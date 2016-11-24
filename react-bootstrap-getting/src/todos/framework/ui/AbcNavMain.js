@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ Component, PropTypes, Children } from 'react'
 import { Link } from 'react-router';
 import entries from 'lodash/entries'
 import {Navbar, Nav} from 'react-bootstrap'

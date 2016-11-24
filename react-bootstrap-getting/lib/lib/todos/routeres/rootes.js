@@ -28,6 +28,10 @@ var _HomePage = require('../frames/HomePage');
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
+var _AbcNavMain = require('../framework/ui/AbcNavMain');
+
+var _AbcNavMain2 = _interopRequireDefault(_AbcNavMain);
+
 var _logger = require('../framework/utils/logger');
 
 var _logger2 = _interopRequireDefault(_logger);
@@ -40,26 +44,32 @@ var _reactRouterRedux = require('react-router-redux');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import AppRaw from '../containers/AppRaw';
 var Root = function Root(_ref) {
     var store = _ref.store;
 
     //const history = syncHistoryWithStore(browserHistory, store);
     //支持服务端渲染
+    //  return (<Provider store={store}>
+    //      <Router history={browserHistory}>
+    //          <Route  path="/" component={NavMain} />
+    //          <Route  path="/app/:filter" component={App} />
+    //          <Route  path="/home" component={HomePage} />
+    //          <Route  path="/introduct" component={IntroductionPage} />
+    //          <Route  path="*" component={NotFoundPage} />
+    //      </Router>
+    //  </Provider>);
     return _react2.default.createElement(
         _reactRedux.Provider,
         { store: store },
         _react2.default.createElement(
             _reactRouter.Router,
             { history: _reactRouter.browserHistory },
-            _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App2.default }),
-            _react2.default.createElement(_reactRouter.Route, { path: '/app/:filter', component: _App2.default }),
-            _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _HomePage2.default }),
-            _react2.default.createElement(_reactRouter.Route, { path: '/introduct', component: _IntroductionPage2.default }),
-            _react2.default.createElement(_reactRouter.Route, { path: '*', component: _AbcNotFoundPage2.default })
+            _Rooter2.default
         )
     );
 };
+// import AppRaw from '../containers/AppRaw';
+
 
 Root.propTypes = {
     store: _react.PropTypes.object.isRequired

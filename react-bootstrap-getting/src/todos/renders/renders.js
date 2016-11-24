@@ -12,6 +12,7 @@ import reducer from '../reducers';
 import App from '../containers/App';
 import routes from '../routeres/Rooter'
 
+
 // 每当收到请求时都会触发
 //app.use(handleRender);
 module.exports  =function(req, res) {
@@ -31,6 +32,7 @@ module.exports  =function(req, res) {
     //
     // // 把渲染后的页面内容发送给客户端
     // res.send(renderFullPage(html, initialState));
+    let idx=0;
     match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
         if (err) {
             res.status(500).end(`Internal Server Error ${err}`);
@@ -41,7 +43,7 @@ module.exports  =function(req, res) {
             // const intinal={state:{text: "one"},action:{text: "testest", type: "ADD_TODO"}}
             //创建新的 Redux store 实例
             //得到初始 state
-            var data={present:[{text:"testest",completed:false},{text:"testest",completed:false}]};
+            var data={present:[{text:"testest"+(new Date),completed:false},{text:"testest",completed:false}]};
             var action={type: "ADD_TODO", text: "testestest"};
             var intinal=
             {

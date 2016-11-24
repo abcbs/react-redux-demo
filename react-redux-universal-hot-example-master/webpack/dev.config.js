@@ -5,6 +5,7 @@ var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
 var assetsPath = path.resolve(__dirname, '../static/dist');
+
 var host = (process.env.HOST || 'localhost');
 var port = (+process.env.PORT + 1) || 3001;
 
@@ -12,7 +13,12 @@ var port = (+process.env.PORT + 1) || 3001;
 var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools'));
 
-var babelrc = fs.readFileSync('./.babelrc');
+var repoRoot = path.resolve(__dirname, '../');
+
+var babelrcRoot = path.join(repoRoot, './.babelrc');
+
+var babelrc = fs.readFileSync(babelrcRoot);
+
 var babelrcObject = {};
 
 try {

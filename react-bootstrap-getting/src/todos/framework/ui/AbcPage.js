@@ -25,7 +25,7 @@ export default class AbcPage extends Component {
         const { children,router,title, subTitle,theme,...other} = this.props;
         return (
             <span {...other}>
-                <NavMain activePage={router} />
+             
                 <PageHeader title={title}  subTitle={subTitle}  />
                 {this.rederChildren(children)}
                   <PageFooter />

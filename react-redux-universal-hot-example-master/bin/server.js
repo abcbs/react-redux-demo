@@ -33,7 +33,7 @@ var WebpackIsomorphicTools = require('webpack-isomorphic-tools');
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(require('../webpack/webpack-isomorphic-tools'))
 // also enter development mode since it's a development webpack configuration
 // (see below for explanation)
-  .development(__DEVELOPMENT__)
+//   .development(__DEVELOPMENT__)
   // initializes a server-side instance of webpack-isomorphic-tools
   // (the first parameter is the base path for your project
   //  and is equal to the "context" parameter of you Webpack configuration)

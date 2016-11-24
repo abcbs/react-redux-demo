@@ -17,7 +17,7 @@ FastClick.attach(document.body);
 //在服务端渲染中，这是客户端
 //store(Redux Store): 应用程序中唯一的Redux store对象
 //通过服务端注入的全局变量得到初始state
-const initialState = window.__INITIAL_STATE_;
+const initialState = window.__INITIAL_STATE__;
 let store ;
 if(initialState){
     store=createStore(reducer,initialState);
