@@ -14,9 +14,9 @@ var _reducers = require('./reducers');
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
-var _rootes = require('./routeres/rootes');
+var _Client = require('./routeres/Client');
 
-var _rootes2 = _interopRequireDefault(_rootes);
+var _Client2 = _interopRequireDefault(_Client);
 
 require('bootstrap/less/theme.less');
 
@@ -60,7 +60,7 @@ render(
 );
  **/
 
-(0, _reactDom.render)(_react2.default.createElement(_rootes2.default, { store: store }), document.getElementById('root'));
+(0, _reactDom.render)(_react2.default.createElement(_Client2.default, { store: store }), document.getElementById('root'));
 /**
 render(
     <Provider store={store}>

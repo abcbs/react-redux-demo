@@ -28,38 +28,20 @@ var _App = require('../containers/App');
 
 var _App2 = _interopRequireDefault(_App);
 
-var _Rooter = require('../routeres/Rooter');
+var _Routes = require('../routeres/Routes');
 
-var _Rooter2 = _interopRequireDefault(_Rooter);
+var _Routes2 = _interopRequireDefault(_Routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 // 每当收到请求时都会触发
-//app.use(handleRender);
 
 //第一件要做的事情就是对每个请求创建一个新的Redux store实例。这个store惟一作用是提供应用初始的state。
 //渲染时，使用<Provider>来包住根组件<App />，以此来让组件树中所有组件都能访问到store.
 //服务端渲染最关键的一步是在发送响应前渲染初始的HTML。这就要使用React.renderToString().
 //然后使用store.getState()从store得到初始state。renderFullPage函数会介绍接下来如何传递。
 module.exports = function (req, res) {
-    //得到初始 state
-    // const state={state:{text: "one"},action:{text: "testest", type: "ADD_TODO"}}
-    // //创建新的 Redux store 实例
-    // const store = createStore(reducer,state);
-
-    // // 把组件渲染成字符串
-    // const html = renderToString(
-    //     <Provider store={store}>
-    //         <App />
-    //     </Provider>
-    // )
-    // //从store中获得初始state
-    // const initialState = store.getState();
-    //
-    // // 把渲染后的页面内容发送给客户端
-    // res.send(renderFullPage(html, initialState));
-    var idx = 0;
-    (0, _reactRouter.match)({ routes: _Rooter2['default'], location: req.url }, function (err, redirectLocation, renderProps) {
+    (0, _reactRouter.match)({ routes: _Routes2['default'], location: req.url }, function (err, redirectLocation, renderProps) {
         if (err) {
             res.status(500).end('Internal Server Error ' + err);
         } else if (redirectLocation) {
@@ -70,12 +52,10 @@ module.exports = function (req, res) {
             //创建新的 Redux store 实例
             //得到初始 state
             var data = { present: [{ text: "testest" + new Date(), completed: false }, { text: "testest", completed: false }] };
-            var action = { type: "ADD_TODO", text: "testestest" };
             var intinal = {
                 visibilityFilter: "SHOW_ALL",
                 todos: data };
             var store = (0, _redux.createStore)(_reducers2['default'], intinal);
-            // const store = configureStore();
             var state = store.getState();
             var html = (0, _server.renderToString)(_react2['default'].createElement(
                 _reactRedux.Provider,

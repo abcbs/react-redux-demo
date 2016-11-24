@@ -10,29 +10,10 @@ import {match, RouterContext ,browserHistory} from 'react-router';
 import { renderToString } from 'react-dom/server'
 import reducer from '../reducers';
 import App from '../containers/App';
-import routes from '../routeres/Rooter'
-
+import routes from '../routeres/Routes'
 
 // 每当收到请求时都会触发
-//app.use(handleRender);
 module.exports  =function(req, res) {
-    //得到初始 state
-    // const state={state:{text: "one"},action:{text: "testest", type: "ADD_TODO"}}
-    // //创建新的 Redux store 实例
-    // const store = createStore(reducer,state);
-
-    // // 把组件渲染成字符串
-    // const html = renderToString(
-    //     <Provider store={store}>
-    //         <App />
-    //     </Provider>
-    // )
-    // //从store中获得初始state
-    // const initialState = store.getState();
-    //
-    // // 把渲染后的页面内容发送给客户端
-    // res.send(renderFullPage(html, initialState));
-    let idx=0;
     match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
         if (err) {
             res.status(500).end(`Internal Server Error ${err}`);
@@ -43,14 +24,13 @@ module.exports  =function(req, res) {
             // const intinal={state:{text: "one"},action:{text: "testest", type: "ADD_TODO"}}
             //创建新的 Redux store 实例
             //得到初始 state
-            var data={present:[{text:"testest"+(new Date),completed:false},{text:"testest",completed:false}]};
-            var action={type: "ADD_TODO", text: "testestest"};
+            var data={present:[{text:"testest"+(new Date),completed:false},
+                                {text:"testest",completed:false}]};
             var intinal=
             {
                 visibilityFilter: "SHOW_ALL",
-                todos:data}
+                todos:data};
             const store = createStore(reducer,intinal);
-            // const store = configureStore();
             const state = store.getState();
             const html = renderToString(
                 <Provider store={store}>

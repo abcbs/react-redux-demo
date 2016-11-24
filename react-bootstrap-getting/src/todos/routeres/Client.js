@@ -8,10 +8,10 @@ import IntroductionPage from '../frames/IntroductionPage'
 import HomePage from '../frames/HomePage'
 import AbcNavMain from '../framework/ui/AbcNavMain'
 import info from '../framework/utils/logger'
-import routes from './Rooter'
+import routes from './Routes'
 import { syncHistoryWithStore } from 'react-router-redux'
 
-const Root = ({ store }) =>
+const Client = ({ store }) =>
 {
     //const history = syncHistoryWithStore(browserHistory, store);
    //支持服务端渲染
@@ -31,8 +31,8 @@ const Root = ({ store }) =>
     </Provider>);
 }
 
-Root.propTypes = {
+Client.propTypes = {
     store: PropTypes.object.isRequired,
 };
 
-export default Root;
+export default Client;

@@ -16,12 +16,15 @@ function output(prefix, message) {
 }
 
 function listen({stdout, stderr}, name) {
-  stdout.on('data', data => output(`[${name}] `.grey, data));
-  stderr.on('data', data => output(`[${name}] `.grey, data));
+  stdout.on('data', data => output(`[${name}] `.grey, data.green));
+  stderr.on('data', data => output(`[${name}] `.grey, data.green));
 }
 
 function shutdown() {
-  Object.values(processMap).forEach(process => process.kill(SIGINT));
+  Object.values(processMap).forEach(process => {
+    console.log("线程标识,",process.pid);
+    process.kill(SIGINT);
+  });
 }
 
 function catchExec(name, err) {
@@ -30,7 +33,7 @@ function catchExec(name, err) {
     shutdown();
     return false;
   }
-  console.log(`${name} -- Failed`.red);
+  console.log(`${name} -- 线程失败(Failed)`.red);
   console.log(err.toString().red);
   return true;
 }

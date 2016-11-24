@@ -4,7 +4,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 // import App from './containers/App'
 import reducer from './reducers'
-import Root from './routeres/rootes'
+import Client from './routeres/Client'
 //import '../../external/bootstrap-3.3.7/dist/css/bootstrap-theme.css'
 //import '../../external/bootstrap-3.3.7/dist/css/bootstrap.css'
 import 'bootstrap/less/theme.less'
@@ -36,7 +36,7 @@ render(
  **/
 
 render(
-    <Root store={store} />,
+    <Client store={store} />,
     document.getElementById('root'));
 /**
 render(

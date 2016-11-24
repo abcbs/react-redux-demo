@@ -7,8 +7,9 @@
     "url": "https://github.com/abcbs/react-redux-demo.git"
   },
   "scripts": {
-    "build-cli": "gulp abc:build-cli --vendmodel debug --abcmodel debug",
-    "server": "babel-node src/todos/renders/server.js",
+    "build-cli":"npm run start-dev",
+    "start-dev": "better-npm-run abc:build-cli",
+    "start-run": "better-npm-run abc:run",
     "start": "webpack-dev-server --config webpack.config.js --progress --hot --colors",
     "build": "webpack --config webpack.config.js --progress --colors",
     "ddl": "webpack --config webpack.config.vendors",
@@ -25,57 +26,21 @@
     "ktest": "node_modules/.bin/karma start karma.config.js"
   },
   "betterScripts": {
-    "start-prod": {
-      "command": "node ./bin/server.js",
-      "env": {
-        "NODE_PATH": "./src",
-        "NODE_ENV": "production",
-        "PORT": 3000,
-        "HOST": "192.168.1.102",
-        "APIHOST": "192.168.1.102",
-        "APIPORT": 3030
-      }
-    },
-    "start-prod-api": {
-      "command": "node ./bin/api.js",
-      "env": {
-        "NODE_PATH": "./api",
-        "NODE_ENV": "production",
-        "HOST": "192.168.1.102",
-        "APIHOST": "192.168.1.102",
-        "APIPORT": 3030
-      }
-    },
-    "start-dev": {
-      "command": "node ./bin/server.js",
-      "env": {
-        "NODE_PATH": "./src",
-        "NODE_ENV": "development",
-        "PORT": 3000,
-        "APIPORT": 3030
-      }
-    },
-    "start-dev-api": {
-      "command": "node ./bin/api.js",
-      "env": {
-        "NODE_PATH": "./api",
-        "NODE_ENV": "development",
-        "APIPORT": 3030
-      }
-    },
-    "watch-client": {
-      "command": "node webpack/webpack-dev-server.js",
-      "env": {
-        "UV_THREADPOOL_SIZE": 100,
-        "NODE_PATH": "./src",
-        "PORT": 3000,
-        "APIPORT": 3030
-      }
-    },
-    "build": {
-      "command": "webpack --verbose --colors --display-error-details --config webpack/prod.config.js",
+    "abc:build-cli": {
+      "command": "gulp abc:build-cli --vendmodel debug --abcmodel debug",
       "env": {
         "NODE_ENV": "production"
+      }
+    },
+    "abc:run": {
+      "command": "node ./lib/es/todos/renders/server.js",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "production",
+        "PORT": 3000,
+        "HOST": "192.168.1.102",
+        "APIHOST": "192.168.1.102",
+        "APIPORT": 3030
       }
     }
   },
@@ -123,6 +88,7 @@
     "child-process-promise": "^2.1.3",
     "colors": "^1.1.2",
     "compression": "^1.6.2",
+    "concurrently": "^3.1.0",
     "css-loader": "^0.25.0",
     "del": "^2.2.2",
     "derequire": "^2.0.3",
