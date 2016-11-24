@@ -24,7 +24,7 @@ app.use('/dist', express.static(dist));
 app.use('/external', express.static(external));
 app.use('/build', express.static(build));
 
-app.use('/',client);
+app.use(client);
 app.listen(port, function(error) {
     if (error) {
         console.error(error)

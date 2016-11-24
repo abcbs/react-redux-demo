@@ -2,7 +2,7 @@ import path from 'path';
 import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
+import {match, RouterContext ,browserHistory} from 'react-router';
 //第一件要做的事情就是对每个请求创建一个新的Redux store实例。这个store惟一作用是提供应用初始的state。
 //渲染时，使用<Provider>来包住根组件<App />，以此来让组件树中所有组件都能访问到store.
 //服务端渲染最关键的一步是在发送响应前渲染初始的HTML。这就要使用React.renderToString().
@@ -10,24 +10,69 @@ import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server'
 import reducer from '../reducers';
 import App from '../containers/App';
-
+import routes from '../routeres/Rooter'
 
 // 每当收到请求时都会触发
 //app.use(handleRender);
 module.exports  =function(req, res) {
-    // 创建新的 Redux store 实例
-    const store = createStore(reducer);
+    //得到初始 state
+    // const state={state:{text: "one"},action:{text: "testest", type: "ADD_TODO"}}
+    // //创建新的 Redux store 实例
+    // const store = createStore(reducer,state);
 
-    // 把组件渲染成字符串
-    const html = renderToString(
-        <Provider store={store}>
-            <App />
-        </Provider>
-    )
-    //从store中获得初始state
-    const initialState = store.getState();
-    // 把渲染后的页面内容发送给客户端
-    res.send(renderFullPage(html, initialState));
+    // // 把组件渲染成字符串
+    // const html = renderToString(
+    //     <Provider store={store}>
+    //         <App />
+    //     </Provider>
+    // )
+    // //从store中获得初始state
+    // const initialState = store.getState();
+    //
+    // // 把渲染后的页面内容发送给客户端
+    // res.send(renderFullPage(html, initialState));
+    match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+        if (err) {
+            res.status(500).end(`Internal Server Error ${err}`);
+        } else if (redirectLocation) {
+            res.redirect(redirectLocation.pathname + redirectLocation.search);
+        } else if (renderProps) {
+            //得到初始 state
+            // const intinal={state:{text: "one"},action:{text: "testest", type: "ADD_TODO"}}
+            //创建新的 Redux store 实例
+            //得到初始 state
+            var data={present:[{text:"testest",completed:false},{text:"testest",completed:false}]};
+            var action={type: "ADD_TODO", text: "testestest"};
+            var intinal=
+            {
+                visibilityFilter: "SHOW_ALL",
+                todos:data}
+            const store = createStore(reducer,intinal);
+            // const store = configureStore();
+            const state = store.getState();
+            const html = renderToString(
+                <Provider store={store}>
+                    <RouterContext {...renderProps}/>
+                </Provider>
+            );
+            res.end(renderFullPage(html, store.getState()));
+            // Promise.all([
+            //     store.dispatch(fetchList()),
+            //     store.dispatch(fetchItem(renderProps.params.id))
+            // ])
+            //     .then(() => {
+            //         const html = renderToString(
+            //             <Provider store={store}>
+            //                 <RoutingContext {...renderProps} />
+            //             </Provider>
+            //         );
+            //         res.end(renderFullPage(html, store.getState()));
+            //     });
+        } else {
+            res.status(404).end('Not found');
+        }
+    });
+
 }
 /**
 <div id="root">${html}</div>

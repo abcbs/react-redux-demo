@@ -6,7 +6,7 @@ import configure,{options,buildConfig} from '../../config/config.path';
 const {buildPath, buildLibPath,publicPath,contentBase,nodeModulesPath}= configure;
 
 export default function cleanVendors() {
-    return exec(`rm -rf ${buildPath}`)
+    return exec(`rimraf ${buildPath}`)
         .then(() => fsp.mkdir(buildPath))
         //.then(metadata)
         .then(() => console.log('重做库目录成功'));

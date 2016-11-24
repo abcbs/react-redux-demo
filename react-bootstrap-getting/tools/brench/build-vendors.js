@@ -6,7 +6,7 @@ const {buildPath, buildLibPath,publicPath,contentBase,nodeModulesPath}= configur
 
 export default function buildVendors() {
     console.log('Building: '.cyan + 'Vendors'.green);
-    return exec(`rm -rf ${buildPath}`)
+    return exec(`rimraf ${buildPath}`)
         .then(() => fsp.mkdirs(buildPath))
         .then(() => exec(`webpack --config webpack.config.vendors`))
         .then(() => console.log('Built: '.cyan + 'Vendors'.green));

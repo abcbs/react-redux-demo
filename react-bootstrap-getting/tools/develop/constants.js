@@ -26,3 +26,8 @@ export const releaseProductRoot = path.join(repoRoot, 'public/build');
 //第三方，非npm库，打包之前为external
 export const externalRoot = path.join(repoRoot, 'external');
 export const releaseExternalRoot = path.join(repoRoot, 'public/external');
+
+//Bebal解析后，第三方库、产品库客户端、第三方非打包库拷贝
+export const esVenderRoot = path.join(repoRoot, 'lib/es/dist');
+export const esProductRoot = path.join(repoRoot, 'lib/es/build');
+export const esExternalRoot = path.join(repoRoot, 'lib/es/external');

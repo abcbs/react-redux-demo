@@ -88,7 +88,7 @@ gulp.task('run', () => {
 //开启服务
 gulp.task('start', getTask('start-server'));
 
-gulp.task('build-cli', getTask('build-cli'));
+gulp.task('abc:build-cli', getTask('build-cli'));
 
 //删除库
 gulp.task('webpack:cleanVendors', getTask('clean-vendors'));

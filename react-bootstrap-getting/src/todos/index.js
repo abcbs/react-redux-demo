@@ -35,9 +35,8 @@ render(
 );
  **/
 
-
 render(
-    <Root store={store}/>,
+    <Root store={store} />,
     document.getElementById('root'));
 /**
 render(

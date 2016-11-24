@@ -53,7 +53,7 @@ app.use('/dist', _express2['default']['static'](dist));
 app.use('/external', _express2['default']['static'](external));
 app.use('/build', _express2['default']['static'](build));
 
-app.use('/', _renders2['default']);
+app.use(_renders2['default']);
 app.listen(port, function (error) {
     if (error) {
         console.error(error);
