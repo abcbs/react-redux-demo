@@ -25,9 +25,8 @@ export default class AbcPage extends Component {
         const { children,router,title, subTitle,theme,...other} = this.props;
         return (
             <span {...other}>
-             
-                <PageHeader title={title}  subTitle={subTitle}  />
-                {this.rederChildren(children)}
+                 <PageHeader title={title}  subTitle={subTitle}  />
+                    {this.rederChildren(children)}
                   <PageFooter />
             </span>
         )

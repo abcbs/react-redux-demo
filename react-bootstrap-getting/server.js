@@ -6,7 +6,7 @@ var express = require('express');
 var path = require('path');
 var app = new (require('express'))();
 var port = 3000;
-var client=require('./src/todos/renders/renders');
+var client=require('./src/todos/renders/Render');
 var compiler = webpack(config.default);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.default.output.publicPath }));
 

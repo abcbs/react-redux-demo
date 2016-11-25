@@ -10,7 +10,7 @@ var _socket = require('socket.io-client');
 
 var _socket2 = _interopRequireDefault(_socket);
 
-var _Client = require('./routeres/Client');
+var _Client = require('./framework/endpoint/Client');
 
 var _Client2 = _interopRequireDefault(_Client);
 

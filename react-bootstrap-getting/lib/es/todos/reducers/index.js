@@ -4,17 +4,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
 var _redux = require('redux');
 
-var _multireducer = require('multireducer');
+var _reducers = require('../framework/reducers');
 
-var _multireducer2 = _interopRequireDefault(_multireducer);
-
-var _reactRouterRedux = require('react-router-redux');
-
-var _violetPaginator = require('violet-paginator');
-
-var _reduxForm = require('redux-form');
+var _reducers2 = _interopRequireDefault(_reducers);
 
 var _todos = require('./todos');
 
@@ -30,15 +28,10 @@ var _addTodoVerfiy2 = _interopRequireDefault(_addTodoVerfiy);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var todoApp = (0, _redux.combineReducers)({
-    routing: _reactRouterRedux.routerReducer,
-    pagination: _violetPaginator.pagination,
-    form: _reduxForm.reducer,
+var todoApp = (0, _redux.combineReducers)((0, _extends3['default'])({}, _reducers2['default'], {
     visibilityFilter: _visibilityFilter2['default'],
     addTodoVerfiy: _addTodoVerfiy2['default'],
     todos: _todos2['default']
-});
+}));
 //应用
-
-//第三组件
 exports['default'] = todoApp;

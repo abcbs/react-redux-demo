@@ -5,9 +5,9 @@ import { Router, browserHistory ,applyRouterMiddleware} from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 
-import ApiClient from '../framework/utils/ApiClient'
-import configureStore from '../store/configureStore'
-import routes from './Routes'
+import ApiClient from '../utils/ApiClient'
+import configureStore from '../../store/configureStore'
+import routes from '../../routeres/Routes'
 
 const Client = ({ data }) =>
 {

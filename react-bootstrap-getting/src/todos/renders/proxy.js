@@ -6,7 +6,7 @@ import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import {match, RouterContext} from 'react-router';
-import client from './renders';
+import client from './Render';
 import info from '../framework/utils/logger'
 //压缩
 import compression from 'compression';

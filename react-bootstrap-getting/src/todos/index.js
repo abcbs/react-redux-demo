@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import io from 'socket.io-client';
-import Client from './routeres/Client'
+import Client from './framework/endpoint/Client'
 import 'bootstrap/less/theme.less'
 import 'bootstrap/less/bootstrap.less';
 import FastClick from 'fastclick';

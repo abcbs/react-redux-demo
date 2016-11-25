@@ -28,9 +28,9 @@ var _server2 = _interopRequireDefault(_server);
 
 var _reactRouter = require('react-router');
 
-var _renders = require('./renders');
+var _Render = require('./Render');
 
-var _renders2 = _interopRequireDefault(_renders);
+var _Render2 = _interopRequireDefault(_Render);
 
 var _logger = require('../framework/utils/logger');
 
@@ -68,7 +68,7 @@ app.use('/dist', _express2['default']['static'](dist));
 app.use('/external', _express2['default']['static'](external));
 app.use('/build', _express2['default']['static'](build));
 
-app.use(_renders2['default']);
+app.use(_Render2['default']);
 app.use(function (err, req, res, next) {
     // log it
     if (!module.parent) console.error(err.stack);
