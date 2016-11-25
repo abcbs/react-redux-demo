@@ -29,7 +29,10 @@ export const options = yargs
     .alias('d', 'debug')
     .default('host', '192.168.1.102')
     .default('port', '3000')
+    .default('apiHost', '192.168.1.102')
+    .default('apiPort', '3030')
     .default('debug', false)
+    
     .argv;
 
 export  default pathConfig;

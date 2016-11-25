@@ -1,6 +1,19 @@
 import path from 'path';
 import React from 'react';
-import { createStore } from 'redux';
+import ReactDOM from 'react-dom/server';
+//客户端请求封装
+import ApiClient from '../framework/utils/ApiClient';
+import configureStore from '../store/configureStore'
+//create an express middleware to render your pages on the server
+//html page markup
+import PrettyError from 'pretty-error';
+
+//路由的状态管理
+import { syncHistoryWithStore } from 'react-router-redux';
+//异步装载
+// import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
+//路由历史在内存中的存储，主要用于服务端
+import createHistory from 'react-router/lib/createMemoryHistory';
 import { Provider } from 'react-redux';
 import {match, RouterContext ,browserHistory} from 'react-router';
 //第一件要做的事情就是对每个请求创建一个新的Redux store实例。这个store惟一作用是提供应用初始的state。
@@ -11,33 +24,56 @@ import { renderToString } from 'react-dom/server'
 import reducer from '../reducers';
 import App from '../containers/App';
 import routes from '../routeres/Routes'
-
+import Html from '../static/Html'
 // 每当收到请求时都会触发
 module.exports  =function(req, res) {
-    match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+    // if (__DEVELOPMENT__) {
+    //     // Do not cache webpack stats: the script file would change since
+    //     // hot module replacement is enabled in the development env
+    //     webpackIsomorphicTools.refresh();
+    // }
+    //请求解析
+    const client = new ApiClient(req);
+    //请求历史存储
+    const memoryHistory = createHistory(req.originalUrl);
+    //得到初始 state
+    var data={present:[{text:"testest"+(new Date),completed:false},
+                        {text:"testest",completed:false}]};
+    var intinal={
+        visibilityFilter: "SHOW_ALL",
+        todos:data
+    };
+    //初始化Redux
+    const store = configureStore(memoryHistory, client,intinal);
+    // Create an enhanced history that syncs navigation events with the store
+    const history = syncHistoryWithStore(memoryHistory, store);
+    // for react-router example of determining current page by URL take a look at this:
+    // https://github.com/halt-hammerzeit/webapp/blob/master/code/server/webpage%20rendering.js
+    function hydrateOnClient() {
+        res.send('<!doctype html>\n' +
+            ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()} store={store}/>));
+    }
+
+    // if (__DISABLE_SSR__) {
+    //     hydrateOnClient();
+    //     return;
+    // }
+    match({history,routes, store,location: req.url }, (err, redirectLocation, renderProps) => {
         if (err) {
             res.status(500).end(`Internal Server Error ${err}`);
         } else if (redirectLocation) {
             res.redirect(redirectLocation.pathname + redirectLocation.search);
         } else if (renderProps) {
-            //得到初始 state
-            // const intinal={state:{text: "one"},action:{text: "testest", type: "ADD_TODO"}}
-            //创建新的 Redux store 实例
-            //得到初始 state
-            var data={present:[{text:"testest"+(new Date),completed:false},
-                                {text:"testest",completed:false}]};
-            var intinal=
-            {
-                visibilityFilter: "SHOW_ALL",
-                todos:data};
-            const store = createStore(reducer,intinal);
-            const state = store.getState();
+            const component=<Provider store={store}>
+                <RouterContext {...renderProps}/>
+            </Provider>
             const html = renderToString(
-                <Provider store={store}>
-                    <RouterContext {...renderProps}/>
-                </Provider>
+                component
             );
-            res.end(renderFullPage(html, store.getState()));
+            res.send('<!doctype html>\n' +
+                ReactDOM.renderToString(
+                    <Html component={component} store={store}/>));
+            //res.end(renderFullPage(html, store.getState()));
             // Promise.all([
             //     store.dispatch(fetchList()),
             //     store.dispatch(fetchItem(renderProps.params.id))

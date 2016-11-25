@@ -1,38 +1,32 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route,IndexRoute, browserHistory,createBrowserHistory } from 'react-router';
-import App from '../containers/App';
-// import AppRaw from '../containers/AppRaw';
-import NotFoundPage from '../framework/ui/AbcNotFoundPage'
-import IntroductionPage from '../frames/IntroductionPage'
-import HomePage from '../frames/HomePage'
-import AbcNavMain from '../framework/ui/AbcNavMain'
-import info from '../framework/utils/logger'
-import routes from './Routes'
-import { syncHistoryWithStore } from 'react-router-redux'
 
-const Client = ({ store }) =>
+import { Router, browserHistory ,applyRouterMiddleware} from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { useScroll } from 'react-router-scroll';
+
+import ApiClient from '../framework/utils/ApiClient'
+import configureStore from '../store/configureStore'
+import routes from './Routes'
+
+const Client = ({ data }) =>
 {
-    //const history = syncHistoryWithStore(browserHistory, store);
-   //支持服务端渲染
-   //  return (<Provider store={store}>
-    //      <Router history={browserHistory}>
-    //          <Route  path="/" component={NavMain} />
-    //          <Route  path="/app/:filter" component={App} />
-    //          <Route  path="/home" component={HomePage} />
-    //          <Route  path="/introduct" component={IntroductionPage} />
-    //          <Route  path="*" component={NotFoundPage} />
-    //      </Router>
-    //  </Provider>);
-    return (<Provider store={store}>
-        <Router history={browserHistory}>
+
+    const client = new ApiClient();
+    // const _browserHistory = useScroll(() => browserHistory)();
+    const store = configureStore(browserHistory, client, data);
+    const history = syncHistoryWithStore(browserHistory, store);
+
+    const component = (
+        <Router  render={applyRouterMiddleware(useScroll())}
+                 history={history}>
             {routes}
         </Router>
+    );
+    return (<Provider store={store} key="provider">
+        {component}
     </Provider>);
 }
 
-Client.propTypes = {
-    store: PropTypes.object.isRequired,
-};
 
 export default Client;

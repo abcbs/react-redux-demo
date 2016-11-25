@@ -23,8 +23,8 @@ const app=devEntryBundle.concat(entryFile);
 const server= {
   ...baseServer,
   entry:{
-    // app:options.debug ?  entryFile:app
-    app:entryFile
+     app:options.debug ?  entryFile:app
+    //app:entryFile
   },
   devServer:{
     //这里contentBase是访问路径，如果html文件和css img等文件打包后都在这个路径下是没有问题，否则会找不到文件的。

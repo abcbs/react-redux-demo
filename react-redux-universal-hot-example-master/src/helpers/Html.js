@@ -3,15 +3,6 @@ import ReactDOM from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import Helmet from 'react-helmet';
 
-/**
- * Wrapper component containing HTML metadata and boilerplate tags.
- * Used in server-side code only to wrap the string output of the
- * rendered route component.
- *
- * The only thing this component doesn't (and can't) include is the
- * HTML doctype declaration, which is added to the rendered output
- * by the server.js file.
- */
 export default class Html extends Component {
   static propTypes = {
     assets: PropTypes.object,
@@ -19,19 +10,6 @@ export default class Html extends Component {
     store: PropTypes.object
   };
 
-  // a sidenote for "advanced" users:
-  // (you may skip this)
-  //
-  // this file is usually not included in your Webpack build
-  // because this React component is only needed for server side React rendering.
-  //
-  // so, if this React component is not `require()`d from anywhere in your client code,
-  // then Webpack won't ever get here
-  // which means Webpack won't detect and parse any of the `require()` calls here,
-  // which in turn means that if you `require()` any unique assets here
-  // you should also `require()` those assets somewhere in your client code,
-  // otherwise those assets won't be present in your Webpack bundle and won't be found.
-  //
   render() {
     const {assets, component, store} = this.props;
     const content = component ? ReactDOM.renderToString(component) : '';
@@ -54,14 +32,6 @@ export default class Html extends Component {
                   rel="stylesheet" type="text/css" charSet="UTF-8"/>
           )}
 
-          {/* (will be present only in development mode) */}
-          {/* outputs a <style/> tag with all bootstrap styles + App.scss + it could be CurrentPage.scss. */}
-          {/* can smoothen the initial style flash (flicker) on page load in development mode. */}
-          {/* ideally one could also include here the style for the current page (Home.scss, About.scss, etc) */}
-          { Object.keys(assets.styles).length === 0 ? <style dangerouslySetInnerHTML={
-                      {__html: require('../theme/bootstrap.config.js')
-                          + require('../containers/App/App.scss')._style}
-                }/> : null }
         </head>
         <body>
            {/* rendered React page */}
