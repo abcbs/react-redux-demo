@@ -8,11 +8,11 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _AbcContainer = require('../framework/ui/AbcContainer');
+var _AbcContainer = require('../../abc-framework/ui/AbcContainer');
 
 var _AbcContainer2 = _interopRequireDefault(_AbcContainer);
 
-var _AbcPage = require('../framework/ui/AbcPage');
+var _AbcPage = require('../../abc-framework/ui/AbcPage');
 
 var _AbcPage2 = _interopRequireDefault(_AbcPage);
 

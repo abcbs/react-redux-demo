@@ -6,7 +6,7 @@ import TodoEvent from '../view-bootsrap/TodoEvent'
 //使用事件监听方式实现组件中的消息传递
 var EventEmitter = require('events').EventEmitter;
 var enentEmitter=new EventEmitter;
-import info from '../framework/utils/logger'
+import info from '../../abc-framework/utils/logger'
 export default class AddTodo extends Component {
     constructor(props){
         super(props);

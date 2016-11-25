@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';              // method from enzyme which allow
 // import our soon to be component
 
 import { expect } from 'chai';
-import ButtonToolbar from '../src/todos/abc-bootstrap/components/ButtonToolbar';
+import ButtonToolbar from '../src/abc-bootstrap/components/ButtonToolbar';
 
 global.expect = expect;
 // global.sinon = sinon;

@@ -32,7 +32,7 @@ var _Render = require('./Render');
 
 var _Render2 = _interopRequireDefault(_Render);
 
-var _logger = require('../framework/utils/logger');
+var _logger = require('../../abc-framework/utils/logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 

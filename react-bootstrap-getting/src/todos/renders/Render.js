@@ -2,8 +2,8 @@ import path from 'path';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 //客户端请求封装
-import ApiClient from '../framework/utils/ApiClient';
-import configureStore from '../store/configureStore'
+import ApiClient from '../../abc-framework/utils/ApiClient';
+import configureStore from '../../abc-framework/store/configureStore'
 //create an express middleware to render your pages on the server
 //html page markup
 import PrettyError from 'pretty-error';
@@ -23,7 +23,7 @@ import {match, RouterContext ,browserHistory} from 'react-router';
 import { renderToString } from 'react-dom/server'
 import reducer from '../reducers';
 import App from '../containers/App';
-import routes from '../routeres/Routes'
+import routes from '../../abc-framework/routeres/Routes'
 import Html from './Html'
 // 每当收到请求时都会触发
 module.exports  =function(req, res) {

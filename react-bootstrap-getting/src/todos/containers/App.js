@@ -11,7 +11,7 @@ import TodoList from '../view-bootsrap/TodoList'
 import Footer from '../view-bootsrap/Footer'
 
 import {visibleTodosSelector} from '../selectors/TodoSelectors'
-import AbcPage from '../framework/ui/AbcPage'
+import AbcPage from '../../abc-framework/ui/AbcPage'
 import UndoRedoUtil from './UndoRedo'
 //
 

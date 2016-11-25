@@ -9,7 +9,7 @@ import values from 'lodash/values';
 
 import invariant from 'invariant';
 
-import info from '../../framework/utils/logger'
+import info from '../../abc-framework/utils/logger'
 
 Object.values=Object.values||values;
 

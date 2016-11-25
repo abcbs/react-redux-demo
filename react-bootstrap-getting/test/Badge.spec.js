@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';              // method from enzyme which allow
 // import our soon to be component
 
 import { expect } from 'chai';
-import Badge from '../src/todos/abc-bootstrap/components/Badge';
+import Badge from '../src/abc-bootstrap/components/Badge';
 
 global.expect = expect;
 // global.sinon = sinon;

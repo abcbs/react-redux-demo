@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom'
-import AbcContainer from '../todos/framework/ui/AbcContainer'
-import AbcPage from '../todos/framework/ui/AbcPage'
-import {Label,Badge,ButtonToolbar,Button,Checkbox} from '../todos/abc-bootstrap'
+import AbcContainer from '../abc-framework/ui/AbcContainer'
+import AbcPage from '../abc-framework/ui/AbcPage'
+import {Label,Badge,ButtonToolbar,Button,Checkbox} from '../abc-bootstrap'
 
 import 'bootstrap/less/theme.less'
 import 'bootstrap/less/bootstrap.less';

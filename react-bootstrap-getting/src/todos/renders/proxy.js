@@ -7,7 +7,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import {match, RouterContext} from 'react-router';
 import client from './Render';
-import info from '../framework/utils/logger'
+import info from '../../abc-framework/utils/logger'
 //压缩
 import compression from 'compression';
 const development = process.env.NODE_ENV !== 'production';

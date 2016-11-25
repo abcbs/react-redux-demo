@@ -10,7 +10,7 @@ var _extends3 = _interopRequireDefault(_extends2);
 
 var _redux = require('redux');
 
-var _reducers = require('../framework/reducers');
+var _reducers = require('../../abc-framework/reducers');
 
 var _reducers2 = _interopRequireDefault(_reducers);
 

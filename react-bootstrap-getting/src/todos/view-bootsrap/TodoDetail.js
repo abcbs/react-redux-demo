@@ -2,8 +2,8 @@ import React, { findDOMNode, Component, PropTypes } from 'react';
 import {FormGroup, ControlLabel, HelpBlock,FormControl ,Panel,
     Button,Checkbox,Radio ,Glyphicon,InputGroup,Col,Form} from 'react-bootstrap'
 import TodoEvent from '../view-bootsrap/TodoEvent'
-import AbcContainer from '../framework/ui/AbcContainer'
-import info from '../framework/utils/logger'
+import AbcContainer from '../../abc-framework/ui/AbcContainer'
+import info from '../../abc-framework/utils/logger'
 
 export default class TodoDetail extends Component {
     constructor(props, context) {

@@ -17,11 +17,11 @@ var _TodoEvent = require('../view-bootsrap/TodoEvent');
 
 var _TodoEvent2 = _interopRequireDefault(_TodoEvent);
 
-var _AbcContainer = require('../framework/ui/AbcContainer');
+var _AbcContainer = require('../../abc-framework/ui/AbcContainer');
 
 var _AbcContainer2 = _interopRequireDefault(_AbcContainer);
 
-var _logger = require('../framework/utils/logger');
+var _logger = require('../../abc-framework/utils/logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 

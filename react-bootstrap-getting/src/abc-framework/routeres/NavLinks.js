@@ -1,7 +1,7 @@
-import App from '../containers/App';
-import NotFoundPage from '../framework/ui/AbcNotFoundPage'
-import IntroductionPage from '../frames/IntroductionPage'
-import HomePage from '../frames/HomePage'
+import App from '../../todos/containers/App';
+import NotFoundPage from '../ui/AbcNotFoundPage'
+// import IntroductionPage from '../../frames/IntroductionPage'
+// import HomePage from '../../todos/frames/HomePage'
 
 const NAV_LINKS = {
     App: {
@@ -9,7 +9,7 @@ const NAV_LINKS = {
         nav:'/app/:filter',
         title: '主页',
         subTitle:"ABC主页可配置",
-        subLink:[App,IntroductionPage,HomePage],
+        // subLink:[App,IntroductionPage,HomePage],
         role:"public"
     },
     IntroductionPage: {

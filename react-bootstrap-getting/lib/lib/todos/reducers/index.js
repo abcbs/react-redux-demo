@@ -10,7 +10,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _redux = require('redux');
 
-var _reducers = require('../framework/reducers');
+var _reducers = require('../../abc-framework/reducers');
 
 var _reducers2 = _interopRequireDefault(_reducers);
 

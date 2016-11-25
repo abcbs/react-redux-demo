@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.NavMain = undefined;
 
-var _AbcNavMain = require('../framework/ui/AbcNavMain');
+var _AbcNavMain = require('../../abc-framework/ui/AbcNavMain');
 
 var _AbcNavMain2 = _interopRequireDefault(_AbcNavMain);
 

@@ -1,5 +1,5 @@
 import { createStore as _createStore, applyMiddleware, compose } from 'redux';
-import createMiddleware from '../framework/middleware/clientMiddleware';
+import createMiddleware from '../middleware/clientMiddleware';
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import Immutable from 'immutable';
@@ -23,7 +23,7 @@ export default function configureStore(history, client, data) {
     //     finalCreateStore = applyMiddleware(...middleware)(_createStore);
     // }
     finalCreateStore = applyMiddleware(...middleware)(_createStore);
-    const reducer = require('../reducers').default;
+    const reducer = require('../../todos/reducers/index').default;
     if (data) {
         data.pagination = Immutable.fromJS(data.pagination);
     }

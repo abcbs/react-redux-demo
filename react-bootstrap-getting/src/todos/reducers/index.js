@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import reducers from '../framework/reducers'
+import reducers from '../../abc-framework/reducers'
 //应用
 import todos from './todos'
 import visibilityFilter from './visibilityFilter'

@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route,IndexRoute, browserHistory } from 'react-router';
-import App from '../containers/App';
-import NotFoundPage from '../framework/ui/AbcNotFoundPage'
-import IntroductionPage from '../frames/IntroductionPage'
-import HomePage from '../frames/HomePage'
-import AbcMainPage from '../framework/ui/AbcMainPage'
+import App from '../../todos/containers/App';
+import NotFoundPage from '../ui/AbcNotFoundPage'
+import IntroductionPage from '../../todos/frames/IntroductionPage'
+import HomePage from '../../todos/frames/HomePage'
+import AbcMainPage from '../ui/AbcMainPage'
 
 export default (
     <Route path="/" component={AbcMainPage}>

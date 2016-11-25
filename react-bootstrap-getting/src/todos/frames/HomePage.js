@@ -1,7 +1,7 @@
 import React from 'react';
-import AbcContainer from '../framework/ui/AbcContainer'
-import AbcPage from '../framework/ui/AbcPage'
-import {Label,Badge,ButtonToolbar,Button,Checkbox} from '../abc-bootstrap'
+import AbcContainer from '../../abc-framework/ui/AbcContainer'
+import AbcPage from '../../abc-framework/ui/AbcPage'
+import {Label,Badge,ButtonToolbar,Button,Checkbox} from '../../abc-bootstrap'
 
 import 'bootstrap/less/theme.less'
 import 'bootstrap/less/bootstrap.less';

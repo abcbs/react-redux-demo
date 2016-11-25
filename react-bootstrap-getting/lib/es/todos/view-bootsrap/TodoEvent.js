@@ -31,7 +31,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactBootstrap = require('react-bootstrap');
 
-var _logger = require('../framework/utils/logger');
+var _logger = require('../../abc-framework/utils/logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 

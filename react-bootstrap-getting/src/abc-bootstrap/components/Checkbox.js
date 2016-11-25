@@ -5,7 +5,8 @@ import warning from 'warning';
 import { bsClass, getClassSet, prefix, splitBsProps }
   from '../utils/bootstrapUtils';
 
-import info from '../../framework/utils/logger'
+import info from '../../abc-framework/utils/logger'
+
 const propTypes = {
   inline: React.PropTypes.bool,
   disabled: React.PropTypes.bool,

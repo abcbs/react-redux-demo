@@ -12,7 +12,7 @@ var _redux = require('redux');
 
 var _actions = require('../actions');
 
-var _logger = require('../framework/utils/logger');
+var _logger = require('../../abc-framework/utils/logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 

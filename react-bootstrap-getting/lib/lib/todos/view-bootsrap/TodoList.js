@@ -17,7 +17,7 @@ var _reactBootstrap = require('react-bootstrap');
 
 require('../../styles/css/index.css');
 
-var _AbcContainer = require('../framework/ui/AbcContainer');
+var _AbcContainer = require('../../abc-framework/ui/AbcContainer');
 
 var _AbcContainer2 = _interopRequireDefault(_AbcContainer);
 

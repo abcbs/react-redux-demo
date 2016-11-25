@@ -3,7 +3,7 @@ import React from 'react';
 
 import { bsClass, bsStyles, getClassSet, splitBsProps }
     from '../utils/bootstrapUtils';
-import info from '../../framework/utils/logger'
+import info from '../../abc-framework/utils/logger'
 
 // TODO: `pullRight` doesn't belong here. There's no special handling here.
 const propTypes = {

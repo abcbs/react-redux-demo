@@ -30,7 +30,7 @@ var _Footer2 = _interopRequireDefault(_Footer);
 
 var _TodoSelectors = require('../selectors/TodoSelectors');
 
-var _AbcPage = require('../framework/ui/AbcPage');
+var _AbcPage = require('../../abc-framework/ui/AbcPage');
 
 var _AbcPage2 = _interopRequireDefault(_AbcPage);
 
