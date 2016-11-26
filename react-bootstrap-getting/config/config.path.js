@@ -22,8 +22,10 @@ export const buildConfig={
 
 export const jsLoader = 'babel?cacheDirectory';
 
-export var entryFile="./src/app";
-
+export var entryFile='./src/app.js';
+// ['bootstrap-sass!./src/abc-proxy/theme/bootstrap.config.prod.js',
+//    'font-awesome-webpack!./src/abc-proxy/theme/font-awesome.config.prod.js',
+ //   './src/app.js'];
 export const options = yargs
     .alias('p', 'optimize-minimize')
     .alias('d', 'debug')

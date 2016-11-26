@@ -15,9 +15,7 @@ const propTypes = {
 
 function NavMain({ activePage }) {
     return (
-        <Navbar className="container"
-            staticTop
-        >
+        <Navbar fixedTop  className="container" >
             <Navbar.Header>
                 <Navbar.Brand>
                     <Link to="/">ABC-Endpoint</Link>

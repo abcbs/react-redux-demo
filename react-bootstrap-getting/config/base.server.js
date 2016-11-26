@@ -1,10 +1,26 @@
 import webpack from 'webpack';
 import ip from 'ip';
 import path from 'path';
-
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import configure,{options,buildConfig,pathConfig} from './config.path';
+////////////////////////////////////////////////
+import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
+import webpack_isomorphic_tools_configuration from './webpack-isomorphic-tools'
+import autoprefixer from 'autoprefixer'
+import css_custom_properties from 'postcss-custom-properties'
+import postcss_calc from 'postcss-calc'
 
+
+const webpack_isomorphic_tools_plugin = new WebpackIsomorphicToolsPlugin(webpack_isomorphic_tools_configuration);
+//
+const codePath="src";
+const assertsPath="resource";
+const root_folder = path.resolve(__dirname, '..', '..')
+const frontend_root_folder = path.resolve(__dirname, '..')
+
+const assets_source_folder = path.resolve(frontend_root_folder, assertsPath);
+
+////////////////////////////////////////
 const webpackDevServerAddress = `http://${ip.address()}:${options.port}`;
 const reactHot = options.debug ? 'react-hot!' : '';
 const cssSourceMap = options.debug ? '?sourceMap' : '';
@@ -31,6 +47,8 @@ var lessLoader = //bootstrapLess.extract("style-loader","css-loader","less-loade
 var sassLoader = extractCSS.extract('style-loader','css-loader','postcss-loader','sass-loader')
 
 const baseServer = {
+  //resolve all relative paths from the project root folder
+  context: frontend_root_folder,
   devtool: !options.debug ? 'source-map' : null,
   dependencies: ["reactvendor","baseframevendor","reduxvendor","bootvendor","materialuivendor"],
   entry: {
@@ -40,6 +58,8 @@ const baseServer = {
     filename: '[name].js',
     //打包文件存放的绝对路径,html.js,css会在这个路径下
     path: buildConfig.buildPath,
+
+    chunkFilename: '[name].[hash].js',
     //设置为webpack-dev-server服务器下资源目录的绝对路径
     //网站运行时的访问路径
     //如果不设置的话，打包出的html中默认路径会是相对路径
@@ -48,33 +68,43 @@ const baseServer = {
   },
   module: {
     loaders: [
-      // {
-      //   // React-hot loader and
-      //   test: /\.js$/, // All .js files
-      //   loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
-      //   exclude: [nodeModulesPath],
-      // },
         {
             test: /\.css/,
             //loader: 'style-loader!css-loader'
             loader:cssLoader
         },
         { test: /\.less$/,
-             //loader: 'style!css!less'
+            //loader: 'style!css!less'
             loader:lessLoader
-       },
+        },
         {
             test: /\.scss/,
             loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
         },
-      { test: /\.json$/, loader: 'json' },
-      { test: /\.jpe?g$|\.gif$|\.png|\.ico$/,
-          //loader: 'file?name=[name].[ext]'
-          loader: 'url-loader?limit=8192&name=images/[name]_[hash].[ext]' // 图片提取到images目录
-      },
-      { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]'
-      },
-
+        { test: /\.json$/, loader: 'json' },
+        { test: /\.jpe?g$|\.gif$|\.png|\.ico$/,
+            //loader: 'file?name=[name].[ext]'
+            loader: 'url-loader?limit=8192&name=images/[name]_[hash].[ext]' // 图片提取到images目录
+        },
+        { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]'
+        },
+        // {
+        //     test    : webpack_isomorphic_tools_plugin.regular_expression('fonts'),
+        //     include : assets_source_folder,
+        //     loaders :
+        //         [
+        //             'url-loader?limit=10240' // Any png-image or woff-font below or equal to 10K will be converted to inline base64 instead
+        //         ]
+        // },
+        // {
+        //     test    : webpack_isomorphic_tools_plugin.regular_expression('images'),
+        //     include : assets_source_folder,
+        //     loaders :
+        //         [
+        //             'url-loader?limit=10240' // Any png-image or woff-font below or equal to 10K will be converted to inline base64 instead
+        //         ]
+        // },
+        // { test:  webpack_isomorphic_tools_plugin.regular_expression('images'), loader: 'url-loader?limit=10240' }
     ],
   },
 
@@ -100,8 +130,8 @@ const baseServer = {
       //     manifest: require(materialuivendor)
       // }),
       extractCSS,
-      bootstrapLess
-
+      bootstrapLess,
+      webpack_isomorphic_tools_plugin,
   ]
 };
 
@@ -112,6 +142,10 @@ if(options.debug===false){
           test: /\.js$/, // All .js files
           loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
           exclude: [nodeModulesPath],
+            include :
+                [
+                    path.resolve(frontend_root_folder, codePath)
+                ],
         },
     ])
 }else{
@@ -121,6 +155,10 @@ if(options.debug===false){
             test: /\.js$/, // All .js files
             loaders: [ 'babel-loader'], //babel loads jsx and es6-7
             exclude: [nodeModulesPath],
+            include :
+                [
+                    path.resolve(frontend_root_folder, codePath)
+                ],
         },
     ])
 }
@@ -132,7 +170,11 @@ if (process.env.NODE_ENV === 'production'||options.debug===true) {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
+      },
+        __CLIENT__: true,
+        __SERVER__: false,
+        __DEVELOPMENT__: false,
+        __DEVTOOLS__: false
     }),
 
    new webpack.optimize.UglifyJsPlugin({
@@ -143,14 +185,18 @@ if (process.env.NODE_ENV === 'production'||options.debug===true) {
       mangle: true
     }),
     //为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
   ])
 }else{
    baseServer.plugins = (baseServer.plugins || []).concat([
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('development')
+        'process.env.NODE_ENV': JSON.stringify('development'),
+          __CLIENT__: true,
+          __SERVER__: false,
+          __DEVELOPMENT__: true,
+          __DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
     }),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
    ])
 }
 

@@ -22,9 +22,9 @@ var _configureStore = require('./store/configureStore');
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
 
-require('../styles/css/index.css');
+require('../../resource/styles/css/index.css');
 
-require('../styles/css/common.css');
+require('../../resource/styles/css/common.css');
 
 var _reactRouter = require('react-router');
 

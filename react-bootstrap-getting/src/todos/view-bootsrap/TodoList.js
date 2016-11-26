@@ -1,6 +1,6 @@
 import React, { findDOMNode, Component,PropTypes  } from 'react';
 import {ListGroupItem, ListGroup,ControlLabel,HelpBlock,Checkbox,FormGroup} from 'react-bootstrap'
-import '../../styles/css/index.css'
+// import '../../../resource/styles/css/index.css'
 import AbcContainer from '../../abc-framework/ui/AbcContainer'
 import Todo from './Todo'
 
@@ -13,6 +13,7 @@ export default class TodoList extends Component {
             (index) => this.props.onTodoClick(index);
 
     render() {
+        require('../../../resource/styles/css/index.css');
         return (
           <AbcContainer isMovedTop={false}>
             <ListGroup className="todo-list" componentClass="ul" >

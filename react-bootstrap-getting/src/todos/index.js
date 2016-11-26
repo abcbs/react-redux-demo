@@ -14,21 +14,25 @@ FastClick.attach(document.body);
 //store(Redux Store): 应用程序中唯一的Redux store对象
 //通过服务端注入的全局变量得到初始state
 const initialState = window.__INITIAL_STATE__;
+const dest=document.getElementById('root');
 render(
+    
     <Client data={initialState}/>,
     document.getElementById('root'));
-// function initSocket() {
-//     const socket = io('', {path: '/ws'});
-//     socket.on('news', (data) => {
-//         console.log(data);
-//         socket.emit('my other event', { my: 'data from client' });
-//     });
-//     socket.on('msg', (data) => {
-//         console.log(data);
-//     });
-//
-//     return socket;
-// }
-// global.socket = initSocket();
+
+
+function initSocket() {
+    const socket = io('', {path: '/ws'});
+    socket.on('news', (data) => {
+        console.log(data);
+        socket.emit('my other event', { my: 'data from client' });
+    });
+    socket.on('msg', (data) => {
+        console.log(data);
+    });
+
+    return socket;
+}
+global.socket = initSocket();
 
 

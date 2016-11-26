@@ -4,7 +4,7 @@ import PageHeader from './AbcPageHeader'
 import NotFoundPage from './AbcNotFoundPage'
 import NavMain from './AbcNavMain'
 import classnames from 'classnames';
-import '../../styles/css/index.css'
+import  '../../../resource/styles/css/index.css'
 export default class AbcPage extends Component {
     getChildContext() {
 
@@ -22,9 +22,11 @@ export default class AbcPage extends Component {
         }
     }
     render() {
+        // require( '../../../resource/styles/css/index.css')
         const { children,router,title, subTitle,theme,...other} = this.props;
         return (
             <span {...other}>
+                 <p>&nbsp;</p><p>&nbsp;</p>
                  <PageHeader title={title}  subTitle={subTitle}  />
                     {this.rederChildren(children)}
                   <PageFooter />

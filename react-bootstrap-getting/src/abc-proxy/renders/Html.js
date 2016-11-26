@@ -54,6 +54,10 @@ export default class Html extends Component {
     
         <![endif]-->
         <link rel="stylesheet" href="/external/home.css">
+            {Object.keys(assets.styles).map((style, key) =>
+            <link href={assets.styles[style]} key={key} media="screen, projection"
+                  rel="stylesheet" type="text/css" charSet="UTF-8"/>
+          )}
         `
       };
       let background = {

@@ -24,7 +24,7 @@ AbcContainer.propTypes = {
 }
 
 AbcContainer.defaultProps={
-    isMovedTop:true,
+    isMovedTop:false,
     isContainer:true,
 }
 

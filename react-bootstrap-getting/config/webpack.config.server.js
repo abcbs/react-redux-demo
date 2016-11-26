@@ -16,6 +16,9 @@ var entryFile = configure.entryFile;
 export const devEntryBundle = [
   'webpack/hot/dev-server',
   `webpack-dev-server/client?${webpackDevServerAddress}`,
+ // 'bootstrap-sass!./src/abc-proxy/theme/bootstrap.config.prod.js',
+  //'font-awesome-webpack!./src/abc-proxy/theme/font-awesome.config.prod.js',
+
   // entryFile,
 ];
 

@@ -36,17 +36,19 @@ _fastclick2.default.attach(document.body);
 //store(Redux Store): 应用程序中唯一的Redux store对象
 //通过服务端注入的全局变量得到初始state
 var initialState = window.__INITIAL_STATE__;
+var dest = document.getElementById('root');
 (0, _reactDom.render)(_react2.default.createElement(_Client2.default, { data: initialState }), document.getElementById('root'));
-// function initSocket() {
-//     const socket = io('', {path: '/ws'});
-//     socket.on('news', (data) => {
-//         console.log(data);
-//         socket.emit('my other event', { my: 'data from client' });
-//     });
-//     socket.on('msg', (data) => {
-//         console.log(data);
-//     });
-//
-//     return socket;
-// }
-// global.socket = initSocket();
+
+function initSocket() {
+    var socket = (0, _socket2.default)('', { path: '/ws' });
+    socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data from client' });
+    });
+    socket.on('msg', function (data) {
+        console.log(data);
+    });
+
+    return socket;
+}
+global.socket = initSocket();

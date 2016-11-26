@@ -12,7 +12,7 @@ export default function compile(options) {
   ])
   .then(data => {
     console.log("编译完成,准备启动服务");
-    cmdExec('ABC-Server','node ./lib/es/todos/renders/server.js');
+    cmdExec('ABC-Server','node ./lib/es/abc-proxy/renders/server.js');
 
   });
 }

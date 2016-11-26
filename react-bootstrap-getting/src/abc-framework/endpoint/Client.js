@@ -23,9 +23,26 @@ const Client = ({ data }) =>
             {routes}
         </Router>
     );
-    return (<Provider store={store} key="provider">
-        {component}
-    </Provider>);
+    if (process.env.NODE_ENV !== 'production') {
+        window.React = React; // enable debugger
+    }
+    let root;
+    if (__DEVTOOLS__ && !window.devToolsExtension) {
+        const DevTools = require('../devtools/DevTools').default;
+        return (
+             <Provider store={store} key="provider">
+                <div>
+                    {component}
+                    <DevTools />
+                </div>
+            </Provider>);
+
+    }else{
+        return (<Provider store={store} key="provider">
+            {component}
+        </Provider>);
+    }
+
 }
 
 

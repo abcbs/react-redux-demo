@@ -11,18 +11,18 @@ export default function configureStore(history, client, data) {
     const middleware = [createMiddleware(client), reduxRouterMiddleware, thunk];
 
     let finalCreateStore;
-    // if (__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__) {
-    //     const { persistState } = require('redux-devtools');
-    //     const DevTools = require('../framework/devtools/DevTools');
-    //     finalCreateStore = compose(
-    //         applyMiddleware(...middleware),
-    //         window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
-    //         persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-    //     )(_createStore);
-    // } else {
-    //     finalCreateStore = applyMiddleware(...middleware)(_createStore);
-    // }
-    finalCreateStore = applyMiddleware(...middleware)(_createStore);
+    if (__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__) {
+        const { persistState } = require('redux-devtools');
+        const DevTools = require('../devtools/DevTools').default;
+        finalCreateStore = compose(
+            applyMiddleware(...middleware),
+            window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument(),
+            persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+        )(_createStore);
+    } else {
+        finalCreateStore = applyMiddleware(...middleware)(_createStore);
+    }
+ 
     const reducer = require('../../todos/reducers/index').default;
     if (data) {
         data.pagination = Immutable.fromJS(data.pagination);

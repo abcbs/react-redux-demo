@@ -21,17 +21,18 @@ import {match, RouterContext ,browserHistory} from 'react-router';
 //服务端渲染最关键的一步是在发送响应前渲染初始的HTML。这就要使用React.renderToString().
 //然后使用store.getState()从store得到初始state。renderFullPage函数会介绍接下来如何传递。
 import { renderToString } from 'react-dom/server'
-import reducer from '../reducers';
-import App from '../containers/App';
+
 import routes from '../../abc-framework/routeres/Routes'
 import Html from './Html'
+
+const pretty = new PrettyError();
 // 每当收到请求时都会触发
 module.exports  =function(req, res) {
-    // if (__DEVELOPMENT__) {
-    //     // Do not cache webpack stats: the script file would change since
-    //     // hot module replacement is enabled in the development env
-    //     webpackIsomorphicTools.refresh();
-    // }
+    if (__DEVELOPMENT__) {
+        // Do not cache webpack stats: the script file would change since
+        // hot module replacement is enabled in the development env
+        webpackIsomorphicTools.refresh();
+    }
     //得到初始 state
     var data={present:[{text:"testest"+(new Date),completed:false},
         {text:"testest",completed:false}]};
@@ -52,15 +53,19 @@ module.exports  =function(req, res) {
     // https://github.com/halt-hammerzeit/webapp/blob/master/code/server/webpage%20rendering.js
     function hydrateOnClient() {
         res.send('<!doctype html>\n' +
-            ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()} store={store}/>));
+            ReactDOM.renderToString(<Html assets={webpackIsomorphicTools.assets()}
+                                          store={store}/>));
     }
 
-    // if (__DISABLE_SSR__) {
-    //     hydrateOnClient();
-    //     return;
-    // }
+    if (__DISABLE_SSR__) {
+        hydrateOnClient();
+        return;
+    }
     match({history,routes, store,location: req.url }, (err, redirectLocation, renderProps) => {
         if (err) {
+            console.error('ROUTER ERROR:', pretty.render(error));
+            // res.status(500);
+            hydrateOnClient();
             res.status(500).end(`Internal Server Error ${err}`);
         } else if (redirectLocation) {
             res.redirect(redirectLocation.pathname + redirectLocation.search);
@@ -73,7 +78,8 @@ module.exports  =function(req, res) {
             );
             res.send('<!doctype html>\n' +
                 ReactDOM.renderToString(
-                    <Html component={component} store={store}/>));
+                    <Html assets={webpackIsomorphicTools.assets()}
+                          component={component} store={store}/>));
             //res.end(renderFullPage(html, store.getState()));
             // Promise.all([
             //     store.dispatch(fetchList()),
