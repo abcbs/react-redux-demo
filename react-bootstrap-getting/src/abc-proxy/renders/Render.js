@@ -63,7 +63,7 @@ module.exports  =function(req, res) {
     }
     match({history,routes, store,location: req.url }, (err, redirectLocation, renderProps) => {
         if (err) {
-            console.error('ROUTER ERROR:', pretty.render(error));
+            console.error('ROUTER ERROR:', pretty.render(err));
             // res.status(500);
             hydrateOnClient();
             res.status(500).end(`Internal Server Error ${err}`);

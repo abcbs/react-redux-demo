@@ -33,7 +33,7 @@
       }
     },
     "abc:run": {
-      "command": "node ./lib/es/abc-proxy/renders/server.js",
+      "command": "node ./lib/es/abc-proxy/renders/run.js",
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "production",

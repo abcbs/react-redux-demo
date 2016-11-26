@@ -45,6 +45,7 @@ var _Todo2 = _interopRequireDefault(_Todo);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+// import '../../../resource/styles/css/index.css'
 var TodoList = function (_Component) {
     (0, _inherits3['default'])(TodoList, _Component);
 

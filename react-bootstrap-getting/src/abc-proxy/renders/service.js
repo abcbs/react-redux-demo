@@ -10,7 +10,7 @@ import PrettyError from 'pretty-error';
 //
 import client from './Render';
 import info from '../../abc-framework/utils/logger'
-import {options} from '../../../config/config.path';
+import {options} from './abc-args';
 //
 const development = process.env.NODE_ENV !== 'production';
 
@@ -30,7 +30,7 @@ const proxy = httpProxy.createProxyServer({
     ws: true
 });
 
-const repoRoot = path.resolve(__dirname, '../../../');
+const repoRoot = path.resolve(__dirname, options.publicPath||'../../../');
 
 // which prevents the need for extensions
 // app.set('view engine', 'jade');
