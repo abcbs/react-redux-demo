@@ -22,7 +22,7 @@ export const buildConfig={
 
 export const jsLoader = 'babel?cacheDirectory';
 
-export var entryFile='./src/app.js';
+export var entryFile='./src/abc-framework/endpoint/ApplicationIndex';
 // ['bootstrap-sass!./src/abc-proxy/theme/bootstrap.config.prod.js',
 //    'font-awesome-webpack!./src/abc-proxy/theme/font-awesome.config.prod.js',
  //   './src/app.js'];

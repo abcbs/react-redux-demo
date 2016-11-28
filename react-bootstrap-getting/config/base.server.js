@@ -81,7 +81,9 @@ const baseServer = {
             test: /\.scss/,
             loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
         },
-        { test: /\.json$/, loader: 'json' },
+        { test: /\.json$/,
+            loader: 'json-loader'
+        },
         { test: /\.jpe?g$|\.gif$|\.png|\.ico$/,
             //loader: 'file?name=[name].[ext]'
             loader: 'url-loader?limit=8192&name=images/[name]_[hash].[ext]' // 图片提取到images目录

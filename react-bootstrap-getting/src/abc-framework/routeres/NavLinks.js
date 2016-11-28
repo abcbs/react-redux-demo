@@ -1,7 +1,5 @@
 import App from '../../todos/containers/App';
 import NotFoundPage from '../ui/AbcNotFoundPage'
-// import IntroductionPage from '../../frames/IntroductionPage'
-// import HomePage from '../../todos/frames/HomePage'
 
 const NAV_LINKS = {
     App: {

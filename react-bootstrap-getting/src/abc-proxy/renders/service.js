@@ -29,8 +29,8 @@ const proxy = httpProxy.createProxyServer({
     target: targetUrl,
     ws: true
 });
-
-const repoRoot = path.resolve(__dirname, options.publicPath||'../../../');
+const publicPath=options.publicPath;
+const repoRoot = path.resolve(__dirname, publicPath||'../../../');
 
 // which prevents the need for extensions
 // app.set('view engine', 'jade');

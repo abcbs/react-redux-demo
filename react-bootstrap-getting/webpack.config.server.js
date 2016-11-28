@@ -2,7 +2,7 @@ import configure ,{options} from  './config/config.path';
 import path from 'path';
 import webpack from 'webpack';
 //var configure  =require ( './config/config.path');
-configure.entryFile='./src/todos/index';
+configure.entryFile='./src/abc-framework/endpoint/ApplicationIndex'
 //configure.entryFile='./src/material-ui/app';
 var baseServer = require('./config/webpack.config.server');
 // config.entry={

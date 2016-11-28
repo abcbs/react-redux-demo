@@ -1,11 +1,26 @@
 import React from 'react';
 import { render } from 'react-dom'
+import { defineMessages }              from 'react-intl'
+
 import AbcContainer from '../abc-framework/ui/AbcContainer'
 import AbcPage from '../abc-framework/ui/AbcPage'
 import {Label,Badge,ButtonToolbar,Button,Checkbox} from '../abc-bootstrap'
 
 import 'bootstrap/less/theme.less'
 import 'bootstrap/less/bootstrap.less';
+import international from '../abc-framework/international/internationalize'
+
+const messages = defineMessages
+({
+    title:
+    {
+        id             : 'menu',
+        description    : 'Menu page header',
+        defaultMessage : 'Menu'
+    }
+})
+
+@international()
 class Home extends React.Component {
     handleClick(e) {
         console.log("e,",e.target.value);
@@ -13,8 +28,9 @@ class Home extends React.Component {
     render() {
         var root=$("root");
         //label-primary-bg
+        //this.props.translate(layout_messages.title)
         return (
-            <AbcPage title="首页" router="home" subTitle="欢迎光临">
+            <AbcPage title={this.props.translate(messages.title)} router="home" subTitle="欢迎光临">
                 <AbcContainer>
                     <div>
                         <Checkbox onClick={this.handleClick.bind(this)}></Checkbox>
