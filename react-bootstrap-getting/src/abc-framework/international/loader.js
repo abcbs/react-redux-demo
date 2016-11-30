@@ -43,15 +43,21 @@ const international =
 					require.ensure
 					([
 						'intl',
-						'intl/locale-data/jsonp/zh.js'
+						'intl/locale-data/jsonp/zh.js',
+						'./translations/zh'
 					],
 					(require) =>
 					{
 						// apply the polyfill
 						require('intl')
 						require('intl/locale-data/jsonp/zh.js')
+
 						debug(`Intl polyfill for "${locale}" has been loaded`)
-						resolve()
+						//
+						let data=require('./translations/zh').default;
+						data.locale='zh'
+						add_locale_data(data)
+						resolve(data)
 					},
 					'intl')
 					break
@@ -98,7 +104,7 @@ const international =
 	load_translation: locale =>
 	{
 		// makes Webpack HMR work for this locale for now
-		_locale = locale
+		_locale = locale||'zh'
 		//switch (get_language_from_locale(locale))
 		switch (locale)
 		{

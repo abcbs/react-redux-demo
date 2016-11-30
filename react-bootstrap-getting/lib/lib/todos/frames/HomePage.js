@@ -7,6 +7,8 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _dec, _class;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -25,6 +27,12 @@ require('bootstrap/less/theme.less');
 
 require('bootstrap/less/bootstrap.less');
 
+var _reactIntl = require('react-intl');
+
+var _internationalize = require('../../abc-framework/international/internationalize');
+
+var _internationalize2 = _interopRequireDefault(_internationalize);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33,7 +41,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var HomePage = function (_React$Component) {
+var messages = (0, _reactIntl.defineMessages)({
+    title: {
+        id: 'home.title',
+        description: '首页配置',
+        defaultMessage: '首页'
+    },
+    subTitle: {
+        id: 'home.subTitle',
+        description: '首页子标题',
+        defaultMessage: '欢迎光临'
+    }
+});
+
+var HomePage = (_dec = (0, _internationalize2.default)(), _dec(_class = function (_React$Component) {
     _inherits(HomePage, _React$Component);
 
     function HomePage() {
@@ -52,9 +73,14 @@ var HomePage = function (_React$Component) {
         value: function render() {
             var root = $("root");
             //label-primary-bg
+            var translate = this.props.translate;
+
+            var title = translate(messages.title);
             return _react2.default.createElement(
                 _AbcPage2.default,
-                { title: '\u9996\u9875', router: 'home', subTitle: '\u6B22\u8FCE\u5149\u4E34' },
+                { title: translate(messages.title),
+                    router: 'home',
+                    subTitle: translate(messages.subTitle) },
                 _react2.default.createElement(
                     _AbcContainer2.default,
                     null,
@@ -70,7 +96,6 @@ var HomePage = function (_React$Component) {
                             { bsStyle: 'abc', bsSize: 'bg' },
                             'test'
                         ),
-                        "testtttttttttttttt",
                         _react2.default.createElement(
                             'span',
                             null,
@@ -102,6 +127,5 @@ var HomePage = function (_React$Component) {
     }]);
 
     return HomePage;
-}(_react2.default.Component);
-
+}(_react2.default.Component)) || _class);
 exports.default = HomePage;

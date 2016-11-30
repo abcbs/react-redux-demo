@@ -8,6 +8,7 @@ requirejs.config({
         "app": "/build/app",
          "jquery": "/external/jquery/jquery.min",
         "materialuivendor":"dist/materialuivendor",
+        "envdevlop":"dist/envdevlop",
         "q":"/external/qbase/q",
         "jquerymobile": "/external/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min",
         // "home": "/build/home",
@@ -21,28 +22,14 @@ requirejs.config({
 
     }
 });
-//
-// require(["jquery","react"],function ($,sreact) {
-//     require( ["baseframevendor","redux",
-//         'react-bootstrap'],function (base,redux,bootstrap){
-//
-//         try{
-//             require(["app"] ,function(app){
-//                 console.log("app loading..");
-//                 $(".pos").remove();
-//             })
-//         }catch(e){
-//             console.log("Loading app error.")
-//         }
-//
-//     });
-// });
+
 
 require(["baseframevendor"],function (baseframevendor) {
 
     require( ["react","redux"],function (react,redux){
         console.log("react redux");
     });
+
     require( ['react-bootstrap'],function (bootstrap){
         console.log("app bootstrap..");
         try{
@@ -57,6 +44,7 @@ require(["baseframevendor"],function (baseframevendor) {
     require( ["jquery"],function ($){
         console.log("jquery...");
     });
+
     // require( ["jquerymobile"],function (jquerymobile){
     //     console.log("jquerymobile...");
     // });

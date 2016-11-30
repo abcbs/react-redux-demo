@@ -25,6 +25,8 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
+var _dec, _class;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -39,9 +41,28 @@ var _AbcPage2 = _interopRequireDefault(_AbcPage);
 
 var _abcBootstrap = require('../../abc-bootstrap');
 
+var _reactIntl = require('react-intl');
+
+var _internationalize = require('../../abc-framework/international/internationalize');
+
+var _internationalize2 = _interopRequireDefault(_internationalize);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var HomePage = function (_React$Component) {
+var messages = (0, _reactIntl.defineMessages)({
+    title: {
+        id: 'home.title',
+        description: '首页配置',
+        defaultMessage: '首页'
+    },
+    subTitle: {
+        id: 'home.subTitle',
+        description: '首页子标题',
+        defaultMessage: '欢迎光临'
+    }
+});
+
+var HomePage = (_dec = (0, _internationalize2['default'])(), _dec(_class = function (_React$Component) {
     (0, _inherits3['default'])(HomePage, _React$Component);
 
     function HomePage() {
@@ -59,9 +80,14 @@ var HomePage = function (_React$Component) {
         value: function render() {
             var root = $("root");
             //label-primary-bg
+            var translate = this.props.translate;
+
+            var title = translate(messages.title);
             return _react2['default'].createElement(
                 _AbcPage2['default'],
-                { title: '\u9996\u9875', router: 'home', subTitle: '\u6B22\u8FCE\u5149\u4E34' },
+                { title: translate(messages.title),
+                    router: 'home',
+                    subTitle: translate(messages.subTitle) },
                 _react2['default'].createElement(
                     _AbcContainer2['default'],
                     null,
@@ -77,7 +103,6 @@ var HomePage = function (_React$Component) {
                             { bsStyle: 'abc', bsSize: 'bg' },
                             'test'
                         ),
-                        "testtttttttttttttt",
                         _react2['default'].createElement(
                             'span',
                             null,
@@ -108,6 +133,5 @@ var HomePage = function (_React$Component) {
         }
     }]);
     return HomePage;
-}(_react2['default'].Component);
-
+}(_react2['default'].Component)) || _class);
 exports['default'] = HomePage;

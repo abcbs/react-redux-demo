@@ -20,11 +20,15 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
+var _dec, _class;
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
+
+var _reactIntl = require('react-intl');
 
 var _AbcContainer = require('../abc-framework/ui/AbcContainer');
 
@@ -36,9 +40,21 @@ var _AbcPage2 = _interopRequireDefault(_AbcPage);
 
 var _abcBootstrap = require('../abc-bootstrap');
 
+var _internationalize = require('../abc-framework/international/internationalize');
+
+var _internationalize2 = _interopRequireDefault(_internationalize);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var Home = function (_React$Component) {
+var messages = (0, _reactIntl.defineMessages)({
+    title: {
+        id: 'menu',
+        description: 'Menu page header',
+        defaultMessage: 'Menu'
+    }
+});
+
+var Home = (_dec = (0, _internationalize2['default'])(), _dec(_class = function (_React$Component) {
     (0, _inherits3['default'])(Home, _React$Component);
 
     function Home() {
@@ -56,9 +72,10 @@ var Home = function (_React$Component) {
         value: function render() {
             var root = $("root");
             //label-primary-bg
+            //this.props.translate(layout_messages.title)
             return _react2['default'].createElement(
                 _AbcPage2['default'],
-                { title: '\u9996\u9875', router: 'home', subTitle: '\u6B22\u8FCE\u5149\u4E34' },
+                { title: this.props.translate(messages.title), router: 'home', subTitle: '\u6B22\u8FCE\u5149\u4E34' },
                 _react2['default'].createElement(
                     _AbcContainer2['default'],
                     null,
@@ -101,7 +118,7 @@ var Home = function (_React$Component) {
         }
     }]);
     return Home;
-}(_react2['default'].Component);
+}(_react2['default'].Component)) || _class);
 
 // render(
 //     <Home/>,

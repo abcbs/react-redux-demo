@@ -13,14 +13,14 @@ const NAV_LINKS = {
     IntroductionPage: {
         path: '/introduct',
         nav:'/introduct',
-        title: '信息查询',
+        title: '介绍',
         subTitle:"介绍ABC内容",
         role:"private"
     },
     HomePage: {
         path: '/home',
         nav:'/home',
-        title: '介绍',
+        title: '主内容',
         subTitle:"介绍ABC内容",
         role:"needLogined"
     },

@@ -21,7 +21,7 @@ import {match, RouterContext ,browserHistory} from 'react-router';
 //服务端渲染最关键的一步是在发送响应前渲染初始的HTML。这就要使用React.renderToString().
 //然后使用store.getState()从store得到初始state。renderFullPage函数会介绍接下来如何传递。
 import { renderToString } from 'react-dom/server'
-
+import { IntlProvider }                from 'react-intl'
 import routes from '../../abc-framework/routeres/Routes'
 import Html from './Html'
 
@@ -70,8 +70,11 @@ module.exports  =function(req, res) {
         } else if (redirectLocation) {
             res.redirect(redirectLocation.pathname + redirectLocation.search);
         } else if (renderProps) {
+            const  ClientWrapper =require('../../abc-framework/endpoint/ClientWrapper')
             const component=<Provider store={store}>
-                <RouterContext {...renderProps}/>
+                <IntlProvider locale="zh">
+                    <RouterContext {...renderProps}/>
+                </IntlProvider>
             </Provider>
             const html = renderToString(
                 component

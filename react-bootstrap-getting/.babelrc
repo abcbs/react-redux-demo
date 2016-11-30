@@ -4,6 +4,7 @@
     ["transform-replace-object-assign", "simple-assign"],
     "transform-dev-warning",
     "transform-decorators-legacy"
+
   ],
   "env": {
     "test": {

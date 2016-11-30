@@ -6,12 +6,11 @@ import io from 'socket.io-client';
 // import 'bootstrap/less/bootstrap.less';
 import FastClick from 'fastclick';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-
-
-
-// import language  from '../international/language'
 import international from '../international/loader';
-// import Client from './Client';
+
+// import { render }     from 'react-isomorphic-render/redux'
+import common         from './react-isomorphic-render'
+
 import assets from './assets'
 
 for (let asset of Object.keys(assets))
@@ -29,38 +28,91 @@ FastClick.attach(document.body);
 const initialState = window.__INITIAL_STATE__;
 const dest=document.getElementById('root');
 
+// international.load().then(() =>
+// {
+//     // function initSocket() {
+//     //     const socket = io('', {path: '/ws'});
+//     //     socket.on('news', (data) => {
+//     //         console.log(data);
+//     //         socket.emit('my other event', { my: 'data from client' });
+//     //     });
+//     //     socket.on('msg', (data) => {
+//     //         console.log(data);
+//     //     });
+//     //
+//     //     return socket;
+//     // }
+//     // global.socket = initSocket();
+//     // since react-intl assumes Intl is already in the global scope,
+//     // we can't import the routes (which imports react-intl in some of its components)
+//     // before polyfilling Intl. That's why you see require("./routes") here,
+//     // and not as import on the top of the file.
+//     const create_routes = require('../routeres/Routes')
+//
+//     // renders the webpage on the client side
+//     return render
+//     ({
+//             // enable/disable development mode (true/false)
+//             development: __DEVELOPMENT__,
+//
+//             // enable/disable Redux dev-tools (true/false)
+//             devtools: __DEVTOOLS__ && !window.devToolsExtension?  require('./devtools').default: undefined,
+//
+//             // internationalization
+//             // (this is here solely for Webpack HMR in dev mode)
+//             translation: __DEVELOPMENT__ ? international.load_translation : undefined
+//         },
+//         // {
+//         //     reducer: () => require('../reducers'),
+//         //     routes:create_routes,
+//         //     wrapper: <Client data={initialState} messages={data}/>,
+//         // }
+//         common
+//         )
+//         .then(({ component, store, rerender }) =>
+//         {
+//             international.hot_reload(rerender)
+//         }).catch(err=>{
+//             //目前抛出异常为react重画问题
+//             console.log(err)
+//         })
+// });
+
 // load the Intl polyfill and its locale data before rendering the application
 international.load().then(() =>
 {
 
-    // const create_routes = require('./routes')
-    // function initSocket() {
-    //     const socket = io('', {path: '/ws'});
-    //     socket.on('news', (data) => {
-    //         console.log(data);
-    //         socket.emit('my other event', { my: 'data from client' });
-    //     });
-    //     socket.on('msg', (data) => {
-    //         console.log(data);
-    //     });
-    //
-    //     return socket;
-    // }
+    function initSocket() {
+        const socket = io('', {path: '/ws'});
+        socket.on('news', (data) => {
+            console.log(data);
+            socket.emit('my other event', { my: 'data from client' });
+        });
+        socket.on('msg', (data) => {
+            console.log(data);
+        });
+
+        return socket;
+    }
     // global.socket = initSocket();
     const Client= require ('./Client').default;
-        international.load_translation('zh').then(data=>{
-             // renders the webpage on the client side
-            render
-            (
-                <Client data={initialState} messages={data}/>,
-                document.getElementById('root'),
+    international.load_translation('zh').then(data=>{
+        // renders the webpage on the client side
+        render
+        (
+            <Client data={initialState} messages={data}/>,
+            document.getElementById('root')
 
-            )
+        )
     }).then(({ component, store, rerender }) =>
-        {
+    {
+        international.hot_reload(rerender)
+    }).catch(err=>{
+        //目前抛出异常为react重画问题
+        console.log(err)
+    })
 
-            international.hot_reload(rerender)
-      })
+
 })
 
 // render(

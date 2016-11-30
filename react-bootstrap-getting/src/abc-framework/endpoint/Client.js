@@ -8,7 +8,7 @@ import { useScroll } from 'react-router-scroll';
 import ApiClient from '../utils/ApiClient'
 import configureStore from '../store/configureStore'
 import routes from '../routeres/Routes'
-import  Wrapper from './wrapper'
+import  ClientWrapper from './ClientWrapper'
 const Client = (props) =>
 {
     const { data, messages } = props;
@@ -31,20 +31,20 @@ const Client = (props) =>
         const DevTools = require('../devtools/DevTools').default;
         return (
             <Provider store={store} key="provider">
-                 <Wrapper store={store} locale="zh" messages={messages}>
+                 <ClientWrapper store={store} locale="zh" messages={messages}>
                      <div>
                             {component}
                             <DevTools />
                       </div>
-                 </Wrapper>
+                 </ClientWrapper>
 
             </Provider>);
 
     }else{
         return (<Provider store={store} key="provider">
-            <Wrapper store={store} locale="zh" messages={messages}>
+            <ClientWrapper store={store} locale="zh" messages={messages}>
                  {component}
-            </Wrapper>
+            </ClientWrapper>
         </Provider>);
     }
 

@@ -34,6 +34,7 @@ const baseframevendor=path.join(buildConfig.dllReferencePath,"baseframevendor-ma
 const reduxvendor=path.join(buildConfig.dllReferencePath,"reduxvendor-manifest.json");
 const bootvendor=path.join(buildConfig.dllReferencePath,"bootvendor-manifest.json");
 const materialuivendor=path.join(buildConfig.dllReferencePath,"materialuivendor-manifest.json");
+const envdevlop=path.join(buildConfig.dllReferencePath,"envdevlop-manifest.json");
 
 var bootstrapLess = new ExtractTextPlugin("css/[name].css?[hash]-[chunkhash]-[contenthash]-[name]");
 
@@ -44,13 +45,14 @@ extractCSS.extract('style', `css${cssSourceMap}`)
 var lessLoader = //bootstrapLess.extract("style-loader","css-loader","less-loader");
     extractCSS.extract('style', `css${cssSourceMap}!less${cssSourceMap}`);
 
-var sassLoader = extractCSS.extract('style-loader','css-loader','postcss-loader','sass-loader')
+var sassLoader = extractCSS.extract('style', `css${cssSourceMap}!sass${cssSourceMap}`)
 
 const baseServer = {
   //resolve all relative paths from the project root folder
   context: frontend_root_folder,
   devtool: !options.debug ? 'source-map' : null,
-  dependencies: ["reactvendor","baseframevendor","reduxvendor","bootvendor","materialuivendor"],
+  dependencies: ["reactvendor","baseframevendor","reduxvendor",
+      "bootvendor","materialuivendor","envdevlop"],
   entry: {
     app: entryFile
   },
@@ -78,8 +80,9 @@ const baseServer = {
             loader:lessLoader
         },
         {
-            test: /\.scss/,
-            loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
+            test: /\.scss$/,
+            //loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
+            loader:sassLoader
         },
         { test: /\.json$/,
             loader: 'json-loader'
@@ -110,6 +113,8 @@ const baseServer = {
     ],
   },
 
+  // postcss: () => [autoprefixer({ browsers: 'last 2 version' })],
+
   plugins: [
       // new webpack.DllReferencePlugin({
       //     context: __dirname,
@@ -127,12 +132,14 @@ const baseServer = {
           context: __dirname,
           manifest: require(bootvendor)
       }),
+
       // new webpack.DllReferencePlugin({
       //     context: __dirname,
       //     manifest: require(materialuivendor)
       // }),
       extractCSS,
-      bootstrapLess,
+      // bootstrapLess,
+
       webpack_isomorphic_tools_plugin,
   ]
 };

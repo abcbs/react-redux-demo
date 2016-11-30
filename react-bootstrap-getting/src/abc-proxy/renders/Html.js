@@ -74,12 +74,14 @@ export default class Html extends Component {
               <link href={assets.styles[style]} key={key} media="screen, projection"
                     rel="stylesheet" type="text/css" charSet="UTF-8"/>
           )}
+ 
           <body>
       
           <script dangerouslySetInnerHTML={browserInitScriptObj} />
             
           <div dangerouslySetInnerHTML={background} />
           <div id="root" dangerouslySetInnerHTML={{__html: content}}/>
+
           {/* Flux store data will be reloaded into the store on the client */}
           <script dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__=${serialize(store.getState())};`}} charSet="UTF-8"/>
           {/* javascripts */}

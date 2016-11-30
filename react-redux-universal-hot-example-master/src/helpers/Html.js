@@ -31,7 +31,7 @@ export default class Html extends Component {
             <link href={assets.styles[style]} key={key} media="screen, projection"
                   rel="stylesheet" type="text/css" charSet="UTF-8"/>
           )}
-
+         
         </head>
         <body>
            {/* rendered React page */}

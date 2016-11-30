@@ -16,8 +16,15 @@ var _AbcPage = require('../../abc-framework/ui/AbcPage');
 
 var _AbcPage2 = _interopRequireDefault(_AbcPage);
 
+var _spinner = require('../../abc-ui/spinner');
+
+var _spinner2 = _interopRequireDefault(_spinner);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+// import { preload }         from 'react-isomorphic-render/redux'
+// import Preloading      from '../../abc-ui/preloading'
+// import Snackbar        from '../../abc-ui/snackbar'
 var IntroductionPage = _react2['default'].createClass({
     displayName: 'IntroductionPage',
     render: function render() {
@@ -30,6 +37,7 @@ var IntroductionPage = _react2['default'].createClass({
                 _react2['default'].createElement(
                     'p',
                     null,
+                    _react2['default'].createElement(_spinner2['default'], null),
                     'Hello,\u5546\u54C1\u4ECB\u7ECD'
                 )
             )

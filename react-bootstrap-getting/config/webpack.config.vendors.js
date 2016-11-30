@@ -4,15 +4,29 @@ import configure,{options,buildConfig} from './config.path';
 const {buildPath, buildLibPath,publicPath,contentBase,nodeModulesPath}= configure;
 
 const reactvendor = ['react','react-dom'];
-
+/*
 const reduxvendor=['redux','react-redux',
   'redux-thunk','redux-logger','redux-act','reselect','react-router-redux','redux-undo','react-router'];
+*/
+const reduxvendor=['redux','react-redux',
+  'redux-thunk','redux-logger','redux-act',
+  'reselect','react-router-redux','redux-undo','react-router',
+  'react-helmet','react-intl','react-isomorphic-render',
+  'react-styling','scroll-behavior','intl','intl-locales-supported',
+  'intl-messageformat','redux-form','invariant',
+  'multireducer','violet-paginator','warning','lru-memoize', 'hoist-non-react-statics'];
 
-const baseframevendor=['babel-polyfill','classnames','lodash','normalizr',
-  'isomorphic-fetch','react-tap-event-plugin','fastclick','humps'];
+const baseframevendor=['babel-runtime/core-js','babel-preset-react','babel-polyfill',
+  'classnames','lodash','normalizr',
+  'isomorphic-fetch','react-tap-event-plugin','fastclick','humps',
+  'superagent','deep-equal','immutable','socket.io-client'];
 
 const materialuivendor=['material-ui'];
 
+const envdevlop=['redux-devtools-log-monitor',
+  'redux-devtools-dock-monitor',
+  'react-hot-loader'
+]
 const bootvendor=['react-bootstrap','bootstrap'];
 
 const baseVendors  =
@@ -23,7 +37,8 @@ const baseVendors  =
     reactvendor:reactvendor,
     reduxvendor: reduxvendor,
     bootvendor:bootvendor,
-    materialuivendor:materialuivendor
+    materialuivendor:materialuivendor,
+    envdevlop:envdevlop
   },
   output: {
     path: buildPath,
