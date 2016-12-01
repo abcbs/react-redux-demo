@@ -32,7 +32,7 @@ export default class HomePage extends React.Component {
         console.log("e,",e.target.value);
     }
     render() {
-        var root=$("root");
+        //var root=$&&$("root");
         //label-primary-bg
         const { translate } = this.props;
         const title=translate(messages.title);

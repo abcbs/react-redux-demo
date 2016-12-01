@@ -15,12 +15,12 @@ import NotFoundPage from '../ui/AbcNotFoundPage'
 import IntroductionPage from '../../todos/frames/IntroductionPage'
 import HomePage from '../../todos/frames/HomePage'
 
-const authorize = (component, is_authorized) => authorization(is_authorized)(component);
+// const authorize = (component, is_authorized) => authorization(is_authorized)(component);
 
 export default (//component={authorize(IntroductionPage)}
     <Route path="/" component={AbcMainPage}>
         <IndexRoute component={App}/>
-        <Route  path="/app/:filter" component={App} />
+         <Route  path="/app(/:filter)" component={App} />
         <Route  path="/home" component={HomePage} />
         <Route  path="/introduct" component={IntroductionPage} />
         <Route path="unauthenticated" status={401} component={Unauthenticated}/>

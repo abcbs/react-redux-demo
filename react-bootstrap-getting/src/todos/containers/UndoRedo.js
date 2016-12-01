@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import UndoRedo from '../view-bootsrap/UndoRedo'
 
 const mapStateToProps = (state) => {
+  const todo=state.todos||state.default.todos;
   return {
-    canUndo: state.todos.past.length > 0,
-    canRedo: state.todos.future.length > 0
+    canUndo: todo.past.length > 0,
+    canRedo: todo.future.length > 0
   }
 };
 

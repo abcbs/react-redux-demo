@@ -19,9 +19,10 @@ var _UndoRedo2 = _interopRequireDefault(_UndoRedo);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
+  var todo = state.todos || state.default.todos;
   return {
-    canUndo: state.todos.past.length > 0,
-    canRedo: state.todos.future.length > 0
+    canUndo: todo.past.length > 0,
+    canRedo: todo.future.length > 0
   };
 };
 

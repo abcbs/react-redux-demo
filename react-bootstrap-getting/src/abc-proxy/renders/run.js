@@ -1,4 +1,5 @@
 require('babel-register');
+require('babel-polyfill');
 var WebpackIsomorphicTools = require('webpack-isomorphic-tools');
 var options= require('./abc-args').options;
 var path = require('path');

@@ -27,11 +27,12 @@ function selectTodos(todos, filter) {
 // 因为他们并不转换数据，所以被创建成普通的非记忆的selector函数。
 var visibilityFilterSelector = function visibilityFilterSelector(state) {
     //const stateParent=state.todos.present;
-    return state.visibilityFilter;
+    return state.visibilityFilter || state['default'].visibilityFilter;
 };
 var todosSelector = function todosSelector(state) {
     //const stateParent=state.todos.present;
-    return state.todos.present;
+    var todos = state.todos || state['default'].todos;
+    return todos.present;
 };
 
 //visibleTodosSelector是一个可记忆的selector。

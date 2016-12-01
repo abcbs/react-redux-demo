@@ -78,7 +78,7 @@ var HomePage = (_dec = (0, _internationalize2['default'])(), _dec(_class = funct
     }, {
         key: 'render',
         value: function render() {
-            var root = $("root");
+            //var root=$&&$("root");
             //label-primary-bg
             var translate = this.props.translate;
 

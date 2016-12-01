@@ -61,6 +61,11 @@ server.on('upgrade', (req, socket, head) => {
 });
 //请求处理
 app.use(client);
+//
+// app.use(function(request, response)
+// {
+//     proxy.web(request, response, { target: 'http://localhost:3010' })
+// })
 //异常处理
 app.use(function(err, req, res, next){
     // log it

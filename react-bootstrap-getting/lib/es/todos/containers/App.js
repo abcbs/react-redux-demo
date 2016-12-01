@@ -166,11 +166,12 @@ var getTodoVerfiy = function getTodoVerfiy(todos) {
 
 function mapStateToProps(state, ownProps) {
     var visibleTodos = _TodoSelectors.visibleTodosSelector;
+    var todos = state.todos || state['default'].todos;
     return {
         verfiedResult: getTodoVerfiy(state),
-        visibilityFilter: state.visibilityFilter,
-        submitResult: getFormInfo(state.todos.present, state),
-        todos: getVisibleTodos(state.todos.present, state.visibilityFilter)
+        visibilityFilter: state.visibilityFilter || state['default'].visibilityFilter,
+        submitResult: getFormInfo(todos.present, state || state['default']),
+        todos: getVisibleTodos(todos.present, state.visibilityFilter || state['default'].visibilityFilter)
 
     };
 }

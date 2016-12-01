@@ -4,11 +4,7 @@ import { IntlProvider }                from 'react-intl'
 
 function Wrapper(props)
 {
-	// all React "prop"erty providers go here.
-	// e.g. redux Provider, react-intl IntlProvider.
-
 	const { store, locale, messages } = props
-
 	const markup = 
 	(
 		<Provider store={store} key="provider">

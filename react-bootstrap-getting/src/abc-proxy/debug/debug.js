@@ -1,4 +1,5 @@
 require('babel-register');
+require('babel-polyfill');
 var WebpackIsomorphicTools = require('webpack-isomorphic-tools');
 var options= require('../renders/abc-args').options;
 var path = require('path');
@@ -7,7 +8,7 @@ global.__CLIENT__ = false;
 global.__SERVER__ = true;
 global.__DISABLE_SSR__ = false;
 global.__DEVELOPMENT__ = process.env.NODE_ENV !== 'production';
-
+global.__DEVTOOLS__=false;
 // global.log = log
 var rootDir = path.resolve(__dirname, options.iso_rootDir||'../../../');
 var srcRoot = path.join(rootDir, 'src/todos/');
@@ -16,6 +17,6 @@ global.webpackIsomorphicTools = new WebpackIsomorphicTools(webpack_isomorphic_to
 webpackIsomorphicTools.options=Object.assign(webpackIsomorphicTools.options,
     {webpack_assets_file_path:rootDir+'/webpack-assets.json'});
 webpackIsomorphicTools.server(srcRoot, function() {
-    require('../../abc-framework/endpoint/ApplicationIndex');
+    require('../renders/react-isomorphic-render-server');
 })
 

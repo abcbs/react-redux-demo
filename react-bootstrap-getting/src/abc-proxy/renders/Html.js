@@ -3,21 +3,8 @@ import ReactDOM from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import Helmet from 'react-helmet';
 
-
-export default class Html extends Component {
-  static propTypes = {
-    assets: PropTypes.object,
-    component: PropTypes.node,
-    store: PropTypes.object
-  };
-
-
-  render() {
-    const {assets, component, store} = this.props;
-    const content = component ? ReactDOM.renderToString(component) : '';
-    // const head = Helmet.rewind();
-      let browserInitScriptObj = {
-          __html: `
+export const browserInitScriptObj = {
+    __html: `
     
         // console noop shim for IE8/9
         (function (w) {
@@ -29,10 +16,10 @@ export default class Html extends Component {
             });
          }
         }(window));`
-      };
+};
 
-      let head = {
-          __html: `
+export const header = {
+    __html: `
         <title>ABC-Endpoint</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,41 +41,72 @@ export default class Html extends Component {
     
         <![endif]-->
         <link rel="stylesheet" href="/external/home.css">
-           
+         <script>
+          // console noop shim for IE8/9
+        (function (w) {
+          var noop = function () {};
+          if (!w.console) {
+            w.console = {};
+            ['log', 'info', 'warn', 'error'].forEach(function (method) {
+              w.console[method] = noop;
+            });
+         }
+        }(window));   
+        </script>   
         `
-      };
-      let background = {
-          __html: `
+};
+
+export const background = {
+    __html: `
             <div class="pos images">
               <span class="top a1" >Hello Beijing</span>
               <span class="top a2">Hello China</span>
               <span class="top a3">Hello World</span>
           </div>
-        `
-      };
-
-      return (
-          <html>
-          <head dangerouslySetInnerHTML={head} />
-           {Object.keys(assets.styles).map((style, key) =>
-              <link href={assets.styles[style]} key={key} media="screen, projection"
-                    rel="stylesheet" type="text/css" charSet="UTF-8"/>
-          )}
- 
-          <body>
-      
-          <script dangerouslySetInnerHTML={browserInitScriptObj} />
-            
-          <div dangerouslySetInnerHTML={background} />
-          <div id="root" dangerouslySetInnerHTML={{__html: content}}/>
-
-          {/* Flux store data will be reloaded into the store on the client */}
-          <script dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__=${serialize(store.getState())};`}} charSet="UTF-8"/>
-          {/* javascripts */}
           <script src="/external/requirejs/require.js"></script>
           <script src="/external/requirejs.config.js"></script>
+         
+          
+        `
+};
 
-          </body>
+export const HeaderInnerHTML =()  => (
+    header.__html
+);
+
+export const Header =()  => (
+    <head dangerouslySetInnerHTML={header} />
+);
+export const BodyStart=()=>(
+     <div dangerouslySetInnerHTML={background} />
+)
+
+export const BodyContent=(content)=>(
+    <div id="root" dangerouslySetInnerHTML={{__html: content}}/>
+)
+
+
+export default class Html extends Component {
+  static propTypes = {
+    assets: PropTypes.object,
+    component: PropTypes.node,
+    store: PropTypes.object
+  };
+
+
+  render() {
+    const {assets, component, store} = this.props;
+    const content = component ? ReactDOM.renderToString(component) : '';
+    return (
+          <html>
+            <Header/>
+            <body>
+                <BodyStart />
+             
+                <div id="root" dangerouslySetInnerHTML={{__html: content}}/>
+                <script dangerouslySetInnerHTML={{__html: `window.__INITIAL_STATE__=${serialize(store.getState())};`}}
+                        charSet="UTF-8"/>
+            </body>
           </html>
       );
   }

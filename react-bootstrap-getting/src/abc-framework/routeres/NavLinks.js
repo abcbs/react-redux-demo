@@ -3,7 +3,7 @@ import NotFoundPage from '../ui/AbcNotFoundPage'
 
 const NAV_LINKS = {
     App: {
-        path: '/',
+        path: '/app',
         nav:'/app/:filter',
         title: '主页',
         subTitle:"ABC主页可配置",

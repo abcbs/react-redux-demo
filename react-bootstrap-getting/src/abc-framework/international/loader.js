@@ -10,7 +10,6 @@ const debug = (...parameters) => { console.log.bind(console)(parameters) }
 
 const international =
 {
-
 	load(locale)
 	{
 		// language
@@ -23,19 +22,18 @@ const international =
 	// Returns a promise which is resolved when Intl has been polyfilled
 	load_polyfill(locale)
 	{
-		// if (window.Intl && is_intl_locale_supported(locale))
-		// {
-		// 	// all fine: Intl is in the global scope and the locale data is available
-		// 	return Promise.resolve()
-		// }
-
+		if (window.Intl && is_intl_locale_supported(locale))
+		{
+			// all fine: Intl is in the global scope and the locale data is available
+			return Promise.resolve()
+		}
 		return new Promise((resolve) =>
 		{
 			debug(`Intl or locale data for "${locale}" not available, downloading the polyfill...`)
 
 			// do not remove code duplication (because Webpack won't work as expected)
-			//switch (get_language_from_locale(locale))
-			switch (locale)
+			switch (get_language_from_locale(locale))
+			// switch (locale)
 			{
 				case 'zh':
 					// When building: create a intl chunk with webpack
@@ -49,17 +47,13 @@ const international =
 					(require) =>
 					{
 						// apply the polyfill
-						require('intl')
-						require('intl/locale-data/jsonp/zh.js')
+						require('intl');
+						require('intl/locale-data/jsonp/zh.js');
 
-						debug(`Intl polyfill for "${locale}" has been loaded`)
-						//
-						let data=require('./translations/zh').default;
-						data.locale='zh'
-						add_locale_data(data)
-						resolve(data)
+						debug(`Intl polyfill for "${locale}" has been loaded`);
+						resolve();
 					},
-					'intl')
+					'intl');
 					break
 
 
@@ -72,8 +66,8 @@ const international =
 		return new Promise(resolve =>
 		{
 			// do not remove code duplication (because Webpack won't work as expected)
-			//switch (get_language_from_locale(locale))
-			switch (locale)
+			switch (get_language_from_locale(locale))
+			// switch (locale)
 			{
 				// russian
 				case 'zh':
@@ -92,7 +86,7 @@ const international =
 						// require('intl-messageformat/dist/locale-data/zh');
 						resolve()
 					},
-					)
+					);
 					break
 
 
@@ -105,8 +99,8 @@ const international =
 	{
 		// makes Webpack HMR work for this locale for now
 		_locale = locale||'zh'
-		//switch (get_language_from_locale(locale))
-		switch (locale)
+		switch (get_language_from_locale(locale))
+		// switch (locale)
 		{
 			case 'zh':
 				return new Promise(resolve =>

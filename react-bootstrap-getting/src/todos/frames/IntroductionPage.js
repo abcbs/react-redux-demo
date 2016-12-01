@@ -21,13 +21,13 @@ function fetchUsers()
         events: ['GET_USERS_PENDING', 'GET_USERS_SUCCESS', 'GET_USERS_FAILURE']
     }
 }
-
-@preload(({ dispatch }) => dispatch(fetchUsers))
-@connect
-(
-    state    => ({ users: state.users.users }),
-    dispatch => bindActionCreators({ fetchUsers }, dispatch)
-)
+//
+// @preload(({ dispatch }) => dispatch(fetchUsers))
+// @connect
+// (
+//     state    => ({ users: state.users.users }),
+//     dispatch => bindActionCreators({ fetchUsers }, dispatch)
+// )
 export default class IntroductionPage extends Component
 {
     static propTypes =
