@@ -81,6 +81,10 @@ export default function authorize(authorization)
 		}
 		//认证组件定义结束
 		Authorize.displayName = `Authorize(${get_display_name(Wrapped)})`;
+		Authorize.propTypes = {
+			user: React.PropTypes.string
+		};
+		//Authorize.defaultProps = defaultProps;
 		//原组件继承写法
 		hoist_statics(Authorize, Wrapped);
 		//
@@ -117,10 +121,12 @@ export default function authorize(authorization)
 		});
 
 		return connect
-		(model =>
-		({//model为redux的state
-			user : model.authentication.user
-		}))
+		(model => {
+			const role = model.authentication || model.default.authentication;
+			return ({//model为redux的state
+				user: role.authentication.user
+			})
+		})
 		(Authorize)
 	}
 }

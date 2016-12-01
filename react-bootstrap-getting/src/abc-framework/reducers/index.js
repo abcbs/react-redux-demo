@@ -17,10 +17,12 @@ export { default as preload }        from './ui-reducers/preload'
 export { default as snackbar }       from './ui-reducers/snackbar'
 export { default as navigator }      from './ui-reducers/navigator'
 
+import { default as authentication } from './authentication'
 const reducers = {
     routing: routerReducer,
     pagination,
     form,
+    authentication,
     main: user_settings_main
 
 };

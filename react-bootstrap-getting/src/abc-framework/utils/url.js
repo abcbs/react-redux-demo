@@ -1,3 +1,4 @@
+import isObject from 'lodash/isObject'
 // parseUri 1.2.2
 function parse_uri(uri = document.location)
 {
@@ -62,7 +63,7 @@ export default class Uri
 {
 	constructor(uri)
 	{
-		if (is_object(uri))
+		if (isObject(uri))
 		{
 			uri = uri.pathname + (uri.search ? `?${uri.search}` : '')
 		}

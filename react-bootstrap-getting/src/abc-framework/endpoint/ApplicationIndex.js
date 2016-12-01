@@ -27,10 +27,21 @@ FastClick.attach(document.body);
 //通过服务端注入的全局变量得到初始state
 const initialState = window.__INITIAL_STATE__=window._flux_store_data;
 const dest=document.getElementById('root');
+//模拟数据
+const authentication={authentication:{
+    user:{
+        id:"001",
+        name:"张三",
+        role:"administrator"
+    }
+    }
+}
 var data= {present:[{text:"client数据"+(new Date),completed:false},
     {text:"客户端测试数据",completed:false}]};
+
 const state =
 {   default:{
+    authentication:authentication,
     visibilityFilter: "SHOW_ALL",
     todos:data
 },

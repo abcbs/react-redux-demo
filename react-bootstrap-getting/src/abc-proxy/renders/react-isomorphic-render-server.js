@@ -89,8 +89,18 @@ const server = webpageServer
         //得到初始 state
         var data=await {present:[{text:"我当前时间为"+(new Date),completed:false},
         {text:"服务端测试数据",completed:false}]};
+        //模拟数据
+        const authentication={authentication:{
+            user:{
+                id:"001",
+                name:"张三",
+                role:"administrator"
+            }
+        }
+        }
         const state =
         {   default:{
+            authentication:authentication,
             visibilityFilter: "SHOW_ALL",
             todos:data
             },
