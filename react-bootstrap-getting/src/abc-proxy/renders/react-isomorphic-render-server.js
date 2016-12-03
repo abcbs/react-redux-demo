@@ -157,6 +157,47 @@ server.use(compress({
 }))
 
 server.use(etag());
+var router = require('koa-router')();
+var db = {
+    tobi: { name: 'tobi', species: 'ferret' },
+    loki: { name: 'loki', species: 'ferret' },
+    jane: { name: 'jane', species: 'ferret' }
+};
+
+var pets = {
+    list: function *(){
+        var names = Object.keys(db);
+        this.body = 'pets: ' + names.join(', ');
+    },
+
+    show: function *(name){
+        var pet = db[name];
+        if (!pet) return this.throw('cannot find that pet', 404);
+        this.body = pet.name + ' is a ' + pet.species;
+    }
+};
+
+router.get('/pets', pets.list);
+router.get('/pets/:name', pets.show);
+//////////////////////////////////////
+var resouce={
+    dist: async function () {
+       await staticServer(dist);
+    },
+    external:async function(){
+        await staticServer(external)
+    },
+    build: async function (){
+        const build='d:\DevT\abc-react-end\react-redux-tutorial-master\react-bootstrap-getting\build\app.js'
+        await staticServer(build)
+    }
+}
+router.get('/dist', resouce.dist);
+router.get('/external',resouce.external );
+router.get('/build', resouce.build);
+server
+    .use(router.routes())
+    .use(router.allowedMethods());
 
 
 server.listen(port, function(error)

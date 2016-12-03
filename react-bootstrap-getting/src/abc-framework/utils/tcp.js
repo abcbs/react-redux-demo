@@ -29,6 +29,7 @@ import stream from 'stream'
 import util from 'util'
 import EventEmitter from 'events'
 import acl from './acl'
+import merge from 'lodash/merge'
 
 const message_delimiter = '\f' // or '\n'
 
@@ -609,7 +610,7 @@ export function client({ name, server_name, host, port })
 			log.debug(`Reconnect failed`)
 
 			// if max retries count limit reached, should stop trying to reconnect
-			if (exists(max_retries) && retries_made === max_retries)
+			if (retries_made === max_retries)
 			{
 				log.info(`Max retries count reached. Will not try to reconnect further.`)
 
@@ -634,10 +635,10 @@ export function client({ name, server_name, host, port })
 			retries_made++
 			socket.connect({ host, port })
 		}
+		//modified by liujq
+		const reconnection_delay =1500
 
-		const reconnection_delay = retries_made < reconnection_delays.length ? reconnection_delays[retries_made] : reconnection_delays.last()
-
-		reconnect.delay_for(reconnection_delay)
+		reconnect&&reconnect(reconnection_delay)
 	})
 
 	// create a duplex object stream
