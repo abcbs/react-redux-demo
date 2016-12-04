@@ -50,14 +50,14 @@ export default function(path, to, options = {})
 					// Give meaningful description to "Connection refused" error
 					if (error.code === 'ECONNREFUSED')
 					{
-						error = new Error(`Couldn't proxy "${from_name}" to ${to_name}. No connection`)
+						error = new Error(`Couldn't proxy "${from_name}" to ${to_name} ${to}. No connection`)
 					}
 
 					// Give meaningful description to "Socket hang up"
 					// (probably it's caught here)
 					if (error.code === 'ECONNRESET')
 					{
-						error = new Error(`Lost connection while proxying "${from_name}" to ${to_name}`)
+						error = new Error(`Lost connection while proxying "${from_name}" to ${to_name} ${to}`)
 					}
 
 					console.error(`Proxy error`)

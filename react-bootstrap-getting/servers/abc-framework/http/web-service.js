@@ -152,7 +152,7 @@ export default function web_service(options = {})
 	{
 		web.use(compress())
 	}
-
+	const ishttp=options.https
 	// Dummy log in case no `log` supplied
 	const log = options.log ||
 	{
@@ -408,20 +408,17 @@ export default function web_service(options = {})
 			})
 
 			// Create HTTP server
-			// const http_web_server = http.createServer()
-			//LiuJQ
-			// var options = {
-			// 	key: fs.readFileSync('../../../resource/certs/server-key.pem'),
-			// 	ca: [fs.readFileSync('../../../resource/certs/server-csr.pem')],
-			// 	cert: fs.readFileSync('../../../resource/certs/server-cert.pem')
-			// };
-
+			let http_web_server
 			var options = {
 				pfx:fs.readFileSync('../../../resource/certs/server.pfx'),
 				passphrase:'abcend'
 			};
 
-			const http_web_server=https.createServer(options);
+			if(ishttp){
+				http_web_server=https.createServer(options)
+			}else{
+				http_web_server= http.createServer()
+			}
 			// // Enable Koa for handling HTTP requests
 			// http_web_server.on('request', web.callback())
 
@@ -450,6 +447,8 @@ export default function web_service(options = {})
 
 				resolve(http_web_server)
 			})
+
+			//
 			// .on('connection', () => connections++)
 			// .on('close', () => connections--)
 		})

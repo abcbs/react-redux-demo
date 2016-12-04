@@ -6,5 +6,7 @@ api
 	configuration.user_service.http,
 	[
 		require('./api/user').default,
-	]
+	],{
+		https:false
+	}
 )

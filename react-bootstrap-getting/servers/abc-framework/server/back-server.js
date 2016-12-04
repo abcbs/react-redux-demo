@@ -26,6 +26,7 @@ for (let key of Object.keys(global_variables))
 }
 
 global.address_book = {};
+global.address_ssl_book = {};
 console.log("global.configuration,",global.configuration);
 console.log("global_variables,",global_variables);
 
@@ -41,7 +42,8 @@ for (let key of Object.keys(global.configuration))
 
     if (isObject(value) && isObject(value.http) && value.http.host && value.http.port)
     {
-        global.address_book[key] = `https://${value.http.host}:${value.http.port}`
+        global.address_book[key] = `http://${value.http.host}:${value.http.port}`
+        global.address_ssl_book[key] = `https://${value.http.host}:${value.http.port}`
     }
 }
 console.log("address_book,",address_book);

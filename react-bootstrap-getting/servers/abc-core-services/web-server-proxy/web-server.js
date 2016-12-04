@@ -2,7 +2,13 @@ import path        from 'path'
 import web_service from '../../abc-framework/server/webservice'
 
 const web = web_service
-({
+(
+	{
+		https:true
+	}
+
+	// {
+
 	// // since the following services are local,
 	// // and write errors to the same log,
 	// // there's no need to duplicate those errors in the log
@@ -15,7 +21,9 @@ const web = web_service
 	// 	[address_book.log_service]            : false,
 	// 	[address_book.webpage_server]         : false
 	// },
-})
+// }
+
+)
 // // Web browsers query "favicon.ico" automatically (301 Moved Permanently)
 // web.redirect('/favicon.ico', { to: '/assets/images/icon/cat_64x64.png', exact: true })
 
@@ -32,7 +40,7 @@ web.proxy('/authentication', address_book.authentication_service, { name: 'Authe
 
 // Proxy /users requests to user-service
 web.proxy('/users', address_book.user_service, { name: 'User service' })
-
+// web.proxy('/users', address_ssl_book.user_service, { name: 'User service' })
 // // Proxy /api requests to API server
 // web.proxy('/api', address_book.api_service, { name: 'API service' })
 //
