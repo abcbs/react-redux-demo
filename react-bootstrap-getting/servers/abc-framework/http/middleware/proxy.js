@@ -5,7 +5,6 @@ import { exists, is_object } from '../helpers'
 export default function(path, to, options = {})
 {
 	// Normalize arguments
-	
 	if (is_object(to))
 	{
 		options = to
@@ -70,7 +69,7 @@ export default function(path, to, options = {})
 			})
 
 			await promise
-		}
+		}//
 	}
 
 	// The result to be returned

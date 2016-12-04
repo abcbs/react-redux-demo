@@ -40,7 +40,7 @@ web.proxy('/users', address_book.user_service, { name: 'User service' })
 // web.proxy('/images', address_book.image_service, { name: 'Image service' })
 //
 // // Proxy /log requests to Log server
-web.proxy('/log', address_book.log_service, { name: 'Log service' })
+// web.proxy('/log', address_book.log_service, { name: 'Log service' })
 //
 // // Proxy all the rest requests to Webpage rendering server
 // web.proxy(address_book.webpage_server, { name: 'Page rendering service' })

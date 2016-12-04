@@ -4,12 +4,17 @@ import path from 'path'
 import configuration from '../../abc-config/config-server'
 import global_variables from '../../abc-config/global-variables'
 import  endsWith from  'lodash/endsWith'
+import keys from 'lodash/keys'
+import isObject from 'lodash/isObject'
 global._development_ = process.env.NODE_ENV !== 'production';
 global._production_ = !global._development_;
 
 // Promise.all(fs);
-String.ends_with=String.ends_with||endsWith;
-String.prototype.startsWith=String.prototype.startsWith||endsWith;
+String.endsWith=String.endsWith||endsWith;
+
+Object.keys=Object.keys||keys;
+Object.isObject=Object.isObject||isObject;
+
 global.Root_folder = path.join(__dirname, '..');
 
 global.knexfile = false;
@@ -21,22 +26,25 @@ for (let key of Object.keys(global_variables))
 }
 
 global.address_book = {};
+console.log("global.configuration,",global.configuration);
+console.log("global_variables,",global_variables);
 
 for (let key of Object.keys(global.configuration))
 {
-    if (!String.ends_with.call(key,'_server') && !String.ends_with.call(key,'_service'))
+    console.log("key,",key);
+    if (!key.endsWith('_server') && !key.endsWith('_service'))
     {
         continue
     }
 
     const value = global.configuration[key];
 
-    if (is_object(value) && is_object(value.http) && value.http.host && value.http.port)
+    if (isObject(value) && isObject(value.http) && value.http.host && value.http.port)
     {
-        global.address_book[key] = `http://${value.http.host}:${value.http.port}`
+        global.address_book[key] = `https://${value.http.host}:${value.http.port}`
     }
 }
-
+console.log("address_book,",address_book);
 global.wait_for_stores = function(stores, then)
 {
     return Promise.all(stores.map(

@@ -27,7 +27,7 @@ import session        from './middleware/session'
 import routing        from './middleware/routing'
 import redirect       from './middleware/redirect'
 import rewrite        from './middleware/rewrite'
-
+// import certs from '../../../resource/certs'
 // Sets up a Web Server instance (based on Koa)
 //
 // options:
@@ -408,8 +408,20 @@ export default function web_service(options = {})
 			})
 
 			// Create HTTP server
-			const http_web_server = http.createServer()
+			// const http_web_server = http.createServer()
+			//LiuJQ
+			// var options = {
+			// 	key: fs.readFileSync('../../../resource/certs/server-key.pem'),
+			// 	ca: [fs.readFileSync('../../../resource/certs/server-csr.pem')],
+			// 	cert: fs.readFileSync('../../../resource/certs/server-cert.pem')
+			// };
 
+			var options = {
+				pfx:fs.readFileSync('../../../resource/certs/server.pfx'),
+				passphrase:'abcend'
+			};
+
+			const http_web_server=https.createServer(options);
 			// // Enable Koa for handling HTTP requests
 			// http_web_server.on('request', web.callback())
 
