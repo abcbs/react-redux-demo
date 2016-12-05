@@ -27,7 +27,7 @@ import session        from './middleware/session'
 import routing        from './middleware/routing'
 import redirect       from './middleware/redirect'
 import rewrite        from './middleware/rewrite'
-// import certs from '../../../resource/certs'
+import {servicepfx} from '../../../config/backend-config.path'
 // Sets up a Web Server instance (based on Koa)
 //
 // options:
@@ -410,7 +410,7 @@ export default function web_service(options = {})
 			// Create HTTP server
 			let http_web_server
 			var options = {
-				pfx:fs.readFileSync('../../../resource/certs/server.pfx'),
+				pfx:fs.readFileSync(servicepfx),
 				passphrase:'abcend'
 			};
 

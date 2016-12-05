@@ -1,4 +1,4 @@
-import {exec} from './exec';
+import {exec} from '../develop/exec';
 import fsp from 'fs-promise';
 import configure,{options,buildConfig} from '../../config/config.path';
 

@@ -1,4 +1,4 @@
-import {exec} from './exec';
+import {exec} from '../develop/exec';
 
 export default function gits() {
     console.log('Git操作: '.cyan + '提交到远程库'.green);

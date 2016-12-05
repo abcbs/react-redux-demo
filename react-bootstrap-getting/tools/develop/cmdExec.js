@@ -43,7 +43,7 @@ export default function runCmd(name, cmd, options,fn) {
     .progress(childProcess => {
       listen(childProcess, name);
       processMap[name] = childProcess;
-      return;
+      return ;
     })
     .then((data) => {console.log('Shutdown: '.cyan + name.green)
       if(fn){

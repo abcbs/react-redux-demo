@@ -1,6 +1,6 @@
 import fsp from 'fs-promise';
 import path from 'path';
-import {exec} from './exec';
+import {exec} from '../develop/exec';
 import configure,{options,buildConfig} from '../../config/config.path';
 
 const {buildPath, buildLibPath,publicPath,contentBase,nodeModulesPath}= configure;
