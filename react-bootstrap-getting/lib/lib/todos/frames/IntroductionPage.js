@@ -7,10 +7,13 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _class, _temp;
+var _dec, _class, _class2, _temp;
 
 // import Preloading      from '../../abc-ui/preloading'
 // import Snackbar        from '../../abc-ui/snackbar'
+
+// import 'bootstrap/less/theme.less'
+// import 'bootstrap/less/bootstrap.less';
 
 var _react = require('react');
 
@@ -24,13 +27,15 @@ var _AbcPage = require('../../abc-framework/ui/AbcPage');
 
 var _AbcPage2 = _interopRequireDefault(_AbcPage);
 
-var _reactIsomorphicRender = require('react-isomorphic-render');
+var _index = require('../../abc-framework/react-isomorphic-render/index.es6');
 
-var _redux = require('react-isomorphic-render/redux');
+var _redux = require('../../abc-framework/react-isomorphic-render/redux');
 
 var _reactRedux = require('react-redux');
 
 var _redux2 = require('redux');
+
+var _reactBootstrap = require('react-bootstrap');
 
 var _spinner = require('../../abc-ui/spinner');
 
@@ -50,12 +55,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // fetches the list of users from the server
 function fetchUsers() {
+    // console.log("http,",http);
     return {
         promise: function promise(http) {
-            return http.get('/api/users').then(function (ids) {
-                return Promise.map(ids, function (id) {
-                    return http.get('/api/users/' + id);
-                });
+            return http.get('/api/users/current').then(function (ids) {
+                return console.log("idx,", ids);
             });
         },
         events: ['GET_USERS_PENDING', 'GET_USERS_SUCCESS', 'GET_USERS_FAILURE']
@@ -63,12 +67,17 @@ function fetchUsers() {
 }
 //
 // @preload(({ dispatch }) => dispatch(fetchUsers))
-// @connect
-// (
-//     state    => ({ users: state.users.users }),
-//     dispatch => bindActionCreators({ fetchUsers }, dispatch)
-// )
-var IntroductionPage = (_temp = _class = function (_Component) {
+var IntroductionPage = (_dec = (0, _reactRedux.connect)(function (state) {
+    //.default.authentication.authentication
+    var authn = state.authentication || state.default.authentication;
+    var users = authn.authentication.user;
+    return;
+    {
+        users: users;
+    }
+}, function (dispatch) {
+    return (0, _redux2.bindActionCreators)({ fetchUsers: fetchUsers }, dispatch);
+}), _dec(_class = (_temp = _class2 = function (_Component) {
     _inherits(IntroductionPage, _Component);
 
     function IntroductionPage() {
@@ -78,6 +87,12 @@ var IntroductionPage = (_temp = _class = function (_Component) {
     }
 
     _createClass(IntroductionPage, [{
+        key: 'handleClick',
+        value: function handleClick(e) {
+            console.log("e,", e.target.value);
+            this.props.fetchUsers();
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -87,10 +102,20 @@ var IntroductionPage = (_temp = _class = function (_Component) {
                     _AbcContainer2.default,
                     null,
                     _react2.default.createElement(
-                        'p',
-                        null,
+                        'span',
+                        { style: { position: 'absolute', display: 'inline-block' } },
                         _react2.default.createElement(_spinner2.default, null),
-                        'Hello,\u5546\u54C1\u4ECB\u7ECD'
+                        'Hello,\u5546\u54C1\u4ECB\u7ECD,Hello,\u5546\u54C1\u4ECB\u7ECD',
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement(
+                                _reactBootstrap.Button,
+                                { onClick: this.handleClick.bind(this)
+                                },
+                                'Refresh'
+                            )
+                        )
                     )
                 )
             );
@@ -138,8 +163,8 @@ var IntroductionPage = (_temp = _class = function (_Component) {
     }]);
 
     return IntroductionPage;
-}(_react.Component), _class.propTypes = {
+}(_react.Component), _class2.propTypes = {
     users: _react.PropTypes.array.isRequired,
     fetchUsers: _react.PropTypes.func.isRequired
-}, _temp);
+}, _temp)) || _class);
 exports.default = IntroductionPage;

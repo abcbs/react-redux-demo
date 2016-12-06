@@ -102,8 +102,8 @@ export default function authorize(authorization)
 			Authorize[preload] = function authorize_then_preload(parameters)
 			{
 				const location = parameters.location;
-
-				const user = parameters.getState().authentication.user;
+				const state=parameters.getState().default;
+				const user = state.authentication.authentication.user;
 				const url = location.pathname + location.search;
 
 				const result = check_privileges({ user, url, authorization });

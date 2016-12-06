@@ -127,5 +127,7 @@ gulp.task('examples:await', getTask('examples'));
 
 //服务端任务
 gulp.task('abc:backend-es6', getTask('backServerEs6'));
+//buildBackendCli
+gulp.task('abc:build-backend-cli', getTask('buildBackendCli'));
 //gulp.task('default', ['abc:modules']);
 //gulp.task('default', ['examples:await']);

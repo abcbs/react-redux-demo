@@ -113,7 +113,7 @@ module.exports =
 		http:
 		{
 			host: '192.168.1.102',
-			port: 3000
+			port: 3030
 		},
 		image_service_path: '/images'
 	},

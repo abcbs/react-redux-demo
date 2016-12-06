@@ -31,3 +31,12 @@ export const releaseExternalRoot = path.join(repoRoot, 'public/external');
 export const esVenderRoot = path.join(repoRoot, 'lib/es/dist');
 export const esProductRoot = path.join(repoRoot, 'lib/es/build');
 export const esExternalRoot = path.join(repoRoot, 'lib/es/external');
+
+
+//服务端结构
+export const srcServerRoot = path.join(repoRoot, 'servers/');
+//
+export const distServerRoot = path.join(repoRoot, 'lib/servers-dist/');
+export const libServerRoot = path.join(repoRoot, 'lib/servers-lib/');
+export const esServerRoot = path.join(repoRoot, 'lib/servers/');
+export const bowerServerRoot = path.join(repoRoot, 'lib/servers-amd/');

@@ -20,7 +20,7 @@ const authorize = (component, is_authorized) => authorization(is_authorized)(com
 export default (//component={authorize(IntroductionPage)}
     <Route path="/" component={AbcMainPage}>
         <IndexRoute component={App}/>
-         <Route  path="/app(/:filter)" component={App} />
+        <Route  path="/app(/:filter)" component={App} />
         <Route  path="/home" component={HomePage} />
         <Route  path="/introduct" component={authorize(IntroductionPage)} />
         <Route path="unauthenticated" status={401} component={Unauthenticated}/>

@@ -26,7 +26,7 @@ const app=devEntryBundle.concat(entryFile);
 const server= {
   ...baseServer,
   entry:{
-     app:options.debug ?  entryFile:app
+     app:options.debug ?  app:entryFile
     //app:entryFile
   },
   devServer:{

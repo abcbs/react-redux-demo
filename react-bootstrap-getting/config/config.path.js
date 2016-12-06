@@ -11,7 +11,7 @@ export const pathConfig = {
     nodeModulesPath : path.resolve(__dirname, '../node_modules')
 
 };
-//项目App
+//项目App,在服务方式启动，buildPath是绝对路径
 export const buildConfig={
     buildPath : 'build',
     nodeModulesPath : 'node_modules',

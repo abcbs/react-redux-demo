@@ -8,7 +8,9 @@ import FastClick from 'fastclick';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import international from '../international/loader';
 
-import { render as isomorphicRender}     from 'react-isomorphic-render/redux'
+// import { render as isomorphicRender}     from 'react-isomorphic-render/redux'
+
+import { render as isomorphicRender}     from '../react-isomorphic-render/redux'
 import common         from './react-isomorphic-render'
 
 import assets from './assets'

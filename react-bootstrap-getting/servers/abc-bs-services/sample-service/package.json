@@ -1,13 +1,4 @@
 {
-  "name": "abc-user-service",
-  "version": "0.1.0",
-  "description": "Gets users' info, and updates that info",
-  "main": "entry.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/abcbs/react-redux-demo.git"
-  },
-  "homepage": "https://github.com/abcbs/react-redux-demo",
-  "author": "LiuJQ"
+
 
 }

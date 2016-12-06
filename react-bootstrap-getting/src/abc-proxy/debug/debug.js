@@ -1,5 +1,4 @@
-require('babel-register');
-require('babel-polyfill');
+
 var WebpackIsomorphicTools = require('webpack-isomorphic-tools');
 var options= require('../renders/abc-args').options;
 var path = require('path');
@@ -18,5 +17,6 @@ webpackIsomorphicTools.options=Object.assign(webpackIsomorphicTools.options,
     {webpack_assets_file_path:rootDir+'/webpack-assets.json'});
 webpackIsomorphicTools.server(srcRoot, function() {
     require('../renders/react-isomorphic-render-server');
+    // require('../../../server');
 })
 

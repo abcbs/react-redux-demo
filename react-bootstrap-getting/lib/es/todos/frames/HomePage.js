@@ -25,7 +25,7 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _dec, _class;
+var _dec, _dec2, _class, _class2, _temp;
 
 var _react = require('react');
 
@@ -41,6 +41,10 @@ var _AbcPage2 = _interopRequireDefault(_AbcPage);
 
 var _abcBootstrap = require('../../abc-bootstrap');
 
+var _reactRedux = require('react-redux');
+
+var _redux = require('redux');
+
 var _reactIntl = require('react-intl');
 
 var _internationalize = require('../../abc-framework/international/internationalize');
@@ -48,6 +52,18 @@ var _internationalize = require('../../abc-framework/international/international
 var _internationalize2 = _interopRequireDefault(_internationalize);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function fetchUsers() {
+    // console.log("http,",http);
+    return {
+        promise: function promise(http) {
+            return http.get('/api/users/current').then(function (ids) {
+                return console.log("ids,", ids);
+            });
+        },
+        events: ['GET_USERS_PENDING', 'GET_USERS_SUCCESS', 'GET_USERS_FAILURE']
+    };
+}
 
 var messages = (0, _reactIntl.defineMessages)({
     title: {
@@ -62,7 +78,17 @@ var messages = (0, _reactIntl.defineMessages)({
     }
 });
 
-var HomePage = (_dec = (0, _internationalize2['default'])(), _dec(_class = function (_React$Component) {
+var HomePage = (_dec = (0, _reactRedux.connect)(function (state) {
+    //.default.authentication.authentication
+    var authn = state.authentication || state['default'].authentication;
+    var users = authn.authentication.user;
+    return;
+    {
+        users: users;
+    }
+}, function (dispatch) {
+    return (0, _redux.bindActionCreators)({ fetchUsers: fetchUsers }, dispatch);
+}), _dec2 = (0, _internationalize2['default'])(), _dec(_class = _dec2(_class = (_temp = _class2 = function (_React$Component) {
     (0, _inherits3['default'])(HomePage, _React$Component);
 
     function HomePage() {
@@ -74,6 +100,7 @@ var HomePage = (_dec = (0, _internationalize2['default'])(), _dec(_class = funct
         key: 'handleClick',
         value: function handleClick(e) {
             console.log("e,", e.target.value);
+            this.props.fetchUsers();
         }
     }, {
         key: 'render',
@@ -126,6 +153,11 @@ var HomePage = (_dec = (0, _internationalize2['default'])(), _dec(_class = funct
                                 { bsStyle: 'abc' },
                                 '17'
                             )
+                        ),
+                        _react2['default'].createElement(
+                            _abcBootstrap.Button,
+                            { onClick: this.handleClick.bind(this) },
+                            'Refresh'
                         )
                     )
                 )
@@ -133,5 +165,8 @@ var HomePage = (_dec = (0, _internationalize2['default'])(), _dec(_class = funct
         }
     }]);
     return HomePage;
-}(_react2['default'].Component)) || _class);
+}(_react2['default'].Component), _class2.propTypes = {
+    users: _react.PropTypes.array.isRequired,
+    fetchUsers: _react.PropTypes.func.isRequired
+}, _temp)) || _class) || _class);
 exports['default'] = HomePage;

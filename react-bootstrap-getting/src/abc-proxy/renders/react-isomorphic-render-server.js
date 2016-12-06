@@ -1,4 +1,4 @@
-import webpageServer from 'react-isomorphic-render/server'
+import webpageServer from '../../abc-framework/react-isomorphic-render/server'
 import settings from '../../abc-framework/endpoint/react-isomorphic-render'
 import React, {Component, PropTypes} from 'react';
 //压缩
@@ -9,6 +9,7 @@ import staticServer from 'koa-static';
 import koa  from  'koa';
 import compress from 'koa-compress';
 import etag from 'koa-etag';
+import proxy from '../../../servers/abc-framework/http/middleware/proxy'
 import {options} from './abc-args';
 import Spinner from '../../abc-ui/spinner'
 const port = process.env.PORT || options.port||3010;
@@ -28,17 +29,21 @@ var external=path.join(repoRoot, '/external');
 
 var build=path.join(repoRoot, '/build');
 
+//创建服务端代理
+const {middleware} = proxy('/api',targetUrl)
+// server.use(middleware);
 // Create webpage rendering server
 const server = webpageServer
 ({
         middleware:[
-            staticServer(repoRoot)
+            staticServer(repoRoot),
+            middleware
         ],
         application:
         {
-            host: host,
-            port: port,
-            // secure: true // for HTTPS
+            host: apiHost,
+            port: apiPort,
+            secure: true // for HTTPS
         },
         assets:(url)=>
         {
@@ -48,12 +53,12 @@ const server = webpageServer
             // {
             //     webpackIsomorphicTools&&webpackIsomorphicTools.refresh()
             // }
-            const assets = webpackIsomorphicTools.assets();
+            // const assets = webpackIsomorphicTools.assets();
             const result =
             {
                 // entry      : '/build/app',
-                javascript : assets.javascript,
-                style      : assets.styles,
+                // javascript : assets.javascript,
+                // style      : assets.styles,
                 // icon : html_assets.icon()
             }
 
@@ -85,7 +90,7 @@ const server = webpageServer
     // logged in user info (user name, user picture, etc).
     //
     initialize: async(httpClient, {request}) => {
-        const user = {};//await http.get(`/users/current`)
+        //const user = await http.get(`/users/current`)
         //得到初始 state
         var data=await {present:[{text:"我当前时间为"+(new Date),completed:false},
         {text:"服务端测试数据",completed:false}]};
@@ -157,48 +162,47 @@ server.use(compress({
 }))
 
 server.use(etag());
-var router = require('koa-router')();
-var db = {
-    tobi: { name: 'tobi', species: 'ferret' },
-    loki: { name: 'loki', species: 'ferret' },
-    jane: { name: 'jane', species: 'ferret' }
-};
-
-var pets = {
-    list: function *(){
-        var names = Object.keys(db);
-        this.body = 'pets: ' + names.join(', ');
-    },
-
-    show: function *(name){
-        var pet = db[name];
-        if (!pet) return this.throw('cannot find that pet', 404);
-        this.body = pet.name + ' is a ' + pet.species;
-    }
-};
-
-router.get('/pets', pets.list);
-router.get('/pets/:name', pets.show);
-//////////////////////////////////////
-var resouce={
-    dist: async function () {
-       await staticServer(dist);
-    },
-    external:async function(){
-        await staticServer(external)
-    },
-    build: async function (){
-        const build='d:\DevT\abc-react-end\react-redux-tutorial-master\react-bootstrap-getting\build\app.js'
-        await staticServer(build)
-    }
-}
-router.get('/dist', resouce.dist);
-router.get('/external',resouce.external );
-router.get('/build', resouce.build);
-server
-    .use(router.routes())
-    .use(router.allowedMethods());
-
+// var router = require('koa-router')();
+// var db = {
+//     tobi: { name: 'tobi', species: 'ferret' },
+//     loki: { name: 'loki', species: 'ferret' },
+//     jane: { name: 'jane', species: 'ferret' }
+// };
+//
+// var pets = {
+//     list: function *(){
+//         var names = Object.keys(db);
+//         this.body = 'pets: ' + names.join(', ');
+//     },
+//
+//     show: function *(name){
+//         var pet = db[name];
+//         if (!pet) return this.throw('cannot find that pet', 404);
+//         this.body = pet.name + ' is a ' + pet.species;
+//     }
+// };
+//
+// router.get('/pets', pets.list);
+// router.get('/pets/:name', pets.show);
+// //////////////////////////////////////
+// var resouce={
+//     dist: async function () {
+//        await staticServer(dist);
+//     },
+//     external:async function(){
+//         await staticServer(external)
+//     },
+//     build: async function (){
+//         const build='d:\DevT\abc-react-end\react-redux-tutorial-master\react-bootstrap-getting\build\app.js'
+//         await staticServer(build)
+//     }
+// }
+// router.get('/dist', resouce.dist);
+// router.get('/external',resouce.external );
+// router.get('/build', resouce.build);
+// server
+//     .use(router.routes())
+//     .use(router.allowedMethods());
 
 server.listen(port, function(error)
 {
