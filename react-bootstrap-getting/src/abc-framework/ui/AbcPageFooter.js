@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar} from 'react-bootstrap'
+import {Navbar} from '../../abc-bootstrap'
 
 const PageFooter = React.createClass({
     render() {

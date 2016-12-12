@@ -1,12 +1,7 @@
 import React from 'react'
 
-// Performs client-side rendering
-// along with varios stuff like loading localized messages.
-//
-// This function is intended to be wrapped by another function
-// which (in turn) is gonna be called from the project's code on the client-side.
-//
-export default function localize_and_render({ development, render_parameters = {}, render_on_client, wrapper, translation })
+export default function localize_and_render({ development, render_parameters = {},
+	render_on_client, wrapper, translation })
 {
 	// Make sure authentication token global variable is erased
 	// (in case it hasn't been read and erased before)
@@ -25,8 +20,6 @@ export default function localize_and_render({ development, render_parameters = {
 		delete window._locale_messages
 	}
 
-	// renders current React page.
-	// returns the rendered React page component.
 	function render_page()
 	{
 		// returns a Promise for React component.
@@ -42,17 +35,10 @@ export default function localize_and_render({ development, render_parameters = {
 				{
 					return React.createElement(wrapper, props, element)
 				}
-
-				// translation loading function may be passed
-				// (its main purpose is to enable Webpack HMR
-				//  in dev mode for translated messages)
 				if (translation)
 				{
 					messages = await translation(locale)
 				}
-
-				// load translations and then create page element
-
 				props.locale   = locale
 				props.messages = messages
 
@@ -62,12 +48,6 @@ export default function localize_and_render({ development, render_parameters = {
 			to: document.getElementById('react')
 		})
 	}
-
-	// Render page (on the client side).
-	//
-	// Client side code can then rerender the page any time
-	// through obtaining the `rerender()` function from the result object.
-	//
 	return render_page().then(result =>
 	{
 		result.rerender = render_page
@@ -75,8 +55,6 @@ export default function localize_and_render({ development, render_parameters = {
 	})
 }
 
-// Reads authentication token from a global variable
-// and then erases that global variable
 export function authentication_token()
 {
 	const token = window._authentication_token

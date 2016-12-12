@@ -26,11 +26,8 @@ requirejs.config({
 
 require(["baseframevendor"],function (baseframevendor) {
 
-    require( ["react","redux"],function (react,redux){
+    require( ["react","redux","react-bootstrap"],function (react,redux,bootstrap){
         console.log("react redux");
-    });
-
-    require( ['react-bootstrap'],function (bootstrap){
         console.log("app bootstrap..");
         try{
             require(["app"] ,function(app){
@@ -41,6 +38,18 @@ require(["baseframevendor"],function (baseframevendor) {
             console.log("Loading app error.")
         }
     });
+
+    // require( ['react-bootstrap'],function (bootstrap){
+    //     console.log("app bootstrap..");
+    //     try{
+    //         require(["app"] ,function(app){
+    //             console.log("app loading..");
+    //             //$(".pos").remove();
+    //         })
+    //     }catch(e){
+    //         console.log("Loading app error.")
+    //     }
+    // });
     require( ["jquery"],function ($){
         console.log("jquery...");
     });

@@ -1,5 +1,5 @@
 import React, { findDOMNode, Component, PropTypes } from 'react';
-import {Navbar,OverlayTrigger,ButtonToolbar,Button,Popover} from 'react-bootstrap'
+import {Navbar,Button} from '../../abc-bootstrap'
 
 import Link from '../components/Link'
 export default class Footer extends Component {
@@ -51,28 +51,3 @@ Footer.propTypes = {
     ]).isRequired
 };
 
-const popoverRight = (
-    <Popover id="popover-positioned-scrolling-right" title="Popover right">
-        <strong>Holy guacamole!</strong> Check this info.
-    </Popover>
-);
-class Positioner extends React.Component {
-    render() {
-        return (
-            <ButtonToolbar style={{ padding: '100px 0' }}>
-                <OverlayTrigger container={this} trigger="click" placement="left" overlay={popoverRight}>
-                    <Button>Holy guacamole!</Button>
-                </OverlayTrigger>
-                <OverlayTrigger container={this} trigger="click" placement="top" overlay={popoverRight}>
-                    <Button>Holy guacamole!</Button>
-                </OverlayTrigger>
-                <OverlayTrigger container={this} trigger="click" placement="bottom" overlay={popoverRight}>
-                    <Button>Holy guacamole!</Button>
-                </OverlayTrigger>
-                <OverlayTrigger container={this} trigger="click" placement="right" overlay={popoverRight}>
-                    <Button>Holy guacamole!</Button>
-                </OverlayTrigger>
-            </ButtonToolbar>
-        );
-    }
-}

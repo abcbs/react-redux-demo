@@ -115,16 +115,16 @@ const international =
 		}
 	},
 
-	hot_reload: on_reload =>
-	{
-		if (_development_ && module.hot)
-		{
-			module.hot.accept(require.resolve('./translations/' + _locale + '.js'), function()
-			{
-				on_reload()
-			})
-		}
-	}
+	// hot_reload: on_reload =>
+	// {
+	// 	if (_development_ && module.hot)
+	// 	{
+	// 		module.hot.accept(require.resolve('./translations/' + _locale + '.js'), function()
+	// 		{
+	// 			on_reload()
+	// 		})
+	// 	}
+	// }
 }
 
 export default international

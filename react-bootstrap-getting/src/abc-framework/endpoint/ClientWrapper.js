@@ -1,3 +1,7 @@
+/**
+ * 由react-iosmorphic-render实现
+ * @deprecated
+ */
 import React, { Component, PropTypes } from 'react'
 import { Provider }                    from 'react-redux'
 import { IntlProvider }                from 'react-intl'

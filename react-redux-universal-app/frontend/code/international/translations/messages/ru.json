@@ -1,0 +1,154 @@
+{
+	"application.title"       : "WebApp",
+	"application.description" : "Пример web приложения на React`е и Flux`е",
+	"application.language"    : "Язык",
+
+	"menu" : "Меню",
+
+	"error.generic" : "Ошибка",
+
+	"action.save"       : "Сохранить",
+	"action.cancel"     : "Отмена",
+	"action.next"       : "Далее",
+	"action.done"       : "Готово",
+	"action.understood" : "Понятно",
+	"action.change"     : "Изменить",
+
+	"authentication.sign_in"             : "Войти",
+	"authentication.sign_out"            : "Выйти",
+	"authentication.register"            : "Зарегистрироваться",
+
+	"authentication.sign_in_or_register" : "или",
+	"authentication.name"                : "Имя",
+	"authentication.email"               : "Почта",
+	"authentication.password"            : "Пароль",
+	"authentication.forgot_password"     : "Забыли пароль?",
+
+	"registration.i_accept"             : "Я принимаю",
+	"registration.the_terms_of_service" : "условия обслуживания",
+
+	"registration.name_is_required"                        : "Введите ваше имя",
+	"registration.email_is_required"                       : "Для регистрации требуется ваша почта",
+	"registration.password_is_required"                    : "Придумайте себе пароль",
+	"registration.terms_of_service_acceptance_is_required" : "Для регистрации вам необоходимо принять наши условия обслуживания",
+	"registration.email_already_registered"                : "Этот почтовый адрес уже был зарегистрирован ранее",
+	"registration.error"                                   : "Не удалось зарегистрироваться",
+
+	"authentication.email_is_required"                   : "Введите вашу почту",
+	"authentication.password_is_required"                : "Введите ваш пароль",
+	"authentication.error"                               : "Не удалось войти",
+	"authentication.error.user_is_self_blocked"          : "Вы добровольно временно заблокировали свою учётную запись {details}",
+	"authentication.error.user_is_self_blocked_details"  : "{blocked_at}",
+	"authentication.error.user_is_blocked"               : "Ваша учётная запись была заблокирована {details}",
+	"authentication.error.user_is_blocked_details"       : "{blocked_at} пользователем {blocked_by} по причине: «{blocked_reason}»",
+	"authentication.unblock_instructions"                : "По вопросам разблокировки вы можете связаться со службой поддержки по адресу {support_email}",
+	"authentication.login_attempts_limit_exceeded_error" : "Превышено допустимое количество попыток входа. Попробуйте войти ещё раз чуть позже.",
+
+	"authentication.user_not_found" : "Нет пользователя с такой почтой",
+	"authentication.wrong_password" : "Неверный пароль",
+
+	"sign_in.error.user_with_email_not_found" : "Пользователь с почтой «{email}» не найден",
+
+	"menu.editor"              : "Редактор",
+	"menu.about"               : "Прочее",
+	"menu.example"             : "Пример",
+	"menu.components_showcase" : "Компоненты",
+	"menu.log"                 : "Журнал",
+
+	"home.header": "Собака",
+
+	"log.title"                  : "Журнал",
+	"log.entry.message"          : "Текст",
+	"log.entry.date"             : "Время",
+	"log.entry.service"          : "Служба",
+	"log.entry.show_stack_trace" : "Подробнее",
+	"log.entry.hide_stack_trace" : "Скрыть",
+
+	"user_menu.notifications" : "Уведомления",
+	"user_menu.messages"      : "Сообщения",
+	"user_menu.profile"       : "Профиль",
+	"user_menu.settings"      : "Настройки",
+
+	"user.profile.blocked"          : "Этот пользователь был временно заблокирован {blocked_at}",
+	"user.profile.blocked_detailed" : "Этот пользователь был заблокирован {blocked_at} пользователем {blocked_by} по причине: «{blocked_reason}»",
+	"user.profile.unblocked"        : "Пользователь разблокирован",
+	"user.profile.block"            : "Заблокировать",
+	"user.profile.unblock"          : "Разблокировать",
+
+	"user.profile.edit"                      : "Правка",
+	"user.profile.cancel_editing"            : "Отмена",
+	"user.profile.save"                      : "Сохранить",
+	"user.profile.change_user_picture"       : "Поменять картинку",
+
+	"user.profile.name"                       : "Имя",
+	"user.profile.place"                      : "Место",
+	"user.profile.country"                    : "Выберите вашу страну",
+
+	"user.profile.update_error"                                 : "Не удалось обновить ваши данные",
+	"user.profile.user_picture_upload_error"                    : "Не удалось загрузить картинку",
+	"user.profile.uploaded_user_picture_is_too_big_error"       : "Выбранная вами картинка слишком велика. Выбирайте файлы не более 10 Мегабайтов.",
+	"user.profile.unsupported_uploaded_user_picture_file_error" : "Выбранный вами файл не может быть использован в качестве картинки. Выберайте изображения в форматах JPG, PNG или SVG.",
+	"user.profile.name_is_required"                             : "Впишите своё имя",
+
+	"user.profile.subscribe"    : "Подписаться",
+	"user.profile.send_message" : "Связаться",
+
+	"user.profile.latest_activity_time" : "{gender, select, male {Заходил} female {Заходила} other {В сети:}}",
+
+	"user.settings.header"                               : "Настройки",
+	"user.settings.show_advanced_settings"               : "Показать прочие настройки",
+	"user.settings.authentication_tokens"                : "Ключи доступа",
+	"user.settings.authentication_token.revoke"          : "Отозвать",
+	"user.settings.authentication_token.valid"           : "Действующий",
+	"user.settings.authentication_token.revoked"         : "Отозван",
+	"user.settings.authentication_token.id"              : "Ключ",
+	"user.settings.authentication_token.issued"          : "Выдан",
+	"user.settings.authentication_token.status"          : "Состояние",
+	"user.settings.authentication_token.latest_activity" : "Использован",
+	"user.settings.authentication_token.currently_used_hint" : "Вы сейчас используете этот ключ доступа",
+	"user.settings.revoke_authentication_token_failed"   : "Не удалось отозвать ключ доступа",
+	"user.settings.could_not_save"                       : "Не удалось сохранить ваши настройки",
+	"user.settings.could_not_change_email"               : "Не удалось изменить вашу почту",
+
+	"user.settings.password.change"                      : "Смена пароля",
+	"user.settings.password.current"                     : "Текущий пароль",
+	"user.settings.password.new"                         : "Новый пароль",
+	"user.settings.password.enter_current"               : "Введите ваш текущий пароль",
+	"user.settings.password.enter_new"                   : "Введите новый пароль",
+	"user.settings.password.enter_new_again"             : "Введите новый пароль ещё раз",
+	"user.settings.password.is_required"                 : "Введите пароль",
+	"user.settings.password.new_misspelled"              : "Вы опечатались. Попробуйте ещё раз",
+	"user.settings.password.check_current_failed"        : "Не удалось проверить ваш пароль",
+	"user.settings.password.change_failed"               : "Не удалось изменить пароль",
+	"user.settings.password.password_updated"            : "Пароль изменён",
+
+	"user.settings.check_password.title"          : "Проверка безопасности",
+	"user.settings.check_password.enter_password" : "Введите ваш пароль",
+	"user.settings.check_password.password"       : "Пароль",
+
+	"user.settings.change_email.enter_new_email" : "Введите новую почту",
+	"user.settings.change_email.email_updated"   : "Почта изменена",
+	"user.settings.change_email.failed"          : "Не удалось изменить вашу почту",
+
+	"user.settings.alias"                     : "Адресное имя",
+	"user.settings.alias.hint"                : "Адресное имя — это уникальный текстовый id пользователя, который используется в адресе страницы вашего профиля",
+	"user.settings.alias.required"            : "Введите адресное имя",
+	"user.settings.alias.updated"             : "Адресное имя изменено",
+	"user.settings.alias.already_taken"       : "Это адресное имя уже занято",
+	"user.settings.alias.invalid"             : "Такое адресное имя не разрешено",
+	"user.settings.alias.max_aliases_reached" : "У вас уже слишком много адресных имён",
+
+	"user.block.header"          : "Блокировка пользователя",
+	"user.block.header_self"     : "Блокировка своей учётной записи",
+	"user.block.blocking_user"   : "Блокировка пользователя {name}",
+	"user.block.blocking_self"   : "Вы уверены что хотите временно заблокировать свою учётную запись?",
+	"user.block.reason"          : "Причина",
+	"user.block.reason.required" : "Укажите причину блокировки пользователя",
+	"user.block.submit"          : "Заблокировать",
+	"user.block.done"            : "Пользователь заблокирован",
+
+	"unauthenticated.header" : "Войдите, чтобы посмотреть эту страницу",
+	"unauthorized.header"    : "У вас нет доступа к странице",
+	"not_found.header"       : "Страница не найдена",
+	"error_page.header"      : "Не удалось загрузить страницу"
+}

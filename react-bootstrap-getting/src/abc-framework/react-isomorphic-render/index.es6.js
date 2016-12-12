@@ -1,6 +1,6 @@
 // just an npm package helper
 
-import { webpage_head, webpage_title, webpage_meta } from './webpage head'
+import { webpage_head, webpage_title, webpage_meta } from './webpage-head'
 
 import client from './client'
 

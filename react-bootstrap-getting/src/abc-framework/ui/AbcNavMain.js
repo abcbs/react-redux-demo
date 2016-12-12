@@ -1,7 +1,7 @@
 import React,{ Component, PropTypes, Children } from 'react'
 import { Link } from 'react-router';
 import entries from 'lodash/entries'
-import {Navbar, Nav} from 'react-bootstrap'
+import {Navbar, Nav} from '../../abc-bootstrap'
 import NAV_LINKS from '../routeres/NavLinks'
 import { defineMessages }              from 'react-intl'
 import international from '../international/internationalize'

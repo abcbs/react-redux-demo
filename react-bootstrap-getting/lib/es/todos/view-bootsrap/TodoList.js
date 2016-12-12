@@ -29,11 +29,14 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
+var _dec, _class;
+// import {ListGroupItem, ListGroup,ControlLabel,HelpBlock,Checkbox,FormGroup} from '../../abc-bootstrap'
+// import '../../../resource/styles/css/index.css'
+
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactBootstrap = require('react-bootstrap');
 
 var _AbcContainer = require('../../abc-framework/ui/AbcContainer');
 
@@ -43,10 +46,13 @@ var _Todo = require('./Todo');
 
 var _Todo2 = _interopRequireDefault(_Todo);
 
+var _AbcList = require('../../abc-framework/ui/AbcList');
+
+var _AbcList2 = _interopRequireDefault(_AbcList);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-// import '../../../resource/styles/css/index.css'
-var TodoList = function (_Component) {
+var TodoList = (_dec = (0, _AbcList2['default'])(), _dec(_class = function (_Component) {
     (0, _inherits3['default'])(TodoList, _Component);
 
     function TodoList(props, context) {
@@ -68,30 +74,42 @@ var TodoList = function (_Component) {
             var _this2 = this;
 
             return _react2['default'].createElement(
-                _AbcContainer2['default'],
-                { isMovedTop: false },
-                _react2['default'].createElement(
-                    _reactBootstrap.ListGroup,
-                    { className: 'todo-list', componentClass: 'ul' },
-                    this.props.todos && this.props.todos.map && this.props.todos.map(function (todo, index) {
-                        return _react2['default'].createElement(
-                            'li',
-                            { key: _this2.idx++ },
-                            _react2['default'].createElement('input', { type: 'checkbox' }),
-                            _react2['default'].createElement(_Todo2['default'], (0, _extends3['default'])({}, todo, {
-                                key: _this2.idx++,
-                                onClick: function onClick() {
-                                    return _this2.props.onTodoClick(index);
-                                } }))
-                        );
-                    })
-                )
+                'div',
+                null,
+                this.props.todos && this.props.todos.map && this.props.todos.map(function (todo, index) {
+                    return _react2['default'].createElement(
+                        'li',
+                        { key: _this2.idx++ },
+                        _react2['default'].createElement('input', { type: 'checkbox' }),
+                        _react2['default'].createElement(_Todo2['default'], (0, _extends3['default'])({}, todo, {
+                            key: _this2.idx++,
+                            onClick: function onClick() {
+                                return _this2.props.onTodoClick(index);
+                            } }))
+                    );
+                })
             );
         }
+
+        // render() {
+        //     require('../../../resource/styles/css/index.css');
+        //     return (
+        //         <ListGroup className="todo-list" componentClass="ul" >
+        //             {this.props.todos&&this.props.todos.map&&this.props.todos.map((todo, index) =>
+        //                 <li key={this.idx++}>
+        //                     <input type="checkbox" />
+        //                     <Todo {...todo}
+        //                         key={this.idx++}
+        //                         onClick={() => this.props.onTodoClick(index)} />
+        //                 </li>
+        //             )}
+        //         </ListGroup>
+        //     )
+        // }
+
     }]);
     return TodoList;
-}(_react.Component);
-
+}(_react.Component)) || _class);
 exports['default'] = TodoList;
 
 

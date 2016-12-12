@@ -1,9 +1,11 @@
 import React,{ Component, PropTypes, Children } from 'react'
-import classnames from 'classnames'
-// import '../../../todomvc/css/index.css'
+import classnames from 'classnames';
+import map  from 'lodash/map';
+// Object.map=Object.map||map;
 export default class AbcContainer extends Component {
        render() {
         const { children,isMovedTop,isContainer,...others} = this.props;
+        // const children.map=children.map||map;
         return (
             <div {...others} className={
                     classnames({
@@ -11,7 +13,11 @@ export default class AbcContainer extends Component {
                        'marginPageTop':this.props.isMovedTop
                     })}
             >
-                {Children.only(children)}
+                {
+                    //Children.only(children)
+                    children
+                   
+                }
             </div>
         )
     }

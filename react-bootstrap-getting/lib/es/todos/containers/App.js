@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports['default'] = undefined;
 
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
@@ -24,15 +25,32 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
+var _dec, _dec2, _dec3, _class;
+//
+
+//import AddTodo from '../components/AddTodo'
+//import TodoList from '../components/TodoList'
+//import Footer from '../components/Footer'
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = require('react-redux');
 
-var _actions = require('../actions');
-
 var _redux = require('redux');
+
+var _reactIntl = require('react-intl');
+
+var _internationalize = require('../../abc-framework/international/internationalize');
+
+var _internationalize2 = _interopRequireDefault(_internationalize);
+
+var _AbcPageContainer = require('../../abc-framework/ui/AbcPageContainer');
+
+var _AbcPageContainer2 = _interopRequireDefault(_AbcPageContainer);
+
+var _actions = require('../actions');
 
 var _AddTodo = require('../view-bootsrap/AddTodo');
 
@@ -46,83 +64,31 @@ var _Footer = require('../view-bootsrap/Footer');
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
+var _UndoRedo = require('./UndoRedo');
+
+var _UndoRedo2 = _interopRequireDefault(_UndoRedo);
+
 var _TodoSelectors = require('../selectors/TodoSelectors');
 
 var _AbcPage = require('../../abc-framework/ui/AbcPage');
 
 var _AbcPage2 = _interopRequireDefault(_AbcPage);
 
-var _UndoRedo = require('./UndoRedo');
-
-var _UndoRedo2 = _interopRequireDefault(_UndoRedo);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 //
-
-var App = function (_Component) {
-    (0, _inherits3['default'])(App, _Component);
-
-    function App() {
-        (0, _classCallCheck3['default'])(this, App);
-        return (0, _possibleConstructorReturn3['default'])(this, (App.__proto__ || (0, _getPrototypeOf2['default'])(App)).apply(this, arguments));
+var messages = (0, _reactIntl.defineMessages)({
+    title: {
+        id: 'main.title',
+        description: '新增产品',
+        defaultMessage: '新增产品'
+    },
+    subTitle: {
+        id: 'main.subTitle',
+        description: '新增产品',
+        defaultMessage: '新增产品，可以撤销'
     }
-
-    (0, _createClass3['default'])(App, [{
-        key: 'render',
-        value: function render() {
-            // Injected by connect() call:
-            var _props = this.props;
-            var dispatch = _props.dispatch;
-            var visibleTodos = _props.visibleTodos;
-            var visibilityFilter = _props.visibilityFilter;
-            var addTodoAction = _props.addTodoAction;
-            var verfiedResult = _props.verfiedResult;
-            var addTodoVerfiyAction = _props.addTodoVerfiyAction;
-            var completeTodoAction = _props.completeTodoAction;
-            var setVisibilityFilterAtion = _props.setVisibilityFilterAtion;
-            var submitResult = _props.submitResult;
-            var submmitTodoAction = _props.submmitTodoAction;
-
-            return _react2['default'].createElement(
-                _AbcPage2['default'],
-                { title: '\u65B0\u589E\u4EA7\u54C1', router: 'app' },
-                _react2['default'].createElement(
-                    'span',
-                    null,
-                    _react2['default'].createElement(_AddTodo2['default'], {
-                        onAddClick: addTodoAction,
-                        onAddTodoVerfiy: addTodoVerfiyAction,
-                        verfiedResult: verfiedResult,
-                        submitResult: submitResult,
-                        submmitTodo: submmitTodoAction
-                    }),
-                    _react2['default'].createElement(_UndoRedo2['default'], null),
-                    _react2['default'].createElement(_TodoList2['default'], {
-                        todos: visibleTodos,
-                        onTodoClick: completeTodoAction }),
-                    _react2['default'].createElement(_Footer2['default'], {
-                        filter: visibilityFilter,
-                        onFilterChange: setVisibilityFilterAtion })
-                )
-            );
-        }
-    }]);
-    return App;
-}(_react.Component);
-//import AddTodo from '../components/AddTodo'
-//import TodoList from '../components/TodoList'
-//import Footer from '../components/Footer'
-
-
-App.propTypes = {
-    visibleTodos: _react.PropTypes.arrayOf(_react.PropTypes.shape({
-        text: _react.PropTypes.string.isRequired,
-        completed: _react.PropTypes.bool.isRequired
-    }).isRequired).isRequired,
-    visibilityFilter: _react.PropTypes.oneOf(['SHOW_ALL', 'SHOW_COMPLETED', 'SHOW_ACTIVE']).isRequired
-};
-
+});
 var getVisibleTodos = function getVisibleTodos(state, filter) {
 
     var todos = state.todos;
@@ -185,4 +151,59 @@ function mapDispatchToProps(dispatch) {
 }
 
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-exports['default'] = (0, _reactRedux.connect)(_TodoSelectors.visibleTodosSelector, mapDispatchToProps)(App);
+var App = (_dec = (0, _reactRedux.connect)(_TodoSelectors.visibleTodosSelector, mapDispatchToProps), _dec2 = (0, _internationalize2['default'])(), _dec3 = (0, _AbcPageContainer2['default'])({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = function (_React$Component) {
+    (0, _inherits3['default'])(App, _React$Component);
+
+    function App() {
+        (0, _classCallCheck3['default'])(this, App);
+        return (0, _possibleConstructorReturn3['default'])(this, (App.__proto__ || (0, _getPrototypeOf2['default'])(App)).apply(this, arguments));
+    }
+
+    (0, _createClass3['default'])(App, [{
+        key: 'render',
+        value: function render() {
+            // Injected by connect() call:
+            var _props = this.props;
+            var dispatch = _props.dispatch;
+            var visibleTodos = _props.visibleTodos;
+            var visibilityFilter = _props.visibilityFilter;
+            var addTodoAction = _props.addTodoAction;
+            var verfiedResult = _props.verfiedResult;
+            var addTodoVerfiyAction = _props.addTodoVerfiyAction;
+            var completeTodoAction = _props.completeTodoAction;
+            var setVisibilityFilterAtion = _props.setVisibilityFilterAtion;
+            var submitResult = _props.submitResult;
+            var submmitTodoAction = _props.submmitTodoAction;
+
+            return _react2['default'].createElement(
+                'div',
+                null,
+                _react2['default'].createElement(_AddTodo2['default'], {
+                    onAddClick: addTodoAction,
+                    onAddTodoVerfiy: addTodoVerfiyAction,
+                    verfiedResult: verfiedResult,
+                    submitResult: submitResult,
+                    submmitTodo: submmitTodoAction
+                }),
+                _react2['default'].createElement(_UndoRedo2['default'], null),
+                _react2['default'].createElement(_TodoList2['default'], {
+                    todos: visibleTodos,
+                    onTodoClick: completeTodoAction }),
+                _react2['default'].createElement(_Footer2['default'], {
+                    filter: visibilityFilter,
+                    onFilterChange: setVisibilityFilterAtion })
+            );
+        }
+    }]);
+    return App;
+}(_react2['default'].Component)) || _class) || _class) || _class);
+exports['default'] = App;
+
+
+App.propTypes = {
+    visibleTodos: _react.PropTypes.arrayOf(_react.PropTypes.shape({
+        text: _react.PropTypes.string.isRequired,
+        completed: _react.PropTypes.bool.isRequired
+    }).isRequired).isRequired,
+    visibilityFilter: _react.PropTypes.oneOf(['SHOW_ALL', 'SHOW_COMPLETED', 'SHOW_ACTIVE']).isRequired
+};

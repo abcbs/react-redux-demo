@@ -96,16 +96,6 @@ export function convert_from_camel_case(object)
 		if (/[A-Z]/.test(key))
 		// if (key.indexOf('_') >= 0)
 		{
-			// const camel_cased_key = key.replace(/_(.)/g, function(match, group_1)
-			// {
-			// 	return group_1.toUpperCase()
-			// })
-
-			// if (!exists(object[camel_cased_key]))
-			// {
-			// 	object[camel_cased_key] = object[key]
-			// 	delete object[key]
-			// }
 
 			const lo_dashed_key = key.replace(/([A-Z])/g, function(match, group_1)
 			{
@@ -162,9 +152,6 @@ export function ends_with(string, substring)
 	}
 
 	return true
-
-	// const index = string.lastIndexOf(substring)
-	// return index >= 0 && index === string.length - substring.length
 }
 
 export function is_empty(array)

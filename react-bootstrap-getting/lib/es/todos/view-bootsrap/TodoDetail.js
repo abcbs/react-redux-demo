@@ -33,7 +33,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactBootstrap = require('react-bootstrap');
+var _abcBootstrap = require('../../abc-bootstrap');
 
 var _TodoEvent = require('../view-bootsrap/TodoEvent');
 
@@ -101,30 +101,26 @@ var TodoDetail = function (_Component) {
             var valid = this.state.todovalueHelp;
 
             return _react2['default'].createElement(
-                _AbcContainer2['default'],
-                { isMovedTop: false },
+                _abcBootstrap.FormGroup,
+                {
+                    controlId: 'formBasicText',
+                    validationState: this.getValidationState()
+                },
+                _react2['default'].createElement(_abcBootstrap.FormControl, {
+                    type: 'text',
+                    value: this.state.todovalue,
+                    placeholder: 'Enter text',
+                    onChange: this.handleChange.bind(this),
+                    onKeyDown: this.handleSubmit.bind(this)
+                }),
+                _react2['default'].createElement(_abcBootstrap.FormControl.Feedback, null),
                 _react2['default'].createElement(
-                    _reactBootstrap.FormGroup,
-                    {
-                        controlId: 'formBasicText',
-                        validationState: this.getValidationState()
-                    },
-                    _react2['default'].createElement(_reactBootstrap.FormControl, {
-                        type: 'text',
-                        value: this.state.todovalue,
-                        placeholder: 'Enter text',
-                        onChange: this.handleChange.bind(this),
-                        onKeyDown: this.handleSubmit.bind(this)
-                    }),
-                    _react2['default'].createElement(_reactBootstrap.FormControl.Feedback, null),
+                    _abcBootstrap.HelpBlock,
+                    null,
                     _react2['default'].createElement(
-                        _reactBootstrap.HelpBlock,
+                        'span',
                         null,
-                        _react2['default'].createElement(
-                            'span',
-                            null,
-                            this.state.todovalueHelp || this.verify
-                        )
+                        this.state.todovalueHelp || this.verify
                     )
                 )
             );

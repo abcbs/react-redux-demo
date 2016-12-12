@@ -1,3 +1,9 @@
+/**
+ * 由react-iosmorphic-render实现
+ * @deprecated 
+ * @param client
+ * @returns {function()}
+ */
 export default function clientMiddleware(client) {
   return ({dispatch, getState}) => {
     return next => action => {

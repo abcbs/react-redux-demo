@@ -31,6 +31,7 @@ const handlers = asynchronous_handler
 		}
 	})
 })
+//异步Reducer定义完成
 
 if (!handlers['user profile: upload user picture: done'])
 {

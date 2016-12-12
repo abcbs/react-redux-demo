@@ -1,6 +1,6 @@
 import React , { PropTypes } from 'react'
 
-import {ButtonGroup, Button,ButtonToolbar} from 'react-bootstrap'
+import { Button,ButtonToolbar} from '../../abc-bootstrap'
 import info from '../../abc-framework/utils/logger'
 
 export default class TodoEvent extends React.Component {
@@ -12,14 +12,13 @@ export default class TodoEvent extends React.Component {
     render() {
        const { onAddClick,onAddTodoVerfiyClick, onAddBtnName,enentEmitter }=this.props;
         return (
-            <div className="container">
                 <ButtonToolbar style={{ position: 'relative',float:'left', left:'10px'}}>
                     <Button type="button" bsStyle="success"
                             onClick={this.handleClick.bind(this)}>
                         {onAddBtnName}
                     </Button>
                 </ButtonToolbar>
-            </div>
+
         )
     }
 

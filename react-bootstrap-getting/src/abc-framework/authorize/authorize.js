@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import hoist_statics  from 'hoist-non-react-statics'
 
 import { connect }      from 'react-redux'
-import { redirect }     from 'react-isomorphic-render/redux'
-import { Preload_method_name, Preload_blocking_method_name } from 'react-isomorphic-render/redux'
+import { redirect }     from '../../abc-framework/react-isomorphic-render/redux'
+import { Preload_method_name, Preload_blocking_method_name } from '../../abc-framework/react-isomorphic-render/redux'
 
 import Unauthenticated from '../../abc-ui/errors/unauthenticated'
 import Unauthorized    from '../../abc-ui/errors/unauthorized'
@@ -125,6 +125,7 @@ export default function authorize(authorization)
 			const role = model.authentication || model.default.authentication;
 			return ({//model为redux的state
 				user: role.authentication.user
+				// user: role
 			})
 		})
 		(Authorize)

@@ -128,10 +128,10 @@ const baseServer = {
           context: __dirname,
           manifest: require(reduxvendor)
       }),
-      new webpack.DllReferencePlugin({
-          context: __dirname,
-          manifest: require(bootvendor)
-      }),
+      // new webpack.DllReferencePlugin({
+      //     context: __dirname,
+      //     manifest: require(bootvendor)
+      // }),
 
       // new webpack.DllReferencePlugin({
       //     context: __dirname,

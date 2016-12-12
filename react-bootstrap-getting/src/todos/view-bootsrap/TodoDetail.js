@@ -1,6 +1,5 @@
 import React, { findDOMNode, Component, PropTypes } from 'react';
-import {FormGroup, ControlLabel, HelpBlock,FormControl ,Panel,
-    Button,Checkbox,Radio ,Glyphicon,InputGroup,Col,Form} from 'react-bootstrap'
+import {FormGroup, ControlLabel, HelpBlock,FormControl ,Button} from '../../abc-bootstrap'
 import TodoEvent from '../view-bootsrap/TodoEvent'
 import AbcContainer from '../../abc-framework/ui/AbcContainer'
 import info from '../../abc-framework/utils/logger'
@@ -34,7 +33,7 @@ export default class TodoDetail extends Component {
         var valid=this.state.todovalueHelp;
 
         return (
-            <AbcContainer isMovedTop={false}>
+
                 <FormGroup
                            controlId="formBasicText"
                     validationState={this.getValidationState()}
@@ -53,7 +52,7 @@ export default class TodoDetail extends Component {
 
                 </FormGroup>
 
-            </AbcContainer>
+
         );
     }
 

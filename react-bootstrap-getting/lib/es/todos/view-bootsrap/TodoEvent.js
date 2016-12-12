@@ -60,17 +60,13 @@ var TodoEvent = function (_React$Component) {
             var enentEmitter = _props.enentEmitter;
 
             return _react2['default'].createElement(
-                'div',
-                { className: 'container' },
+                _reactBootstrap.ButtonToolbar,
+                { style: { position: 'relative', float: 'left', left: '10px' } },
                 _react2['default'].createElement(
-                    _reactBootstrap.ButtonToolbar,
-                    { style: { position: 'relative', float: 'left', left: '10px' } },
-                    _react2['default'].createElement(
-                        _reactBootstrap.Button,
-                        { type: 'button', bsStyle: 'success',
-                            onClick: this.handleClick.bind(this) },
-                        onAddBtnName
-                    )
+                    _reactBootstrap.Button,
+                    { type: 'button', bsStyle: 'success',
+                        onClick: this.handleClick.bind(this) },
+                    onAddBtnName
                 )
             );
         }

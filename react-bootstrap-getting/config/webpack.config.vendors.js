@@ -27,8 +27,8 @@ const envdevlop=['redux-devtools-log-monitor',
   'redux-devtools-dock-monitor',
   'react-hot-loader'
 ]
-const bootvendor=['react-bootstrap','bootstrap'];
-
+// const bootvendor=['react-bootstrap','bootstrap'];
+const bootvendor=['bootstrap'];
 const baseVendors  =
 {
   name: "vendors",

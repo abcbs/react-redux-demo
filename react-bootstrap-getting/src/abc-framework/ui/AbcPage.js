@@ -15,18 +15,14 @@ export default class AbcPage extends Component {
     }
 
     rederChildren(children){
-        if(React.Children.count(children)===1){
-            return Children.only(children);
-        }else{
-             return (<NotFoundPage subTitle="多个子元素目前不支持" />)
-        }
+        return children;
     }
     render() {
         // require( '../../../resource/styles/css/index.css')
         const { children,router,title, subTitle,theme,...other} = this.props;
         return (
             <span {...other}>
-                 <p>&nbsp;</p><p>&nbsp;</p>
+                 <div style={{marginBottom:"10px" ,marginTop:"60px" }}/>
                  <PageHeader title={title}  subTitle={subTitle}  />
                     {this.rederChildren(children)}
                   <PageFooter />

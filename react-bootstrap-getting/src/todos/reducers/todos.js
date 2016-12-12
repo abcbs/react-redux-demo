@@ -9,9 +9,9 @@ function reducer(state = [], action) {
         // case ADD_TODO:
         //     return  action;
         case ADD_TODO:
-            return [//在Redux中加入数据
+            return [//在Redux中加入数据，实际的显示数据
                 ...state,
-                {
+                {//添加的数据为text
                     text: action.text,
                     completed: false
                 }
@@ -26,12 +26,12 @@ function reducer(state = [], action) {
         //         }
         //     ]
         case COMPLETE_TODO:
-            return [
-                ...state.slice(0, action.index),
+            return [//过滤已经完成数据
+                ...state.slice(0, action.index),//索引之前的数据
                 Object.assign({}, state[action.index], {
-                    completed: true
+                    completed: true//完成的标记
                 }),
-                ...state.slice(action.index + 1)
+                ...state.slice(action.index + 1)//索引之后的数据
             ]
         default:
             return state

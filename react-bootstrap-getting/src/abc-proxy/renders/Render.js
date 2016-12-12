@@ -10,12 +10,13 @@ import PrettyError from 'pretty-error';
 
 //路由的状态管理
 import { syncHistoryWithStore } from 'react-router-redux';
+import {match, RouterContext ,browserHistory} from 'react-router';
 //异步装载
 // import { ReduxAsyncConnect, loadOnServer } from 'redux-async-connect';
 //路由历史在内存中的存储，主要用于服务端
 import createHistory from 'react-router/lib/createMemoryHistory';
 import { Provider } from 'react-redux';
-import {match, RouterContext ,browserHistory} from 'react-router';
+
 //第一件要做的事情就是对每个请求创建一个新的Redux store实例。这个store惟一作用是提供应用初始的state。
 //渲染时，使用<Provider>来包住根组件<App />，以此来让组件树中所有组件都能访问到store.
 //服务端渲染最关键的一步是在发送响应前渲染初始的HTML。这就要使用React.renderToString().

@@ -33,17 +33,21 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _dec, _class, _class2, _temp;
-
+var _dec, _dec2, _dec3, _dec4, _class, _class2, _temp;
 // import Preloading      from '../../abc-ui/preloading'
 // import Snackbar        from '../../abc-ui/snackbar'
 
 // import 'bootstrap/less/theme.less'
 // import 'bootstrap/less/bootstrap.less';
 
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _AbcContainer = require('../../abc-framework/ui/AbcContainer');
 
@@ -52,6 +56,12 @@ var _AbcContainer2 = _interopRequireDefault(_AbcContainer);
 var _AbcPage = require('../../abc-framework/ui/AbcPage');
 
 var _AbcPage2 = _interopRequireDefault(_AbcPage);
+
+var _reactIntl = require('react-intl');
+
+var _internationalize = require('../../abc-framework/international/internationalize');
+
+var _internationalize2 = _interopRequireDefault(_internationalize);
 
 var _index = require('../../abc-framework/react-isomorphic-render/index.es6');
 
@@ -63,37 +73,70 @@ var _redux2 = require('redux');
 
 var _reactBootstrap = require('react-bootstrap');
 
+var _AbcPageContainer = require('../../abc-framework/ui/AbcPageContainer');
+
+var _AbcPageContainer2 = _interopRequireDefault(_AbcPageContainer);
+
 var _spinner = require('../../abc-ui/spinner');
 
 var _spinner2 = _interopRequireDefault(_spinner);
 
+var _abcBootstrap = require('../../abc-bootstrap');
+
+var _errorInfo = require('../../abc-framework/ui/errorInfo');
+
+var _errorInfo2 = _interopRequireDefault(_errorInfo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-// fetches the list of users from the server
-function fetchUsers() {
-    // console.log("http,",http);
+var fetchUsers = function fetchUsers() {
     return {
+        // that:_this;
         promise: function promise(http) {
             return http.get('/api/users/current').then(function (ids) {
-                return console.log("idx,", ids);
+                console.log("idx,", ids);
+                (0, _redux.goto)('./home');
+            }, function (err) {
+                console.log("err,", err);
+                (0, _errorInfo2['default'])(" 没有网络，或者网络过慢，请稍等再试");
+                throw new Error("Final,NO Net");
             });
         },
         events: ['GET_USERS_PENDING', 'GET_USERS_SUCCESS', 'GET_USERS_FAILURE']
     };
-}
+};
 //
-// @preload(({ dispatch }) => dispatch(fetchUsers))
-var IntroductionPage = (_dec = (0, _reactRedux.connect)(function (state) {
-    //.default.authentication.authentication
-    var authn = state.authentication || state['default'].authentication;
-    var users = authn.authentication.user;
-    return;
-    {
-        users: users;
+var messages = (0, _reactIntl.defineMessages)({
+    title: {
+        id: 'Introduction.title',
+        description: '首页配置',
+        defaultMessage: '介绍'
+    },
+    subTitle: {
+        id: 'Introduction.subTitle',
+        description: '商品介绍',
+        defaultMessage: '商品介绍'
     }
+});
+
+var IntroductionPage = (_dec = (0, _redux.preload)(function (_ref) {
+    var dispatch = _ref.dispatch;
+    return dispatch(fetchUsers());
+}), _dec2 = (0, _reactRedux.connect)(function (state) {
+    //.default.authentication.authentication
+    // const authn=state.authentication||state.default.authentication;
+    // const users=authn.authentication.user;
+    // const authn=state.authentication||state.default.authentication;
+    // const users=authn.user;
+    return;
+    ({ users: users,
+        loading: state.users.loading,
+        loaded: state_users.loaded,
+        loading_error: state_users.loading_error
+    });
 }, function (dispatch) {
     return (0, _redux2.bindActionCreators)({ fetchUsers: fetchUsers }, dispatch);
-}), _dec(_class = (_temp = _class2 = function (_Component) {
+}), _dec3 = (0, _internationalize2['default'])(), _dec4 = (0, _AbcPageContainer2['default'])({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = (_temp = _class2 = function (_Component) {
     (0, _inherits3['default'])(IntroductionPage, _Component);
 
     function IntroductionPage() {
@@ -110,27 +153,26 @@ var IntroductionPage = (_dec = (0, _reactRedux.connect)(function (state) {
     }, {
         key: 'render',
         value: function render() {
+            var _props = this.props;
+            var error = _props.error;
+            var loaded = _props.loaded;
+
+            this.state && this.state.error && console.log(" this.state.error;,", this.state.error);
+            console.log("error,", error);
+            console.log("loaded,", loaded);
             return _react2['default'].createElement(
-                _AbcPage2['default'],
-                { title: '\u5C55\u793A\u4E92\u52A8', subTitle: '\u6B22\u8FCE\u5149\u4E34' },
+                'div',
+                null,
+                _react2['default'].createElement(_spinner2['default'], null),
+                'Hello,\u5546\u54C1\u4ECB\u7ECD,Hello,\u5546\u54C1\u4ECB\u7ECD',
                 _react2['default'].createElement(
-                    _AbcContainer2['default'],
+                    'div',
                     null,
                     _react2['default'].createElement(
-                        'span',
-                        { style: { position: 'absolute', display: 'inline-block' } },
-                        _react2['default'].createElement(_spinner2['default'], null),
-                        'Hello,\u5546\u54C1\u4ECB\u7ECD,Hello,\u5546\u54C1\u4ECB\u7ECD',
-                        _react2['default'].createElement(
-                            'div',
-                            null,
-                            _react2['default'].createElement(
-                                _reactBootstrap.Button,
-                                { onClick: this.handleClick.bind(this)
-                                },
-                                'Refresh'
-                            )
-                        )
+                        _reactBootstrap.Button,
+                        { onClick: this.handleClick.bind(this)
+                        },
+                        'Refresh'
                     )
                 )
             );
@@ -138,7 +180,7 @@ var IntroductionPage = (_dec = (0, _reactRedux.connect)(function (state) {
     }, {
         key: 'deleteUsers',
         value: function () {
-            var _ref = (0, _asyncToGenerator3['default'])(_regenerator2['default'].mark(function _callee() {
+            var _ref2 = (0, _asyncToGenerator3['default'])(_regenerator2['default'].mark(function _callee() {
                 var count;
                 return _regenerator2['default'].wrap(function _callee$(_context) {
                     while (1) {
@@ -170,7 +212,7 @@ var IntroductionPage = (_dec = (0, _reactRedux.connect)(function (state) {
             }));
 
             function deleteUsers() {
-                return _ref.apply(this, arguments);
+                return _ref2.apply(this, arguments);
             }
 
             return deleteUsers;
@@ -178,7 +220,10 @@ var IntroductionPage = (_dec = (0, _reactRedux.connect)(function (state) {
     }]);
     return IntroductionPage;
 }(_react.Component), _class2.propTypes = {
-    users: _react.PropTypes.array.isRequired,
-    fetchUsers: _react.PropTypes.func.isRequired
-}, _temp)) || _class);
+    users: _react.PropTypes.array,
+    fetchUsers: _react.PropTypes.func,
+    loading: _react.PropTypes.bool,
+    loaded: _react.PropTypes.bool,
+    loading_error: _react.PropTypes.object
+}, _temp)) || _class) || _class) || _class) || _class);
 exports['default'] = IntroductionPage;

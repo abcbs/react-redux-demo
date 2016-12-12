@@ -5,15 +5,33 @@
 //   * "[event]: failed"
 //   * "[event]: reset error"
 //
+/**
+ * Action:
+ * 		action:user profile: get latest activity time
+ * Reducer:
+ * {
+ *	event  : 'user profile: get latest activity time',
+ *	result : 'latest_activity_time'
+ *}
+ * @param handlers
+ * @returns {{}}
+ */
+//
+
 export function asynchronous_handler(...handlers)
 {
 	const _handlers = {}
-
+	//一个一个处理
 	for (let handler of handlers)
 	{
-		const event_name_parts = handler.event.split(': ')
-		const name = event_name_parts.pop()
-		const namespace = event_name_parts.join(': ')
+		//event  : 'user: sign in',
+		//pop() 方法将删除 arrayObject 的最后一个元素，把数组长度减 1，并且返回它删除的元素的值。
+		// 如果数组已经为空，则 pop() 不改变数组，并返回 undefined 值。
+		const event_name_parts = handler.event.split(': ');
+		//获取最后一个,为方法名，即执行的事件
+		const name = event_name_parts.pop();//sign in
+		//其它的为命名空间
+		const namespace = event_name_parts.join(': ');
 
 		_asynchronous_hander(_handlers, namespace, name, handler.result)
 	}
@@ -30,7 +48,9 @@ export function asynchronous_handler(...handlers)
 //
 function _asynchronous_hander(handlers, namespace, event, on_result)
 {
-	// Redux state property base name (replace spacebars with underscores)
+	//
+	//\s匹配空格， 匹配一个空白字符，包括\n,\r,\f,\t,\v等
+	//g是全文查找所有匹配
 	const base = event.replace(/\s/g, '_')
 
 	// When Promise is created,

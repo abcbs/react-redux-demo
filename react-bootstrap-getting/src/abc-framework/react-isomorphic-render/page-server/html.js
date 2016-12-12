@@ -1,18 +1,70 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOMServer from 'react-dom/server'
-
-import { server_generated_webpage_head } from '../webpage head'
+import serialize from 'serialize-javascript';
+import { server_generated_webpage_head } from '../webpage-head'
 import { get_language_from_locale } from '../helpers'
 
-/**
- * Wrapper component containing HTML metadata and boilerplate tags.
- * Used in server-side code only to wrap the string output of the
- * rendered route component.
- *
- * The only thing this component doesn't (and can't) include is the
- * HTML doctype declaration, which is added to the rendered output
- * by the server.js file.
- */
+export const header = {
+	__html: `
+      
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Material-UI Example</title>
+        <meta name="description" content="ABC-End-UI Example">
+        <!-- Use minimum-scale=1 to enable GPU rasterization -->
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1, minimum-scale=1"
+        >
+        <!--
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+        -->
+        <link rel="stylesheet" href="/build/css/app.css" />
+        <!--<link rel="stylesheet" href="/external/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />-->
+          <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv-printshiv.min.js"></script>
+    
+        <![endif]-->
+        <link rel="stylesheet" href="/external/home.css">
+         <script>
+          // console noop shim for IE8/9
+        (function (w) {
+          var noop = function () {};
+          if (!w.console) {
+            w.console = {};
+            ['log', 'info', 'warn', 'error'].forEach(function (method) {
+              w.console[method] = noop;
+            });
+         }
+        }(window));   
+        </script>   
+        `
+};
+
+export const background = {
+	__html: `
+            <div class="pos images">
+              <span class="top a1" >Hello Beijing</span>
+              <span class="top a2">Hello China</span>
+              <span class="top a3">Hello World</span>
+          </div>
+          <script src="/external/requirejs/require.js"></script>
+          <script src="/external/requirejs.config.js"></script>
+         
+          
+        `
+};
+
+export const HeaderInnerHTML =()  => (
+	header.__html
+);
+
+
+export const BodyStart=()=>(
+	<div dangerouslySetInnerHTML={background} />
+)
+
 export default class Html extends Component
 {
 	static propTypes =
@@ -73,11 +125,6 @@ export default class Html extends Component
 			// A workaround
 			html_attributes = {}
 
-			// console.log(`You're gonna see a React warning in the console:` + `\n` +
-			// 	`"Warning: React.createElement(...): Expected props argument of html to be a plain object".` + `\n` +
-			// 	`This is not an error and this warning will be fixed in "react-helmet" package` + `\n` +
-			// 	`https://github.com/nfl/react-helmet/issues/158` + `\n` + `\n` +
-			// 	`This error happens when there's no page content to render ("content" is undefined in Html.js)`)
 		}
 
 		// Set `<html lang="...">` if specified
@@ -102,15 +149,6 @@ export default class Html extends Component
 					{webpage_head.meta.toComponent()}
 					{webpage_head.link.toComponent()}
 
-					{/* (will be done only in production mode
-					     with webpack extract text plugin) 
-
-					    mount CSS stylesheets for all entry points
-					    (should have been "for the current entry point only")
-
-					    (currently there is only one entry point: "main";
-					     and also the "common" chunk) */}
-
 					{ assets.entry && assets.style && assets.style.common &&
 						<link 
 							href={assets.style.common} 
@@ -127,13 +165,6 @@ export default class Html extends Component
 							charSet="UTF-8"/>
 					}
 
-					{/* (will be done only in development mode)
-
-					    resolves the initial style flash (flicker) 
-					    on page load in development mode 
-					    (caused by Webpack style-loader mounting CSS styles 
-					     through javascript after page load)
-					    by mounting the entire CSS stylesheet in a <style/> tag */}
 					{ development && style && <style dangerouslySetInnerHTML={{__html: style()}} charSet="UTF-8"/> }
 
 					{ head }
@@ -142,6 +173,7 @@ export default class Html extends Component
 				</head>
 
 				<body>
+
 					{/* support adding arbitrary markup to body start */}
 					{ body_start }
 
@@ -160,10 +192,22 @@ export default class Html extends Component
 					{/* JSON Date deserializer */}
 					{ parse_dates !== false && <script dangerouslySetInnerHTML={{__html: define_json_parser}} charSet="UTF-8"/> }
 
-					{/* Flux store data will be reloaded into the store on the client-side */}
-					<script dangerouslySetInnerHTML={{__html: `window._flux_store_data=JSON.parse(${JSON.stringify(JSON.stringify(store_state))}${parse_dates !== false ? ', JSON.date_parser' : ''})`}} charSet="UTF-8"/>
+					{/* Flux store data will be reloaded into the store on the client-side*/}
+					{
+						development &&console.log("server html render==============")
+					}
+					<script dangerouslySetInnerHTML={{__html:
+					 				`window._flux_store_data=JSON.parse(
+					 				${JSON.stringify(JSON.stringify(store_state))}${parse_dates !== false ? ', JSON.date_parser' : ''})
+					 				`
+					 				}
+					 				} charSet="UTF-8"/>
 
-					{/* javascripts */}
+					{/*
+					<script dangerouslySetInnerHTML={{__html:
+					 				`window._flux_store_data=${serialize(store_state)};`}}
+							charSet="UTF-8"/>
+				 javascripts */}
 
 					{/* Make JWT authentication token visible to the client-side code
 					    to set up the `http` utility used inside Redux actions.

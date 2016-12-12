@@ -8,22 +8,16 @@ const handlers = asynchronous_handler
 (
 {
 	event  : 'user: sign in',
-	// Not updating user data in Redux state
-	// to prevent a sense of "lagging"
-	// (the page will be refreshed anyway)
 	// result : 'user'
 },
 {
 	event  : 'user: sign out',
-	// Not updating user data in Redux state
-	// to prevent a sense of "lagging"
-	// (the page will be refreshed anyway)
 	// result : (result, state) => ({ ...state, user: undefined })
 },
 {
 	event  : 'user: register'
 })
-
+//
 // Updates user picture in the user bar when it is changed on the profile page
 handlers['user: update user picture: done'] = (result, state) =>
 ({
@@ -59,14 +53,19 @@ handlers['user profile: update user info: done'] = (result, state) =>
 	}
 })
 
-// for this module to work should be added to model/index.js
-
-// applies a handler based on the action type
-// (is copy & paste'd for all action response handlers)
 export default function(state = initial_state, action_data = {})
 {
+	//如果有处理Action的函数则使用它，否则使用默认的函数 ((result, state) => state)
 	const handler=(handlers[action_data.type] || ((result, state) => state));
-	const args=Object.keys(action_data)&&Object.keys(action_data);
+	//获取action的key，即属性，其结果为['type','payload']
+	const args=action_data&&Object.keys(action_data);
+	//如果args含有result，则获取result；否则获取错误信息，如果上述两者都不是则把action作为输入
 	const obj=args&args.has&&args.has('result') ? action_data.result : action_data.error || action_data;
+	//Redux处理数据的范式为
+	//        (state,action)=>state
+	//return {
+	//	type: 'ADD_TODO',
+	//	text
+	//}
 	return (handler)(obj, state)
 }

@@ -1,3 +1,6 @@
+/**
+ * Application的入口方法
+ */
 import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
@@ -98,14 +101,15 @@ international.load().then(() =>
         )
         .then(({ component, store, rerender }) =>
         {
-            international.hot_reload(rerender)
+            // international.hot_reload(rerender)
+            console.log("运行成功")
         }).catch(err=>{
             //目前抛出异常为react重画问题
             console.log(err)
         })
 });
 
-// load the Intl polyfill and its locale data before rendering the application
+//load the Intl polyfill and its locale data before rendering the application
 // international.load().then(() =>
 // {
 //

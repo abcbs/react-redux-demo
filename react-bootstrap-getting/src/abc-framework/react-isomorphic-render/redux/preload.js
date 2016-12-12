@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import hoist_statics from 'hoist-non-react-statics'
 
-import { Preload_method_name, Preload_options_name } from './middleware/preloading middleware'
+import { Preload_method_name, Preload_options_name } from './middleware/preloading-middleware'
 
 export default function(preload, options)
 {
+	//
 	return function(Wrapped)
 	{
 		class Preload extends Component

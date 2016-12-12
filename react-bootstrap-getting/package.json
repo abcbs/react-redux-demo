@@ -10,6 +10,8 @@
     "build-cli": "npm run start-dev",
     "start-dev": "better-npm-run abc:build-cli",
     "start-run": "better-npm-run abc:run",
+    "start-webpack": "better-npm-run abc:webpack",
+    "abc:backend-es6": "gulp abc:backend-es6",
     "start": "webpack-dev-server --config webpack.config.js --progress --hot --colors",
     "build": "webpack --config webpack.config.js --progress --colors",
     "ddl": "webpack --config webpack.config.vendors",
@@ -30,6 +32,19 @@
       "command": "gulp abc:build-cli --vendmodel debug --abcmodel debug",
       "env": {
         "NODE_ENV": "production",
+        "__DEVTOOLS__": false,
+        "__DEVELOPMENT__": false
+      }
+    },
+    "abc:webpack": {
+      "command": "node  ./src/abc-proxy/debug/debugWebpack.js",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_ENV": "development",
+        "PORT": 3000,
+        "HOST": "192.168.1.102",
+        "APIHOST": "192.168.1.102",
+        "APIPORT": 3030,
         "__DEVTOOLS__": false,
         "__DEVELOPMENT__": false
       }
@@ -232,6 +247,7 @@
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "deep-equal": "^1.0.1",
+    "dom-helpers": "^3.1.0",
     "fastclick": "^1.0.6",
     "history": "^2.1.2",
     "hoist-non-react-statics": "^1.2.0",
@@ -253,6 +269,8 @@
     "react-helmet": "^3.2.2",
     "react-intl": "^2.1.5",
     "react-isomorphic-render": "^7.1.15",
+    "react-overlays": "^0.6.10",
+    "react-prop-types": "^0.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "react-router-redux": "^4.0.6",

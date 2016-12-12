@@ -1,3 +1,6 @@
+/**
+ * 应用的入口
+ */
 import React, { Component, PropTypes } from 'react'
 import { Provider }                    from 'react-redux'
 import { IntlProvider }                from 'react-intl'

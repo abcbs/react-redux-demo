@@ -1,4 +1,5 @@
-import { Preload_started, Preload_finished, Preload_failed } from 'react-isomorphic-render/redux'
+import { Preload_started, Preload_finished, Preload_failed }
+	from '../../../abc-framework/react-isomorphic-render/redux'
 import keys from 'lodash/keys'
 Object.keys=Object.keys||keys;
 const initial_state = {}

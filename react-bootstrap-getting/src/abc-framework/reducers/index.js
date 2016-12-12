@@ -18,11 +18,18 @@ export { default as snackbar }       from './ui-reducers/snackbar'
 export { default as navigator }      from './ui-reducers/navigator'
 
 import { default as authentication } from './authentication'
+import { default as snackbar }       from './ui-reducers/snackbar'
+import { default as navigator }      from './ui-reducers/navigator'
+import { preload }        from './ui-reducers/preload'
+
 const reducers = {
     routing: routerReducer,
     pagination,
     form,
     authentication,
+    preload,
+    navigator,
+    snackbar,
     main: user_settings_main
 
 };

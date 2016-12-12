@@ -7,7 +7,7 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _dec2, _class, _class2, _temp;
+var _dec, _dec2, _dec3, _class, _class2, _temp;
 
 var _react = require('react');
 
@@ -36,6 +36,14 @@ var _reactIntl = require('react-intl');
 var _internationalize = require('../../abc-framework/international/internationalize');
 
 var _internationalize2 = _interopRequireDefault(_internationalize);
+
+var _redux2 = require('../../abc-framework/react-isomorphic-render/redux');
+
+var _AbcPageContainer = require('../../abc-framework/ui/AbcPageContainer');
+
+var _AbcPageContainer2 = _interopRequireDefault(_AbcPageContainer);
+
+var _reactRouter = require('react-router');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -72,6 +80,8 @@ var messages = (0, _reactIntl.defineMessages)({
 
 var HomePage = (_dec = (0, _reactRedux.connect)(function (state) {
     //.default.authentication.authentication
+    // const authn=state.authentication||state.default.authentication;
+    // const users=authn.user;
     var authn = state.authentication || state.default.authentication;
     var users = authn.authentication.user;
     return;
@@ -80,7 +90,7 @@ var HomePage = (_dec = (0, _reactRedux.connect)(function (state) {
     }
 }, function (dispatch) {
     return (0, _redux.bindActionCreators)({ fetchUsers: fetchUsers }, dispatch);
-}), _dec2 = (0, _internationalize2.default)(), _dec(_class = _dec2(_class = (_temp = _class2 = function (_React$Component) {
+}), _dec2 = (0, _internationalize2.default)(), _dec3 = (0, _AbcPageContainer2.default)({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = (_temp = _class2 = function (_React$Component) {
     _inherits(HomePage, _React$Component);
 
     function HomePage() {
@@ -93,74 +103,114 @@ var HomePage = (_dec = (0, _reactRedux.connect)(function (state) {
         key: 'handleClick',
         value: function handleClick(e) {
             console.log("e,", e.target.value);
-            this.props.fetchUsers();
+            //this.props.fetchUsers();
+            // this.centex("/app")
+            _reactRouter.browserHistory.push("/app");
+            // goto('/app')
         }
     }, {
         key: 'render',
         value: function render() {
-            //var root=$&&$("root");
-            //label-primary-bg
-            var translate = this.props.translate;
-
-            var title = translate(messages.title);
             return _react2.default.createElement(
-                _AbcPage2.default,
-                { title: translate(messages.title),
-                    router: 'home',
-                    subTitle: translate(messages.subTitle) },
+                'span',
+                null,
+                _react2.default.createElement(_abcBootstrap.Checkbox, { onClick: this.handleClick.bind(this) }),
+                _react2.default.createElement('input', { type: 'checkbox' }),
+                _react2.default.createElement('input', { type: 'checkbox' }),
+                _react2.default.createElement('input', { type: 'checkbox' }),
                 _react2.default.createElement(
-                    _AbcContainer2.default,
+                    _abcBootstrap.Label,
+                    { bsStyle: 'abc', bsSize: 'bg' },
+                    'test'
+                ),
+                _react2.default.createElement(
+                    'span',
                     null,
                     _react2.default.createElement(
-                        'span',
-                        { style: { position: 'absolute', display: 'inline-block' } },
-                        _react2.default.createElement(_abcBootstrap.Checkbox, { onClick: this.handleClick.bind(this) }),
-                        _react2.default.createElement('input', { type: 'checkbox' }),
-                        _react2.default.createElement('input', { type: 'checkbox' }),
-                        _react2.default.createElement('input', { type: 'checkbox' }),
-                        _react2.default.createElement(
-                            _abcBootstrap.Label,
-                            { bsStyle: 'abc', bsSize: 'bg' },
-                            'test'
-                        ),
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            _react2.default.createElement(
-                                _abcBootstrap.Button,
-                                { type: 'button', bsStyle: 'default', style: { display: 'inline' } },
-                                '\u786E\u5B9A'
-                            ),
-                            _react2.default.createElement(
-                                _abcBootstrap.Badge,
-                                { bsStyle: 'info', bsSize: 'abc' },
-                                '4'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _abcBootstrap.ButtonToolbar,
-                            { style: { position: 'relative' } },
-                            'Messages',
-                            _react2.default.createElement(
-                                _abcBootstrap.Badge,
-                                { bsStyle: 'abc' },
-                                '17'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _abcBootstrap.Button,
-                            { onClick: this.handleClick.bind(this) },
-                            'Refresh'
-                        )
+                        _abcBootstrap.Button,
+                        { type: 'button', bsStyle: 'default', style: { display: 'inline' } },
+                        '\u786E\u5B9A'
+                    ),
+                    _react2.default.createElement(
+                        _abcBootstrap.Badge,
+                        { bsStyle: 'info', bsSize: 'abc' },
+                        '4'
                     )
+                ),
+                _react2.default.createElement(
+                    _abcBootstrap.ButtonToolbar,
+                    { style: { position: 'relative' } },
+                    'Messages',
+                    _react2.default.createElement(
+                        _abcBootstrap.Badge,
+                        { bsStyle: 'abc' },
+                        '17'
+                    )
+                ),
+                _react2.default.createElement(
+                    'form',
+                    { onSubmit: this.handleClick.bind(this) },
+                    _react2.default.createElement('input', { type: 'text', placeholder: 'userName' }),
+                    _react2.default.createElement('input', { type: 'text', placeholder: 'repo' }),
+                    _react2.default.createElement(
+                        'button',
+                        { type: 'submit' },
+                        'Go'
+                    )
+                ),
+                _react2.default.createElement(
+                    _abcBootstrap.Button,
+                    { onClick: this.handleClick.bind(this) },
+                    'Refresh'
                 )
             );
         }
+        //
+        // render() {
+        //     //var root=$&&$("root");
+        //     //label-primary-bg
+        //     const { translate } = this.props;
+        //     const title=translate(messages.title);
+        //     return (
+        //         <AbcPage title={translate(messages.title)}
+        //                  router="home"
+        //                  subTitle={translate(messages.subTitle)} >
+        //             <AbcContainer>
+        //                     <span style={{ position: 'absolute' ,display:'inline-block'}}>
+        //                         <Checkbox onClick={this.handleClick.bind(this)}></Checkbox>
+        //                         <input type="checkbox"/>
+        //                         <input type="checkbox"/>
+        //                         <input type="checkbox"/>
+        //                         <Label bsStyle="abc" bsSize="bg">test</Label>
+        //                         {
+        //                             // this.props.translate("home.title")
+        //                         }
+        //                         <span>
+        //                          <Button type="button" bsStyle="default" style={{display:'inline'}}>
+        //                          确定
+        //                         </Button><Badge bsStyle="info" bsSize="abc">4</Badge>
+        //                             </span>
+        //                         <ButtonToolbar style={{ position: 'relative'}}>
+        //                             Messages<Badge bsStyle="abc">17</Badge>
+        //                             </ButtonToolbar>
+        //
+        //                          <Button onClick={
+        //                                 this.handleClick.bind(this)}>Refresh</Button>
+        //                         </span>
+        //             </AbcContainer>
+        //
+        //         </AbcPage>
+        //     );
+        // }
+
     }]);
 
     return HomePage;
 }(_react2.default.Component), _class2.propTypes = {
-    users: _react.PropTypes.array.isRequired,
-    fetchUsers: _react.PropTypes.func.isRequired
-}, _temp)) || _class) || _class);
+    users: _react.PropTypes.array,
+    fetchUsers: _react.PropTypes.func,
+    loading: _react.PropTypes.bool,
+    loaded: _react.PropTypes.bool,
+    loading_error: _react.PropTypes.object
+}, _temp)) || _class) || _class) || _class);
 exports.default = HomePage;

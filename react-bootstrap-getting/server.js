@@ -39,11 +39,15 @@ app.use(webpackHotMiddleware(compiler));
 app.use('/dist', express.static(path.join(__dirname, './dist')));
 app.use('/external', express.static(path.join(__dirname, './external')));
 //ApplicationIndex
-
-app.get("/", function(req, res) {
+app.use(function(req, res) {
   res.sendFile(__dirname + '/index.html');
-  
+
 })
+
+// app.get("/", function(req, res) {
+//   res.sendFile(__dirname + '/index.html');
+//
+// })
 
 app.use(function(err, req, res, next){
   // log it

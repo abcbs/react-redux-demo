@@ -1,65 +1,109 @@
-import React,{ PropTypes,Component } from 'react';
+import React,{ PropTypes,Component,createElement } from 'react';
+import ReactDOM from 'react-dom'
 import AbcContainer from '../../abc-framework/ui/AbcContainer'
 import AbcPage from '../../abc-framework/ui/AbcPage'
-
+import { defineMessages }              from 'react-intl'
+import international from '../../abc-framework/international/internationalize'
 // import Preloading      from '../../abc-ui/preloading'
 // import Snackbar        from '../../abc-ui/snackbar'
 
 import { title }              from '../../abc-framework/react-isomorphic-render/index.es6'
-import { preload }            from '../../abc-framework/react-isomorphic-render/redux'
+import { preload,goto }            from '../../abc-framework/react-isomorphic-render/redux'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Button,ButtonToolbar} from 'react-bootstrap'
+import { Button,ButtonToolbar} from '../../abc-bootstrap'
 // import 'bootstrap/less/theme.less'
 // import 'bootstrap/less/bootstrap.less';
-
+import container from '../../abc-framework/ui/AbcPageContainer'
 import Spinner        from '../../abc-ui/spinner'
- import '../../../resource/styles/abc-components/styles/style.scss'
-
-// fetches the list of users from the server
-function fetchUsers()
-{
-    // console.log("http,",http);
-    return {
+import '../../../resource/styles/abc-components/styles/style.scss'
+import {Popover} from '../../abc-bootstrap'
+import errorInfo from '../../abc-framework/ui/errorInfo'
+const fetchUsers = () =>
+    ({
+        // that:_this;
         promise: http => http.get('/api/users/current').then(
-            ids => console.log("idx,",ids)
+            (ids =>
+            {
+                console.log("idx,",ids)
+                goto('./home')
+
+            }),
+            (err=>{
+                console.log("err,",err);
+                 errorInfo(" 没有网络，或者网络过慢，请稍等再试")
+                 throw new Error("Final,NO Net");
+             }
+            )
         ),
         events: ['GET_USERS_PENDING', 'GET_USERS_SUCCESS', 'GET_USERS_FAILURE']
-    }
-}
+    })
 //
-// @preload(({ dispatch }) => dispatch(fetchUsers))
+const messages = defineMessages
+({
+        title:
+        {
+            id             : 'Introduction.title',
+            description    : '首页配置',
+            defaultMessage : '介绍'
+        },
+        subTitle:
+        {
+            id             : 'Introduction.subTitle',
+            description    : '商品介绍',
+            defaultMessage : '商品介绍'
+        }
+    }
+)
+
+@preload(({ dispatch }) => dispatch(fetchUsers()))
 @connect
 (
     state    => {
         //.default.authentication.authentication
-        const authn=state.authentication||state.default.authentication;
-        const users=authn.authentication.user;
+        // const authn=state.authentication||state.default.authentication;
+        // const users=authn.authentication.user;
+        // const authn=state.authentication||state.default.authentication;
+        // const users=authn.user;
         return
-            { users:users }
+            ({  users:users,
+                loading   : state.users.loading,
+                loaded        : state_users.loaded,
+                loading_error : state_users.loading_error
+            })
     }
     ,
     dispatch => bindActionCreators({ fetchUsers }, dispatch)
 )
+
+@international()
+@container({title:messages.title, subTitle:messages.subTitle})
 export default class IntroductionPage extends Component
 {
     static propTypes =
     {
-        users      : PropTypes.array.isRequired,
-        fetchUsers : PropTypes.func.isRequired
+        users      : PropTypes.array,
+        fetchUsers : PropTypes.func,
+        loading       : PropTypes.bool,
+        loaded        : PropTypes.bool,
+        loading_error : PropTypes.object
+    }
+    static contextTypes =
+    {
+        intl: PropTypes.object,
+        // router: React.PropTypes.object
     }
     handleClick(e) {
         console.log("e,",e.target.value);
         this.props.fetchUsers();
     }
     render() {
+        const { error, loaded } = this.props
+        this.state&&this.state.error&&console.log(" this.state.error;,", this.state.error)
+        console.log("error,",error)
+        console.log("loaded,",loaded)
         return (
-            <AbcPage title="展示互动" subTitle="欢迎光临">
-                <AbcContainer >
-                    {
-                        //没有定位，导致事件无效
-                    }
-                    <span style={{ position: 'absolute' ,display:'inline-block'}}>
+          <div>
                         <Spinner/>
                         Hello,商品介绍,Hello,商品介绍
                         <div>
@@ -67,11 +111,7 @@ export default class IntroductionPage extends Component
                                     this.handleClick.bind(this)}
                             >Refresh</Button>
                         </div>
-                    </span>
-
-
-                </AbcContainer>
-            </AbcPage>
+            </div>
         );
     }
 

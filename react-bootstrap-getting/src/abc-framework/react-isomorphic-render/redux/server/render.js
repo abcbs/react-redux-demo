@@ -2,7 +2,7 @@ import React           from 'react'
 import { match }       from 'redux-router/server'
 import { ReduxRouter } from 'redux-router'
 
-import react_render_on_server from '../../render on server'
+import react_render_on_server from '../../render-on-server'
 
 import { location_url } from '../../location'
 import timer from '../../timer'
@@ -23,10 +23,7 @@ function timed_react_render_on_server(named_arguments)
 //
 export default function render_on_server({ disable_server_side_rendering, create_page_element, render_webpage_as_react_element, url, store })
 {
-	// Routing only takes a couple of milliseconds
-	// const routing_timer = timer()
-
-	// Page preload starts inside `match_url()` function
+	
 	// (somewhere inside `redux-router`'s `store.dispatch(match(...))`)
 	const preload_timer = timer()
 
@@ -127,28 +124,15 @@ function get_http_response_status_code_for_the_route(matched_routes)
 	return matched_routes.reduce((previous, current) => (current && current.status) || (previous && current.status))
 }
 
-// Matches a `url` to a route
-// (to a hierarchy of React-router `<Route/>`s).
-//
-// Returns a Promise resolving to an object:
-//
-//   redirect    - in case of an HTTP redirect
-//
-//   matched_routes - the matched hierarchy of React-router `<Route/>`s
-//
 function match_url(url, store)
 {
-	// (not using `promisify()` helper here 
-	//  to avoid introducing dependency on `bluebird` Promise library)
-	//
+
 	return new Promise((resolve, reject) =>
 	{
 		// perform routing for this `url`
 		store.dispatch(match(url, (error, redirect_location, router_state) =>
 		{
-			// if a decision to perform a redirect was made 
-			// during the routing process,
-			// then redirect to another url
+
 			if (redirect_location)
 			{
 				return resolve
@@ -156,14 +140,11 @@ function match_url(url, store)
 					redirect: location_url(redirect_location)
 				})
 			}
-
 			// routing process failed
 			if (error)
 			{
 				return reject(error)
 			}
-
-			// don't know what this if condition is for
 			if (!router_state)
 			{
 				return reject(new Error('No router state'))

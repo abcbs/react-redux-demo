@@ -11,7 +11,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactBootstrap = require('react-bootstrap');
+var _abcBootstrap = require('../../abc-bootstrap');
 
 var _Link = require('../components/Link');
 
@@ -38,7 +38,7 @@ var Footer = function (_Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                _reactBootstrap.Navbar,
+                _abcBootstrap.Navbar,
                 { className: 'container',
                     style: { background: 'white', border: "none", boxShadow: "none" } },
                 this.renderLiners()
@@ -86,72 +86,3 @@ Footer.propTypes = {
     onFilterChange: _react.PropTypes.func.isRequired,
     filter: _react.PropTypes.oneOf(['SHOW_ALL', 'SHOW_COMPLETED', 'SHOW_ACTIVE']).isRequired
 };
-
-var popoverRight = _react2.default.createElement(
-    _reactBootstrap.Popover,
-    { id: 'popover-positioned-scrolling-right', title: 'Popover right' },
-    _react2.default.createElement(
-        'strong',
-        null,
-        'Holy guacamole!'
-    ),
-    ' Check this info.'
-);
-
-var Positioner = function (_React$Component) {
-    _inherits(Positioner, _React$Component);
-
-    function Positioner() {
-        _classCallCheck(this, Positioner);
-
-        return _possibleConstructorReturn(this, (Positioner.__proto__ || Object.getPrototypeOf(Positioner)).apply(this, arguments));
-    }
-
-    _createClass(Positioner, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                _reactBootstrap.ButtonToolbar,
-                { style: { padding: '100px 0' } },
-                _react2.default.createElement(
-                    _reactBootstrap.OverlayTrigger,
-                    { container: this, trigger: 'click', placement: 'left', overlay: popoverRight },
-                    _react2.default.createElement(
-                        _reactBootstrap.Button,
-                        null,
-                        'Holy guacamole!'
-                    )
-                ),
-                _react2.default.createElement(
-                    _reactBootstrap.OverlayTrigger,
-                    { container: this, trigger: 'click', placement: 'top', overlay: popoverRight },
-                    _react2.default.createElement(
-                        _reactBootstrap.Button,
-                        null,
-                        'Holy guacamole!'
-                    )
-                ),
-                _react2.default.createElement(
-                    _reactBootstrap.OverlayTrigger,
-                    { container: this, trigger: 'click', placement: 'bottom', overlay: popoverRight },
-                    _react2.default.createElement(
-                        _reactBootstrap.Button,
-                        null,
-                        'Holy guacamole!'
-                    )
-                ),
-                _react2.default.createElement(
-                    _reactBootstrap.OverlayTrigger,
-                    { container: this, trigger: 'click', placement: 'right', overlay: popoverRight },
-                    _react2.default.createElement(
-                        _reactBootstrap.Button,
-                        null,
-                        'Holy guacamole!'
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Positioner;
-}(_react2.default.Component);
