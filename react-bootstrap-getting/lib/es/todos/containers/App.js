@@ -145,6 +145,8 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
     return {
         addTodoAction: (0, _redux.bindActionCreators)(_actions.addTodo, dispatch),
+        //绑定具体的处理方法，此方法在Todo中为真正的删除处理事件，它使用的动作为completeTodo
+        //而它使用的动作为completeTodo的数据为索引index
         completeTodoAction: (0, _redux.bindActionCreators)(_actions.completeTodo, dispatch),
         setVisibilityFilterAtion: (0, _redux.bindActionCreators)(_actions.setVisibilityFilter, dispatch)
     };
@@ -204,6 +206,6 @@ App.propTypes = {
     visibleTodos: _react.PropTypes.arrayOf(_react.PropTypes.shape({
         text: _react.PropTypes.string.isRequired,
         completed: _react.PropTypes.bool.isRequired
-    }).isRequired).isRequired,
-    visibilityFilter: _react.PropTypes.oneOf(['SHOW_ALL', 'SHOW_COMPLETED', 'SHOW_ACTIVE']).isRequired
+    }).isRequired),
+    visibilityFilter: _react.PropTypes.oneOf(['SHOW_ALL', 'SHOW_COMPLETED', 'SHOW_ACTIVE'])
 };

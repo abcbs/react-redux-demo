@@ -60,7 +60,7 @@ export default function(path, to, options = {})
 						error = new Error(`Lost connection while proxying "${from_name}" to ${to_name} ${to}`)
 					}
 
-					console.error(`Proxy error`)
+					console.error(`代理错误`)
 					reject(error)
 
 					// response.writeHead(502)

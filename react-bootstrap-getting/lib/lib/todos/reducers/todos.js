@@ -32,7 +32,7 @@ function reducer() {
         // case ADD_TODO:
         //     return  action;
         case _actions.ADD_TODO:
-            return [].concat(_toConsumableArray(state), [{
+            return [].concat(_toConsumableArray(state), [{ //添加的数据为text
                 text: action.text,
                 completed: false
             }]);
@@ -46,8 +46,9 @@ function reducer() {
         //         }
         //     ]
         case _actions.COMPLETE_TODO:
-            return [].concat(_toConsumableArray(state.slice(0, action.index)), [(0, _simpleAssign2.default)({}, state[action.index], {
-                completed: true
+            return [].concat(_toConsumableArray(state.slice(0, action.index)), [//索引之前的数据
+            (0, _simpleAssign2.default)({}, state[action.index], {
+                completed: true //完成的标记
             })], _toConsumableArray(state.slice(action.index + 1)));
         default:
             return state;

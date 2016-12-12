@@ -89,7 +89,7 @@ export default function start_webpage_rendering_server(options, common)
 			}
 
 			// log the error
-			console.log('[react-isomorphic-render] Webpage rendering server error')
+			console.log('服务端异常,',error)
 
 			if (options.log)
 			{

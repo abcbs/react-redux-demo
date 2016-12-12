@@ -30,8 +30,6 @@ var _Header = require('../view-bootsrap/Header');
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _reactBootstrap = require('react-bootstrap');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44,6 +42,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 //import Footer from '../components/Footer'
 
 
+// import {ListGroupItem, ListGroup,Panel} from 'react-bootstrap'
 //
 
 var AppRaw = function (_Component) {

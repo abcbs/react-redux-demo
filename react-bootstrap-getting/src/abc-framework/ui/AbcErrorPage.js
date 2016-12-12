@@ -44,7 +44,7 @@ export default class AbcErrorPage extends Component {
                    onExited={this.close.bind(this)}
                    aria-labelledby="contained-modal-title-lg">
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-ms">Error</Modal.Title>
+                    <Modal.Title id="contained-modal-title-ms">错误提示</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     {errorMessage}

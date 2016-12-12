@@ -48,12 +48,14 @@ var _Header = require('../view-bootsrap/Header');
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _reactBootstrap = require('react-bootstrap');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+// import {ListGroupItem, ListGroup,Panel} from 'react-bootstrap'
 //
 
+//import AddTodo from '../components/AddTodo'
+//import TodoList from '../components/TodoList'
+//import Footer from '../components/Footer'
 var AppRaw = function (_Component) {
     (0, _inherits3['default'])(AppRaw, _Component);
 
@@ -95,10 +97,6 @@ var AppRaw = function (_Component) {
     }]);
     return AppRaw;
 }(_react.Component);
-//import AddTodo from '../components/AddTodo'
-//import TodoList from '../components/TodoList'
-//import Footer from '../components/Footer'
-
 
 AppRaw.propTypes = {
     visibleTodos: _react.PropTypes.arrayOf(_react.PropTypes.shape({

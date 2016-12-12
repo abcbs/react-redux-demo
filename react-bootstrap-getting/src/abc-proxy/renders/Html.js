@@ -63,6 +63,7 @@ export const background = {
               <span class="top a2">Hello China</span>
               <span class="top a3">Hello World</span>
           </div>
+          <div id="root">
           <script src="/external/requirejs/require.js"></script>
           <script src="/external/requirejs.config.js"></script>
          

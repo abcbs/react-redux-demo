@@ -118,7 +118,11 @@ export default class http_client
 					// Send HTTP request
 					request.end((error, response) => 
 					{
-						if(!response||!response.body){//LiuJQ
+						if(!response){//LiuJQ
+							//throw Error("Fatial")//
+							reject(error);
+						}
+						if(!response.body){//LiuJQ
 							//throw Error("Fatial")//
 							reject(error);
 						}

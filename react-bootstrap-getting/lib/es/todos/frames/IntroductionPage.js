@@ -71,7 +71,7 @@ var _reactRedux = require('react-redux');
 
 var _redux2 = require('redux');
 
-var _reactBootstrap = require('react-bootstrap');
+var _abcBootstrap = require('../../abc-bootstrap');
 
 var _AbcPageContainer = require('../../abc-framework/ui/AbcPageContainer');
 
@@ -80,8 +80,6 @@ var _AbcPageContainer2 = _interopRequireDefault(_AbcPageContainer);
 var _spinner = require('../../abc-ui/spinner');
 
 var _spinner2 = _interopRequireDefault(_spinner);
-
-var _abcBootstrap = require('../../abc-bootstrap');
 
 var _errorInfo = require('../../abc-framework/ui/errorInfo');
 
@@ -97,7 +95,7 @@ var fetchUsers = function fetchUsers() {
                 console.log("idx,", ids);
                 (0, _redux.goto)('./home');
             }, function (err) {
-                console.log("err,", err);
+                console.log("没有网络，或者网络过慢，请稍等再试,", err);
                 (0, _errorInfo2['default'])(" 没有网络，或者网络过慢，请稍等再试");
                 throw new Error("Final,NO Net");
             });
@@ -169,7 +167,7 @@ var IntroductionPage = (_dec = (0, _redux.preload)(function (_ref) {
                     'div',
                     null,
                     _react2['default'].createElement(
-                        _reactBootstrap.Button,
+                        _abcBootstrap.Button,
                         { onClick: this.handleClick.bind(this)
                         },
                         'Refresh'
@@ -225,5 +223,7 @@ var IntroductionPage = (_dec = (0, _redux.preload)(function (_ref) {
     loading: _react.PropTypes.bool,
     loaded: _react.PropTypes.bool,
     loading_error: _react.PropTypes.object
+}, _class2.contextTypes = {
+    intl: _react.PropTypes.object
 }, _temp)) || _class) || _class) || _class) || _class);
 exports['default'] = IntroductionPage;

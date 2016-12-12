@@ -7,7 +7,7 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _dec2, _dec3, _class, _class2, _temp;
+var _dec, _dec2, _dec3, _dec4, _class, _class2, _temp;
 
 var _react = require('react');
 
@@ -45,6 +45,12 @@ var _AbcPageContainer2 = _interopRequireDefault(_AbcPageContainer);
 
 var _reactRouter = require('react-router');
 
+var _reduxRouter = require('redux-router');
+
+var _errorInfo = require('../../abc-framework/ui/errorInfo');
+
+var _errorInfo2 = _interopRequireDefault(_errorInfo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -59,6 +65,10 @@ function fetchUsers() {
         promise: function promise(http) {
             return http.get('/api/users/current').then(function (ids) {
                 return console.log("ids,", ids);
+            }, function (err) {
+                console.log("没有网络，或者网络过慢，请稍等再试,", err);
+                (0, _errorInfo2.default)(" 没有网络，或者网络过慢，请稍等再试");
+                throw new Error("Final,NO Net");
             });
         },
         events: ['GET_USERS_PENDING', 'GET_USERS_SUCCESS', 'GET_USERS_FAILURE']
@@ -89,8 +99,12 @@ var HomePage = (_dec = (0, _reactRedux.connect)(function (state) {
         users: users;
     }
 }, function (dispatch) {
-    return (0, _redux.bindActionCreators)({ fetchUsers: fetchUsers }, dispatch);
-}), _dec2 = (0, _internationalize2.default)(), _dec3 = (0, _AbcPageContainer2.default)({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = (_temp = _class2 = function (_React$Component) {
+    return (0, _redux.bindActionCreators)({ fetchUsers: fetchUsers,
+        push: _reduxRouter.push }, dispatch);
+}), _dec2 = (0, _redux2.preload)(function (_ref) {
+    var dispatch = _ref.dispatch;
+    return dispatch(fetchUsers());
+}), _dec3 = (0, _internationalize2.default)(), _dec4 = (0, _AbcPageContainer2.default)({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = (_temp = _class2 = function (_React$Component) {
     _inherits(HomePage, _React$Component);
 
     function HomePage() {
@@ -212,5 +226,7 @@ var HomePage = (_dec = (0, _reactRedux.connect)(function (state) {
     loading: _react.PropTypes.bool,
     loaded: _react.PropTypes.bool,
     loading_error: _react.PropTypes.object
-}, _temp)) || _class) || _class) || _class);
+}, _class2.contextTypes = {
+    intl: _react.PropTypes.object
+}, _temp)) || _class) || _class) || _class) || _class);
 exports.default = HomePage;
