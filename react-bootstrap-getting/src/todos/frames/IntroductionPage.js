@@ -65,6 +65,8 @@ const messages = defineMessages
         // const users=authn.authentication.user;
         // const authn=state.authentication||state.default.authentication;
         // const users=authn.user;
+        const authn=state.authentication||state.default.authentication;
+        const users=authn.authentication.user;
         return
             ({  users:users,
                 loading   : state.users.loading,

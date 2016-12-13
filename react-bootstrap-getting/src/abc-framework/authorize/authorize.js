@@ -102,7 +102,7 @@ export default function authorize(authorization)
 			Authorize[preload] = function authorize_then_preload(parameters)
 			{
 				const location = parameters.location;
-				const state=parameters.getState().default;
+				const state=parameters.getState();
 				const user = state.authentication.authentication.user;
 				const url = location.pathname + location.search;
 

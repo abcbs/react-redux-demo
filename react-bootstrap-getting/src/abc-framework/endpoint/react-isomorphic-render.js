@@ -1,12 +1,14 @@
 import routes  from '../routeres/Routes'
 import wrapper from './wrapper'
 // import reducer from '../reducers'
-import reducer from '../../todos/reducers/index'
+// import reducer from '../../todos/reducers/index'
+
+
 // import Client from './Client'
 export default
 {
 
-  reducer:() => require('../../todos/reducers/index'),
+  reducer:() => require('../reducers/index'),
 
   routes,
 

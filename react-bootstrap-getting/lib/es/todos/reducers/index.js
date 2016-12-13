@@ -1,37 +1,38 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
-
-var _extends2 = require('babel-runtime/helpers/extends');
-
-var _extends3 = _interopRequireDefault(_extends2);
+exports.addTodoVerfiy = exports.visibilityFilter = exports.todos = undefined;
 
 var _redux = require('redux');
 
-var _reducers = require('../../abc-framework/reducers');
+var _todos2 = require('./todos');
 
-var _reducers2 = _interopRequireDefault(_reducers);
+var _todos3 = _interopRequireDefault(_todos2);
 
-var _todos = require('./todos');
+var _visibilityFilter2 = require('./visibilityFilter');
 
-var _todos2 = _interopRequireDefault(_todos);
+var _visibilityFilter3 = _interopRequireDefault(_visibilityFilter2);
 
-var _visibilityFilter = require('./visibilityFilter');
+var _addTodoVerfiy2 = require('./addTodoVerfiy');
 
-var _visibilityFilter2 = _interopRequireDefault(_visibilityFilter);
-
-var _addTodoVerfiy = require('./addTodoVerfiy');
-
-var _addTodoVerfiy2 = _interopRequireDefault(_addTodoVerfiy);
+var _addTodoVerfiy3 = _interopRequireDefault(_addTodoVerfiy2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var todoApp = (0, _redux.combineReducers)((0, _extends3['default'])({}, _reducers2['default'], {
-    visibilityFilter: _visibilityFilter2['default'],
-    addTodoVerfiy: _addTodoVerfiy2['default'],
-    todos: _todos2['default']
-}));
+exports.todos = _todos3['default'];
+// import reducers from '../../abc-framework/reducers'
 //应用
-exports['default'] = todoApp;
+
+exports.visibilityFilter = _visibilityFilter3['default'];
+exports.addTodoVerfiy = _addTodoVerfiy3['default'];
+
+// const todoApp = combineReducers({
+//     ...reducers,
+//     visibilityFilter,
+//     addTodoVerfiy,
+//     todos
+// });
+//
+// export default todoApp

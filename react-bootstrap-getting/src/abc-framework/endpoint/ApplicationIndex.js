@@ -45,11 +45,15 @@ var data= {present:[{text:"client数据"+(new Date),completed:false},
     {text:"客户端测试数据",completed:false}]};
 
 const state =
-{   default:{
+{
     authentication:authentication,
     visibilityFilter: "SHOW_ALL",
     todos:data
-},
+    // default:{
+    //
+    // visibilityFilter: "SHOW_ALL",
+    // todos:data
+// },
     // authentication: { user },
     // Is used by "material-ui" for CSS autoprefixing
     // navigator: { userAgent: request.headers['user-agent'] }

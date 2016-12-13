@@ -104,11 +104,15 @@ const server = webpageServer
         }
         }
         const state =
-        {   default:{
+        {
             authentication:authentication,
             visibilityFilter: "SHOW_ALL",
             todos:data
-            },
+            // default:{
+            // authentication:authentication,
+            // visibilityFilter: "SHOW_ALL",
+            // todos:data
+            // },
             // authentication: { user },
             // Is used by "material-ui" for CSS autoprefixing
             // navigator: { userAgent: request.headers['user-agent'] }

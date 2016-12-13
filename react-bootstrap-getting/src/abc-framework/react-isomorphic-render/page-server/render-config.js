@@ -124,23 +124,19 @@ export default async function({ preload, initialize, localize, assets,
 		})
 	}
 
-	// Customization of `http` utility
-	// which can be used inside Redux action creators
 	set_up_http_client(http_client,
 	{
 		store,
 		on_before_send : common.http && common.http.request
-	})
+	});
 
-	// Internationalization
-
-	let locale
-	let messages
-	let messagesJSON
+	let locale;
+	let messages;
+	let messagesJSON;
 
 	if (localize)
 	{
-		let result = localize(store)
+		let result = localize(store);
 
 		// Legacy support for `async` `localize`
 		// (may be removed in versions > `7.x`)
@@ -152,15 +148,9 @@ export default async function({ preload, initialize, localize, assets,
 		locale   = result.locale
 		messages = result.messages
 
-		// A tiny optimization to avoid calculating
-		// `JSON.stringify(messages)` for each rendered page.
 		messagesJSON = result.messagesJSON || JSON.stringify(messages)
 	}
 
-	// If Redux is being used, then render for Redux.
-	// Else render for pure React.
-	//如果使用Redux，则提交Redux，否则提交纯React
-	//const render_page = store ? redux_render : react_router_render
 	const render_page =  redux_render ;
 
 	try

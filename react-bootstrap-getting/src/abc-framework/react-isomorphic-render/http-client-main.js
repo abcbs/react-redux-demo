@@ -119,12 +119,14 @@ export default class http_client
 					request.end((error, response) => 
 					{
 						if(!response){//LiuJQ
-							//throw Error("Fatial")//
-							reject(error);
+							// throw new Error("Fatial No response")//
+							 reject(new Error("Fatial No response"));
+							return ;
 						}
 						if(!response.body){//LiuJQ
-							//throw Error("Fatial")//
-							reject(error);
+							// throw new Error("Fatial No body")//
+							 reject(new Error("Fatial No body"));
+							return ;
 						}
 						const response_body = parse_json_dates ? parse_dates(response.body) : response&&response.body
 

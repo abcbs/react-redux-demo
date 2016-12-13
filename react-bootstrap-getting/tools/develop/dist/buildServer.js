@@ -15,7 +15,7 @@ export default function buildServer(fn) {
             exec(`rm -rf ${buildPath}`)//rimraf rm -rf
                 .then(() => fsp.mkdirs(buildPath)).then(//debug
                     cmdExec('构建产品',
-                        `webpack --config webpack.config.js  --progress --colors   --${options.abcmodel}`,{
+                        `webpack --config webpack.config.js --${options.abcmodel}  --progress --colors`,{
                            },
                             (err ,data)=> {
                             if (err) {

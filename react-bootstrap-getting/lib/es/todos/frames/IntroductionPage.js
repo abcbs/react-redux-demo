@@ -126,6 +126,8 @@ var IntroductionPage = (_dec = (0, _redux.preload)(function (_ref) {
     // const users=authn.authentication.user;
     // const authn=state.authentication||state.default.authentication;
     // const users=authn.user;
+    var authn = state.authentication || state['default'].authentication;
+    var users = authn.authentication.user;
     return;
     ({ users: users,
         loading: state.users.loading,
