@@ -39,11 +39,12 @@ export default class Spinner extends Component
 			<div className={classNames('spinner', this.props.className)} style={this.props.style}>
 				<svg viewBox="0 0 50 50">
 					<circle 
-						style={path_style} 
+						style={path_style}
 						cx="25" 
 						cy="25" 
 						r="20" 
-						fill="none" 
+						fill="none"
+						stroke="#D1D3D7"
 						strokeWidth="2.5" 
 						strokeMiterlimit="10"/>
 				</svg>
@@ -70,6 +71,8 @@ const style = styler
 		stroke-dashoffset : 0
 		stroke-linecap    : round
 		transition        : all 1.5s ease-in-out
+		
+
 `
 
 	// path
