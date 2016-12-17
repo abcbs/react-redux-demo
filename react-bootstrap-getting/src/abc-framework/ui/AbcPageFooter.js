@@ -5,8 +5,7 @@ const PageFooter = React.createClass({
     render() {
         return (
             <Navbar fixedBottom className="container">
-                     <p>
-                    Testaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                     <p>ABC right</p>
             </Navbar>
         );
     }

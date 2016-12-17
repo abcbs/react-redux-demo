@@ -11,7 +11,6 @@ export default class AbcPage extends Component {
     }
     constructor(props, context) {
         super(props, context);
-
     }
 
     rederChildren(children){
@@ -21,12 +20,13 @@ export default class AbcPage extends Component {
         // require( '../../../resource/styles/css/index.css')
         const { children,router,title, subTitle,theme,...other} = this.props;
         return (
-            <span {...other}>
+            <div className="container" {...other}
+                 style={{zIndex:'1060',paddingLeft:"0px",paddingRight:"0px"}}>
                  <div style={{marginBottom:"10px" ,marginTop:"60px" }}/>
                  <PageHeader title={title}  subTitle={subTitle}  />
                     {this.rederChildren(children)}
                   <PageFooter />
-            </span>
+            </div>
         )
     }
 }

@@ -7,7 +7,7 @@ export default class AbcContainer extends Component {
         const { children,isMovedTop,isContainer,...others} = this.props;
         // const children.map=children.map||map;
         return (
-            <div {...others} className={
+            <div {...others} style={{zIndex:'1060', paddingLeft:"1px",paddingRight:"1px"}} className={
                     classnames({
                       'container':this.props.isContainer,
                        'marginPageTop':this.props.isMovedTop
@@ -16,7 +16,6 @@ export default class AbcContainer extends Component {
                 {
                     //Children.only(children)
                     children
-                   
                 }
             </div>
         )

@@ -34,7 +34,7 @@ class Label extends React.Component {
     const { className, children, ...props } = this.props;
 
     const [bsProps, elementProps] = splitBsProps(props);
-
+    // bsStyle={bsStyle}  bsSize={bsSize}
     const classes = {
       ...getClassSet(bsProps),
 
