@@ -38,7 +38,7 @@ export default class NavMain extends Component
     render() {
         const {activePage,translate}=this.props;
         return (
-            <Navbar fixedTop className="container"
+            <Navbar fixedTop className="container container-desktop container-lg"
                     style={{zIndex:'1060',opacity:'0.95', paddingLeft:"1px",paddingRight:"1px"}}>
                 <Navbar.Header>
                     <Navbar.Brand>
@@ -47,22 +47,6 @@ export default class NavMain extends Component
                     <Navbar.Toggle/>
                 </Navbar.Header>
                 <Navbar.Collapse>
-                    {
-                        // <Nav>
-                        //     {
-                        //         Object.entries(NAV_LINKS).map(([linkName, {path, title}]) => (
-                        //             <Wrapper key={linkName}>
-                        //                 <li className={linkName === activePage ? 'active' : null}>
-                        //                     <Link to={path}>
-                        //                         {title}
-                        //                     </Link>
-                        //                 </li>
-                        //             </Wrapper>
-                        //         ))
-                        //     }
-                        // </Nav>
-                    }
-
                     <AbcNavItems/>
                 </Navbar.Collapse>
             </Navbar>

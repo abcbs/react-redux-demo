@@ -2,7 +2,7 @@ import React, { Component, PropTypes, Children } from 'react'
 import PageFooter from './AbcPageFooter'
 import PageHeader from './AbcPageHeader'
 import NotFoundPage from './AbcNotFoundPage'
-import NavMain from './AbcNavMain'
+import AbcNavMain from './AbcNavMain'
 import classnames from 'classnames';
 import  '../../../resource/styles/css/index.css'
 export default class AbcPage extends Component {
@@ -20,12 +20,12 @@ export default class AbcPage extends Component {
         // require( '../../../resource/styles/css/index.css')
         const { children,router,title, subTitle,theme,...other} = this.props;
         return (
-            <div className="container" {...other}
-                 style={{zIndex:'1060',paddingLeft:"0px",paddingRight:"0px"}}>
-                 <div style={{marginBottom:"10px" ,marginTop:"60px" }}/>
+            <div className="container container-desktop container-lg " {...other}
+                 style={{zIndex:'1060',marginTop:"60px",paddingLeft:"0px",paddingRight:"0px"}}>
+                 <AbcNavMain />
                  <PageHeader title={title}  subTitle={subTitle}  />
-                    {this.rederChildren(children)}
-                  <PageFooter />
+                 {this.rederChildren(children)}
+                 <PageFooter />
             </div>
         )
     }

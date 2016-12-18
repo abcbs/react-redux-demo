@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import classNames           from 'classnames'
-
+import {Navbar,Panel} from '../../abc-bootstrap'
 export default class AbcRightLGPage extends React.Component
 {
     static propTypes =
@@ -16,8 +16,13 @@ export default class AbcRightLGPage extends React.Component
     }
     render()
     {
-        return (  <div className="container"
-                       style={{minHeight:"50px",  marginTop:"60px"}}><p>test</p>
+        return (  <div className="container container-desktop container-lg"
+                       style={{minHeight:"50px", marginTop:"80px", width:"100%",
+                       marginLeft:"12px" ,position:"fixed"
+                        }}>
+                    <p style={{width:"200px"}}>
+            testqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqLmmmmmmmmmmmmmmmmmmmmmmm</p>
+
             </div>);
     }
 }

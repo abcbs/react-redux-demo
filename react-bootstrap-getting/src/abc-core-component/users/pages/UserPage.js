@@ -23,7 +23,7 @@ import {AbcLabel,AbcBadge,AbcButton,AbcButtonToolbar,AbcFormInline,AbcCol,
 import 'bootstrap/less/theme.less'
 import 'bootstrap/less/bootstrap.less';
 import UserSearchHeader from '../components/PanelHeaderTitleAndNumber'
-
+import Devices from '../../../abc-framework/utils/Devices'
 function fetchUsers()
 {
     // console.log("http,",http);
@@ -150,14 +150,10 @@ export default class UserPage extends React.Component {
         }
     }
     render() {
-        //var root=$&&$("root");
-        //label-primary-bg
-        // const { translate } = this.props;
-        // const title=translate(messages.title);
-        // <span style={{lineHeight: '40px'}}>
+        const dv=Devices();
         //                 手机      平板         笔记本     台式
         //Class 前缀	.col-xs-	.col-sm-	.col-md-	.col-lg-
-        const userSearchHeader=(<UserSearchHeader numbers="17" title="用户查询"/>)
+        const userSearchHeader=(<UserSearchHeader numbers="17" title="用户查询"/>);
         return (
             <div>
                 <Panel header={userSearchHeader}>

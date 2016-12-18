@@ -5,6 +5,7 @@ import AbcContainer from  './AbcContainer'
 import AbcPage from './AbcPage'
 import {Col} from '../../abc-bootstrap'
 import AbcNestLeftPage from './AbcNestLeftPage'
+import AbcNavMain from './AbcNavMain'
 const defualt_style={ position: ' relative'};
 
 
@@ -24,34 +25,38 @@ export default function container(options) {
             render() {
                 const {translate,style,isMovedTop,isContainer,children,...other}=this.props;
                 return (
-                    <AbcPage title={translate&&translate(_title)}
-                             router={_router}
-                             subTitle={translate&&translate(_subTitle)} >
-                        
-                        <AbcContainer isMovedTop={isMovedTop||_isMovedTop}
-                                      isContainer={isContainer||_isContainer} >
-                            {
-                                //xs={5} sm={6} md={7} lg={4}
-                                //xsHidden ={true} smHidden ={true} mdHidden ={true}
-                            }
-                            <Col xs={0}  sm={0}  md={2}   lg={2} xsHidden ={true} smHidden ={true}
-                                 style={{paddingLeft:"1px",paddingRight:"1px"}}
-                                >
-                                <AbcNestLeftPage />
-                            </Col>
-                            <Col xs={12}  sm={12} md={10} lg={9}
-                                 style={{paddingLeft:"1px",paddingRight:"1px"}}>
-                                <span  style={{marginRight:"2px" ,display:"block-inline"}}>
-                                    <WrappedComponent {...this.props} />
-                                </span>
-                            </Col>
-                            {
-                            // <div style={style||_style}>
-                            //      <WrappedComponent {...this.props} />
-                            // </div>
-                            }
-                        </AbcContainer>
-                     </AbcPage>
+                    <div>
+                        <AbcPage title={translate&&translate(_title)}
+                                 router={_router}
+                                 subTitle={translate&&translate(_subTitle)} >
+
+                            <AbcContainer isMovedTop={isMovedTop||_isMovedTop}
+                                          isContainer={isContainer||_isContainer} >
+                                {
+                                    //xs={5} sm={6} md={7} lg={4}
+                                    //xsHidden ={true} smHidden ={true} mdHidden ={true}
+                                }
+                                <Col xs={0}  sm={0}  md={0}   lg={2}
+                                     xsHidden ={true} smHidden ={true} mdHidden ={true}
+                                     style={{paddingLeft:"1px",paddingRight:"1px",marginTop:"1px"}}
+                                    >
+                                    <AbcNestLeftPage />
+                                </Col>
+                                <Col xs={12}  sm={12} md={12} lg={10}
+                                     style={{paddingLeft:"1px",paddingRight:"1px",marginTop:"1px"}}>
+                                    <span  style={{marginRight:"2px" ,display:"block-inline"}}>
+                                        <WrappedComponent {...this.props} />
+                                    </span>
+                                </Col>
+
+                                {
+                                // <div style={style||_style}>
+                                //      <WrappedComponent {...this.props} />
+                                // </div>
+                                }
+                            </AbcContainer>
+                         </AbcPage>
+                    </div>
                 )
 
             }

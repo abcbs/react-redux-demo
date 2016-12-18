@@ -8,8 +8,7 @@ export default class AbcNavItems extends Component {
     
     render() {
         return (
-        <div className="container-fluid">
-            <Nav>
+               <Nav>
                 {
                     Object.entries(NAV_LINKS).map(([linkName, {path, title}]) => (
                       <li  style={{marginLeft:"20px"}}  key={linkName}>
@@ -20,7 +19,7 @@ export default class AbcNavItems extends Component {
                    ))
                 }
             </Nav>
-         </div>
+
         )
     }
 }

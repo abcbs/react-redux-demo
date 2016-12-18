@@ -8,17 +8,19 @@ export default class AbcMainPage extends Component {
         const { children} = this.props;
         return (
          <div style={{overflowX: "hidden"}}>
+
              <Col xs={0} sm={0} md={2} lg={2}
-                  xsHidden ={true} smHidden ={true} mdHidden ={true}
+                  xsHidden ={true} smHidden ={true}
                   style={{paddingLeft:"1px",paddingRight:"1px"}}
                     >
                  <AbcLGLeftPage />
              </Col>
-             <Col xs={12} sm={12} md={10} lg={9}>
-                 <AbcNavMain />
+             <Col xs={12} sm={12} md={10} lg={8}>
+
                  {this.props.children}
              </Col>
-             <Col xs={0} sm={0}  lg={1} xsHidden ={true} smHidden ={true} mdHidden ={true}
+             <Col xs={0} sm={0} md={0}  lg={2}
+                  xsHidden ={true} smHidden ={true} mdHidden ={true}
                   style={{paddingLeft:"1px",paddingRight:"1px"}}>
                  <AbcLGRightPage />
              </Col>

@@ -18,14 +18,14 @@ export default class AbcNestLeftPage extends React.Component
     {
         const { bsStyle, bsSize,children, ...other} = this.props
         return (
-            <div className="container">
-            <ul style={{marginTop:"20px", marginLeft:"-38px" }}>
-                <li>test1</li>
-                <li>test1</li>
-                <li>test1</li>
-                <li>test1</li>
-            </ul>
-                </div>
+            <div className="container container-desktop container-lg">
+                <ul style={{marginTop:"10px", marginLeft:"-38px"}}>
+                    <li>test1R</li>
+                    <li>test1</li>
+                    <li>test1</li>
+                    <li>test1</li>
+                </ul>
+            </div>
         );
     }
 }
