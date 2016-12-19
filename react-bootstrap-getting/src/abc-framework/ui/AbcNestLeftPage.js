@@ -19,6 +19,7 @@ export default class AbcNestLeftPage extends React.Component
         const { bsStyle, bsSize,children, ...other} = this.props
         return (
             <div className="container container-desktop container-lg">
+                <hr />
                 <ul style={{marginTop:"10px", marginLeft:"-38px"}}>
                     <li>test1R</li>
                     <li>test1</li>

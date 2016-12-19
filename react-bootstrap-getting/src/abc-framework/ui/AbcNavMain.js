@@ -39,7 +39,7 @@ export default class NavMain extends Component
         const {activePage,translate}=this.props;
         return (
             <Navbar fixedTop className="container container-desktop container-lg"
-                    style={{zIndex:'1060',opacity:'0.95', paddingLeft:"1px",paddingRight:"1px"}}>
+                    style={{zIndex:'1060',opacity:'0.95',  marginTop:"-0px", paddingLeft:"1px",paddingRight:"1px"}}>
                 <Navbar.Header>
                     <Navbar.Brand>
                         <Link to="/">{translate(messages.application.title)}</Link>

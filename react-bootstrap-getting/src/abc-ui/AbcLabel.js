@@ -9,7 +9,7 @@ export default class AbcLabel extends React.Component
         bsStyle : PropTypes.string,
         bsSize :PropTypes.string,
     }
-
+    //label label-bg label-abc
     static defaultProps =
     {
         bsStyle : "abc",

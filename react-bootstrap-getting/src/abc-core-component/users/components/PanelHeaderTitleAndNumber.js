@@ -22,7 +22,7 @@ export default class UserSearchHeader extends React.Component
         const badge=(
         <div className="todo">
             <label>{this.props.title}</label>
-            <AbcBadge style={{marginRight:"-20px",float:"right"}}>{this.props.numbers}</AbcBadge>
+            <AbcBadge style={{float:"right"}}>{this.props.numbers}</AbcBadge>
         </div>
     )
         return badge;

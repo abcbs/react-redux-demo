@@ -7,7 +7,7 @@ export default class AbcMainPage extends Component {
     render() {
         const { children} = this.props;
         return (
-         <div style={{overflowX: "hidden"}}>
+         <div className="container-abc" style={{overflowX: "hidden"}}>
 
              <Col xs={0} sm={0} md={2} lg={2}
                   xsHidden ={true} smHidden ={true}
