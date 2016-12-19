@@ -16,10 +16,7 @@ export default class AbcRightLGPage extends React.Component
     }
     render()
     {
-        return (  <div className="container container-desktop container-lg"
-                       style={{minHeight:"50px", marginTop:"80px", width:"100%",
-                       marginLeft:"12px" ,position:"fixed" ,overflow:"auto"
-                        }}>
+        return (  <div className="container-frame" style={{width:"100%"}}>
 
             <p>
                 testqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqLmmmmmmmmmmmmmmmmmmmmmmmYYY

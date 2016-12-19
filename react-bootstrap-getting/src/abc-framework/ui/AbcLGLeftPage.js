@@ -19,8 +19,7 @@ export default class AbcLGLeftPage extends React.Component
     render()
     {
         return (
-            <div className="container" style={{minHeight:"50px",
-                    marginTop:"60px",width:"160px",position:"fixed",overflow:"auto"}}>
+            <div className="container-frame">
                 <AbcNavItems/>
                 <hr />
                 <p style={{width:"160px",overflow:"hidden"}}>

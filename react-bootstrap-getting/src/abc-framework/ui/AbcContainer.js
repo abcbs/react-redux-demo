@@ -2,14 +2,14 @@ import React,{ Component, PropTypes, Children } from 'react'
 import classnames from 'classnames';
 import map  from 'lodash/map';
 import AbcNavMain from './AbcNavMain'
-// Object.map=Object.map||map;
+import {Container} from '../../abc-ui/abc-ui-index'
+
 export default class AbcContainer extends Component {
        render() {
         const { children,isMovedTop,isContainer,...others} = this.props;
         // const children.map=children.map||map;
         return (
-            <div {...others} style={{zIndex:'1060', marginLeft:"0px",
-             paddingLeft:"1px",paddingLeft:"1px"}} className={
+            <Container className={
                     classnames({
                       'container':this.props.isContainer,
                        'marginPageTop':this.props.isMovedTop
@@ -19,7 +19,7 @@ export default class AbcContainer extends Component {
                     //Children.only(children)
                     children
                 }
-            </div>
+            </Container>
         )
     }
 }

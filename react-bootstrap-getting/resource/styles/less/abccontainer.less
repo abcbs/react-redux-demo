@@ -1,0 +1,27 @@
+//{zIndex:'1060', marginLeft:"0px",
+//paddingLeft:"1px",paddingLeft:"1px"}
+.container-abc{
+  z-index:1060;
+  margin-left: 1px;
+  padding-left: 1px;
+  padding-right: 1px;
+  &:extend(.container);
+}
+
+// className="container container-desktop container-lg"
+//style={{minHeight:"50px",
+//marginTop:"60px",width:"160px",position:"fixed",overflow:"auto"}
+.container-frame{
+  margin-top: 60px;
+  padding-left: 1px;
+  padding-right: 1px;
+  width:160px;
+  position:fixed;
+  overflow:auto;
+  &:extend(.container);
+  &:extend(.container-desktop);
+  &:extend(.container-lg);
+}
+
+//style={{minHeight:"50px", marginTop:"80px", width:"100%",
+//  marginLeft:"12px" ,position:"fixed" ,overflow:"auto"
