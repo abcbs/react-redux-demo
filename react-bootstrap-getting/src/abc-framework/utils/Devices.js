@@ -1,3 +1,35 @@
+
+
+export function clientWidth() {
+
+    var client='xs';//屏幕大小480
+    try{
+         //480   763     Phone/
+        //768   1024    pad mini,Small screen / tablet
+        //1280  800     Medium screen / desktop
+        //1440  900     Large screen / wide desktop
+        const width=document.documentElement.clientWidth;
+        if(width<=480){
+            client='xs';
+        }else if(width>480&&width<=768){
+            client='sm'
+        }else if(width>768&&width<=1280){
+            client='md'
+        }else if(width>1280&&width<=1440){
+            client='lg'
+        }
+        return client;
+    }catch(err){
+        return xs;//手机
+    }
+}
+try{
+    if(window){
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", clientWidth, false);
+    }
+}catch (err){
+    console.log("err,",err);
+}
 export default function Devices  () {
     try{
 

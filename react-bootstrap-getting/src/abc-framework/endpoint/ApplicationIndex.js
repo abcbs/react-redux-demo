@@ -17,7 +17,7 @@ import { render as isomorphicRender}     from '../react-isomorphic-render/redux'
 import common         from './react-isomorphic-render'
 
 import assets from './assets'
-
+import {clientWidth }from '../utils/Devices'
 for (let asset of Object.keys(assets))
 {
     assets[asset]()

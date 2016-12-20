@@ -10,4 +10,7 @@ export {default as AbcDefaultButton} from './AbcDefaultButton'
 export {default as AbcRow} from './AbcRow'
 export {default as AbcPanel} from './AbcPanel'
 export {default as Container} from './AbcContainer'
+export {default as AbcCol233WL} from './AbcCol233WL'
+export {AbcCol233WLA as AbcColA,AbcCol233WLB as AbcColB,
+    AbcCol233WLC as AbcColC} from './AbcCol233WL'
 

@@ -17,7 +17,8 @@ import {Label,Badge,ButtonToolbar,Button,Checkbox,Col,Row ,Panel} from '../../..
 import {FormGroup, ControlLabel, HelpBlock,FormControl,Form} from '../../../abc-bootstrap'
 
 import {AbcLabel,AbcBadge,AbcButton,AbcButtonToolbar,AbcFormInline,AbcCol,
-    AbcFormGroup,AbcFormControl,AbcDefaultButton,AbcRow,AbcPanel
+    AbcFormGroup,AbcFormControl,AbcDefaultButton,AbcRow,AbcPanel,
+    AbcColA,AbcColB,AbcColC
 
 } from '../../../abc-ui/abc-ui-index'
 import 'bootstrap/less/theme.less'
@@ -157,12 +158,15 @@ export default class UserPage extends React.Component {
         return (
             <div>
                 <AbcPanel header={userSearchHeader}>
-
                 <AbcFormInline onSubmit={this.handleClick.bind(this)}>
                  <AbcRow>
-                     <AbcCol xs={5} sm={6} md={7} lg={4}>
+                     <AbcCol xs={6} sm={4} md={4} lg={4}>
                          <AbcFormGroup controlId="userName"
                                        validationState={this.validatedStateUserName()}>
+                             <AbcCol                 md={2} lg={2} xsHidden ={true} smHidden ={true} >
+                                <ControlLabel style={{marginTop: "6px"}}>姓名</ControlLabel>
+                             </AbcCol>
+                             <AbcCol xs={12} sm={12} md={10} lg={10}>
                              <AbcFormControl type="text"
                                              value={this.state.userName}
                                              ref="userName"
@@ -173,11 +177,15 @@ export default class UserPage extends React.Component {
                              <HelpBlock>
                                  <span>{this.state.userNameHelp}</span>
                              </HelpBlock>
-
+                              </AbcCol>
                          </AbcFormGroup>
                      </AbcCol>
-                     <AbcCol xs={5} sm={4} md={3} lg={4}>
+                     <AbcCol xs={6} sm={4} md={4} lg={4}>
                          <AbcFormGroup validationState={this.validatedStatePassword()}>
+                             <AbcCol              md={2} lg={2} xsHidden ={true} smHidden ={true}>
+                                <ControlLabel style={{marginTop: "6px"}}>密码</ControlLabel>
+                              </AbcCol>
+                             <AbcCol xs={12} sm={12} md={10} lg={10}>
                              <AbcFormControl type="text"
                                              value={this.state.password}
                                              ref="password"
@@ -187,15 +195,19 @@ export default class UserPage extends React.Component {
                              <HelpBlock>
                                  <span>{this.state.passwordHelp}</span>
                              </HelpBlock>
-
+                             </AbcCol>
                          </AbcFormGroup>
                      </AbcCol>
-                     <AbcCol  sm={2} md={3} lg={3} xsHidden ={true} smHidden ={true} mdHidden ={true} >
+                     <AbcCol  sm={4} md={4} lg={4} xsHidden ={true}  >
                          <AbcFormGroup validationState={this.validatedStateUserName()}>
-                             <AbcFormControl type="text" placeholder="sex"/>
-                             <FormControl.Feedback />
-                             <HelpBlock></HelpBlock>
-
+                             <AbcCol         sm={2}       md={2} lg={2} xsHidden ={true} smHidden ={true}>
+                                <ControlLabel style={{marginTop: "6px"}}>性别</ControlLabel>
+                             </AbcCol>
+                             <AbcCol xs={12} sm={10} md={10} lg={10}>
+                                 <AbcFormControl type="text" placeholder="sex"/>
+                                 <FormControl.Feedback />
+                                 <HelpBlock></HelpBlock>
+                             </AbcCol>
                          </AbcFormGroup>
                      </AbcCol>
 
@@ -246,28 +258,9 @@ export default class UserPage extends React.Component {
                      </AbcFormGroup>
                 </AbcCol>
                 </AbcRow>
-             </AbcFormInline>
-            </AbcPanel>
-            <AbcPanel header="测试页">
-                <Checkbox onClick={this.handleClick.bind(this)}></Checkbox>
-                <input type="checkbox"/>
-                <input type="checkbox"/>
-                <input type="checkbox"/>
-                <AbcLabel>test-AbcLabel</AbcLabel>
-
-                <span>
-                  <AbcDefaultButton type="button">
-                      确定<AbcBadge>4</AbcBadge>
-                   </AbcDefaultButton>
-                 </span>
-            <AbcButtonToolbar>
-                Messages<AbcBadge>17</AbcBadge>
-            </AbcButtonToolbar>
-            </AbcPanel>
-            <AbcPanel header="Panel heading without title">
-                <AbcFormInline onSubmit={this.handleClick.bind(this)}>
-                    <AbcRow>
+                <AbcRow>
                         <AbcCol xs={5} sm={6} md={7} lg={4}>
+                            <ControlLabel>姓名</ControlLabel>
                             <AbcFormGroup controlId="userName"
                                           validationState={this.validatedStateUserName()}>
                                 <AbcFormControl type="text"
@@ -302,9 +295,62 @@ export default class UserPage extends React.Component {
                                 <AbcFormControl type="text" placeholder="sex"/>
                                 <FormControl.Feedback />
                                 <HelpBlock></HelpBlock>
-
                             </AbcFormGroup>
                         </AbcCol>
+                        <AbcCol xs={2} sm={2} md={2} lg={1}>
+                            <AbcFormGroup>
+                                <AbcButton type="submit">确定</AbcButton>
+                                <FormControl.Feedback />
+                                <HelpBlock></HelpBlock>
+                            </AbcFormGroup>
+                        </AbcCol>
+                    </AbcRow>
+             </AbcFormInline>
+            </AbcPanel>
+            <AbcPanel header="测试页">
+                <Checkbox onClick={this.handleClick.bind(this)}></Checkbox>
+                <input type="checkbox"/>
+                <input type="checkbox"/>
+                <input type="checkbox"/>
+                <AbcLabel>test-AbcLabel</AbcLabel>
+
+                <span>
+                  <AbcDefaultButton type="button">
+                      确定<AbcBadge>4</AbcBadge>
+                   </AbcDefaultButton>
+                 </span>
+            <AbcButtonToolbar>
+                Messages<AbcBadge>17</AbcBadge>
+            </AbcButtonToolbar>
+            </AbcPanel>
+            <AbcPanel header="新建用户">
+                <AbcFormInline onSubmit={this.handleClick.bind(this)}>
+                    <AbcRow>
+                        <AbcColA controlId="userName"
+                                 validationState={this.validatedStateUserName()}
+                                 type="text"
+                                 ref="userName"
+                                 label="用户"
+                                 placeholder="Must Enter userName"
+                                 help={this.state.userNameHelp}
+                                 handleChange={this.handleChangeUserName.bind(this)}
+                         />
+                        <AbcColB controlId="password"
+                                 validationState={this.validatedStatePassword()}
+                                 type="text"
+                                 ref="password"
+                                 label="密码"
+                                 placeholder="Must Enter password"
+                                 help={this.state.passwordHelp}
+                                 handleChange={this.handleChangePassword.bind(this)}
+                        />
+                        <AbcColC controlId="sex"
+                                 validationState={this.validatedStatePassword()}
+                                 type="text"
+                                 ref="sex"
+                                 label="性别"
+                                 placeholder="Sex"
+                        />
 
                     </AbcRow>
                     </AbcFormInline>

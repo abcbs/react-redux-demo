@@ -21,8 +21,7 @@ function asyncValidate(data, dispatch, {isValidEmail}) {
   asyncValidate,
   asyncBlurFields: ['email']
 })
-export default
-class SurveyForm extends Component {
+export default class SurveyForm extends Component {
   static propTypes = {
     active: PropTypes.string,
     asyncValidating: PropTypes.bool.isRequired,

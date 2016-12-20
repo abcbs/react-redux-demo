@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import classNames           from 'classnames'
 import {Col} from '../abc-bootstrap'
 
-export default class AbcButton extends React.Component
+export default class AbcCol extends React.Component
 {
     //style={{ position: 'relative'}}
     static propTypes =
