@@ -14,7 +14,7 @@ const PageFooter = React.createClass({
           this.setState({visible: "visible"});
           this.state.visible="visible";
          }
-        console.log("this.================================,idx==>",idx);
+        // console.log("this.================================,idx==>",idx);
     },
     getInitialState: function() {
         return {visible:"hidden"};

@@ -10,15 +10,12 @@ import keys from 'lodash/keys'
 Object.entries=Object.entries||entries;
 Object.keys=Object.keys||keys;
 
-export default class AbcCol233WL extends React.Component
+export default class AbcCol233WLReduxForm extends React.Component
 {
     static propTypes =
     {
         controlId :PropTypes.string.isRequired,
         type:PropTypes.string.isRequired,
-        validationState :PropTypes.func.isRequired,
-        handleChange :PropTypes.func.isRequired,
-        help:PropTypes.string.isRequired,
         label:PropTypes.string,
         placeholder:PropTypes.string.isRequired,
         col:PropTypes.object,
@@ -38,34 +35,51 @@ export default class AbcCol233WL extends React.Component
         type:'text'
     }
 
-
-    render()
-    {
-        const {controlId, type,validationState,handleChange,placeholder,
-            label, help,col,colLable,colContent,ref, ...other} = this.props
-         return (//[linkName, {path, title}]
+    renderField = ({ input, controlId,label,
+        type,placeholder,col,colLable,colContent,
+        meta: { asyncValidating, touched, error,warning } }) => {
+        return (
             <AbcCol
                 {...col
                 }
             >
-                <AbcFormGroup controlId={controlId}
-                              validationState={validationState}>
-                    <AbcCol
-                        {...colLable}
-                     >
-                        <ControlLabel style={{marginTop: "6px"}}>{label}</ControlLabel>
-                    </AbcCol>
-                    <AbcCol {...colContent}>
-                        <AbcFormControl type={type}
-                                        placeholder={placeholder}
-                                        onChange={handleChange}
-                            {...other}
-                        />
-                        <FormControl.Feedback />
-                        {<HelpBlock>{help}</HelpBlock>}
-                    </AbcCol>
-                </AbcFormGroup>
+            <AbcFormGroup controlId={controlId}
+                 validationState={error&&error.flag||warning&&warning.flag||!error&&'success'}>
+                <AbcCol
+                    {...colLable}
+                >
+                <ControlLabel style={{marginTop: "6px"}}>{label}</ControlLabel>
+                </AbcCol>
+                <AbcCol {...colContent}>
+                    <AbcFormControl  {...input} type={type}
+                        placeholder={placeholder}
+                    />
+                    <AbcFormControl.Feedback />
+                    <HelpBlock>
+                        {touched && ((error && <span>{error.message}</span>) ||
+                        (warning && <span>{warning.message}</span>))}
+                    </HelpBlock>
+
+                </AbcCol>
+            </AbcFormGroup>
             </AbcCol>
+        )
+    }
+
+    render()
+    {
+        const {controlId, type,placeholder,field,
+            label,  ...other} = this.props;
+         return (//[linkName, {path, title}]
+             <Field
+                 name={field}
+                 component={this.renderField.bind(this)}
+                 controlId={controlId}
+                 type={type}
+                 label={label}
+                 placeholder={placeholder}
+                 { ...other}
+             />
         );
     }
 }
@@ -73,7 +87,7 @@ export default class AbcCol233WL extends React.Component
 export class AbcCol233WLA extends React.Component{
     render() {
         return (
-            <AbcCol233WL
+            <AbcCol233WLReduxForm
                 {...this.props} />
         )
     }
@@ -86,7 +100,7 @@ export class AbcCol233WLB extends React.Component{
         const colLabel={md:2, lg:2 ,xsHidden:true ,smHidden :true};
         const colContent={xs:12, sm:12, md:10, lg:10};
         return (
-            <AbcCol233WL
+            <AbcCol233WLReduxForm
                 col={col}
                 colLabel={colLabel}
                 colContent={colContent}
@@ -102,7 +116,7 @@ export class AbcCol233WLC extends React.Component{
         const colLabel={md:2, lg:2 ,xsHidden:true ,smHidden :true};
         const colContent={xs:12, sm:12, md:10, lg:10};
         return (
-            <AbcCol233WL
+            <AbcCol233WLReduxForm
                 col={col}
                 colLabel={colLabel}
                 colContent={colContent}

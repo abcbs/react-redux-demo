@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classNames           from 'classnames'
 import {FormControl} from '../abc-bootstrap'
-
+import AbcFeedback from './AbcFeedback'
 export default class AbcFormControl extends React.Component
 {
     static propTypes =
@@ -23,5 +23,5 @@ export default class AbcFormControl extends React.Component
     }
 }
 
-AbcFormControl.Feedback = FormControl.Feedback;
+AbcFormControl.Feedback =AbcFeedback;
 AbcFormControl.Static = FormControl.Static ;

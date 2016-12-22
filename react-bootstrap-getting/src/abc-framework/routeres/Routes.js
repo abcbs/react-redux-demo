@@ -15,13 +15,17 @@ import NotFoundPage from '../ui/AbcNotFoundPage'
 import IntroductionPage from '../../todos/frames/IntroductionPage'
 import HomePage from '../../todos/frames/HomePage'
 import {UserPage} from '../../abc-core-component/users/UserIndex'
+import {AuthenticationPage} from '../../abc-core-component/authentication/AuthenticationIndex'
+import {Survey} from '../../abc-core-component/authentication/AuthenticationIndex'
 const authorize = (component, is_authorized) => authorization(is_authorized)(component);
 
 export default (//component={authorize(IntroductionPage)}
     <Route path="/" component={AbcMainPage}>
-        <IndexRoute component={App}/>
+        <IndexRoute component={AuthenticationPage}/>
         <Route  path="/app(/:filter)" component={App} />
         <Route  path="/user" component={UserPage} />
+        <Route  path="/authentication" component={AuthenticationPage} />
+        <Route  path="/survey" component={Survey} />
         <Route  path="/home" component={HomePage} />
         <Route  path="/introduct" component={authorize(IntroductionPage)} />
         <Route path="unauthenticated" status={401} component={Unauthenticated}/>

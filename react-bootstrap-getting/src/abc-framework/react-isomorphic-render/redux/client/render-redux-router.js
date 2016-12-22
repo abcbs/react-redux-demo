@@ -13,8 +13,8 @@ export default function render_on_client({ development, devtools, create_page_el
 		routes: create_routes(store), transition_manager: store.transitionManager })
 		.then(({ redirect, router_props }) =>
 		{
-			console.log("redux-client-render match_react_router" +
-				"======================================LiuJQ")
+			// console.log("redux-client-render match_react_router" +
+			// 	"======================================LiuJQ")
 			if (redirect)
 			{
 				store.dispatch(replace(location_url(redirect)))
@@ -77,8 +77,8 @@ function match_react_router({ history, routes, transition_manager })
 	return new Promise((resolve, reject) =>
 	{
 		// Get `location` from `history`
-		console.log("redux-client-match_react_router Promise" +
-			"======================================LiuJQ")
+		// console.log("redux-client-match_react_router Promise" +
+		// 	"======================================LiuJQ")
 		let location
 		const unlisten = history.listen(historyLocation => location = historyLocation)
 

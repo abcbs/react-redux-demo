@@ -8,7 +8,7 @@ import wrapper from './wrapper'
 export default
 {
 
-  reducer:() => require('../reducers/index'),
+  reducer:() => require('../reducers/reducerindex'),
 
   routes,
 

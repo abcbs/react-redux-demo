@@ -14,8 +14,8 @@ import set_up_http_client from '../http-client'
 export default function render({ development, devtools, translation }, common)
 {
 	//配置信息
-	console.log("redex-client-render 入口" +
-		" ======================================LiuJQ")
+	// console.log("redex-client-render 入口" +
+	// 	" ======================================LiuJQ")
 	common = normalize_common_options(common)
 
 	let authentication_token = get_authentication_token()

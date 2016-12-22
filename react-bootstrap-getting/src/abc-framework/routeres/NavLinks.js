@@ -17,6 +17,20 @@ const NAV_LINKS = {
         subTitle:"用户管理",
         role:"private"
     },
+    AuthenticationPage: {
+        path: '/authentication',
+        nav:'/authentication',
+        title: '权限管理',
+        subTitle:"权限管理",
+        role:"private"
+    },
+    Survey: {
+        path: '/survey',
+        nav:'/survey',
+        title: '监控',
+        subTitle:"权限管理",
+        role:"private"
+    },
     IntroductionPage: {
         path: '/introduct',
         nav:'/introduct',

@@ -23,7 +23,7 @@ import {AbcLabel,AbcBadge,AbcButton,AbcButtonToolbar,AbcFormInline,AbcCol,
 } from '../../../abc-ui/abc-ui-index'
 import 'bootstrap/less/theme.less'
 import 'bootstrap/less/bootstrap.less';
-import UserSearchHeader from '../components/PanelHeaderTitleAndNumber'
+import UserSearchHeader from '../../../abc-ui/AbcPanelHeaderTitleAndNumber'
 import Devices from '../../../abc-framework/utils/Devices'
 function fetchUsers()
 {
@@ -213,55 +213,54 @@ export default class UserPage extends React.Component {
 
                  </AbcRow>
                  <AbcRow>
-                <AbcCol xs={5} sm={6} md={7} lg={4}>
-                    <AbcFormGroup controlId="userName"
-                                  validationState={this.validatedStateUserName()}>
-                      <AbcFormControl type="text"
-                                       value={this.state.userName}
-                                        ref="userName"
-                                        placeholder="Must Enter userName"
-                                        onChange={this.handleChangeUserName.bind(this)}
-                                      />
-                        <AbcFormControl.Feedback />
-                        <HelpBlock>
-                            <span>{this.state.userNameHelp}</span>
-                        </HelpBlock>
-
-                    </AbcFormGroup>
-                 </AbcCol>
-                <AbcCol xs={5} sm={4} md={3} lg={4}>
-                    <AbcFormGroup validationState={this.validatedStatePassword()}>
-                      <AbcFormControl type="text"
-                                      value={this.state.password}
-                                      ref="password"
-                                      onChange={this.handleChangePassword.bind(this)}
-                                      placeholder="Must Enter password"/>
-                      <FormControl.Feedback />
-                      <HelpBlock>
-                          <span>{this.state.passwordHelp}</span>
-                      </HelpBlock>
-
-                     </AbcFormGroup>
-                </AbcCol>
-                <AbcCol  sm={2} md={3} lg={3} xsHidden ={true} smHidden ={true} mdHidden ={true} >
-                    <AbcFormGroup validationState={this.validatedStateUserName()}>
-                        <AbcFormControl type="text" placeholder="sex"/>
-                        <FormControl.Feedback />
-                        <HelpBlock></HelpBlock>
-                    </AbcFormGroup>
-                </AbcCol>
-                <AbcCol xs={2} sm={2} md={2} lg={1}>
-                     <AbcFormGroup>
-                           <AbcButton type="submit">确定</AbcButton>
-                           <FormControl.Feedback />
-                           <HelpBlock></HelpBlock>
-                     </AbcFormGroup>
-                </AbcCol>
+                    <AbcCol xs={5} sm={6} md={7} lg={4}>
+                        <AbcFormGroup controlId="userName"
+                                      validationState={this.validatedStateUserName()}>
+                          <AbcFormControl type="text"
+                                           value={this.state.userName}
+                                            ref="userName"
+                                            placeholder="Must Enter userName"
+                                            onChange={this.handleChangeUserName.bind(this)}
+                                          />
+                            <AbcFormControl.Feedback />
+                            <HelpBlock>
+                                <span>{this.state.userNameHelp}</span>
+                            </HelpBlock>
+    
+                        </AbcFormGroup>
+                     </AbcCol>
+                    <AbcCol xs={5} sm={4} md={3} lg={4}>
+                        <AbcFormGroup validationState={this.validatedStatePassword()}>
+                          <AbcFormControl type="text"
+                                          value={this.state.password}
+                                          ref="password"
+                                          onChange={this.handleChangePassword.bind(this)}
+                                          placeholder="Must Enter password"/>
+                          <FormControl.Feedback />
+                          <HelpBlock>
+                              <span>{this.state.passwordHelp}</span>
+                          </HelpBlock>
+    
+                         </AbcFormGroup>
+                    </AbcCol>
+                    <AbcCol  sm={2} md={3} lg={3} xsHidden ={true} smHidden ={true} mdHidden ={true} >
+                        <AbcFormGroup validationState={this.validatedStateUserName()}>
+                            <AbcFormControl type="text" placeholder="sex"/>
+                            <FormControl.Feedback />
+                            <HelpBlock></HelpBlock>
+                        </AbcFormGroup>
+                    </AbcCol>
+                    <AbcCol xs={2} sm={2} md={2} lg={1}>
+                         <AbcFormGroup>
+                               <AbcButton type="submit">确定</AbcButton>
+                               <FormControl.Feedback />
+                               <HelpBlock></HelpBlock>
+                         </AbcFormGroup>
+                    </AbcCol>
                 </AbcRow>
                 <AbcRow>
                         <AbcCol xs={5} sm={6} md={7} lg={4}>
-                            <ControlLabel>姓名</ControlLabel>
-                            <AbcFormGroup controlId="userName"
+                                <AbcFormGroup controlId="userName"
                                           validationState={this.validatedStateUserName()}>
                                 <AbcFormControl type="text"
                                                 value={this.state.userName}
@@ -351,8 +350,17 @@ export default class UserPage extends React.Component {
                                  label="性别"
                                  placeholder="Sex"
                         />
-
                     </AbcRow>
+                    <AbcRow>
+                        <AbcCol   xs={12} sm={12} md={12} lg={12}>
+                            <ButtonToolbar style={{float:"right"}}>
+                                <AbcButton type="submit">确定</AbcButton>
+                                <AbcButton type="submit">取消</AbcButton>
+                                <HelpBlock></HelpBlock>
+                            </ButtonToolbar>
+                        </AbcCol>
+                    </AbcRow>
+
                     </AbcFormInline>
             </AbcPanel>
         </div>
