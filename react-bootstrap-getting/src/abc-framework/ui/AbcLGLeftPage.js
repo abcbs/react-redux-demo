@@ -19,11 +19,17 @@ export default class AbcLGLeftPage extends React.Component
     render()
     {
         return (
-            <div className="container-frame">
+            <div className="container-frame" style={{borderRightStyle:"double",overflow:"hidden"}}>
                 <AbcNavItems/>
                 <hr />
-                <p style={{width:"160px",overflow:"hidden"}}>
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
+                <p>
+                    ddddddddd dddbbbbbbbbbbbb bbbbbbbbddddddd ddddddddddcccc cccccccc
+                    ddddddd ddddd ddddddd dddd dddddddd ddddddddddd ddddddd ddddddd
+                    dddddd dddd ddbbb bbbbbb bbbbbbbbbbbdd ddddddddd ddddddc cccccc ccccc
+                    dddddd dddddddddd dddddd dddddd ddddddddd dddddd ddddddd dddddd
+                    dd ddd dddddddb bbbbbbbbb bbbbbbbbb bddddddd dddd dddd ddcccc cccc cccc
+                    ddd dd ddddd dddddddd dddddd dd ddddddd dddd dd dddddd dddd dddddd
+                    d dddd dddddddbb bbbbbbbb bbbbbbbbbbd dddddd dddddddddcc cccccc cccc
                     dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
                     ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
                     dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
@@ -39,26 +45,8 @@ export default class AbcLGLeftPage extends React.Component
                     dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
                     ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
                     dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
-                    ddddddddddddbbbbbbbbbbbbbbbbbbbbdddddddddddddddddcccccccccccc
-                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+
+
                 </p>
                 <div style={{position:"fixed",bottom:"60px"}}>
                     <p style={{width:"200px"}}>

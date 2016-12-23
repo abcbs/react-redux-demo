@@ -18,9 +18,19 @@
   width:160px;
   position:fixed;
   overflow:auto;
+  //outline-style: double;
   &:extend(.container);
   &:extend(.container-desktop);
   &:extend(.container-lg);
+  @media (min-width: @screen-md) {//pad
+    width:180px;
+  }
+  @media (min-width: @screen-lg) {//1280/1440
+    width:220px;
+  }
+  @media (min-width: @screen-lg-md) {//1920
+    width:280px;
+  }
 }
 
 //style={{minHeight:"50px", marginTop:"80px", width:"100%",

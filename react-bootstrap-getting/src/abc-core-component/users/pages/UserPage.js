@@ -25,11 +25,11 @@ import 'bootstrap/less/theme.less'
 import 'bootstrap/less/bootstrap.less';
 import UserSearchHeader from '../../../abc-ui/AbcPanelHeaderTitleAndNumber'
 import Devices from '../../../abc-framework/utils/Devices'
+import {user_manager_url} from '../../../abc-framework/routeres/ModuleURL'
 function fetchUsers()
 {
-    // console.log("http,",http);
     return {
-        promise: http => http.get('/api/users/current').then(
+        promise: http => http.get(user_manager_url).then(
             ids =>
                 console.log("ids,",ids),
             (err=>{

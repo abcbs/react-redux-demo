@@ -23,8 +23,8 @@ const PageFooter = React.createClass({
     render() {
         const v=this.state.visible;
         return (
-            <div  onMouseMove ={this.handleFocus.bind(this)}
-                  onTouchStart={this.handleFocus.bind(this)}>
+            <div  onMouseMove ={this.handleFocus}
+                  onTouchStart={this.handleFocus}>
             <Navbar fixedBottom className="container container-desktop container-lg"
                    
             >

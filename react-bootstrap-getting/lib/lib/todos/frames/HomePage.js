@@ -51,6 +51,8 @@ var _errorInfo = require('../../abc-framework/ui/errorInfo');
 
 var _errorInfo2 = _interopRequireDefault(_errorInfo);
 
+var _ModuleURL = require('../../abc-framework/routeres/ModuleURL');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -60,10 +62,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function fetchUsers() {
-    // console.log("http,",http);
     return {
         promise: function promise(http) {
-            return http.get('/api/users/current').then(function (ids) {
+            return http.get(_ModuleURL.user_manager_url).then(function (ids) {
                 return console.log("ids,", ids);
             }, function (err) {
                 console.log("没有网络，或者网络过慢，请稍等再试,", err);

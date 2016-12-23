@@ -35,7 +35,9 @@ const handlers = asynchronous_handler
 
 if (!handlers['user profile: upload user picture: done'])
 {
-	throw new Error(`"user profile: upload user picture: done" event reducer not found. Possibly changed Promise event naming scheme.`)
+	throw new Error(`"user profile: upload user picture: done" 
+					event reducer not found. Possibly changed 
+					Promise event naming scheme.`)
 }
 
 // `upload_user_picture_pending` will be set to `false`

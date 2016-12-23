@@ -4,7 +4,7 @@
  * @param client
  * @returns {function()}
  */
-export default function clientMiddleware(client) {
+export default function clientMiddleware(http_client) {
   return ({dispatch, getState}) => {
     return next => action => {
       if (typeof action === 'function') {
@@ -12,14 +12,14 @@ export default function clientMiddleware(client) {
       }
 
       const { promise, types, ...rest } = action; // eslint-disable-line no-redeclare
-      if (!promise) {
+      if (!promise||!types) {
         return next(action);
       }
 
       const [REQUEST, SUCCESS, FAILURE] = types;
       next({...rest, type: REQUEST});
 
-      const actionPromise = promise(client);
+      const actionPromise = promise(http_clients);
       actionPromise.then(
         (result) => next({...rest, result, type: SUCCESS}),
         (error) => next({...rest, error, type: FAILURE})

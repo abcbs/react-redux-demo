@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators as bind_action_creators } from 'redux'
 
 import { get as get_users, add as add_user, remove as delete_user, upload_picture } 
-	from '../../actions/example users'
+	from '../../actions/a'
 
 import Button from '../../components/button'
 

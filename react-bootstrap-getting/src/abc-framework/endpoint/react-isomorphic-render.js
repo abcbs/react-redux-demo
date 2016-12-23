@@ -2,7 +2,7 @@ import routes  from '../routeres/Routes'
 import wrapper from './wrapper'
 // import reducer from '../reducers'
 // import reducer from '../../todos/reducers/index'
-
+// import clientMiddleware from '../middleware/clientMiddleware'
 
 // import Client from './Client'
 export default
@@ -13,6 +13,8 @@ export default
   routes,
 
   wrapper,
+
+  // redux_middleware:() => [clientMiddleware],
 
   on_store_created({ reload_reducer })
   {

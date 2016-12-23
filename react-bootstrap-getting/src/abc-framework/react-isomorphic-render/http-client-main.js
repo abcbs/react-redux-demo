@@ -123,7 +123,7 @@ export default class http_client
 							 reject(new Error("Fatial No response"));
 							return ;
 						}
-						if(!response.body){//LiuJQ
+						if(!response.body&&!error){//LiuJQ
 							// throw new Error("Fatial No body")//
 							 reject(new Error("Fatial No body"));
 							return ;

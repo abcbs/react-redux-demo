@@ -85,13 +85,15 @@ var _errorInfo = require('../../abc-framework/ui/errorInfo');
 
 var _errorInfo2 = _interopRequireDefault(_errorInfo);
 
+var _ModuleURL = require('../../abc-framework/routeres/ModuleURL');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var fetchUsers = function fetchUsers() {
     return {
         // that:_this;
         promise: function promise(http) {
-            return http.get('/api/users/current').then(function (ids) {
+            return http.get(_ModuleURL.user_manager_url).then(function (ids) {
                 console.log("idx,", ids);
                 (0, _redux.goto)('./home');
             }, function (err) {

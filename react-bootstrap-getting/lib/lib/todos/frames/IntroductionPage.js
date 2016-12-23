@@ -61,6 +61,8 @@ var _errorInfo = require('../../abc-framework/ui/errorInfo');
 
 var _errorInfo2 = _interopRequireDefault(_errorInfo);
 
+var _ModuleURL = require('../../abc-framework/routeres/ModuleURL');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
@@ -75,7 +77,7 @@ var fetchUsers = function fetchUsers() {
     return {
         // that:_this;
         promise: function promise(http) {
-            return http.get('/api/users/current').then(function (ids) {
+            return http.get(_ModuleURL.user_manager_url).then(function (ids) {
                 console.log("idx,", ids);
                 (0, _redux.goto)('./home');
             }, function (err) {

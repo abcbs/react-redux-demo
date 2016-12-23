@@ -19,10 +19,12 @@ import Spinner        from '../../abc-ui/spinner'
 import '../../../resource/styles/abc-components/styles/style.scss'
 import {Popover} from '../../abc-bootstrap'
 import errorInfo from '../../abc-framework/ui/errorInfo'
+import {user_manager_url} from '../../abc-framework/routeres/ModuleURL'
+
 const fetchUsers = () =>
     ({
         // that:_this;
-        promise: http => http.get('/api/users/current').then(
+        promise: http => http.get(user_manager_url).then(
             (ids =>
             {
                 console.log("idx,",ids)

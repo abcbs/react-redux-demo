@@ -6,7 +6,7 @@ import { useBasename } from 'history'
 import asynchronous_middleware from './middleware/asynchronous-middleware'
 import preloading_middleware from './middleware/preloading-middleware'
 import on_route_update_middleware from './middleware/on-route-update-middleware'
-
+import clientMiddleware from '../../middleware/clientMiddleware'
 // import use_scroll from 'scroll-behavior'
 /**
  * 路由组件、历史组件、应用Reduce，
@@ -51,7 +51,7 @@ export default function create_store(reduxReactRouter, createHistory, get_reduce
 
 	const middlewares =
 	[
-
+		clientMiddleware(http_client),
 		asynchronous_middleware(http_client, event => store.dispatch(event), { promise_event_naming }),
 		preloading_middleware(server, on_preload_error, event => store.dispatch(event), preload_helpers)
 	]

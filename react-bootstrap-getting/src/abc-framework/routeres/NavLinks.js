@@ -24,13 +24,7 @@ const NAV_LINKS = {
         subTitle:"权限管理",
         role:"private"
     },
-    Survey: {
-        path: '/survey',
-        nav:'/survey',
-        title: '监控',
-        subTitle:"权限管理",
-        role:"private"
-    },
+
     IntroductionPage: {
         path: '/introduct',
         nav:'/introduct',

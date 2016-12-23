@@ -1,7 +1,7 @@
 import React ,{PropTypes}from 'react';
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {reduxForm} from 'redux-form';
+import {reduxForm,initialize} from 'redux-form';
 
 import { browserHistory } from 'react-router'
 import { push } from 'redux-router';
@@ -18,22 +18,24 @@ import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbar,AbcButtonToolbarLeft,AbcB
     AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
     from '../../../abc-ui/abc-ui-index'
 
-import authenticationValidation from './authenticationValidation';
-import * as surveyActions from '../reducer/survey';
-import serversubmit from './serversubmit'
+import authenticationValidation from './authentication-Validation';
+import {addAuthenication} from '../actions/authentication-action'
+import {user_manager_url} from '../../../abc-framework/routeres/ModuleURL'
 
 import {Modal} from '../../../abc-bootstrap'
 
-function asyncValidateEmail(data, dispatch, {isValidEmail}) {
-    if (!data.email) {
-        return Promise.resolve({});
-    }
-    return isValidEmail(data);
-}
+
+// function asyncValidateEmail(data, dispatch) {
+//     if (!data.authCode) {
+//         return Promise.resolve({});
+//     }
+//     return isValidEmail(data);
+// }
+
 function fetchUsers()
 {
     return {
-        promise: http => http.get('/api/users/current').then(
+        promise: http => http.get(user_manager_url).then(
             ids =>
                 console.log("ids,",ids),
             (err=>{
@@ -53,34 +55,65 @@ const warnAuthentication = values => {
     if (authName&&authName.length > 19) {
         warnings.authName = {message:'名称字段小于19',flag:"warning"};
     }else{
-        warnings.authName = {message:'',flag:"success"};
+        // warnings.authName = {message:'',flag:"success"};
     }
     const authDecript=values.authDecript;
     warnings.authDecript = {message:'',flag:"default"};
     return warnings
 }
 
-
 @connect
 (
     state    => {
         const authn=state.authentication||state.default.authentication;
         const users=authn.authentication.user;
+        const example_users=state.example_users;
+
+        let example_user={};
+        if(example_users){
+            example_user=     {
+                    loading:example_users.loading,
+                        loaded
+                :
+                    example_users.loaded,
+                        loading_error
+                :
+                    example_users.loading_error,
+                        adding_error
+                :
+                    example_users.adding_error
+              };
+            return  {
+                users:users,
+                example_user
+
+            }
+        }
         return
-        { users:users }
+            {
+                users:users
+
+            }
+
     }
     ,
-    dispatch => bindActionCreators({ fetchUsers,surveyActions,
-        push  }, dispatch)
+    dispatch => bindActionCreators({
+        fetchUsers,
+        addAuthenication,
+        // asyncValidateEmail,
+        initialize,
+        push  },
+        dispatch)
 )
 @reduxForm({
     form: 'authMangerForm',
-    // fields: {authName, authCode, authDecript},
-    onSubmit: serversubmit,
+    fields: {authName:"", authCode:"", authDecript:""},
+    // onSubmit: serversubmit,
     validate: authenticationValidation,
     warn:warnAuthentication,
-    asyncValidate:asyncValidateEmail,
-    asyncBlurFields: ['email']
+    // asyncValidate:asyncValidateEmail,
+    // asyncValidate,
+    // asyncBlurFields: ['authCode']
 })
 @preload(({ dispatch }) => dispatch(fetchUsers()))
 @international()
@@ -90,12 +123,16 @@ export default class AuthenticationPage extends React.Component {
     static propTypes =
     {
         users      : PropTypes.array,
+
         fetchUsers : PropTypes.func,
+
+        initialize: PropTypes.func.isRequired,
         loading       : PropTypes.bool,
         loaded        : PropTypes.bool,
         loading_error : PropTypes.object,
 
-        fields: PropTypes.object.isRequired,
+        adding_error  : PropTypes.object,
+
         editStop: PropTypes.func.isRequired,
         handleSubmit: PropTypes.func,
         invalid: PropTypes.bool.isRequired,
@@ -117,26 +154,45 @@ export default class AuthenticationPage extends React.Component {
         const name=values.authName.value;
         const code=values.authCode.value;
         const descript=values.authDecript.value;
-        
         const value={
             authName:name,
             authCode:code,
             authDecript:descript
         };
-        warnAuthentication(value);
+        // warnAuthentication(value);
         this.setState({
             forminfo: value
         });
-        this.showModal()
+
+        this.showModal();
+
     }
 
+    async addUser(authenication)
+    {
+        try
+        {
+            await this.props.addAuthenication(authenication);
+        }
+        catch (error)
+        {
+            console.log('error,',error)
+            errorInfo( JSON.stringify(error))
 
+
+        }
+    }
     showModal() {
         this.setState({show: true});
     }
 
+    commitData(){
+        this.hideModal();
+        this.addUser(this.state.forminfo)
+    }
     hideModal() {
-        this.setState({show: false});
+        this.setState({show: false,
+        });
     }
     constructor(props, context) {
         super(props, context);
@@ -206,10 +262,11 @@ export default class AuthenticationPage extends React.Component {
                                 { JSON.stringify(this.state.forminfo)}
                             </Modal.Body>
                             <Modal.Footer>
-                                <AbcButton onClick={this.hideModal.bind(this)}>提交</AbcButton>
+                                <AbcButton onClick={this.commitData.bind(this)}>提交</AbcButton>
                             </Modal.Footer>
                         </Modal>
                  }
+
             </div>
         );
     }

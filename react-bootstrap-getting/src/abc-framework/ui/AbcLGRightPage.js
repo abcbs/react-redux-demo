@@ -16,7 +16,8 @@ export default class AbcRightLGPage extends React.Component
     }
     render()
     {
-        return (  <div className="container-frame" style={{width:"100%"}}>
+        return (  <div className="container-frame"
+                       style={{width:"100%", borderLeftStyle:"double"}}>
 
             <p>
                 testqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqLmmmmmmmmmmmmmmmmmmmmmmmYYY
@@ -85,12 +86,7 @@ export default class AbcRightLGPage extends React.Component
                 VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
                 testqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqLmmmmmmmmmmmmmmmmmmmmmmmYYY
                 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa
-                BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-                VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
-                testqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqLmmmmmmmmmmmmmmmmmmmmmmmYYY
-                AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa
-                BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-                VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+
             </p>
 
 

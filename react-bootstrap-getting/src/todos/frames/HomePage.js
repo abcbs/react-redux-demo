@@ -13,11 +13,11 @@ import container from '../../abc-framework/ui/AbcPageContainer'
 import { browserHistory } from 'react-router'
 import { push } from 'redux-router';
 import errorInfo from '../../abc-framework/ui/errorInfo'
+import {user_manager_url} from '../../abc-framework/routeres/ModuleURL'
 function fetchUsers()
 {
-    // console.log("http,",http);
     return {
-        promise: http => http.get('/api/users/current').then(
+        promise: http => http.get(user_manager_url).then(
             ids =>
                console.log("ids,",ids),
             (err=>{
