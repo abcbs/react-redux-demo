@@ -1,4 +1,5 @@
 import {authenication_manager_url} from '../../../abc-framework/routeres/ModuleURL'
+export const LOAD = 'Authentication/Client/LOAD'
 export const getAuthenications = () =>
     ({
         promise : async http =>
@@ -26,3 +27,9 @@ export const renameAuthenication = () =>
         promise: http => http.patch(authenication_manager_url+`/${id}`),
         events: ['renaming authenication', 'user authenication', 'renaming authenication failed']
     })
+
+
+/**
+ * Simulates data loaded into this reducer from somewhere
+ */
+export const simulateAuthenicationData = data => ({ type: LOAD, data })

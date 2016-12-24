@@ -1,7 +1,7 @@
 import React ,{PropTypes}from 'react';
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {reduxForm,initialize} from 'redux-form';
+import {reduxForm,getFormValues} from 'redux-form';
 
 import { browserHistory } from 'react-router'
 import { push } from 'redux-router';
@@ -18,19 +18,12 @@ import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbar,AbcButtonToolbarLeft,AbcB
     AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
     from '../../../abc-ui/abc-ui-index'
 
-import authenticationValidation from './authentication-Validation';
-import {addAuthenication} from '../actions/authentication-action'
 import {user_manager_url} from '../../../abc-framework/routeres/ModuleURL'
-
 import {Modal} from '../../../abc-bootstrap'
 
-
-// function asyncValidateEmail(data, dispatch) {
-//     if (!data.authCode) {
-//         return Promise.resolve({});
-//     }
-//     return isValidEmail(data);
-// }
+//业务功能实现
+import authenticationValidation from './authentication-Validation';
+import {addAuthenication,simulateAuthenicationData} from '../actions/authentication-action'
 
 function fetchUsers()
 {
@@ -54,8 +47,6 @@ const warnAuthentication = values => {
     const authName=values.authName;
     if (authName&&authName.length > 19) {
         warnings.authName = {message:'名称字段小于19',flag:"warning"};
-    }else{
-        // warnings.authName = {message:'',flag:"success"};
     }
     const authDecript=values.authDecript;
     warnings.authDecript = {message:'',flag:"default"};
@@ -65,35 +56,14 @@ const warnAuthentication = values => {
 @connect
 (
     state    => {
-        const authn=state.authentication||state.default.authentication;
+        const authn=state.authentication;
         const users=authn.authentication.user;
-        const example_users=state.example_users;
 
-        let example_user={};
-        if(example_users){
-            example_user=     {
-                    loading:example_users.loading,
-                        loaded
-                :
-                    example_users.loaded,
-                        loading_error
-                :
-                    example_users.loading_error,
-                        adding_error
-                :
-                    example_users.adding_error
-              };
-            return  {
-                users:users,
-                example_user
-
-            }
-        }
-        return
-            {
-                users:users
-
-            }
+        return(
+        {
+           users:users,
+           initialValues: state.authenticationClient.data,
+          })
 
     }
     ,
@@ -101,20 +71,16 @@ const warnAuthentication = values => {
         fetchUsers,
         addAuthenication,
         // asyncValidateEmail,
-        initialize,
+        simulate:simulateAuthenicationData,
         push  },
         dispatch)
 )
 @reduxForm({
     form: 'authMangerForm',
-    fields: {authName:"", authCode:"", authDecript:""},
-    // onSubmit: serversubmit,
     validate: authenticationValidation,
     warn:warnAuthentication,
-    // asyncValidate:asyncValidateEmail,
-    // asyncValidate,
-    // asyncBlurFields: ['authCode']
 })
+
 @preload(({ dispatch }) => dispatch(fetchUsers()))
 @international()
 @container({title:messages.authentication.title,
@@ -126,46 +92,54 @@ export default class AuthenticationPage extends React.Component {
 
         fetchUsers : PropTypes.func,
 
-        initialize: PropTypes.func.isRequired,
+
         loading       : PropTypes.bool,
         loaded        : PropTypes.bool,
         loading_error : PropTypes.object,
-
         adding_error  : PropTypes.object,
 
-        editStop: PropTypes.func.isRequired,
-        handleSubmit: PropTypes.func,
-        invalid: PropTypes.bool.isRequired,
-        pristine: PropTypes.bool.isRequired,
-        save: PropTypes.func.isRequired,
-        submitting: PropTypes.bool.isRequired,
-        saveError: PropTypes.object,
-        formKey: PropTypes.string.isRequired,
-        values: PropTypes.object.isRequired
+
     }
 
     static contextTypes =
     {
         intl: PropTypes.object,
+
     }
 
-    handleSubmit(form) {
+    handleSubmitform(form) {
+
         const values=form.currentTarget.form;
+
         const name=values.authName.value;
         const code=values.authCode.value;
         const descript=values.authDecript.value;
+
         const value={
             authName:name,
             authCode:code,
             authDecript:descript
         };
-        // warnAuthentication(value);
         this.setState({
             forminfo: value
         });
-
+        // const formValues =  handle();
+        this.setState({
+            forminfo: formValues
+        });
         this.showModal();
 
+    }
+    //数据提交方法
+    handleSubmit(form) {
+        const handle=this.props.handleSubmit(data => {
+            return data;
+        });
+        const formValues =  handle();
+        this.setState({
+            forminfo: formValues
+        });
+        this.showModal();
     }
 
     async addUser(authenication)
@@ -178,22 +152,24 @@ export default class AuthenticationPage extends React.Component {
         {
             console.log('error,',error)
             errorInfo( JSON.stringify(error))
-
-
         }
     }
+
     showModal() {
         this.setState({show: true});
     }
 
-    commitData(){
-        this.hideModal();
-        this.addUser(this.state.forminfo)
-    }
     hideModal() {
         this.setState({show: false,
         });
     }
+
+    //提交数据到服务端
+    commitData(){
+        this.hideModal();
+        this.addUser(this.state.forminfo)
+    }
+
     constructor(props, context) {
         super(props, context);
         this.initStates();
@@ -209,12 +185,16 @@ export default class AuthenticationPage extends React.Component {
         }
     }
     render() {
-        const {handleSubmit, reset, pristine, submitting ,invalid,save,values,editStop} = this.props;
+        const {handleSubmit,reset, pristine, submitting ,invalid,...others} = this.props;
         const userSearchHeader=(<HeaderTitleAndNumber numbers="17" title="权限"/>);
         return (
             <div>
                 <AbcPanel header={userSearchHeader}>
-                    <AbcFormInline  id="authMangerForm" name="authMangerForm">
+                    <AbcFormInline
+                                    // id="authMangerForm"
+                                    // name="authMangerForm"
+                                    onSubmit={this.handleSubmit.bind(this)}
+                    >
                         <AbcRow>
                             <AbcColRedFormA  
                                 name="authName"
@@ -240,20 +220,32 @@ export default class AuthenticationPage extends React.Component {
 
                         </AbcRow>
                         <AbcButtonToolbarLeft>
-                            <AbcButton type="button"  onClick={this.handleSubmit.bind(this)}
+                            <AbcButton type="button"
+                                       onClick={this.handleSubmit.bind(this)}
                                        disabled={pristine || invalid || submitting}>确定</AbcButton>
-                            <AbcButton type="button"  disabled={pristine || submitting}
+                            <AbcButton type="button"
+                                       onClick={handleSubmit(data => {
+                                                    console.log(data);
+                                                }
+                                            )
+                                       }
+                                       disabled={pristine || invalid || submitting}>直接提交</AbcButton>
+                            <AbcButton type="button"
+                                       // onClick={this.props.simulate(require('./data.json'))}
+                                       onClick={
+                                            () => others.simulate(require('./data.js').data)
+                                       }
+                                        >模拟</AbcButton>
+                                 <AbcButton type="button"  disabled={pristine || submitting}
                                        onClick={reset}>重置</AbcButton>
                         </AbcButtonToolbarLeft>
                     </AbcFormInline>
                 </AbcPanel>
-
                  {this.state.forminfo&&
                          <Modal
                             show={this.state.show}
                             onHide={this.hideModal.bind(this)}
                              style={{marginTop:"30px"}}
-                            
                         >
                             <Modal.Header closeButton>
                                 <Modal.Title id="contained-modal-title-xs">提交信息</Modal.Title>
