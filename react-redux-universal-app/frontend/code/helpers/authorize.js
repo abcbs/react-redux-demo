@@ -166,10 +166,10 @@ function check_privileges({ user, url, authorization })
 	{
 		// if the authorization passes,
 		// then show the page
-		if (authorization(user))
-		{
-			return true
-		}
+		// if (authorization(user))
+		// {
+		// 	return true
+		// }
 	}
 
 	// authorization not passed.

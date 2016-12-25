@@ -12,7 +12,7 @@ import { preload,goto }            from '../../../abc-framework/react-isomorphic
 import container from '../../../abc-framework/ui/AbcPageContainer'
 import errorInfo from '../../../abc-framework/ui/errorInfo'
 import messages from '../../../abc-framework/messages/messages'
-
+import Spinner        from '../../../abc-ui/spinner'
 import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbar,AbcButtonToolbarLeft,AbcButton,
     AbcColRedFormA,AbcColRedFormB,AbcColRedFormC,
     AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
@@ -56,13 +56,17 @@ const warnAuthentication = values => {
 @connect
 (
     state    => {
+        //权限数据
         const authn=state.authentication;
         const users=authn.authentication.user;
-
+        //
+        const authenticationServer=state.authenticationServer
         return(
         {
            users:users,
+            //模拟数据
            initialValues: state.authenticationClient.data,
+            adding: authenticationServer.adding
           })
 
     }
@@ -89,12 +93,9 @@ export default class AuthenticationPage extends React.Component {
     static propTypes =
     {
         users      : PropTypes.array,
-
         fetchUsers : PropTypes.func,
-
-
-        loading       : PropTypes.bool,
-        loaded        : PropTypes.bool,
+        //数据装载时，状态切换
+        adding       : PropTypes.bool,
         loading_error : PropTypes.object,
         adding_error  : PropTypes.object,
 
@@ -130,8 +131,9 @@ export default class AuthenticationPage extends React.Component {
         this.showModal();
 
     }
+
     //数据提交方法
-    handleSubmit(form) {
+    handleSubmit() {
         const handle=this.props.handleSubmit(data => {
             return data;
         });
@@ -140,6 +142,12 @@ export default class AuthenticationPage extends React.Component {
             forminfo: formValues
         });
         this.showModal();
+    }
+
+    //提交数据到服务端
+    commitData(){
+        this.hideModal();
+        this.addUser(this.state.forminfo)
     }
 
     async addUser(authenication)
@@ -151,10 +159,10 @@ export default class AuthenticationPage extends React.Component {
         catch (error)
         {
             console.log('error,',error)
-            errorInfo( JSON.stringify(error))
+            errorInfo( JSON.stringify(error.data||error))
         }
     }
-
+    //模式框控制方法
     showModal() {
         this.setState({show: true});
     }
@@ -163,13 +171,7 @@ export default class AuthenticationPage extends React.Component {
         this.setState({show: false,
         });
     }
-
-    //提交数据到服务端
-    commitData(){
-        this.hideModal();
-        this.addUser(this.state.forminfo)
-    }
-
+    //
     constructor(props, context) {
         super(props, context);
         this.initStates();
@@ -177,10 +179,6 @@ export default class AuthenticationPage extends React.Component {
 
     initStates(){
         this.state = {
-            userName:"",
-            password:"",
-            userNameHelp: "",
-            passwordHelp: "",
             show: true
         }
     }
@@ -220,6 +218,9 @@ export default class AuthenticationPage extends React.Component {
 
                         </AbcRow>
                         <AbcButtonToolbarLeft>
+                            {
+                                this.props.adding&&<Spinner/>
+                            }
                             <AbcButton type="button"
                                        onClick={this.handleSubmit.bind(this)}
                                        disabled={pristine || invalid || submitting}>确定</AbcButton>

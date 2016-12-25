@@ -5,6 +5,7 @@ api
 	'Authentication service',
 	configuration.authentication_service.http,
 	[
-		require('./api/authentication').default
+		require('./api/authentication').default,
+		require('./api/authentication-manager-api').default
 	]
 )
