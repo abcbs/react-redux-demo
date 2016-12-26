@@ -20,7 +20,7 @@ export default class AbcButton extends React.Component
     render()
     {
         const { bsStyle, style,children, ...other} = this.props
-        const button=(<Button bsStyle={bsStyle}   {...other}>
+        const button=(<Button bsStyle={bsStyle} style={style}  {...other}>
             {children}</Button>)
         return button;
     }

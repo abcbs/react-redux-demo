@@ -5,6 +5,7 @@ import { ControlLabel, HelpBlock,FormControl,Col} from '../abc-bootstrap'
 import AbcCol from './AbcCol'
 import AbcFormGroup from './AbcFormGroup'
 import AbcFormControl from './AbcFormControl'
+import AbcControllerLabel from './AbcControllerLabel'
 import entries from 'lodash/entries'
 import keys from 'lodash/keys'
 Object.entries=Object.entries||entries;
@@ -50,30 +51,46 @@ export default class AbcCol233WLReduxForm extends React.Component
                 >
                 <ControlLabel style={{marginTop: "6px"}}>{label}</ControlLabel>
                 </AbcCol>
-                <AbcCol {...colContent}>
-                    <AbcFormControl  {...input} type={type}
-                        placeholder={placeholder}
+                 <AbcCol {...colContent}>
+                    <AbcFormControl  {...input}  type={type}
+                                                                               placeholder={placeholder}
                     />
+
                     <AbcFormControl.Feedback />
                     <HelpBlock>
                         {touched && ((error && <span>{error.message}</span>) ||
                         (warning && <span>{warning.message}</span>))}
                     </HelpBlock>
-
                 </AbcCol>
             </AbcFormGroup>
             </AbcCol>
         )
     }
 
+    renderFieldReadonly = ({ input, controlId,label,
+        type,placeholder,col,colLable,colContent,
+        meta: { asyncValidating, touched, error,warning },...other }) => {
+        return (
+
+            <AbcCol {...col}>
+                <AbcCol {...colLable}>
+                   <ControlLabel style={{marginTop: "6px"}}>{other.displayLabel&&label}</ControlLabel>
+                </AbcCol>
+               <AbcCol {...colContent}>
+                <AbcControllerLabel
+                          >{input.value}</AbcControllerLabel>
+                </AbcCol>
+            </AbcCol>
+        )
+    }
     render()
     {
-        const {controlId, type,placeholder,field,
+        const {controlId, type,placeholder,name,
             label,  ...other} = this.props;
          return (//[linkName, {path, title}]
              <Field
-                 name={field}
-                 component={this.renderField.bind(this)}
+                 name={name}
+                 component={other.readonly? this.renderFieldReadonly.bind(this):this.renderField.bind(this)}
                  controlId={controlId}
                  type={type}
                  label={label}
@@ -86,24 +103,23 @@ export default class AbcCol233WLReduxForm extends React.Component
 
 export class AbcCol233WLA extends React.Component{
     render() {
+        const col={xs:6, sm:4, md:4, lg:4,xsHidden:false};
+        const colLable={md:2, lg:2, xsHidden :true, smHidden :true};
+        const colContent={xs:12, sm:12, md:10, lg:10};
         return (
-            <AbcCol233WLReduxForm
-                {...this.props} />
+            <AbcCol233WLReduxForm {...this.props} />
         )
     }
-
 }
 
 export class AbcCol233WLB extends React.Component{
     render() {
-        const col={xs:6, sm:4, md:4, lg:4,smHidden:false};
+        const col={xs:6, sm:4, md:4, lg:4,xsHidden:false};
         const colLabel={md:2, lg:2 ,xsHidden:true ,smHidden :true};
         const colContent={xs:12, sm:12, md:10, lg:10};
         return (
             <AbcCol233WLReduxForm
-                col={col}
-                colLabel={colLabel}
-                colContent={colContent}
+                col={col} colLabel={colLabel}  colContent={colContent}
                 {...this.props} />
         )
     }

@@ -18,4 +18,5 @@ export Col from  './components/Col'
 export Row from  './components/Row'
 export Panel from  './components/Panel'
 export PanelGroup from  './components/PanelGroup'
+export Glyphicon from  './components/Glyphicon'
 

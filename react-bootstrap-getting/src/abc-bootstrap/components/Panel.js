@@ -201,7 +201,7 @@ class Panel extends React.Component {
         id={collapsible ? null : id}
       >
         {header && (
-          <div className={prefix(bsProps, 'heading')}>
+          <div className={prefix(bsProps, 'abc-heading')}>
             {this.renderHeader(
               collapsible, header, id, headerRole, expanded, bsProps
             )}
@@ -217,7 +217,7 @@ class Panel extends React.Component {
         }
 
         {footer && (
-          <div className={prefix(bsProps, 'footer')}>
+          <div className={prefix(bsProps, 'abc-footer')}>
             {footer}
           </div>
         )}
