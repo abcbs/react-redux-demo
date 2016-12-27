@@ -15,6 +15,7 @@ import messages from '../../../abc-framework/messages/messages'
 import Spinner        from '../../../abc-ui/spinner'
 import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbarRight,AbcButton,
     AbcColRedFormA,AbcColRedFormB,AbcColRedFormC,
+    AbcButtonToolbarInline,AbcCol,
     AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
     from '../../../abc-ui/abc-ui-index'
 
@@ -138,43 +139,59 @@ export default class AuthenticationManager extends React.Component {
             {
                 this.props.adding&&<Spinner/>
             }
-            <AbcButton type="button"
-                       onClick={this.handleSubmit.bind(this)}
-                       disabled={pristine || invalid || submitting||this.props.adding}>
+            {this.props.formConfig.operattion.add && <AbcButton type="button"
+                  onClick={this.handleSubmit.bind(this)}
+                  disabled={pristine || invalid || submitting||this.props.adding}>
                 确定
             </AbcButton>
-            <AbcButton type="button"
+            }
+            {this.props.formConfig.operattion.simulate &&<AbcButton type="button"
                 // onClick={this.props.simulate(require('./data.json'))}
-                onClick={
+                        onClick={
                      () => others.simulate(require('../pages/data.js').data)
                  }
             >模拟</AbcButton>
-            <AbcButton type="button"  disabled={pristine || submitting}
-                       onClick={reset}>重置</AbcButton>
+            }
+            {this.props.formConfig.operattion.reset &&<AbcButton type="button" disabled={pristine || submitting}
+                        onClick={reset}>重置</AbcButton>
+            }
         </AbcButtonToolbarRight>)
+        const buttonsGlyphs=(
+            <span>
+                {this.props.formConfig.operattion.add &&
+                <AbcButton type="button" bsStyle="abc"
+                    onClick={this.handleSubmit.bind(this)}
+                    disabled={pristine || invalid || submitting||this.props.adding}>
+                    <Glyphicon glyph="save"/>
+                </AbcButton>
+                }
+                {this.props.formConfig.operattion.simulate&&
+                <AbcButton type="button" bsStyle="abc"
+                    onClick={() => others.simulate(require('../pages/data.js').data)}
+                ><Glyphicon glyph="import"/>
+                </AbcButton>
+                }
+                {this.props.formConfig.operattion.reset&&
+                <AbcButton type="button" bsStyle="abc"
+                   disabled={pristine || submitting}
+                   onClick={reset}>
+                    <Glyphicon glyph="erase"/>{''}
+                </AbcButton>
+                }
+            </span>
+        );
         const abcButtonToolbarRightGlyphs=(
             <AbcButtonToolbarRight>
                 {
                     this.props.adding&&<Spinner/>
                 }
-                <AbcButton type="button" bsStyle="abc"
-                           onClick={this.handleSubmit.bind(this)}
-                           disabled={pristine || invalid || submitting||this.props.adding}>
-                    <Glyphicon glyph="save"/>
-                </AbcButton>
-                <AbcButton type="button" bsStyle="abc"
-                           onClick={() => others.simulate(require('../pages/data.js').data)}
-                ><Glyphicon glyph="import"/>
-                </AbcButton>
-                <AbcButton type="button"  bsStyle="abc"
-                           disabled={pristine || submitting}
-                           onClick={reset}><Glyphicon glyph="erase"/></AbcButton>
-            </AbcButtonToolbarRight>)
+                {buttonsGlyphs}
+            </AbcButtonToolbarRight>);
         return (
             <div>
                 <AbcPanel
-                    header={userSearchHeader}
-                    footer={abcButtonToolbarRightGlyphs}
+                    header={this.props.formConfig.header.display&&userSearchHeader}
+                    footer={this.props.formConfig.footer.display&&abcButtonToolbarRightGlyphs}
                 >
                     <AbcFormInline>
                         <AbcRow>
@@ -210,7 +227,15 @@ export default class AuthenticationManager extends React.Component {
 
                         </AbcRow>
                         {
-                            abcButtonToolbarRight
+                            this.props.formConfig.operattion.display&&abcButtonToolbarRight
+                        }
+                        {
+                            this.props.formConfig.operattion.inline&&
+                                <AbcButtonToolbarInline>
+                                    {
+                                        buttonsGlyphs
+                                    }
+                                </AbcButtonToolbarInline>
                         }
                     </AbcFormInline>
 

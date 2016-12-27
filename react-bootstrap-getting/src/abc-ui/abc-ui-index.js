@@ -5,6 +5,7 @@ export {default as AbcDefaultButton} from './AbcDefaultButton'
 
 export {default as AbcButtonToolbar} from './AbcButtonToolbar'
 export {default as AbcButtonToolbarRight} from './AbcButtonToolbarRight'
+export {default as AbcButtonToolbarInline} from './AbcButtonToolbarInline'
 export {default as AbcFormInline} from './AbcFormInline'
 export {default as AbcCol} from './AbcCol'
 export {default as AbcFormGroup} from './AbcFormGroup'
