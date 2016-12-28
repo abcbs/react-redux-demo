@@ -1,0 +1,107 @@
+img{
+  position:relative;
+  float:left;
+  margin:10px 4px;
+  height: 80px;
+
+  @media (width: 320px) {//
+      width: 60px;
+      height: 72px;
+  }
+}
+
+//paddingTop:"2px",paddingRight:"2px",marginBottom:"20px",
+//border:"0px solid #ddd",borderRadius:"4px",
+//transition:"border 0.2s ease-in-out"
+.thumbnail-abc {
+  padding-top:2px;
+  padding-right:2px;
+  margin-bottom:20px;
+  border:00px solid #ddd;
+  border-radius:4px;
+  transition:border 0.2s ease-in-out;
+
+  .thumbnail-content-abc{
+    float:left;
+    margin-top:4px;
+    line-height:16px;
+    @media (width: 320px) {//
+      line-height:1px;
+      margin-top:1px;
+    }
+    @media (width: 1280px) {//
+      padding-left:8px;
+    }
+  };
+  .thumbnail-inline-abc {
+    margin-top:8px;
+    line-height:16px;
+    padding-left:16px;
+
+    @media (min-width: 320px) {//
+      padding-left:0px;
+      margin-left:0px !important;
+      line-height:1px;
+      font-size: 6px !important;
+    }
+
+    @media (min-width: 360px) {//
+      line-height:6px;
+      margin-left:8px !important;
+    }
+
+    @media (width: 384px) {//
+      margin-left:2px !important;
+    }
+    @media (min-width: 412px) {//
+      padding-left:0px;
+      margin-left:-2px !important;
+    }
+    @media (min-width: 480px) {//
+      padding-left:0px;
+      margin-left:-20px !important;
+    }
+    //@media (min-width: 568px) {//
+    //  padding-left:0px;
+    //  margin-left:-42px !important;
+    //}
+    //@media (min-width: 640px) {//
+    //  padding-left:0px;
+    //  margin-left:-60px !important;
+    //}
+    //@media (min-width: 667px) {//
+    //  padding-left:0px;
+    //  margin-left:-68px !important;
+    //}
+    @media (max-width: @screen-xp) and (min-width:@screen-xs5) {
+      margin-left:-16px !important
+    }
+    //@media (width: @screen-xp) {//736 6plus
+    //  margin-left:-28px !important
+    //}
+    @media (min-width: 768px) {//
+      margin-left:6px !important
+    }
+    @media (min-width: 800px) {//
+      margin-left:-4px !important
+    }
+    @media (min-width: @screen-lg) {//
+      margin-left:4px !important
+    }
+
+    @media (min-width: @screen-lg-md) {//
+      margin-left:-24px
+    }
+
+    @media (min-width: 1440px) {//
+      margin-left:24px
+    }
+
+    @media (width: 1920px) {//
+      margin-left:-36px !important;
+    }
+
+  }
+}
+
+

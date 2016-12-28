@@ -13,6 +13,7 @@ export const SIZE_MAP = {
   md: 'md',
   sm: 'sm',
   xs: 'xs',
+  xp: 'xp',
 };
 
 export const DEVICE_SIZES = [
@@ -20,6 +21,7 @@ export const DEVICE_SIZES = [
   'md',
   'sm',
   'xs',
+  'xp',
 ];
 
 export const State = {
@@ -27,6 +29,7 @@ export const State = {
   WARNING: 'warning',
   DANGER: 'danger',
   INFO: 'info',
+  ABC: 'abc',
 };
 
 export const Style = {

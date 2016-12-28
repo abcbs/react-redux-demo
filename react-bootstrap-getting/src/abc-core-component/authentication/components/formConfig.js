@@ -13,7 +13,7 @@ export  const list={
             simulate:false
         },
         header:{display:false},
-        footer:{display:true},
+        footer:{display:false},
     }
 }
 
