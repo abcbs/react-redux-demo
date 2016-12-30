@@ -17,12 +17,13 @@ import { render as isomorphicRender}     from '../react-isomorphic-render/redux'
 import common         from './react-isomorphic-render'
 
 import assets from './assets'
-import {clientWidth }from '../utils/Devices'
+import {clientWidth,devicePixelRatio }from '../utils/Devices'
+// fixedDevice()
 for (let asset of Object.keys(assets))
 {
     assets[asset]()
 }
-
+const dpr=devicePixelRatio();
 injectTapEventPlugin();
 // Make taps on links and buttons work fast on mobiles
 FastClick.attach(document.body);
@@ -41,7 +42,7 @@ const authentication={authentication:{
     }
     }
 }
-var data= {present:[{text:"client数据"+(new Date),completed:false},
+var data= {present:[{text:"client数据"+"DPR:"+dpr.clientWidth+"drp:"+dpr.dpr+"日期："+(new Date),completed:false},
     {text:"客户端测试数据",completed:false}]};
 
 const state =

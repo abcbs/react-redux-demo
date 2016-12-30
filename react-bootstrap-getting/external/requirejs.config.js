@@ -23,6 +23,46 @@ requirejs.config({
     }
 });
 
+(function fixedDevice() {
+    try{
+        var dpr =1, scale =1;
+        var isIPhone = window.navigator.appVersion.match(/iphone/gi);
+        var isIpdad = window.navigator.appVersion.match(/ipad/gi);
+        var devicePixelRatio = window.devicePixelRatio+0;
+        var clientWidth=document.documentElement.clientWidth+0;
+        var clientHight=document.documentElement.clientHeight +0;
+        // alert("clientWidth:"+clientWidth+" clientHight: "+clientHight+
+        //     " devicePixelRatio: "+devicePixelRatio+
+        //     " isIPhone:"+isIPhone+" isIpdad:"+isIpdad)
+        //对iPhone4修改
+        //devicePixelRatio===1.5
+        var fixed=isIPhone&&clientWidth===320&&clientHight<400||devicePixelRatio===1.5
+
+        if(fixed){
+
+            scale = 0.7;
+
+            //
+            var metaEl = "";
+            metaEl = window.document.createElement('meta');
+            metaEl.setAttribute('name', 'viewport');
+            metaEl.setAttribute('content', 'initial-scale=' +
+                scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+            var header=window.document.getElementsByTagName("head");
+            if (header[0]) {
+                header[0].appendChild(metaEl);
+            }else{
+                document.write('<meta name="viewport" content="width=device-width, initial-scale = '
+                    +scale+', ' +
+                    'maximum-scale = '+scale+', ' +
+                    'maximum-scale = '+scale+', target-densitydpi=device-dpi">');
+            }
+        }
+
+    }catch(err){
+        return;
+    }
+})()
 
 require(["baseframevendor"],function (baseframevendor) {
 

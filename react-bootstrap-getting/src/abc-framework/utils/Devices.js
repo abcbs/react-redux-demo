@@ -1,4 +1,62 @@
+export function devicePixelRatio() {
+    try{
+        const isIPhone = window.navigator.appVersion.match(/iphone/gi);
+        const clientWidth=document.documentElement.clientWidth;
+        const dpr=window.devicePixelRatio;
 
+        return {
+                isIPhone:isIPhone,
+                clientWidth:clientWidth,
+                dpr:dpr
+        }
+    }catch (err){
+        return {
+            isIPhone:"no",
+            clientWidth:"no"
+        };
+    }
+}
+
+export function fixedDevice() {
+            try{
+            var win= window;
+            var dpr =1, scale =1;
+            var isIPhone = win.navigator.appVersion.match(/iphone/gi);
+            var devicePixelRatio = win.devicePixelRatio;
+            // if (isIPhone) {
+            //     // iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案
+            //     if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {
+            //         dpr = 3;
+            //     } else if (devicePixelRatio >= 2 && (!dpr || dpr >= 2)){
+            //         dpr = 2;
+            //     } else {
+            //         dpr = 1;
+            //     }
+            // } else {
+            //     // 其他设备下，仍旧使用1倍的方案
+            //     dpr = devicePixelRatio;
+            // }
+            scale = 1 / devicePixelRatio;
+
+            //
+            var metaEl = "";
+            metaEl = window.document.createElement('meta');
+            metaEl.setAttribute('name', 'viewport');
+            metaEl.setAttribute('content', 'initial-scale=' +
+                scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+            var header=window.document.getElementsByTagName("head");
+            if (header[0]) {
+                header[0].appendChild(metaEl);
+            }else{
+                document.write('<meta name="viewport" content="width=device-width, initial-scale = '
+                    +scale+', ' +
+                    'maximum-scale = '+scale+', ' +
+                    'maximum-scale = '+scale+', target-densitydpi=device-dpi">');
+            }
+            }catch(err){
+                return;
+            }
+}
 
 export function clientWidth() {
 

@@ -1,106 +1,395 @@
-img{
-  position:relative;
-  float:left;
-  margin:10px 4px;
-  height: 80px;
 
-  @media (width: 320px) {//
-      width: 60px;
-      height: 72px;
-  }
-}
-
-//paddingTop:"2px",paddingRight:"2px",marginBottom:"20px",
-//border:"0px solid #ddd",borderRadius:"4px",
-//transition:"border 0.2s ease-in-out"
 .thumbnail-abc {
   padding-top:2px;
   padding-right:2px;
-  margin-bottom:20px;
-  border:00px solid #ddd;
+  margin-bottom:8px;
+  margin-right:2px;
+  border:1px solid #ddd;
   border-radius:4px;
   transition:border 0.2s ease-in-out;
+  line-height:1.2;
+  font-size: 14px;
+  height: 80px;
+  //调整定位
+  width: 100%;
+  //display:inline-block;
+
+  //6plus竖屏
+  @media (width: @screen-xpv){
+    height: 70px;
+    padding-top:6px;
+  }
+
+  //华为5寸，竖屏
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+    height: 66px;
+    padding-top:6px;
+  }
+
+  @media (width:@screen-xs6v){// 375px;//apple-6/竖屏
+    height: 70px;
+    padding-top:6px;
+  }
+
+  //@screen-xs6:667px;//apple-6/640
+  @media (width: @screen-xs6){//apple-6横屏
+    height: 80px;
+  }
+  //华为5寸，横屏
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+    height: 64px;
+    //padding-top:6px;
+  }
+  //三星5.8寸 GT-152，竖屏
+  @media (min-width: @screen-gtv) and (max-width: @screen-gtvx){
+    //height: 54px;
+  }
+  .thumbnail-operator-abc {
+    top: 20%;
+    right:0;
+    position:absolute;
+    opacity: 0.6;
+    .btn{
+      display: block;
+    }
+  }
+  img{
+    position:relative;
+    float:left;
+    margin:0px 4px;
+    height: 72px;
+
+    @media (width: @screen-xpv){
+        height: 56px;
+        width:  56px;
+    }
+    @media (width:@screen-xs6v){// 375px;//apple-6/竖屏
+      height: 60px;
+      width:  60px;
+    }
+    @media (width: @screen-xs6){//apple-6横屏
+      width: 72px;
+      height: 72px;
+    }
+    //华为5寸，竖屏
+    @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+      height: 50px;
+      width:  50px;
+    }
+    //华为5寸，横屏
+    @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+      width: 56px;
+      height: 56px
+    }
+   //三星5.8寸 GT-152，竖屏
+    @media (min-width: @screen-gtv) and (max-width: @screen-gtvx){
+      //width: 40px;
+      //height: 40px
+
+    }
+  }
 
   .thumbnail-content-abc{
-    float:left;
-    margin-top:4px;
-    line-height:16px;
-    @media (width: 320px) {//
-      line-height:1px;
-      margin-top:1px;
+    //float:left;
+    margin-top:-6px;
+    height: 72px;
+    width: 160px;
+    //position: absolute;
+    //left:35%;
+    margin-bottom: 10px;
+    h5,p{
+      font-size: small;
+      height: 12px;
+      line-height:12px;
+      word-wrap:break-word;
+      //overflow:hidden;
+      text-overflow:ellipsis;
+      width:300px;
+      @media (width: @screen-xp) {//
+        width: 400px;
+      }
+      @media (width: @screen-xpv) {
+        margin-bottom: 4px;
+        margin-top: 4px;
+      }
+      @media (width: @screen-xs6) {//
+        width: 400px;
+      }
+      //华为竖屏
+      @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+        margin-bottom: 4px;
+        margin-top: 4px;
+      }
+      //华为5寸，横屏
+      @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+        margin-bottom: 4px;
+        margin-top: 4px;
+      }
+      //三星5.8寸 GT-152，竖屏
+      @media (min-width: @screen-gtv) and (max-width: @screen-gtvx){
+        //margin-bottom: 4px;
+        //margin-top: 4px;
+      }
     }
+
+    h5{
+      font-weight: 700;
+
+    }
+
+    @media (width: @screen-xs6){//apple-6横屏
+      font-size: 10px;
+      height:72px;
+      margin-top:8px;
+
+      .btn{
+        font-size: 10px;
+      }
+      p{
+        font-size: 10px;
+      }
+      h5{
+        font-size: 10px;
+      }
+    }
+    @media (width:@screen-xs6v){// 375px;//apple-6/竖屏
+      margin-top:0px;
+      font-size: 10px;
+      height:56px;
+      .btn{
+        font-size: 6px;
+      }
+      p{
+        //display: none;
+      }
+      h5{
+        margin-top:4px;
+        margin-bottom: 4px;
+
+      }
+    }
+
+    //6plus竖屏
+    @media (width: @screen-xpv){
+      margin-top:1px;
+      font-size: 10px;
+      height:56px;
+
+
+      .btn{
+        font-size: 10px;
+      }
+      p{
+        font-size: 10px;
+        margin:0 0;
+
+      }
+      h5{
+        font-size: 10px;
+
+      }
+    }
+    //三星5.8寸 GT-152，竖屏
+    @media (min-width: @screen-gtv) and (max-width: @screen-gtvx){
+      //font-size: 8px;
+      //height:56px;
+      //.btn{
+      //  font-size: 4px;
+      //}
+      //p{
+      //  font-size: 8px;
+      //}
+      //h5{
+      //  font-size: 8px;
+      //}
+    }
+    //华为竖屏
+    @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+      margin-top:-4px;
+      margin-left:-26px;
+      font-size: 9px;
+      height:56px;
+      .btn{
+        font-size: 9px;
+      }
+      p{
+        font-size: 9px;
+      }
+      h5{
+        font-size: 9px;
+      }
+    }
+
+    //华为5寸，横屏
+    @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+      font-size: 10px;
+      margin-top:2px;
+      .btn{
+        font-size: 10px;
+      }
+      p{
+        font-size: 10px;
+      }
+      h5{
+        font-size: 10px;
+      }
+    }
+
     @media (width: 1280px) {//
       padding-left:8px;
     }
+
   };
+
   .thumbnail-inline-abc {
-    margin-top:8px;
-    line-height:16px;
-    padding-left:16px;
-
-    @media (min-width: 320px) {//
-      padding-left:0px;
-      margin-left:0px !important;
-      line-height:1px;
-      font-size: 6px !important;
+    margin-top:0px;
+    height: 72px;
+    //width: 160px;
+    //font-size: 8px;
+    h5,p{
+      height: 12px;
+      line-height:12px;
+      word-wrap:break-word;
+      //overflow:hidden;
+      text-overflow:ellipsis;
+      @media (width: @screen-xp) {//6plus横屏
+        font-size: 12px;
+      }
+      @media (width: @screen-xpv) {
+        margin-bottom: 2px;
+        margin-top: 2px;
+      }
+      @media (width: @screen-xs6v) {
+        margin-bottom: 4px;
+        margin-top: 4px;
+      }
+      @media (width: @screen-xs6) {//667px
+        margin-bottom: 4px;
+        margin-top: 4px;
+      }
+      //华为5寸，竖屏
+      @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+        margin-bottom: 4px;
+        margin-top: 4px;
+      }
+      //华为5寸，横屏
+      @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+        margin-bottom: 4px;
+        margin-top: 4px;
+      }
+      //三星5.8寸 GT-152，竖屏
+      @media (min-width: @screen-gtv) and (max-width: @screen-gtvx){
+        //margin-bottom: 4px;
+        //margin-top: 4px;
+      }
+    }
+    h5{
+      font-weight: 700;
     }
 
-    @media (min-width: 360px) {//
-      line-height:6px;
-      margin-left:8px !important;
-    }
-
-    @media (width: 384px) {//
-      margin-left:2px !important;
-    }
-    @media (min-width: 412px) {//
-      padding-left:0px;
-      margin-left:-2px !important;
-    }
-    @media (min-width: 480px) {//
+    @media (width: 480px) {//
       padding-left:0px;
       margin-left:-20px !important;
     }
-    //@media (min-width: 568px) {//
-    //  padding-left:0px;
-    //  margin-left:-42px !important;
-    //}
-    //@media (min-width: 640px) {//
-    //  padding-left:0px;
-    //  margin-left:-60px !important;
-    //}
-    //@media (min-width: 667px) {//
-    //  padding-left:0px;
-    //  margin-left:-68px !important;
-    //}
-    @media (max-width: @screen-xp) and (min-width:@screen-xs5) {
-      margin-left:-16px !important
-    }
-    //@media (width: @screen-xp) {//736 6plus
-    //  margin-left:-28px !important
-    //}
-    @media (min-width: 768px) {//
-      margin-left:6px !important
-    }
-    @media (min-width: 800px) {//
-      margin-left:-4px !important
-    }
-    @media (min-width: @screen-lg) {//
-      margin-left:4px !important
+    @media (width: @screen-xs5) {//
+      padding-left:0px;
+      margin-left:1px;
+
     }
 
-    @media (min-width: @screen-lg-md) {//
-      margin-left:-24px
+    @media (width: @screen-xp) {//6plus横屏
+      font-size: 11px;
+      margin-top:-8px;
+      margin-left:-32px;
     }
 
-    @media (min-width: 1440px) {//
-      margin-left:24px
+    @media (width: @screen-xpv){//竖屏
+      margin-top:6px;
+      margin-left:-30px;
+      font-size: 10px;
+      height:56px;
+      .btn{
+        font-size: 10px;
+      }
+      p{
+        //display: none;
+      }
+      h5{
+        font-size: 10px;
+      }
     }
 
-    @media (width: 1920px) {//
-      margin-left:-36px !important;
+    //三星5.8寸 GT-152，竖屏
+    @media (min-width: @screen-gtv) and (min-height: @screen-gtvx){
+      margin-left:-40px;
     }
 
+    //三星5.8寸 GT-152，横屏
+    @media (min-width: @screen-gt) and (min-height: @screen-gtx){
+      margin-left:-20px;
+    }
+    @media (width:@screen-xs6v){// 375px;//apple-6/竖屏
+      margin-top:1px;
+      margin-left:-20px;
+      font-size: 10px;
+      height:46px;
+
+      .btn{
+        font-size: 8px;
+      }
+      p{
+        //display: none;
+      }
+      h5{
+        font-size: 10px;
+      }
+    }
+    @media (width: @screen-xs6){//apple-6横屏
+      font-size: 10px;
+      height:72px;
+      margin-top: 10px;
+      margin-left:-24px;
+      .btn{
+        font-size: 10px;
+      }
+      h5{
+        font-size: 10px;
+        margin-top:4px;
+        margin-bottom: 4px;
+      }
+    }
+
+    //华为5寸，竖屏
+    @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+      margin-top:-4px;
+      margin-left:-26px;
+      font-size: 9px;
+      height:56px;
+      .btn{
+        font-size: 9px;
+      }
+      p{
+        //display: none;
+      }
+      h5{
+        font-size: 9px;
+      }
+    }
+    //华为5寸，横屏
+    @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+      font-size: 10px;
+      margin-top:2px;
+      margin-left:-30px;
+      .btn{
+        font-size: 10px;
+      }
+      p{
+        font-size: 10px;
+      }
+      h5{
+        font-size: 10px;
+      }
+    }
   }
 }
 

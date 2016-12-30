@@ -23,3 +23,5 @@ export Glyphicon from  './components/Glyphicon'
 export Thumbnail from  './components/Thumbnail'
 export Image from  './components/Image'
 
+export Media from  './components/Media'
+

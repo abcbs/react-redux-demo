@@ -8,7 +8,7 @@ import { push } from 'redux-router';
 import international from '../../../abc-framework/international/internationalize'
 
 import { preload,goto }            from '../../../abc-framework/react-isomorphic-render/redux'
-import {Modal,Glyphicon,Grid,Row,Col,Thumbnail,Image,Button} from '../../../abc-bootstrap'
+import {Modal,Glyphicon,Grid,Row,Col,Thumbnail,Image,Button,Media} from '../../../abc-bootstrap'
 
 import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbarRight,AbcButton,
     AbcColRedFormA,AbcColRedFormB,AbcColRedFormC,
@@ -41,6 +41,8 @@ export default class AuthenticationList extends React.Component {
 
     render() {
         const authenticationSearchHeader=(<HeaderTitleAndNumber numbers="17" title="权限列表"/>);
+        const authenticationListHeader=(<HeaderTitleAndNumber numbers="10" title="用户权限"/>);
+        const authenticationAdimHeader=(<HeaderTitleAndNumber numbers="10" title="管理权限"/>);
         return (
             <AbcPanel  header={authenticationSearchHeader}
                        footer={authenticationSearchHeader}>
@@ -48,22 +50,23 @@ export default class AuthenticationList extends React.Component {
                 <AuthenticationManager formConfig={this.props.formConfig}/>
                 <AuthenticationManager formConfig={this.props.formConfig}/>
                 <AuthenticationManager formConfig={this.props.formConfig}/>
-                <AbcPanel>
+                <AbcPanel  header={authenticationListHeader}>
                     <Grid className="container-abc">
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
                                 <div className="thumbnail-abc">
-                                <Col xs={6} sm={4} md={5} lg={6}>
+                                <Col xs={6} sm={4} md={5} lg={4}>
                                     <Image
                                         src="/external/images/kebap.jpg"
                                         height="80px"
+                                        circle
                                         alt="242x200">
                                     </Image>
                                 </Col>
-                                <Col xs={6} sm={8} md={7} lg={6}>
+                                <Col xs={6} sm={8} md={7} lg={8}>
                                     <div className="thumbnail-inline-abc">
-                                        <h5>Thumbnail label</h5>
-                                        <p>Description</p>
+                                        <h5 style={{fontSize:"8px"}}>公开测试部分上海区代理</h5>
+                                        <p  style={{fontSize:"6px"}}>支付类试用12个月</p>
                                         <Button bsStyle="primary"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
@@ -72,13 +75,21 @@ export default class AuthenticationList extends React.Component {
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                     </div>
+                                    <div  className="thumbnail-operator-abc">
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
+                                    </div>
                                 </Col>
                                 </div>
                             </Col>
 
                             <Col xs={6} xp={4} sm={4} md={3} lg={3}>
                                 <div className="thumbnail-abc">
-                                <Col xs={6} sm={4} md={5} lg={6}>
+                                <Col xs={6} sm={4} md={5} lg={4}>
                                     <Image
                                         src="/external/images/kebap.jpg"
                                         height="80px"
@@ -86,9 +97,9 @@ export default class AuthenticationList extends React.Component {
                                         alt="242x200">
                                     </Image>
                                 </Col>
-                                <Col xs={6} sm={8} md={7} lg={6}>
+                                <Col xs={6} sm={8} md={7} lg={8}>
                                     <div className="thumbnail-inline-abc">
-                                        <h5>Thumbnail label</h5>
+                                        <h5>Thumbnail</h5>
                                         <p>Description</p>
                                         <Button bsStyle="primary"
                                                 style={{padding:"2px 6px",border:"none"}}
@@ -97,21 +108,30 @@ export default class AuthenticationList extends React.Component {
                                         <Button bsStyle="default"  style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                     </div>
+                                    <div  className="thumbnail-operator-abc">
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
+                                    </div>
                                 </Col>
                                 </div>
                             </Col>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3}>
                                 <div className="thumbnail-abc">
-                                <Col xs={6} sm={4} md={5} lg={6}>
+                                <Col xs={6} sm={4} md={5} lg={4}>
                                     <Image
                                         src="/external/images/kebap.jpg"
                                         height="80px"
+                                        circle
                                         alt="242x200">
                                     </Image>
                                 </Col>
-                                <Col xs={6} sm={8} md={7} lg={6}>
+                                <Col xs={6} sm={8} md={7} lg={8}>
                                     <div className="thumbnail-inline-abc">
-                                        <h5>Thumbnail label</h5>
+                                        <h5>Thumbnail</h5>
                                         <p>Description</p>
                                         <Button bsStyle="primary"
                                                 style={{padding:"2px 6px",border:"none"}}
@@ -126,7 +146,7 @@ export default class AuthenticationList extends React.Component {
                             </Col>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3}>
                                 <div className="thumbnail-abc">
-                                <Col xs={6} sm={4} md={5} lg={6}>
+                                <Col xs={6} sm={4} md={5} lg={4}>
                                     <Image
                                         src="/external/images/kebap.jpg"
                                         height="80px"
@@ -134,9 +154,9 @@ export default class AuthenticationList extends React.Component {
                                         alt="242x200">
                                     </Image>
                                 </Col>
-                                <Col xs={6} sm={8} md={7} lg={6}>
+                                <Col xs={6} sm={8} md={7} lg={8}>
                                     <div className="thumbnail-inline-abc">
-                                    <h5>Thumbnail label</h5>
+                                    <h5>Thumbnail</h5>
                                     <p>Description</p>
                                     <Button bsStyle="primary"
                                             style={{padding:"2px 6px",border:"none"}}
@@ -151,16 +171,17 @@ export default class AuthenticationList extends React.Component {
                             </Col>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3}>
                                 <div className="thumbnail-abc">
-                                <Col xs={6} sm={4} md={5} lg={6}>
+                                <Col xs={6} sm={4} md={5} lg={4}>
                                     <Image
                                         src="/external/images/kebap.jpg"
                                         height="80px"
+                                        circle
                                         alt="242x200">
                                     </Image>
                                 </Col>
-                                <Col xs={6} sm={8} md={7} lg={6}>
+                                <Col xs={6} sm={8} md={7} lg={8}>
                                     <div className="thumbnail-inline-abc">
-                                        <h5>Thumbnail label</h5>
+                                        <h5>Thumbnail</h5>
                                         <p>Description</p>
                                         <Button bsStyle="primary"
                                                 style={{padding:"2px 6px",border:"none"}}
@@ -175,43 +196,45 @@ export default class AuthenticationList extends React.Component {
                             </Col>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3}>
                                 <div className="thumbnail-abc">
-                                <Col xs={6} sm={4} md={5} lg={6}>
-                                    <Image
-                                        src="/external/images/kebap.jpg"
-                                        height="80px"
-                                        circle
-                                        alt="242x200">
-                                    </Image>
-                                </Col>
-                                <Col xs={6} sm={8} md={7} lg={6}>
-                                    <div className="thumbnail-inline-abc">
-                                    <h6>Thumbnail label</h6>
-                                    <p>Description</p>
-                                    <Button bsStyle="primary"
-                                            style={{padding:"2px 6px",border:"none"}}
-                                    ><Glyphicon glyph="save"/></Button>
-                                    &nbsp;
-                                    <Button bsStyle="default"
-                                            style={{padding:"2px 6px",border:"none"}}
-                                    ><Glyphicon glyph="save"/></Button>
-                                    </div>
-                                </Col>
+                                    <Col xs={6} sm={4} md={5} lg={4}>
+                                        <Image
+                                            src="/external/images/kebap.jpg"
+                                            height="80px"
+                                            circle
+                                            alt="242x200">
+                                        </Image>
+                                    </Col>
+                                    <Col xs={6} sm={8} md={7} lg={8}>
+                                        <div className="thumbnail-inline-abc">
+                                            <h5>Thumbnail内部测试部分支付类业务</h5>
+                                            <p>Description</p>
+                                            <Button bsStyle="primary"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                            &nbsp;
+                                            <Button bsStyle="default"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                        </div>
+                                    </Col>
                                 </div>
                             </Col>
                         </Row>
                     </Grid>
+                    </AbcPanel>
+                    <AbcPanel  header={authenticationAdimHeader}>
                     <Grid>
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3} >
                                 <div className="thumbnail-abc">
                                     <Image
                                         src="/external/images/pizza.jpg"
-
                                         alt="Pizza">
                                     </Image>
-                                    <div className="thumbnail-content-abc">
-                                        <h5>Thumbnail</h5>
-                                        <p>Description</p>
+                                    <div className="thumbnail-content-abc"
+                                         style={{color:"red"}}>
+                                        <h5 style={{fontSize:"8px"}}>公开测试部分上海区代理</h5>
+                                        <p  style={{fontSize:"6px"}}>支付类试用12个月</p>
                                         <Button bsStyle="primary"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
@@ -220,18 +243,44 @@ export default class AuthenticationList extends React.Component {
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                    </div>
+                                    <div  className="thumbnail-operator-abc">
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
+                                    </div>
                                 </div>
                             </Col>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3} >
                                 <div className="thumbnail-abc">
                                     <Image
                                         src="/external/images/pizza.jpg"
-
                                         alt="Pizza">
                                     </Image>
                                     <div className="thumbnail-content-abc">
                                         <h5>Thumbnail</h5>
                                         <p>Description</p>
+                                        <Button bsStyle="primary"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                        &nbsp;
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <h5>公开测试部分北京区代理</h5>
+                                        <p>三个月开放</p>
                                         <Button bsStyle="primary"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
@@ -266,7 +315,6 @@ export default class AuthenticationList extends React.Component {
                                 <div className="thumbnail-abc">
                                     <Image
                                         src="/external/images/pizza.jpg"
-
                                         alt="Pizza">
                                     </Image>
                                     <div className="thumbnail-content-abc">
@@ -280,58 +328,67 @@ export default class AuthenticationList extends React.Component {
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                     </div>
-                                </div>
-                            </Col>
-                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
-                                <div className="thumbnail-abc">
-                                    <Image
-                                        src="/external/images/pizza.jpg"
-
-                                        alt="Pizza">
-                                    </Image>
-                                    <div className="thumbnail-content-abc">
-                                        <h5>Thumbnail</h5>
-                                        <p>Description</p>
-                                        <Button bsStyle="primary"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                        &nbsp;
+                                    <div  className="thumbnail-operator-abc">
                                         <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
                                     </div>
                                 </div>
                             </Col>
                         </Row>
                     </Grid>
-                    <Grid>
-                        <Row>
-                           <Col xs={6} md={4}>
-                               <Image height="80px" width="120px"
-                                      src="/external/images/ͼƬ1.jpg"
-                                      style={{position:"relative" , float:"left" ,
-                                                    margin:"10px 4px"
-                                               }}
-                                      alt="Pizza">
-                               </Image>
-                               <div style={{position:"relative" , float:"left",lineHeight:"8px"}}>
-                                   <h5>Thumbnail label</h5>
-                                   <p>Description</p>
-                                   <p>
-                                       <Button bsStyle="primary"
-                                               style={{padding:"2px 6px",border:"none"}}
-                                       ><Glyphicon glyph="save"/></Button>
-                                       &nbsp;
-                                       <Button bsStyle="default"
-                                               style={{padding:"2px 6px",border:"none"}}
-                                       ><Glyphicon glyph="save"/></Button>
-                                   </p>
-                               </div>
-                            </Col>
-                        </Row>
-                    </Grid>
+
+                </AbcPanel>
+                <AbcPanel>
+                    <Media.List>
+                        <Media.ListItem>
+                            <Media.Left>
+                                <img width={64} height={64} src="/external/images/pizza.jpg" alt="Image"/>
+                            </Media.Left>
+                            <Media.Body>
+                                <Media.Heading>权限</Media.Heading>
+                                <p>Cras sit amet nibh libero, in gravida nulla.
+                                    Nulla vel metus scelerisque ante sollicitudin commodo.
+                                    Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+
+                                <Media>
+                                    <Media.Left>
+                                        <img width={64} height={64} src="/external/images/pizza.jpg" alt="Image"/>
+                                    </Media.Left>
+                                    <Media.Body>
+                                        <Media.Heading>Nested media heading</Media.Heading>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.
+                                            Nulla vel metus scelerisque ante sollicitudin commodo.
+                                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.
+                                            Nulla vel metus scelerisque ante sollicitudin commodo.
+                                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.
+                                            Nulla vel metus scelerisque ante sollicitudin commodo.
+                                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                                    </Media.Body>
+                                </Media>
+
+                                <Media>
+                                    <Media.Left>
+                                        <img width={64} height={64} src="/external/images/pizza.jpg" alt="Image"/>
+                                    </Media.Left>
+                                    <Media.Body>
+                                        <Media.Heading>Nested media heading</Media.Heading>
+                                        <p>Cras sit amet nibh libero, in gravida nulla.
+                                            Nulla vel metus scelerisque ante sollicitudin commodo.
+                                            Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+                                    </Media.Body>
+                                </Media>
+                            </Media.Body>
+                        </Media.ListItem>
+                    </Media.List>
                 </AbcPanel>
             </AbcPanel>
+
         )
     }
 
