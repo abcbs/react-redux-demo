@@ -159,10 +159,10 @@ export default async function({ preload, initialize, localize, assets,
 		const result = await render_page
 		({
 			disable_server_side_rendering: render === false,
-			
+
 			url,
 
-			create_page_element: (child_element, props) => 
+			create_page_element: (child_element, props) =>
 			{
 				if (localize)
 				{
@@ -196,7 +196,7 @@ export default async function({ preload, initialize, localize, assets,
 					body_end = body_end(url)
 				}
 
-				const markup = 
+				const markup =
 				(
 					<Html
 						development={development}

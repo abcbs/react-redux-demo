@@ -86,7 +86,6 @@ class Col extends React.Component {
       delete elementProps[hiddenPropName];
     });
 
-    console.log("Col=========================> ,",this.props);
     return (
       <Component
         {...elementProps}

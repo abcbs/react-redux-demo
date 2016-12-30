@@ -50,7 +50,7 @@
       }
     },
     "abc:run": {
-      "command": "node ./lib/es/abc-proxy/renders/react-isomorphic-render-server.js",
+      "command": "node ./lib/es/abc-proxy/debug/debug.js  --iso_config ../../../../config/webpack-isomorphic-tools  --iso_rootDir ./../../../../  --publicPath ../../",
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "production",

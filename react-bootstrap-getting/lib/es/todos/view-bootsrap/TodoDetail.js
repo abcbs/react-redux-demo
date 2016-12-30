@@ -88,9 +88,6 @@ var TodoDetail = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            (0, _logger2['default'])("render,props,", this.props);
-            (0, _logger2['default'])("render,state,", this.state);
-
             var _props = this.props;
             var formName = _props.formName;
             var btnName = _props.btnName;

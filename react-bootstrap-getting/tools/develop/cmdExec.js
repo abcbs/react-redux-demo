@@ -53,7 +53,7 @@ export default function runCmd(name, cmd, options,fn) {
     .catch(err => {
       if (catchExec(name, err)) {
         // Restart if not explicitly shutdown
-        // runCmd(name, cmd, options);
+        // runCmd(name, cmd, options,fn);
         if(fn){
           fn(err);
         }

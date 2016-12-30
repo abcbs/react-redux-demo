@@ -35,7 +35,7 @@ function fetchUsers()
             (err=>{
                     console.log("没有网络，或者网络过慢，请稍等再试,",err);
                     errorInfo(" 没有网络，或者网络过慢，请稍等再试")
-                    throw new Error("Final,NO Net");
+                    // throw new Error("Final,NO Net");
                 }
             )
         ),

@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route,IndexRoute, browserHistory } from 'react-router';
 import authorization from '../authorize/authorize'
 import AbcMainPage from '../ui/AbcMainPage'
+
 //
 import Not_found        from '../../abc-ui/errors/notfound'
 import Unauthenticated  from '../../abc-ui/errors/unauthenticated'
@@ -16,14 +17,16 @@ import IntroductionPage from '../../todos/frames/IntroductionPage'
 import HomePage from '../../todos/frames/HomePage'
 import {UserPage} from '../../abc-core-component/users/User-Index'
 import {AuthenticationPage} from '../../abc-core-component/authentication/Authentication-Index'
+import {ProductPage} from '../../abc-core-component/products/Product-Index'
 const authorize = (component, is_authorized) => authorization(is_authorized)(component);
 
 export default (//component={authorize(IntroductionPage)}
     <Route path="/" component={AbcMainPage}>
-        <IndexRoute component={AuthenticationPage}/>
+        <IndexRoute component={ProductPage}/>
         <Route  path="/app(/:filter)" component={App} />
         <Route  path="/user" component={UserPage} />
         <Route  path="/authentication" component={AuthenticationPage} />
+         <Route  path="/product" component={ProductPage} />
         <Route  path="/home" component={HomePage} />
         <Route  path="/introduct" component={authorize(IntroductionPage)} />
         <Route path="unauthenticated" status={401} component={Unauthenticated}/>

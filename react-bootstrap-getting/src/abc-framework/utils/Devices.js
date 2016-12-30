@@ -18,7 +18,7 @@ export function devicePixelRatio() {
 }
 
 export function fixedDevice() {
-            try{
+       try{
             var win= window;
             var dpr =1, scale =1;
             var isIPhone = win.navigator.appVersion.match(/iphone/gi);
@@ -53,9 +53,9 @@ export function fixedDevice() {
                     'maximum-scale = '+scale+', ' +
                     'maximum-scale = '+scale+', target-densitydpi=device-dpi">');
             }
-            }catch(err){
+        }catch(err){
                 return;
-            }
+        }
 }
 
 export function clientWidth() {
@@ -81,13 +81,13 @@ export function clientWidth() {
         return xs;//手机
     }
 }
-try{
-    if(window){
-        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", clientWidth, false);
-    }
-}catch (err){
-    console.log("err,",err);
-}
+// try{
+//     if(window){
+//         window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", clientWidth, false);
+//     }
+// }catch (err){
+//     console.log("err,",err);
+// }
 export default function Devices  () {
     try{
 

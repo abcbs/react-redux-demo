@@ -8,7 +8,7 @@ import {HeaderInnerHTML,BodyStart,Header} from './Html'
 import staticServer from 'koa-static';
 import koa  from  'koa';
 import compress from 'koa-compress';
-import etag from 'koa-etag';
+// import etag from 'koa-etag';
 import proxy from '../../../servers/abc-framework/http/middleware/proxy'
 import {options} from './abc-args';
 import Spinner from '../../abc-ui/spinner'
@@ -92,6 +92,7 @@ const server = webpageServer
     initialize: async(httpClient, {request}) => {
         //const user = await http.get(`/users/current`)
         //得到初始 state
+        console.log("httpClient:"+httpClient)
         var data=await {present:[{text:"我当前时间为"+(new Date),completed:false},
         {text:"服务端测试数据",completed:false}]};
         //模拟数据
@@ -165,7 +166,7 @@ server.use(compress({
     flush: require('zlib').Z_SYNC_FLUSH
 }))
 
-server.use(etag());
+// server.use(etag());
 // var router = require('koa-router')();
 // var db = {
 //     tobi: { name: 'tobi', species: 'ferret' },
@@ -212,7 +213,8 @@ server.listen(port, function(error)
 {
     if (error)
     {
-        throw error
+        // throw error
+        console.error('error服务端异常:',error)
     }
 
     console.log(`Webpage rendering server is listening at http://${host}:${port}`)

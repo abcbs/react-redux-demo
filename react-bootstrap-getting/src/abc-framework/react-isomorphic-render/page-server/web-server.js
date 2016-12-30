@@ -99,7 +99,8 @@ export default function start_webpage_rendering_server(options, common)
 			ctx.status = typeof error.status === 'number' ? error.status : 500
 			ctx.message = error.message || 'Internal error'
 			//服务端异常跳转到首页
-			ctx.redirect('/app');
+			ctx.redirect('/product');
+
 		}
 	})
 

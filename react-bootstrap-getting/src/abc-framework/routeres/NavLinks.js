@@ -10,6 +10,13 @@ const NAV_LINKS = {
         // subLink:[App,IntroductionPage,HomePage],
         role:"public"
     },
+    ProductPage: {
+        path: '/product',
+        nav:'/product',
+        title: '商品',
+        subTitle:"商品购物管理",
+        role:"private"
+    },
     UserPage: {
         path: '/user',
         nav:'/user',

@@ -82,9 +82,6 @@ module.exports = function(babel) {
           }
           // Replace __DEV__ with process.env.NODE_ENV !== 'production'
           //如果你想检查节点的类型__DEV__
-          if (path.isIdentifier({name: '__DEV__'})) {
-            path.replaceWith(DEV_EXPRESSION);
-          }
         },
       },
       CallExpression: {
@@ -109,6 +106,14 @@ module.exports = function(babel) {
               node[SEEN_SYMBOL]=true;
               return;
             }
+          }
+          if (
+              path.get('callee').isIdentifier({name: 'info'})
+          ){
+              path.remove();
+              node[SEEN_SYMBOL]=true;
+              return;
+            // }
           }
           // Insert `var PROD_INVARIANT = require('reactProdInvariant');`
           // before all `require('invariant')`s.

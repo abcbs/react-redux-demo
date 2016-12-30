@@ -69,10 +69,14 @@ import ModalExample from './ModalExample'
 // }
 //
 const  errorInfo =(message)=>{
+    try{
     const root= React.createElement(AbcErrorPage, {errorMessage:message ,show:true} );
     const mountNode= document.getElementById('root');
     ReactDOM.render(root, mountNode)
     // ReactDOM.unmountComponentAtNode(mountNode);
+    }catch(error){
+        console.log("err,",error)
+    }
 }
 //
 export  default errorInfo;
