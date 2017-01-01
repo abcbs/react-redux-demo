@@ -245,13 +245,14 @@
     margin-top:0px;
     height: 72px;
     //width: 160px;
-    //font-size: 8px;
+    font-size: 9px;
     h5,p{
       height: 12px;
       line-height:12px;
       word-wrap:break-word;
       //overflow:hidden;
       text-overflow:ellipsis;
+      font-size: 9px;
       @media (width: @screen-xp) {//6plus横屏
         font-size: 12px;
       }
@@ -289,7 +290,7 @@
 
     @media (width: 480px) {//
       padding-left:0px;
-      margin-left:-20px !important;
+      margin-left:-20px;
     }
     @media (width: @screen-xs5) {//
       padding-left:0px;
@@ -306,22 +307,23 @@
     @media (width: @screen-xpv){//竖屏
       margin-top:6px;
       margin-left:-30px;
-      font-size: 10px;
+      font-size: 9px;
       height:56px;
       .btn{
-        font-size: 10px;
+        font-size: 9px;
       }
       p{
         //display: none;
       }
       h5{
-        font-size: 10px;
+        font-size: 9px;
       }
     }
 
     //三星5.8寸 GT-152，竖屏
-    @media (min-width: @screen-gtv) and (min-height: @screen-gtvx){
+    @media (min-width: @screen-gtv) and (max-width: @screen-gtvx){
       margin-left:-40px;
+      background-color: red;
     }
 
     //三星5.8寸 GT-152，横屏

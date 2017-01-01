@@ -46,7 +46,7 @@ requirejs.config({
             var metaEl = "";
             metaEl = window.document.createElement('meta');
             metaEl.setAttribute('name', 'viewport');
-            metaEl.setAttribute('content', 'initial-scale=' +
+            metaEl.setAttribute('content', 'width=device-width, initial-scale=' +
                 scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
             var header=window.document.getElementsByTagName("head");
             if (header[0]) {

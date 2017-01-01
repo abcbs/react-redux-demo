@@ -107,7 +107,14 @@
 @screen-sm-max:              (@screen-md-min - 1);
 @screen-md-max:              (@screen-lg-min - 1);
 
-@screen-lg-md:                  1440px;
+@screen-lg-md:                  1438px;
+@screen-lg-mdx:                 1500px;
+
+@screen-lg-xl:                  1900px;
+@screen-lg-xlx:                 2000px;
+//
+@screen-lg-chrome:                  1700px;
+@screen-lg-chromex:                 1740px;
 
 @screen-xss:                   640px;
 
@@ -116,8 +123,8 @@
 @screen-xs4:                   480px;
 //
 @screen-xs5v:                   320px;//5s竖屏/4s竖屏
-@screen-xs5:                    568px;//5s横屏
-@screen-xs5s:                  570px;//小于568
+@screen-xs5:                    568px;//5s横屏,横屏，下线
+@screen-xs5s:                   570px;//小于568
 
 @screen-xs6:                   667px;//apple-6/640
 @screen-xs6v:                  375px;//apple-6/竖屏
@@ -125,7 +132,9 @@
 //iphone 7 1334*750（iphone6s Retina HD） 4.7英寸
 
 //苹果6 plus 5.5英寸 1000-1600
-@screen-xp:                    736px;//apple-6plus
+@screen-xp:                    730px;//apple-6plus
+@screen-xpx:                    750px;//apple-6plus
+
 @screen-xpv:                   414px;//apple-6plus 竖屏
 
 //5寸，三星S6，华为SCL，1280/720
@@ -136,12 +145,19 @@
 @screen-scl:                   580px;//5寸下线
 @screen-sclx:                  650px;//5寸上线
 
-//5.8寸,三星GT-I9152,960 540 dpr:1.5 360 567
-@screen-gtv:                  360px;//apple-6/竖屏
-@screen-gtvx:                 567px;//apple-6/竖屏
+//5.8寸,三星GT-I9152,960 540 dpr:1.5 360+180 567+283 840
+@screen-gtv:                  500px;//apple-6/竖屏
+@screen-gtvx:                 558px;//apple-6/竖屏
 
-@screen-gt:                  640px;//apple-6/横屏
-@screen-gtx:                  287px;//apple-6/横屏
+@screen-gt:                  800px;//apple-6/横屏
+@screen-gtx:                 1000px;//apple-6/横屏
+
+//pad
+@screen-pad2:                  768px;//apple-6/竖屏
+@screen-pad2a:                  927px;//apple-6/竖屏
+
+@screen-pad2v:                  1024px;//apple-6/横屏
+@screen-pad2vv:                  671px;//apple-6/横屏
 //panle背景色
 @panel-abc-heading-bg: #f5f5f5;;
 @bnt-abc-bg:  rgba(255, 255, 255, 0.01);

@@ -1,0 +1,167 @@
+//上图，下文字，每行四列，5个汉字，10汉字
+.thumbnail-b-image-abc {
+  padding-top:2px;
+  padding-right:2px;
+  margin-bottom:8px;
+  margin-right:2px;
+  //margin-left: 20px;
+  border:1px solid #ddd;
+  border-radius:4px;
+  transition:border 0.2s ease-in-out;
+  font-size: 14px;
+  height: 100%;
+  width: 100%;
+
+  @imageWidth:14rem;
+
+
+  h6,p {
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-left: 14px;
+  }
+
+  h6{
+    font-weight: 700;
+    //华为5寸，横屏
+    @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+      font-size:14px
+    }
+    @media (min-width: @screen-xp) and (max-width: @screen-xpx){
+      font-size:14px
+    }
+    //笔记本
+    @media (min-width: @screen-lg-md) and (max-width: @screen-lg-mdx){
+      font-size:14px
+    }
+
+    //笔记本
+    @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
+      font-size:14px
+    }
+    //三星5.8，竖屏
+    @media(min-width: @screen-gtv) and (max-width: @screen-gtvx)and
+    (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+      font-size:18px;
+    }
+    //三星5.8，横屏
+    @media(min-width: @screen-gt) and (max-width: @screen-gtx)and
+    (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+      font-size:20px;
+    }
+  }
+  p{
+    font-size: 10px;
+    @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+      font-size:12px
+    }
+    @media (min-width: @screen-xp) and (max-width: @screen-xpx){
+      font-size:12px
+    }
+    //
+    @media (min-width: @screen-xp) and (max-width: @screen-xpx){
+      font-size:12px
+    }
+
+    //笔记本
+    @media (min-width: @screen-lg-md) and (max-width: @screen-lg-mdx){
+      font-size:14px
+    }
+
+    //笔记本
+    @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
+      font-size:14px
+    }
+    //三星5.8，竖屏
+    @media(min-width: @screen-gtv) and (max-width: @screen-gtvx)and
+    (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+      font-size:14px;
+    }
+    //三星5.8，横屏
+    @media(min-width: @screen-gt) and (max-width: @screen-gtx)and
+    (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+      font-size:18px;
+    }
+
+    @media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+      /*iphone 6*/
+    }
+
+    @media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+      /*iphone 6 plus*/
+    }
+  }
+
+  img{
+    width:14rem;
+    height: 14rem;
+    //margin-left: 28px;
+    margin-left: 2.8rem;
+    //6plus横屏
+    @media (min-width: @screen-xp) and (max-width: @screen-xpx){
+      width:18rem;
+      height: 18rem;
+    }
+    //华为5寸，横屏
+    @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+      width:17rem;
+      height: 17rem;
+    }
+    //笔记本
+    @media (min-width: @screen-lg-md) and (max-width: @screen-lg-mdx){
+      width:17rem;
+      height: 17rem;
+    }
+
+    //笔记本
+    @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
+      width:23rem;
+      height: 23rem;
+    }
+    //笔记本
+    @media(min-width: @screen-lg-chrome) and (max-width: @screen-lg-chromex){
+      width:18rem;
+      height: 18rem;
+    }
+    //三星5.8寸 GT-152，竖屏s
+    @media (min-width: @screen-gtv) and (max-width: @screen-gtvx)
+        and (-webkit-max-device-pixel-ratio : 1.9)
+        and (-webkit-min-device-pixel-ratio : 1.4){
+        //margin-left:-20px;
+        width:16rem;
+        height: 16rem;
+    }
+    //三星5.8，横屏
+    @media(min-width: @screen-gt) and (max-width: @screen-gtx)and
+    (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+      width:20rem;
+      height: 20rem;
+    }
+
+    //设备宽度和屏幕宽度，pad2
+    @media (min-width : @screen-pad2) and (max-device-width :
+            @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) {
+      margin-left:26px;
+    }
+  }
+
+  .thumbnail-inline-abc {
+    margin-top:6px;
+    margin-left: 28px;
+    margin-bottom: 6px;
+  }
+
+  .thumbnail-operator-abc {
+    //top: 20%;
+    right:0;
+    //position:absolute;
+    opacity: 0.6;
+    .btn{
+      //display: block;
+    }
+  }
+
+}
+
+
+

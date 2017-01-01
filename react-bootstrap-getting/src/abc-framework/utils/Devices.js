@@ -81,13 +81,28 @@ export function clientWidth() {
         return xs;//手机
     }
 }
-// try{
-//     if(window){
-//         window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", clientWidth, false);
+
+
+// var g;
+// if (typeof window !== "undefined") {
+//
+//     g = window;
+//     try{
+//         if(window){
+//             g.addEventListener("onorientationchange" in window ?
+//                     "orientationchange" : "resize", clientWidth, false);
+//         }
+//     }catch (err){
+//         console.log("err,",err);
 //     }
-// }catch (err){
-//     console.log("err,",err);
+// } else if (typeof global !== "undefined") {
+//     g = global;
+// } else if (typeof self !== "undefined") {
+//     g = self;
+// } else {
+//    g = this;
 // }
+
 export default function Devices  () {
     try{
 
