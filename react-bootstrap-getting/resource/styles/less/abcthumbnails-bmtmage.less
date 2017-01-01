@@ -21,7 +21,7 @@
     margin-left: 14px;
   }
 
-  h6{
+  h5,h6{
     font-weight: 700;
     //华为5寸，横屏
     @media (min-width: @screen-scl) and (max-width: @screen-sclx){
@@ -202,11 +202,7 @@
         margin-bottom: 4px;
         margin-top: 4px;
       }
-      //三星5.8寸 GT-152，竖屏
-      @media (min-width: @screen-gtv) and (max-width: @screen-gtvx){
-        //margin-bottom: 4px;
-        //margin-top: 4px;
-      }
+
     }
     h5{
       font-weight: 700;
@@ -235,10 +231,7 @@
       h5{
         font-size: 14px;
       }
-      img{
-        width:6rem;
-        height: 6rem;
-      }
+
     }
 
     //6plus竖屏
@@ -287,17 +280,6 @@
       }
     }
 
-    //三星5.8寸 GT-152，竖屏
-    @media (min-width: @screen-gtv) and (max-width: @screen-gtvx){
-      margin-left:-40px;
-    }
-
-    //三星5.8寸 GT-152，横屏
-    @media (min-width: @screen-gt) and (min-height: @screen-gtx){
-      margin-left:-20px;
-    }
-
-
     //笔记本
     @media (min-width: @screen-lg-md) and (max-width: @screen-lg-mdx){
       //width:17rem;
@@ -314,26 +296,57 @@
       //width:18rem;
       //height: 18rem;
     }
-    //三星5.8寸 GT-152，竖屏s
+    //三星5.8寸 GT-152，竖屏
     @media (min-width: @screen-gtv) and (max-width: @screen-gtvx)
     and (-webkit-max-device-pixel-ratio : 1.9)
     and (-webkit-min-device-pixel-ratio : 1.4){
-      //margin-left:-20px;
-      width:16rem;
-      height: 16rem;
+      font-size: 14px;
+      margin-top:2px;
+      //margin-left:-30px;
+      .btn{
+        font-size: 14px;
+      }
+      p{
+        font-size: 14px;
+      }
+      h5{
+        font-size: 16px;
+      }
+
     }
 
     //三星5.8，横屏
     @media(min-width: @screen-gt) and (max-width: @screen-gtx)and
     (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
-      //width:20rem;
-      //height: 20rem;
+      font-size: 20px;
+      margin-top:2px;
+        //margin-left:-30px;
+      .btn{
+        font-size: 20px;
+      }
+      p{
+        font-size: 18px;
+      }
+      h5{
+        font-size: 20px;
+      }
     }
 
     //设备宽度和屏幕宽度，pad2
     @media (min-width : @screen-pad2) and (max-device-width :
             @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) {
-      //margin-left:26px;
+      font-size: 12px;
+      margin-top:2px;
+      //margin-left:-30px;
+      .btn{
+        font-size: 12px;
+      }
+      p{
+        font-size: 12px;
+      }
+      h5{
+        font-size: 14px;
+      }
     }
   }
 
