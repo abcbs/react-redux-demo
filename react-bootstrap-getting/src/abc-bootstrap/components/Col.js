@@ -18,6 +18,8 @@ const propTypes = {
 
   lg: React.PropTypes.number,
 
+  xpHidden: React.PropTypes.bool,
+
   xsHidden: React.PropTypes.bool,
 
   smHidden: React.PropTypes.bool,

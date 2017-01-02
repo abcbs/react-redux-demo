@@ -1,0 +1,95 @@
+.content-setting(){
+
+}
+
+.height-setting(@height){
+  height:@height;
+}
+
+
+//三星5.8，竖屏
+.height-gt-v(@height) {
+  @media(min-width: @screen-gtv) and (max-width: @screen-gtvx) and
+  (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+    .height-setting(@height);
+  }
+}
+
+//三星5.8，横屏
+.height-gt-h(@height) {
+  @media(min-width: @screen-gt) and (max-width: @screen-gtx)and
+  (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+    .height-setting(@height);
+  }
+}
+//6plus竖屏
+.height-6plus-v(@height){
+  @media (min-width: @screen-xpv) and (max-width: @screen-xpvx) and  (-webkit-min-device-pixel-ratio : 3){
+    .height-setting(@height);
+  }
+}
+
+//6plus横屏
+.height-6plus-h(@height){
+  @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
+    .height-setting(@height);
+  }
+}
+
+//华为、三星5寸，竖屏
+.height-5scl-v(@height){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+    .height-setting(@height);
+  }
+}
+
+//华为5寸，横屏
+.height-5scl-h(@height){
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+    .height-setting(@height);
+  }
+}
+
+/////////////
+//三星5.8，竖屏
+.bottom-gt-v(@bottom) {
+  @media(min-width: @screen-gtv) and (max-width: @screen-gtvx) and
+  (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+    bottom: @bottom;
+  }
+}
+
+//三星5.8，横屏
+.bottom-gt-h(@bottom) {
+  @media(min-width: @screen-gt) and (max-width: @screen-gtx)and
+  (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+    bottom: @bottom;
+  }
+}
+//6plus竖屏
+.bottom-6plus-v(@bottom){
+  @media (min-width: @screen-xpv) and (max-width: @screen-xpvx) and  (-webkit-min-device-pixel-ratio : 3){
+    bottom: @bottom;
+  }
+}
+
+//6plus横屏
+.bottom-6plus-h(@bottom){
+  @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
+    bottom: @bottom;
+  }
+}
+
+//华为、三星5寸，竖屏
+.bottom-5scl-v(@bottom){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+    bottom: @bottom;
+  }
+}
+
+//华为5寸，横屏
+.bottom-5scl-h(@bottom){
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+    bottom: @bottom;
+  }
+}

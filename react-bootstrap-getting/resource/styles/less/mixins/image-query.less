@@ -1,0 +1,54 @@
+.image-setting(@width; @marginLeft;@marginTop){
+  width: @width;
+  height:@width;
+  margin-left:@marginLeft;
+  margin-right: @marginLeft;
+  margin-top: @marginTop;
+}
+
+//三星5.8，竖屏
+.image-gt-v(@width; @marginLeft: @gt-margin-v-left;@marginTop:@gt-margin-v-top) {
+  @media(min-width: @screen-gtv) and (max-width: @screen-gtvx) and
+  (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+    .image-setting(@width; @marginLeft;@marginTop);
+  }
+}
+
+//三星5.8，横屏
+.image-gt-h(@width; @marginLeft: @gt-margin-h-left;@marginTop:@gt-margin-h-top) {
+  @media(min-width: @screen-gt) and (max-width: @screen-gtx)and
+  (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
+    .image-setting(@width; @marginLeft;@marginTop);
+  }
+}
+//6plus竖屏
+.image-6plus-v(@width; @marginLeft: @6plus-margin-v-left;
+                @marginTop: @6plus-margin-v-top){
+  @media (min-width: @screen-xpv) and (max-width: @screen-xpvx) and  (-webkit-min-device-pixel-ratio : 3){
+    .image-setting(@width; @marginLeft;@marginTop);
+  }
+}
+
+//6plus横屏
+.image-6plus-h(@width; @marginLeft: @6plus-margin-h-left;
+                @marginTop: @6plus-margin-h-top){
+  @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
+    .image-setting(@width; @marginLeft;@marginTop);
+  }
+}
+
+//华为、三星5寸，竖屏
+.image-5scl-v(@width; @marginLeft: @5scl-72-margin-v-left;
+                @marginTop: @5scl-72-margin-v-top){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+    .image-setting(@width; @marginLeft;@marginTop);
+  }
+}
+
+//华为5寸，横屏
+.image-5scl-h(@width; @marginLeft: @5scl-72-margin-h-left;
+                @marginTop: @5scl-72-margin-h-top){
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+    .image-setting(@width; @marginLeft;@marginTop);
+  }
+}

@@ -52,22 +52,383 @@ export default class ProductList extends React.Component {
         const authenticationListHeader=(<HeaderTitleAndNumber numbers="10" title="产品分类"/>);
         const authenticationAdimHeader=(<HeaderTitleAndNumber numbers="10" title="管理产品"/>);
         const productListHeader=(<HeaderTitleAndNumber numbers="2" title="热卖"/>);
-
+        const productHotHeader=(<HeaderTitleAndNumber numbers="6,3,3,2," title="产品上架"/>);
+        const productVenderHeader=(<HeaderTitleAndNumber numbers="3,2,2,2,1" title="供应商"/>);
+        const productHeader=(<HeaderTitleAndNumber numbers="10" title="产品"/>);
         return (
             <AbcPanel>
+                <AbcPanel  header={productHeader}>
+                    <Grid>
+                        <Row>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/kebap.jpg"
+                                        className="image-right"
+                                        alt="Pizza">
+                                    </Image>
+
+                                    <div className="thumbnail-content-abc"
+                                         style={{color:"red"}}>
+                                        <div>
+                                            <h5>公开测试部分上海区代理</h5>
+                                            <p>支付类试用12个月</p>
+                                        </div>
+                                    </div>
+                                    <div  className="thumbnail-operator-abc">
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        className="image-right"
+                                        circle
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <div>
+                                            <h5>公开测试部分上海区代理</h5>
+                                            <p>支付类试用12个月</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        className="image-right"
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <div>
+                                            <h5>公开测试部分上海区代理</h5>
+                                            <p>支付类试用12个月</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        className="image-right"
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <div>
+                                            <h5>Thumbnail</h5>
+                                            <p>Description</p>
+                                        </div>
+                                        <div className="thumbnail-buttons-abc">
+                                            <Button bsStyle="primary"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                            &nbsp;
+                                            <Button bsStyle="default"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        className="image-right"
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <div>
+                                            <h5>Thumbnail</h5>
+                                            <p>Description</p>
+                                        </div>
+                                        <div className="thumbnail-buttons-abc">
+                                            <Button bsStyle="primary"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                            &nbsp;
+                                            <Button bsStyle="default"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                        </div>
+                                    </div>
+
+                                    <div  className="thumbnail-operator-abc">
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Grid>
+
+                </AbcPanel>
+                <AbcPanel  header={productHeader}>
+                    <Grid>
+                        <Row>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/kebap.jpg"
+                                        alt="Pizza">
+                                    </Image>
+
+                                    <div className="thumbnail-content-abc"
+                                         style={{color:"red"}}>
+                                        <div>
+                                            <h5>公开测试部分上海区代理</h5>
+                                            <p>支付类试用12个月</p>
+                                        </div>
+                                    </div>
+                                    <div  className="thumbnail-operator-abc">
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        circle
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <div>
+                                            <h5>公开测试部分上海区代理</h5>
+                                            <p>支付类试用12个月</p>
+                                        </div>
+                                      </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <div>
+                                            <h5>公开测试部分上海区代理</h5>
+                                            <p>支付类试用12个月</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <div>
+                                            <h5>Thumbnail</h5>
+                                            <p>Description</p>
+                                        </div>
+                                        <div className="thumbnail-buttons-abc">
+                                            <Button bsStyle="primary"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                            &nbsp;
+                                            <Button bsStyle="default"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <div>
+                                            <h5>Thumbnail</h5>
+                                            <p>Description</p>
+                                        </div>
+                                        <div className="thumbnail-buttons-abc">
+                                            <Button bsStyle="primary"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                            &nbsp;
+                                            <Button bsStyle="default"
+                                                    style={{padding:"2px 6px",border:"none"}}
+                                            ><Glyphicon glyph="save"/></Button>
+                                        </div>
+                                    </div>
+
+                                    <div  className="thumbnail-operator-abc">
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Grid>
+
+                </AbcPanel>
+                <AbcPanel  header={productHeader}>
+                    <Grid>
+                        <Row>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/kebap.jpg"
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc"
+                                         style={{color:"red"}}>
+                                        <h5  >公开测试部分上海区代理</h5>
+                                        <p >支付类试用12个月</p>
+                                        <Button bsStyle="primary"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                        &nbsp;
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                    </div>
+                                    <div  className="thumbnail-operator-abc">
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        circle
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <h5>公开测试部分上海区代理</h5>
+                                        <p>支付类试用12个月</p>
+                                        <Button bsStyle="primary"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                        &nbsp;
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <h5>公开测试部分北京区代理</h5>
+                                        <p>三个月开放</p>
+                                        <Button bsStyle="primary"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                        &nbsp;
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <h5>Thumbnail</h5>
+                                        <p>Description</p>
+                                        <Button bsStyle="primary"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                        &nbsp;
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={4} md={3} lg={3} >
+                                <div className="thumbnail-image-content-abc">
+                                    <Image
+                                        src="/external/images/pizza.jpg"
+                                        alt="Pizza">
+                                    </Image>
+                                    <div className="thumbnail-content-abc">
+                                        <h5>Thumbnail</h5>
+                                        <p>Description</p>
+                                        <Button bsStyle="primary"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                        &nbsp;
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="save"/></Button>
+                                    </div>
+                                    <div  className="thumbnail-operator-abc">
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="pencil"/></Button>
+                                        <Button bsStyle="default"
+                                                style={{padding:"2px 6px",border:"none"}}
+                                        ><Glyphicon glyph="trash"/></Button>
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Grid>
+
+                </AbcPanel>
                 <AbcPanel  header={authenticationAdimHeader}>
                     <Grid>
                         <Row>
-                            <Col xs={3} xp={2} smmdHidden mdHidden={true} lgHidden={true} >
+                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
                                 <div className="thumbnail-b-image-abc">
                                     <Image
                                         src="/external/images/kebap.jpg"
-                                        style={{width:"4rem",height:"4rem", marginLeft:"2rem"}}
+                                        className="b-image-xs"
                                         alt="Pizza">
                                     </Image>
                                     <div className="thumbnail-xs4-abc"
                                          style={{color:"red"}}>
-                                        <h5  >上海区代理</h5>
+                                        <h5>上海区代理</h5>
                                         <p >试用12个月</p>
                                         <Button bsStyle="primary"
                                                 style={{padding:"2px 6px",border:"none"}}
@@ -78,11 +439,11 @@ export default class ProductList extends React.Component {
                                     </div>
                                 </div>
                             </Col>
-                            <Col xs={3} xp={2} smmdHidden mdHidden={true} lgHidden={true} >
+                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
                                 <div className="thumbnail-b-image-abc">
                                     <Image
                                         src="/external/images/pizza.jpg"
-                                        style={{width:"4rem",height:"4rem", marginLeft:"2rem"}}
+                                        className="b-image-xs"
                                         circle
                                         alt="Pizza">
                                     </Image>
@@ -99,11 +460,11 @@ export default class ProductList extends React.Component {
                                     </div>
                                 </div>
                             </Col>
-                            <Col xs={3} xp={2} smmdHidden mdHidden={true} lgHidden={true} >
+                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
                                 <div className="thumbnail-b-image-abc">
                                     <Image
                                         src="/external/images/pizza.jpg"
-                                        style={{width:"4rem",height:"4rem", marginLeft:"2rem"}}
+                                        className="b-image-xs"
                                         alt="Pizza">
                                     </Image>
                                     <div className="thumbnail-xs4-abc">
@@ -119,11 +480,11 @@ export default class ProductList extends React.Component {
                                     </div>
                                 </div>
                             </Col>
-                            <Col xs={3} xp={2} smmdHidden mdHidden={true} lgHidden={true} >
+                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
                                 <div className="thumbnail-b-image-abc">
                                     <Image
                                         src="/external/images/pizza.jpg"
-                                        style={{width:"4rem",height:"4rem", marginLeft:"2rem"}}
+                                        className="b-image-xs"
                                         alt="Pizza">
                                     </Image>
                                     <div className="thumbnail-xs4-abc">
@@ -138,11 +499,11 @@ export default class ProductList extends React.Component {
                                     </div>
                                 </div>
                             </Col>
-                            <Col xs={3} xp={2} smmdHidden mdHidden={true} lgHidden={true} >
+                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
                                 <div className="thumbnail-b-image-abc">
                                     <Image
                                         src="/external/images/pizza.jpg"
-                                        style={{width:"4rem",height:"4rem", marginLeft:"2rem"}}
+                                        className="b-image-xs"
                                         alt="Pizza">
                                     </Image>
                                     <div className="thumbnail-xs4-abc">
@@ -162,10 +523,10 @@ export default class ProductList extends React.Component {
                     </Grid>
 
                 </AbcPanel>
-                <AbcPanel  header={authenticationListHeader}>
+                <AbcPanel  header={productHotHeader}>
                     <Grid className="container-abc">
                         <Row>
-                            <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
+                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
                                 <div className="thumbnail-b-image-abc">
                                     <div >
                                         <h6>公开测试部分上海区代理</h6>
@@ -176,6 +537,7 @@ export default class ProductList extends React.Component {
                                     <Row>
                                         <Col xs={12} sm={12} md={12} lg={12}>
                                             <Image
+                                                className="b-image"
                                                 src="/external/images/kebap.jpg">
                                             </Image>
                                         </Col>
@@ -204,7 +566,7 @@ export default class ProductList extends React.Component {
                                     </Row>
                                 </div>
                             </Col>
-                            <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
+                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
                                 <div className="thumbnail-b-image-abc">
                                     <div >
                                         <h6  >公开测试部分上海区代理</h6>
@@ -237,6 +599,7 @@ export default class ProductList extends React.Component {
 
                                     <Row>
                                         <Image
+                                            className="b-image"
                                             src="/external/images/kebap.jpg">
                                         </Image>
                                     </Row>
@@ -248,7 +611,7 @@ export default class ProductList extends React.Component {
 
                                 </div>
                             </Col>
-                            <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
+                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
                                 <div className="thumbnail-b-image-abc">
                                     <div >
                                         <h6  >公开测试部分上海区代理</h6>
@@ -258,6 +621,7 @@ export default class ProductList extends React.Component {
 
                                     <Row>
                                         <Image
+                                            className="b-image"
                                             src="/external/images/kebap.jpg">
                                         </Image>
                                     </Row>
@@ -293,7 +657,7 @@ export default class ProductList extends React.Component {
 
                                 </div>
                             </Col>
-                            <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
+                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
                                 <div className="thumbnail-b-image-abc">
                                     <div >
                                         <h6  >公开测试部分上海区代理</h6>
@@ -303,6 +667,7 @@ export default class ProductList extends React.Component {
 
                                     <Row>
                                         <Image
+                                            className="b-image"
                                             src="/external/images/kebap.jpg">
                                         </Image>
                                     </Row>
@@ -337,7 +702,7 @@ export default class ProductList extends React.Component {
                                     <div> <p >支付类试用12个月</p></div>
                                 </div>
                             </Col>
-                            <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
+                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
                                 <div className="thumbnail-b-image-abc">
                                     <div >
                                         <h6  >公开测试部分上海区代理</h6>
@@ -370,6 +735,7 @@ export default class ProductList extends React.Component {
 
                                     <Row>
                                         <Image
+                                            className="b-image"
                                             src="/external/images/kebap.jpg">
                                         </Image>
                                     </Row>
@@ -380,7 +746,7 @@ export default class ProductList extends React.Component {
 
                                 </div>
                             </Col>
-                            <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
+                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
                                 <div className="thumbnail-b-image-abc">
                                     <div >
                                         <h6  >公开测试部分上海区代理</h6>
@@ -413,6 +779,7 @@ export default class ProductList extends React.Component {
 
                                     <Row>
                                         <Image
+                                            className="b-image"
                                             src="/external/images/kebap.jpg">
                                         </Image>
                                     </Row>

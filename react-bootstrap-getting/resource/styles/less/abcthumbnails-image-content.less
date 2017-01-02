@@ -1,0 +1,152 @@
+@import-once "mixins/image-query";
+@import-once "abcvariables";
+//左右分裂,t图片基于80*80
+.thumbnail-image-content-abc {
+  padding-top:@content-72-72-padding-top;
+  padding-right:@content-72-72-padding-right;
+  padding-bottom:@content-72-72-padding-bottom;
+  margin-bottom:@content-72-72-margin-bottom;
+  margin-right:@content-72-72-margin-right;
+  border:1px solid #ddd;
+  border-radius:4px;
+  transition:border 0.2s ease-in-out;
+  line-height:1.2;
+  font-size: 14px;
+  width: 100%;
+  height: @72-72-content-height;
+
+  .height-6plus-v(@6plus-container-v-high);
+  .height-6plus-h(@6plus-container-h-high);
+  //华为5寸，竖屏
+  .height-5scl-v(@5scl-72-container-v-high);
+   //华为5寸，横屏
+  .height-5scl-h(@5scl-72-container-h-high);
+  //三星5.8寸 GT-152，竖屏
+  .height-gt-v(@gt-72-container-v-high);
+  .height-gt-v(@gt-72-container-h-high);
+
+  .thumbnail-buttons-abc{
+    //&:extend(.btn);
+    .btn{
+      font-size: 10px;
+    }
+    bottom: -10px;
+    position:relative;
+    .bottom-gt-v(-10px);
+    .bottom-gt-h(-10px);
+    .bottom-6plus-v(-20px);
+    .bottom-6plus-h(-22px);
+    .bottom-5scl-v(3px);
+    .bottom-5scl-h(-6px);
+  }
+
+
+
+  .thumbnail-operator-abc {
+    top: 20%;
+    right:0;
+    position:absolute;
+    opacity: 0.6;
+    .btn{
+      display: block;
+    }
+  }
+
+
+  img{
+    position:relative;
+    float:left;
+    margin-top:@image-72-72-margin-top;
+    margin-left: @image-72-72-margin-left;
+    margin-right:@image-72-72-margin-left;
+
+    width:@image-72-72;
+    height:@image-72-72;
+    //竖屏
+    .image-6plus-v(@6plus-image-v-with);
+    //横屏
+    .image-6plus-h(@6plus-image-h-with);
+    //
+    .image-5scl-v(@5scl-72-image-v-with);
+    .image-5scl-h(@5scl-72-image-h-with);
+    //5.8
+    .image-gt-v(@gt-72-image-v-with);
+    .image-gt-h(@gt-72-image-h-with);
+  }
+
+  .image-right{
+    //&:extend(img);
+
+    float: right;
+  }
+
+  .thumbnail-operator-right-abc{
+    &:extend(.thumbnail-operator-abc);
+  }
+  .thumbnail-content-abc{
+    margin-top:4px;
+    margin-bottom: 10px;
+
+    h5{
+      font-weight: 700;
+    }
+
+    h5,p{
+      font-size: small;
+      height: 12px;
+      line-height:12px;
+      word-wrap:break-word;
+      text-overflow:ellipsis;
+      margin-bottom: 4px;
+      margin-top: 4px;
+    }
+
+    //6plus竖屏
+    @media (min-width: @screen-xpv) and (max-width: @screen-xpvx) and  (-webkit-min-device-pixel-ratio : 3) {
+      margin-top:1px;
+      font-size: 10px;
+      .btn{
+        font-size: 10px;
+      }
+      p{
+        font-size: 10px;
+        margin:0 0;
+
+      }
+      h5{
+        font-size: 10px;
+
+      }
+    }
+
+    //华为竖屏
+    @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+      font-size: 9px;
+      .btn{
+        font-size: 9px;
+      }
+      p{
+        font-size: 9px;
+      }
+      h5{
+        font-size: 9px;
+      }
+    }
+
+    //华为5寸，横屏
+    @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+      font-size: 10px;
+      .btn{
+        font-size: 10px;
+      }
+      p{
+        font-size: 10px;
+      }
+      h5{
+        font-size: 10px;
+      }
+    }
+  };
+}
+
+
