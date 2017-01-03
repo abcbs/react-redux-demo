@@ -10,7 +10,7 @@
   border:1px solid #ddd;
   border-radius:4px;
   transition:border 0.2s ease-in-out;
-  line-height:1.2;
+  //line-height:1.2;
   font-size: 14px;
   width: 100%;
   height: @72-72-content-height;
@@ -32,12 +32,12 @@
     }
     bottom: -10px;
     position:relative;
-    .bottom-gt-v(-10px);
-    .bottom-gt-h(-10px);
-    .bottom-6plus-v(-20px);
-    .bottom-6plus-h(-22px);
-    .bottom-5scl-v(3px);
-    .bottom-5scl-h(-6px);
+    .bottom-gt-v(@72-image-botton-bottom-gt-v);
+    .bottom-gt-h(@72-image-botton-bottom-gt-h);
+    .bottom-6plus-v(@72-image-botton-bottom-6plus-v);
+    .bottom-6plus-h(@72-image-botton-bottom-6plus-h);
+    .bottom-5scl-v(@72-image-botton-bottom-5scl-v);
+    .bottom-5scl-h(@72-image-botton-bottom-5scl-h);
   }
 
 
@@ -76,7 +76,6 @@
 
   .image-right{
     //&:extend(img);
-
     float: right;
   }
 
@@ -92,60 +91,24 @@
     }
 
     h5,p{
-      font-size: small;
-      height: 12px;
-      line-height:12px;
       word-wrap:break-word;
       text-overflow:ellipsis;
       margin-bottom: 4px;
       margin-top: 4px;
     }
+    &:extend(.content-list-font-xs  .common);
 
-    //6plus竖屏
-    @media (min-width: @screen-xpv) and (max-width: @screen-xpvx) and  (-webkit-min-device-pixel-ratio : 3) {
-      margin-top:1px;
-      font-size: 10px;
-      .btn{
-        font-size: 10px;
-      }
-      p{
-        font-size: 10px;
-        margin:0 0;
-
-      }
-      h5{
-        font-size: 10px;
-
-      }
+    h5{
+      &:extend(.content-list-font-xs  .title);
     }
 
-    //华为竖屏
-    @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
-      font-size: 9px;
-      .btn{
-        font-size: 9px;
-      }
-      p{
-        font-size: 9px;
-      }
-      h5{
-        font-size: 9px;
-      }
+    .btn{
+      &:extend(.content-list-font-xs  .content);
+    }
+    p{
+      &:extend(.content-list-font-xs > .content);
     }
 
-    //华为5寸，横屏
-    @media (min-width: @screen-scl) and (max-width: @screen-sclx){
-      font-size: 10px;
-      .btn{
-        font-size: 10px;
-      }
-      p{
-        font-size: 10px;
-      }
-      h5{
-        font-size: 10px;
-      }
-    }
   };
 }
 

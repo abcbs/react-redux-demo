@@ -39,7 +39,10 @@ function catchExec(name, err) {
 }
 
 export default function runCmd(name, cmd, options,fn) {
-  exec(cmd, options)
+  options={maxBuffer: 200 * 1024,
+      killSignal: 'SIGTERM',...options}
+
+      exec(cmd, options)
     .progress(childProcess => {
       listen(childProcess, name);
       processMap[name] = childProcess;
