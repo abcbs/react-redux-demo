@@ -82,6 +82,7 @@
   .thumbnail-operator-right-abc{
     &:extend(.thumbnail-operator-abc);
   }
+
   .thumbnail-content-abc{
     margin-top:4px;
     margin-bottom: 10px;
@@ -110,6 +111,102 @@
     }
 
   };
+
+}
+
+//单列显示
+.thumbnail-container-single-abc{
+  &:extend(.thumbnail-image-content-abc);
+  //style={{height:"14rem",lineHeight:"1.4"}}
+  height:14rem;
+  width: 100%;
+  line-height:1.6;
+
+  .widthAndHeight-6plus-v(auto,12rem);
+
+  .thumbnail-checkbox-single-abc{
+    position:relative;
+    float: right;
+    padding-top:4rem;
+    .padding-6plus-v(4rem;auto;auto;auto);
+    //4
+
+  }
+
+  h5,h6{
+    &:extend(.content-list-font-xs  .title);
+  }
+
+  .btn{
+    &:extend(.content-list-font-xs  .content);
+  }
+  p{
+    lineHeight:1.6;
+    &:extend(.content-list-font-xs  .content);
+  }
+
+  .thumbnail-content-abc{
+    .margin-6plus-v(2%;auto;auto;auto);
+    .margin-6plus-h(2%;auto;auto;auto);
+  }
+
+  .thumbnail-image-single-abc{
+    &:extend(.thumbnail-b-image-abc .b-image);
+    float: left;
+    width:10rem;
+    height:10rem;
+     //竖屏
+    .image-6plus-v(10rem;auto;10%);
+    //横屏
+    .image-6plus-h(10rem;auto;10%);
+
+    .image-5scl-v(@5scl-72-image-v-with);
+
+    .image-5scl-h(@5scl-72-image-h-with);
+    ////5.8
+    //.image-gt-v(@gt-72-image-v-with);
+    //.image-gt-h(@gt-72-image-h-with);
+    //Chromae 14rem
+    .widthAndHeight-lg-chrome(auto;14rem);
+    //
+    .image-pad2-v(12rem;auto;auto);
+  }
+
+  .thumbnail-content-abc{
+    position:relative;
+    margin-top:2%;
+
+    .cashContent{
+        h5{
+          line-height:1.6;
+        }
+       .inline{
+         display:inline;
+       }
+      .number-postion{
+        float:right;
+      }
+    }
+  }
+
+  .thumbnail-operator-abc{
+    .btn{
+      padding:2px 6px;
+      border:none
+    }
+  }
+
+  .thumbnail-toolbar-abc{
+    &:extend(.btn-toolbar);
+    .thumbnail-operator-abc;
+    //display:"-webkit-inline-box"
+    display:  inline-flex;
+
+    button{
+      display: inline;
+    }
+  }
+
 }
 
 
