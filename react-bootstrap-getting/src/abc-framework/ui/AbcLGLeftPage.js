@@ -48,7 +48,7 @@ export default class AbcLGLeftPage extends React.Component
 
 
                 </p>
-                <div style={{position:"fixed",bottom:"60px"}}>
+                <div>
                     <p style={{width:"200px"}}>
                         北京，好</p>
                 </div>

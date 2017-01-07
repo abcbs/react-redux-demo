@@ -141,6 +141,7 @@
 
 //iphone 7 1334*750（iphone6s Retina HD） 4.7英寸
 
+//////////////////////////////////////////////////////////////////////////////////////
 //苹果6 plus 5.5英寸 1000-1600，横屏
 @screen-xp:                     730px;//apple-6plus
 @screen-xpx:                    750px;//apple-6plus
@@ -148,28 +149,42 @@
 @screen-xpv:                     400px;//apple-6plus 竖屏
 @screen-xpvx:                    420px;//apple-6plus 竖屏
 
-//5寸，三星S6，华为SCL，1280/720
-@screen-sclv:                   320px;//apple-6/竖屏
-@screen-sclvx:                  370px;//apple-6/竖屏
+//5寸，三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为竖屏，375，5p320
+@screen-sclv:                   320px;//5寸，三星S6，华为SCL，1280/720/竖屏
+@screen-sclvx:                  380px;//5寸，三星S6，华为SCL，1280/720/竖屏
 
-//三星S6，华为SCL，1280/720
-@screen-scl:                     580px;//5寸下线
+//三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为横屏，667
+@screen-scl:                     560px;//5寸下线
 @screen-sclx:                    681px;//5寸上线
 
-//5.8寸,三星GT-I9152,960 540 dpr:1.5
-@screen-gtv:                     500px;//apple-6/竖屏
-@screen-gtvx:                    558px;//apple-6/竖屏
+//5寸，oppo 360/640 1.5
+@screen-5oppov:                   320px;//5寸，oppo 360/640 1.5/竖屏
+@screen-5oppovx:                  370px;//5寸，oppo 360/640 1.5/竖屏
 
-@screen-gt:                      768px;//apple-6/横屏
-@screen-gtx:                     920px;//apple-6/横屏
+//5寸，oppo 360/640
+@screen-5oppoh:                     560px;//5寸下线
+@screen-5oppohx:                    700px;//5寸上线
+
+//5.8寸,三星GT-I9152,960 540 dpr:1.5;
+//5寸，oppo 360/640 1.5
+@screen-gtv:                      320px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
+@screen-gtvx:                     370px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
+
+@screen-gt:                       425px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
+@screen-gtx:                      700px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
 
 //pad2
-@screen-pad2:                    921px;//apple-6/竖屏
+@screen-pad2:                    760px;//apple-6/竖屏
 @screen-pad2a:                   1000px;//apple-6/竖屏
 
-@screen-pad2v:                    1024px;//apple-6/横屏
+@screen-pad2v:                    1020px;//apple-6/横屏
 @screen-pad2vv:                   1190px;//apple-6/横屏
 
+//调试用颜色
+//@content-v-background-color: #fff;
+//@content-h-background-color: #46ff49;
+@content-v-background-color: #f;
+@content-h-background-color: #f;
 //图形与内容的Col
 //内容的Col
 @72-72-content-height:     8rem;//88px; 11px-rem
@@ -193,9 +208,9 @@
 //width:72px;height: 72px;
 //列表类字体调整
 @content-font-size: small;
-@content-font-gt-v-72-size: 14px;
-@content-font-gt-v-72-title: 14px;
-@content-font-gt-v-72-content: 12px;
+@content-font-gt-v-72-size: 11px;
+@content-font-gt-v-72-title: 11px;
+@content-font-gt-v-72-content: 10px;
 
 @content-font-gt-h-72-size: 18px;
 @content-font-gt-h-72-title: 18px;
@@ -253,13 +268,13 @@
 @content-font-5scl-h-md-title: 12px;
 @content-font-5scl-h-md-content: 11px;
 
-@content-font-6plus-v-md-size: 14px;
-@content-font-6plus-v-md-title: 14px;
-@content-font-6plus-v-md-content: 13px;
+@content-font-6plus-v-md-size: 12px;
+@content-font-6plus-v-md-title: 12px;
+@content-font-6plus-v-md-content: 11px;
 
-@content-font-6plus-h-md-size: 12px;
-@content-font-6plus-h-md-title: 12px;
-@content-font-6plus-h-md-content: 11px;
+@content-font-6plus-h-md-size: 13px;
+@content-font-6plus-h-md-title: 13px;
+@content-font-6plus-h-md-content: 12px;
 
 @content-font-pad2-v-md-size: 12px;
 @content-font-pad2-v-md-title: 11px;
@@ -354,12 +369,12 @@
 
 
 //5寸，三星S6，华为SCL，1280/720，竖屏
-@5scl-72-image-v-with:            46px;
+@5scl-72-image-v-with:            50px;
 @5scl-72-margin-v-left:           @image-72-72-margin-top;
 @5scl-72-margin-v-top:            @image-72-72-margin-left;
 
 //5寸，三星S6，华为SCL，1280/720，横屏
-@5scl-72-image-h-with:             56px;
+@5scl-72-image-h-with:             60px;
 @5scl-72-margin-h-left:             @image-72-72-margin-top;
 @5scl-72-margin-h-top:              @image-72-72-margin-left;
 
@@ -417,6 +432,12 @@
 @image-width-md-scl  :13rem;
 @image-margin-left-md-scl  : 2.5rem;
 
+@image-width-md-gt-v  :12rem;
+@image-margin-left-md-gt-v   : 26px;
+
+@image-width-md-gt-h  :14rem;
+@image-margin-left-md-gt-h   : 26px;
+
 @image-width-md-lg-chrome  :12rem;
 @image-margin-left-md-lg-chrome : 2.5rem;
 
@@ -436,6 +457,13 @@
 @image-width-lg-lg-chrome:  18rem;
 @image-width-lg-lg-pad2-v:@image-width-lg;
 @image-margin-left-lg-pad2-v:  26px;
+
+
+@image-width-lg-gt-v  :12rem;
+@image-margin-left-lg-gt-v   : 26px;
+
+@image-width-lg-gt-h  :14rem;
+@image-margin-left-lg-gt-h   : 26px;
 
 //两个图显示偏移，即b-image-continer
 //设置四个外补白，默认值为auto

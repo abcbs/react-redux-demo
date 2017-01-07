@@ -90,7 +90,7 @@ export default class AbcRightLGPage extends React.Component
             </p>
 
 
-            <div style={{position:"fixed",bottom:"60px"}}>
+            <div>
             <p style={{width:"200px"}}>
                世界，好</p>
             </div>

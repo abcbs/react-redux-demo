@@ -14,17 +14,14 @@
 
   @imageWidth:14rem;
 
-  h6,p {
-    word-wrap: break-word;
-    overflow: hidden;
+  h5,h6,p {
     margin-left: 14px;
-    //text-align: center;
   }
-
+  .content-sytle.title-setting(h5);
+  .content-sytle.title-setting(h6);
+  .content-sytle.content;
   h5,h6{
-    font-weight: 700;
-    //text-align: center;
-   &:extend(.content-list-font-lg .title);
+     &:extend(.content-list-font-lg .title);
   }
   p{
     &:extend(.content-list-font-lg .content);
@@ -48,6 +45,10 @@
     .image-lg-chrome(@image-width-lg-lg-chrome;@image-margin-left-lg;@image-margin-top-lg);
     //设备宽度和屏幕宽度，pad2
     .image-pad2-v(@image-width-lg-lg-pad2-v;@image-margin-left-lg-pad2-v;@image-margin-top-lg);
+    //
+    .image-gt-v(@image-width-lg-gt-v;@image-margin-left-lg-gt-v;auto);
+    .image-gt-h(@image-width-lg-gt-h;@image-margin-left-lg-gt-h;auto);
+
   }
 
   //md
@@ -57,34 +58,28 @@
     height: @image-height-md;
     margin-left: @image-margin-left-md;
 
+    .image-gt-v(@image-width-md-gt-v;@image-margin-left-md-gt-v;auto);
+    .image-gt-h(@image-width-md-gt-h;@image-margin-left-md-gt-h;auto);
+
     .image-5scl-h(@image-width-md-scl;
             @image-margin-left-md-scl;@image-margin-top-md);
+
     .image-lg-chrome(@image-width-md-lg-chrome;
             @image-margin-left-md-lg-chrome;@image-margin-top-md)
   }
-
+  //用于一行显示
   .b-image-xs{
     &:extend(img);
     width:@image-width-xs;
     height: @image-height-xs;
     margin-left:@image-margin-left-xs;
     margin-top: @image-margin-top-xs;
-    ////三星5.8寸 GT-152，竖屏
-    //.image-gt-v(@image-width-xs-gt-v;@image-margin-left-xs-gt-v;@image-margin-top-xs);
-    //.image-gt-h(@image-width-xs-gt-h;@image-margin-left-xs-gt-h;@image-margin-top-xs);
-    //.image-6plus-v(@image-width-xs-6plus-v;@image-margin-left-xs-6plus-v;@image-margin-top-xs-6plus-v);
-    //.image-6plus-h(@image-width-xs-6plus-h;@image-margin-left-xs-6plus-h;@image-margin-top-xs-6plus-h);
-    //.image-5scl-v(@image-width-xs-scl-v;@image-margin-left-xs-scl-v;@image-margin-top-xs-scl-v);
-    //.image-5scl-h(@image-width-xs-scl-h;@image-margin-left-xs-scl-h;@image-margin-top-xs-scl-v);
     .alignCenter-common(50%,50%);
   }
 
   .b-image-inline{
     &:extend(.thumbnail-image-content-abc img);
     margin-bottom: 1rem;
-    //width:@image-width-xs;
-    //height: @image-height-xs;
-
   }
 
   .b-image-continer{
@@ -116,7 +111,9 @@
 
   .thumbnail-md-abc{
     &:extend(.content-list-font-md  .common);
-
+    .content-sytle.title-setting(h5);
+    .content-sytle.title-setting(h6);
+    .content-sytle.content;
     h5,h6{
       &:extend(.content-list-font-md  .title);
     }
@@ -146,10 +143,14 @@
       .marginTopAndBottom-5scl-v(4px,4px);
       .marginTopAndBottom-5scl-h(4px,4px);
     }
+
     h5{
       font-weight: 700;
+      line-height:1.4
     }
 
+    .content-sytle.title-setting(h5);
+    .content-sytle.content;
     &:extend(.content-list-font-xs  .common);
 
     h5{

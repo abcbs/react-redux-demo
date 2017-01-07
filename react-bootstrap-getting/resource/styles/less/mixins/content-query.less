@@ -1,9 +1,6 @@
-
-
 .height-setting(@height){
   height:@height;
 }
-
 
 //三星5.8，竖屏
 .height-gt-v(@height) {
@@ -36,14 +33,14 @@
 
 //华为、三星5寸，竖屏
 .height-5scl-v(@height){
-  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx) and (-webkit-min-device-pixel-ratio :2){
     .height-setting(@height);
   }
 }
 
 //华为5寸，横屏
 .height-5scl-h(@height){
-  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
     .height-setting(@height);
   }
 }
@@ -78,16 +75,29 @@
   }
 }
 
+//笔记本，ie,firefix
+.bottom-lg-xl(@bottom){
+  @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
+    bottom: @bottom;
+  }
+}
+
+.bottom-lg-chrome(@bottom) {
+  @media (min-width: @screen-lg-chrome) and (max-width: @screen-lg-chromex) {
+    bottom: @bottom;
+  }
+}
+
 //华为、三星5寸，竖屏
 .bottom-5scl-v(@bottom){
-  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx) and (-webkit-min-device-pixel-ratio :2){
     bottom: @bottom;
   }
 }
 
 //华为5寸，横屏
 .bottom-5scl-h(@bottom){
-  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
     bottom: @bottom;
   }
 }
@@ -124,7 +134,7 @@
 
 //华为、三星5寸，竖屏
 .fontSize-5scl-v(@fontSize){
-  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx) and (-webkit-min-device-pixel-ratio :2){
     font-size: @fontSize;
   }
 }
@@ -168,8 +178,8 @@
 
 //margin-top
 .marginTopAndBottom(@marginTop;@marginBottom){
-  margin-bottom: @marginTop;
-  margin-top: @marginBottom;
+  margin-top: @marginTop;
+  margin-bottom: @marginBottom;
 }
 //font-size
 //三星5.8，竖屏bottom
@@ -203,14 +213,14 @@
 
 //华为、三星5寸，竖屏
 .marginTopAndBottom-5scl-v(@marginTop;@marginBottom){
-  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx)and (-webkit-min-device-pixel-ratio :2){
     .marginTopAndBottom(@marginTop;@marginBottom);
   }
 }
 
 //华为5寸，横屏
 .marginTopAndBottom-5scl-h(@marginTop;@marginBottom){
-  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
     .marginTopAndBottom(@marginTop;@marginBottom);
   }
 }
@@ -283,14 +293,14 @@
 
 //华为、三星5寸，竖屏
 .padding-5scl-v(@top:@marginDefault;@right:@marginDefault;@bottom:@marginDefault;@left:@marginDefault){
-  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx) and (-webkit-min-device-pixel-ratio :2) {
     .padding-setting(@top;@right;@bottom;@left);
   }
 }
 
 //华为5寸，横屏
 .padding-5scl-h(@top:@marginDefault;@right:@marginDefault;@bottom:@marginDefault;@left:@marginDefault){
-  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
     .padding-setting(@top;@right;@bottom;@left);
   }
 }
@@ -363,14 +373,14 @@
 
 //华为、三星5寸，竖屏
 .margin-5scl-v(@top:@marginDefault;@right:@marginDefault;@bottom:@marginDefault;@left:@marginDefault){
-  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx) and (-webkit-min-device-pixel-ratio :2){
     .margin-setting(@top;@right;@bottom;@left);
   }
 }
 
 //华为5寸，横屏
 .margin-5scl-h(@top:@marginDefault;@right:@marginDefault;@bottom:@marginDefault;@left:@marginDefault){
-  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
     .margin-setting(@top;@right;@bottom;@left);
   }
 }
@@ -410,25 +420,12 @@
   width: @width;
   height:@height;
 }
-//三星5.8，竖屏bottom
-.widthAndHeight-gt-v(@width;@height){
-  @media(min-width: @screen-gtv) and (max-width: @screen-gtvx) and
-  (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
-    .widthAndHeight-setting(@width;@height);
-  }
-}
 
-//三星5.8，横屏
-.widthAndHeight-gt-h(@width;@height) {
-  @media(min-width: @screen-gt) and (max-width: @screen-gtx)and
-  (-webkit-max-device-pixel-ratio : 1.9) and (-webkit-min-device-pixel-ratio : 1.4){
-    .widthAndHeight-setting(@width;@height);
-  }
-}
 //6plus竖屏
 .widthAndHeight-6plus-v(@width;@height){
   @media (min-width: @screen-xpv) and (max-width: @screen-xpvx) and  (-webkit-min-device-pixel-ratio : 3){
     .widthAndHeight-setting(@width;@height);
+    background-color: @content-v-background-color;
   }
 }
 
@@ -436,20 +433,41 @@
 .widthAndHeight-6plus-h(@width;@height){
   @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
     .widthAndHeight-setting(@width;@height);
+    background-color: @content-h-background-color;
   }
 }
 
 //华为、三星5寸，竖屏
 .widthAndHeight-5scl-v(@width;@height){
-  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx){
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx) and (-webkit-min-device-pixel-ratio :2){
     .widthAndHeight-setting(@width;@height);
+    background-color: @content-v-background-color;
   }
 }
 
 //华为5寸，横屏
 .widthAndHeight-5scl-h(@width;@height){
-  @media (min-width: @screen-scl) and (max-width: @screen-sclx){
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
     .widthAndHeight-setting(@width;@height);
+    background-color: @content-h-background-color;
+  }
+}
+
+//三星5.8，竖屏bottom oppo
+.widthAndHeight-gt-v(@width;@height){
+  @media (min-width: @screen-gt) and (max-width: @screen-gtx )
+  and   (-webkit-min-device-pixel-ratio : 1.1) and (-webkit-max-device-pixel-ratio :1.9){
+    .widthAndHeight-setting(@width;@height);
+    background-color: @content-v-background-color;
+  }
+}
+
+//三星5.8，横屏 oppo
+.widthAndHeight-gt-h(@width;@height) {
+  @media (min-width: @screen-gtv) and (max-width:@screen-gtvx)
+  and  (-webkit-min-device-pixel-ratio : 1.1) and (-webkit-max-device-pixel-ratio :1.9) {
+    .widthAndHeight-setting(@width;@height);
+    background-color: @content-h-background-color;
   }
 }
 
@@ -459,6 +477,7 @@
   @media (min-width : @screen-pad2v) and (max-device-width :
           @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) {
     .widthAndHeight-setting(@width;@height);
+    background-color: @content-h-background-color;
   }
 }
 
@@ -467,6 +486,7 @@
   @media (min-width : @screen-pad2) and (max-device-width :
           @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) {
     .widthAndHeight-setting(@width;@height);
+    background-color: @content-v-background-color;
   }
 }
 
@@ -474,12 +494,14 @@
 .widthAndHeight-lg-xl(@width;@height){
   @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
     .widthAndHeight-setting(@width;@height);
+    background-color: @content-h-background-color;
   }
 }
 
 .widthAndHeight-lg-chrome(@width;@height) {
   @media (min-width: @screen-lg-chrome) and (max-width: @screen-lg-chromex) {
     .widthAndHeight-setting(@width;@height);
+    background-color: @content-h-background-color;
   }
 }
 
@@ -509,3 +531,4 @@
   -o-transform: translateX(-50%) translateY(0);;
   transform: translateX(-50%) translateY(0);
 }
+

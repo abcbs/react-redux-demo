@@ -36,13 +36,13 @@ requirejs.config({
         //     " isIPhone:"+isIPhone+" isIpdad:"+isIpdad)
         //对iPhone4修改
         //devicePixelRatio===1.5
-        var fixed=isIPhone&&clientWidth===320&&clientHight<400||devicePixelRatio===1.5
+        var fixed=isIPhone&&clientWidth===320&&clientHight<400;//||devicePixelRatio===1.5
 
         if(fixed){
 
             scale = 0.7;
 
-            //
+
             var metaEl = "";
             metaEl = window.document.createElement('meta');
             metaEl.setAttribute('name', 'viewport');
