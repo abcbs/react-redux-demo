@@ -1,0 +1,327 @@
+.list-lg{
+  @content-gutter:0.8;
+  @image-gutter:0.7;
+  .content-width(@table-left-precent:0.8){
+    .element-preperty .pc-lg-xl(width;floor((@screen-lg*@content-gutter*@table-left-precent/4)));
+    .element-preperty .pc-lg-chrome(width;floor((@screen-lg*@content-gutter*@table-left-precent/4)));
+
+    .element-preperty .android-dpr2-v(width;floor((@xs-strandand-v*@content-gutter*@table-left-precent/1)));
+    .element-preperty .android-dpr2-h(width;floor((@xs-strandand-h*@content-gutter*@table-left-precent/2)));
+
+    .element-preperty .android-dpr1g-v(width;floor((@xs-strandand-v*@content-gutter*@table-left-precent/1)));
+    .element-preperty .android-dpr1g-h(width;floor((@xs-strandand-h*@content-gutter*@table-left-precent/2)));
+
+    .element-preperty .appple-6plus-v(width;floor((@screen-xpv*@content-gutter*@table-left-precent/2)));
+    .element-preperty .appple-6plus-h(width;floor((@screen-xp*@content-gutter*@table-left-precent/4)));
+
+    .element-preperty .apple-pad2-v(width;floor((@xs-apple--pad2-strandand-v*@content-gutter*@table-left-precent/4)));
+    .element-preperty .apple-pad2-h(width;floor((@xs-apple--pad2-strandand-h*@content-gutter*@table-left-precent/4)));
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //.element-preperty .boot-md(width;floor((@screen-md*@content-gutter*@table-right-md-content-precent/4)));
+    .element-preperty .boot-sm(width;floor((@screen-xs*@content-gutter*@table-right-md-content-precent/4)));
+    .element-preperty .boot-min(width;floor((@screen-xs*@content-gutter*@table-right-md-content-precent/4)));
+    //.element-preperty .boot-max(width;floor((@screen-lg*@content-gutter*@table-right-md-content-precent/4)));
+  }
+
+  .image-width(@table-left-precent:0.8){
+
+    .element-preperty .pc-lg-xl(width;floor((@screen-lg*@image-gutter*@table-left-precent /4)));
+    .element-preperty .pc-lg-xl(height;floor((@screen-lg*@image-gutter  * @table-left-precent /4)));
+
+    .element-preperty .pc-lg-chrome(width;floor((@screen-lg*@image-gutter  * @table-left-precent /4)));
+    .element-preperty .pc-lg-chrome(height;floor((@screen-lg*@image-gutter  * @table-left-precent /4)));
+
+    .element-preperty .android-dpr1g-v(width;floor((@xs-strandand-v*@image-gutter * @table-left-precent  /2)));
+    .element-preperty .android-dpr1g-v(height;floor((@xs-strandand-v*@image-gutter  * @table-left-precent /2)));
+
+    .element-preperty .android-dpr1g-h(width;floor((@xs-strandand-h*@image-gutter  * @table-left-precent /2)));
+    .element-preperty .android-dpr1g-h(height;floor((@xs-strandand-h*@image-gutter  * @table-left-precent /2)));
+
+    .element-preperty .android-dpr2-v(width;floor((@xs-strandand-h*@image-gutter  * @table-left-precent /2)));
+    .element-preperty .android-dpr2-v(height;floor((@xs-strandand-h*@image-gutter  * @table-left-precent /2)));
+
+    .element-preperty .android-dpr2-h(width;floor((@xs-strandand-h*@image-gutter  * @table-left-precent /2)));
+    .element-preperty .android-dpr2-h(height;floor((@xs-strandand-h*@image-gutter  * @table-left-precent /2)));
+
+    .element-preperty .appple-6plus-v(width;floor((@screen-xpv*@image-gutter  * @table-left-precent /2)));
+    .element-preperty .appple-6plus-v(height;floor((@screen-xpv*@image-gutter  * @table-left-precent /2)));
+
+    .element-preperty .appple-6plus-h(width;floor((@screen-xp*@image-gutter  * @table-left-precent/4)));
+    .element-preperty .appple-6plus-h(height;floor((@screen-xp*@image-gutter  * @table-left-precent/4)));
+
+    ///////////////////
+    .element-preperty .apple-pad2-v(width;
+            floor((@xs-apple--pad2-strandand-v*@image-gutter * @table-left-precent/2)));
+    .element-preperty .apple-pad2-v(height;
+            floor((@xs-apple--pad2-strandand-v*@image-gutter * @table-left-precent/2)));
+
+    .element-preperty .apple-pad2-h(width;
+            floor((@xs-apple--pad2-strandand-h*@image-gutter * @table-left-precent/2)));
+    .element-preperty .apple-pad2-h(height;
+            floor((@xs-apple--pad2-strandand-h*@image-gutter * @table-left-precent/2)));
+
+  }
+  .margin-left(@table-left-precent:0.8){
+    @contentWidth:floor(@screen-xs*@content-gutter*@table-left-precent/2);
+    @imageWidth:floor(@screen-xs*@image-gutter*@table-left-precent/2);
+
+    @contentWidth2:floor(@screen-xs*@content-gutter*@table-left-precent/2);
+    @imageWidth2:floor(@screen-xs*@image-gutter*@table-left-precent/2);
+
+    @contentWidthPc:floor(@screen-lg*@content-gutter*@table-left-precent/4);
+    @imageWidthPc:floor(@screen-lg*@image-gutter*@table-left-precent/4);
+
+    @left-lg:floor((@contentWidthPc - @imageWidthPc)/1);
+    @left-xs:floor((@contentWidth - @imageWidth)/1);
+    @left-xs2:floor((@contentWidth2 - @imageWidth2)/1);
+    .element-preperty .pc-lg-xl(margin-left;@left-lg);
+    .element-preperty .pc-lg-chrome(margin-left;@left-lg);
+
+    .element-preperty .android-dpr1g-v(margin-left;@left-xs);
+    .element-preperty .android-dpr1g-h(margin-left;@left-xs2);
+
+    .element-preperty .android-dpr2-v(margin-left;@left-xs);
+    .element-preperty .android-dpr2-h(margin-left;@left-xs2);
+
+    .element-preperty .appple-6plus-v(margin-left;@left-xs);
+    .element-preperty .appple-6plus-h(margin-left;@left-xs);
+
+    .element-preperty .apple-pad2-v(margin-left;@left-xs);
+    .element-preperty .apple-pad2-h(margin-left;@left-xs);
+    //////////////////////////////////////////////////////////
+
+    //.element-preperty .boot-md(margin-left;@left-xs);
+    .element-preperty .boot-sm(margin-left;@left-xs);
+    .element-preperty .boot-min(margin-left;@left-xs);
+    //.element-preperty .boot-max(margin-left;@left-lg);
+  }
+}
+
+.list-md{
+  @content-gutter:0.76;
+  @image-gutter:0.7;
+  //参数为内容的伸缩比例，默认值为1
+  .content-width(@table-right-md-content-precent:1){
+    .element-preperty .pc-lg-xl(width;floor((@xs-strandand*@content-gutter*@table-right-md-content-precent/2)));
+    .element-preperty .pc-lg-chrome(width;floor((@xs-strandand*@content-gutter * @table-right-md-content-precent/2)));
+
+    .element-preperty .android-dpr2-v(width;floor((@xs-strandand-v*@content-gutter * @table-right-md-content-precent/1)));
+    .element-preperty .android-dpr2-h(width;floor((@xs-strandand-h*@content-gutter * @table-right-md-content-precent/2)));
+
+    .element-preperty .android-dpr1g-v(width;floor((@xs-strandand-v*@content-gutter * @table-right-md-content-precent/1)));
+    .element-preperty .android-dpr1g-h(width;floor((@xs-strandand-h*@content-gutter * @table-right-md-content-precent/2)));
+
+    .element-preperty .appple-6plus-v(width;floor((@xs-apple-strandand-v*@content-gutter * @table-right-md-content-precent/1)));
+    .element-preperty .appple-6plus-h(width;floor((@xs-apple-strandand-h*@content-gutter * @table-right-md-content-precent/2)));
+
+    .element-preperty .apple-pad2-v(width;floor((@xs-apple--pad2-strandand-v*@content-gutter * @table-right-md-content-precent/2)));
+    .element-preperty .apple-pad2-h(width;floor((@xs-apple--pad2-strandand-h*@content-gutter * @table-right-md-content-precent/2)));
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //.element-preperty .boot-md(width;floor((@screen-md*@content-gutter*@table-right-md-content-precent/2)));
+    .element-preperty .boot-sm(width;floor((@screen-xs*@content-gutter*@table-right-md-content-precent/2)));
+    .element-preperty .boot-min(width;floor((@screen-xs*@content-gutter*@table-right-md-content-precent/2)));
+    //.element-preperty .boot-max(width;floor((@xs-strandand*@content-gutter*@table-right-md-content-precent/2)));
+  }
+
+  .image-width(@table-right-precent:1 ; @table-right-md-height-precent:1){
+
+    .element-preperty .pc-lg-xl(width;
+            floor((@xs-strandand*@image-gutter * @table-right-precent/4)));
+    .element-preperty .pc-lg-xl(height;
+            floor((@xs-strandand*@image-gutter * @table-right-precent/4*@table-right-md-height-precent)));
+
+    .element-preperty .pc-lg-chrome(width;
+            floor((@xs-strandand*@image-gutter * @table-right-precent/4)));
+    .element-preperty .pc-lg-chrome(height;
+            floor((@xs-strandand*@image-gutter * @table-right-precent/4*@table-right-md-height-precent)));
+
+    .element-preperty .android-dpr1g-v(width;
+            floor((@xs-strandand-v*@image-gutter * @table-right-precent/2)));
+    .element-preperty .android-dpr1g-v(height;
+            floor((@xs-strandand-v*@image-gutter * @table-right-precent/2*@table-right-md-height-precent)));
+
+    .element-preperty .android-dpr1g-h(width;
+            floor((@xs-strandand-h*@image-gutter * @table-right-precent/4)));
+    .element-preperty .android-dpr1g-h(height;
+            floor((@xs-strandand-h*@image-gutter * @table-right-precent/4*@table-right-md-height-precent)));
+
+    .element-preperty .android-dpr2-v(width;
+            floor((@xs-strandand-v*@image-gutter * @table-right-precent/2)));
+    .element-preperty .android-dpr2-v(height;
+            floor((@xs-strandand-v*@image-gutter * @table-right-precent/2*@table-right-md-height-precent)));
+
+    .element-preperty .android-dpr2-h(width;
+            floor((@xs-strandand-h*@image-gutter * @table-right-precent/4)));
+    .element-preperty .android-dpr2-h(height;
+            floor((@xs-strandand-h*@image-gutter * @table-right-precent/4*@table-right-md-height-precent)));
+
+    .element-preperty .appple-6plus-v(width;
+            floor((@xs-apple-strandand-v*@image-gutter * @table-right-precent/2)));
+    .element-preperty .appple-6plus-v(height;
+            floor((@xs-apple-strandand-v*@image-gutter * @table-right-precent/2*@table-right-md-height-precent)));
+
+    .element-preperty .appple-6plus-h(width;
+            floor((@xs-apple-strandand-h*@image-gutter * @table-right-precent/4)));
+    .element-preperty .appple-6plus-h(height;
+            floor((@xs-apple-strandand-h*@image-gutter * @table-right-precent/4*@table-right-md-height-precent)));
+
+    //////////////////
+    .element-preperty .apple-pad2-v(width;
+            floor((@xs-apple--pad2-strandand-v*@image-gutter * @table-right-precent/4)));
+    .element-preperty .apple-pad2-v(height;
+            floor((@xs-apple--pad2-strandand-v*@image-gutter * @table-right-precent/4*@table-right-md-height-precent)));
+
+    .element-preperty .apple-pad2-h(width;
+            floor((@xs-apple--pad2-strandand-h*@image-gutter * @table-right-precent/4)));
+    .element-preperty .apple-pad2-h(height;
+            floor((@xs-apple--pad2-strandand-h*@image-gutter * @table-right-precent/4*@table-right-md-height-precent)));
+  }
+
+  .margin-left(@table-right-precent:1){
+
+    @contentWidth:floor(@image-width-xs*@content-gutter * @table-right-precent/2);
+    @imageWidth:floor(@image-width-xs*@image-gutter * @table-right-precent/2);
+
+    @contentWidth2:floor(@image-width-xs*@content-gutter * @table-right-precent/2);
+    @imageWidth2:floor(@image-width-xs*@image-gutter * @table-right-precent/2);
+
+    @contentWidthPc:floor(@xs-strandand*@content-gutter * @table-right-precent/4);
+    @imageWidthPc:floor(@xs-strandand*@image-gutter * @table-right-precent/4);
+
+    @left-lg:floor((@contentWidthPc - @imageWidthPc) * @table-right-precent /2);
+    @left-xs:floor((@contentWidth - @imageWidth)* @table-right-precent /2);
+    @left-xs2:floor((@contentWidth2 - @imageWidth2) * @table-right-precent/2);
+
+    .element-preperty .pc-lg-xl(margin-left;@left-lg);
+    .element-preperty .pc-lg-chrome(margin-left;@left-lg);
+
+    .element-preperty .android-dpr1g-v(margin-left;@left-xs);
+    .element-preperty .android-dpr1g-h(margin-left;@left-xs2);
+
+    .element-preperty .android-dpr2-v(margin-left;@left-xs);
+    .element-preperty .android-dpr2-h(margin-left;@left-xs2);
+
+    .element-preperty .appple-6plus-v(margin-left;@left-xs);
+    .element-preperty .appple-6plus-h(margin-left;@left-xs);
+
+    .element-preperty .apple-pad2-v(margin-left;@left-xs);
+    .element-preperty .apple-pad2-h(margin-left;@left-xs);
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //.element-preperty .boot-md(margin-left;@left-xs);
+    .element-preperty .boot-sm(margin-left;@left-xs);
+    .element-preperty .boot-min(margin-left;@left-xs);
+    //.element-preperty .boot-max(margin-left;@left-lg);
+
+  }
+}
+
+.list-xs{
+  @content-gutter:0.76;
+  @image-gutter:0.7;
+
+  .content-width(@@table-right-xs-content-precent:1.5){
+    .element-preperty .pc-lg-xl(width;floor((@xs-strandand*@content-gutter*@table-right-xs-content-precent/2)));
+    .element-preperty .pc-lg-chrome(width;floor((@xs-strandand*@content-gutter * @table-right-xs-content-precent/2)));
+
+    .element-preperty .android-dpr2-v(width;floor((@xs-strandand-v*@content-gutter * @table-right-xs-content-precent/1)));
+    //td的内容计算值
+    .element-preperty .android-dpr2-h(width;floor((@xs-strandand-h*@content-gutter * @table-right-xs-content-precent/4)));
+
+    .element-preperty .android-dpr1g-v(width;floor((@xs-strandand-v*@content-gutter * @table-right-xs-content-precent/1)));
+    .element-preperty .android-dpr1g-h(width;floor((@xs-strandand-h*@content-gutter * @table-right-xs-content-precent/2)));
+
+    .element-preperty .appple-6plus-v(width;floor((@xs-apple-strandand-v*@content-gutter * @table-right-xs-content-precent/1)));
+    .element-preperty .appple-6plus-h(width;floor((@xs-apple-strandand-h*@content-gutter * @table-right-xs-content-precent/2)));
+
+    .element-preperty .apple-pad2-v(width;floor((@xs-apple--pad2-strandand-v*@content-gutter * @table-right-xs-content-precent/2)));
+    .element-preperty .apple-pad2-h(width;floor((@xs-apple--pad2-strandand-h*@content-gutter * @table-right-xs-content-precent/2)));
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //.element-preperty .boot-md(width;floor((@screen-md*@content-gutter*@table-right-md-content-precent/2)));
+    .element-preperty .boot-sm(width;floor((@screen-xs*@content-gutter*@table-right-xs-content-precent/2)));
+    .element-preperty .boot-min(width;floor((@screen-xs*@content-gutter*@table-right-xs-content-precent/2)));
+    //.element-preperty .boot-max(width;floor((@xs-strandand*@content-gutter*@table-right-md-content-precent/2)));
+  }
+
+  .col-width(@table-right-xs-content-precent:1){
+    .element-preperty .pc-lg-xl(width;floor((@xs-strandand*@content-gutter*@table-right-xs-content-precent/4)));
+    .element-preperty .pc-lg-chrome(width;floor((@xs-strandand*@content-gutter * @table-right-xs-content-precent/4)));
+
+    .element-preperty .android-dpr2-v(width;floor((@xs-strandand-v*@content-gutter * @table-right-xs-content-precent/2)));
+    .element-preperty .android-dpr2-h(width;floor((@xs-strandand-h*@content-gutter * @table-right-xs-content-precent/4)));
+
+    .element-preperty .android-dpr1g-v(width;floor((@xs-strandand-v*@content-gutter * @table-right-xs-content-precent/2)));
+    .element-preperty .android-dpr1g-h(width;floor((@xs-strandand-h*@content-gutter * @table-right-xs-content-precent/4)));
+
+    .element-preperty .appple-6plus-v(width;floor((@xs-apple-strandand-v*@content-gutter * @table-right-xs-content-precent/2)));
+    .element-preperty .appple-6plus-h(width;floor((@xs-apple-strandand-h*@content-gutter * @table-right-xs-content-precent/4)));
+
+    .element-preperty .apple-pad2-v(width;floor((@xs-apple--pad2-strandand-v*@content-gutter * @table-right-xs-content-precent/4)));
+    .element-preperty .apple-pad2-h(width;floor((@xs-apple--pad2-strandand-h*@content-gutter * @table-right-xs-content-precent/4)));
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //.element-preperty .boot-md(width;floor((@screen-md*@content-gutter*@table-right-md-content-precent/4)));
+    .element-preperty .boot-sm(width;floor((@screen-xs*@content-gutter*@table-right-xs-content-precent/4)));
+    .element-preperty .boot-min(width;floor((@screen-xs*@content-gutter*@table-right-xs-content-precent/4)));
+    //.element-preperty .boot-max(width;floor((@xs-strandand*@content-gutter*@table-right-md-content-precent/4)));
+  }
+
+  .image-width(@table-right-xs-precent:1.5; @table-right-xs-height-precent:1){
+    .element-preperty .pc-lg-xl(width;
+            floor((@xs-strandand*@image-gutter * @table-right-xs-precent/4)));
+    .element-preperty .pc-lg-xl(height;
+            floor((@xs-strandand*@image-gutter * @table-right-xs-precent/4*@table-right-xs-height-precent)));
+
+    .element-preperty .pc-lg-chrome(width;
+            floor((@xs-strandand*@image-gutter * @table-right-xs-precent/4)));
+    .element-preperty .pc-lg-chrome(height;
+            floor((@xs-strandand*@image-gutter * @table-right-xs-precent/4*@table-right-xs-height-precent)));
+
+    .element-preperty .android-dpr1g-v(width;
+            floor((@xs-strandand-v*@image-gutter * @table-right-xs-precent/2)));
+    .element-preperty .android-dpr1g-v(height;
+            floor((@xs-strandand-v*@image-gutter * @table-right-xs-precent/2*@table-right-xs-height-precent)));
+
+    .element-preperty .android-dpr1g-h(width;
+            floor((@xs-strandand-h*@image-gutter * @table-right-xs-precent/4)));
+    .element-preperty .android-dpr1g-h(height;
+            floor((@xs-strandand-h*@image-gutter * @table-right-xs-precent/4*@table-right-xs-height-precent)));
+
+    .element-preperty .android-dpr2-v(width;
+            floor((@xs-strandand-v*@image-gutter * @table-right-xs-precent/2)));
+    .element-preperty .android-dpr2-v(height;
+            floor((@xs-strandand-v*@image-gutter * @table-right-xs-precent/2*@table-right-xs-height-precent)));
+
+    .element-preperty .android-dpr2-h(width;
+            floor((@xs-strandand-h*@image-gutter * @table-right-xs-precent/4)));
+    .element-preperty .android-dpr2-h(height;
+            floor((@xs-strandand-h*@image-gutter * @table-right-xs-precent/4*@table-right-xs-height-precent)));
+
+    .element-preperty .appple-6plus-v(width;
+            floor((@xs-apple-strandand-v*@image-gutter * @table-right-xs-precent/2)));
+    .element-preperty .appple-6plus-v(height;
+            floor((@xs-apple-strandand-v*@image-gutter * @table-right-xs-precent/2*@table-right-xs-height-precent)));
+
+    .element-preperty .appple-6plus-h(width;
+            floor((@xs-apple-strandand-h*@image-gutter * @table-right-xs-precent/4)));
+    .element-preperty .appple-6plus-h(height;
+            floor((@xs-apple-strandand-h*@image-gutter * @table-right-xs-precent/4*@table-right-xs-height-precent)));
+
+    .element-preperty .apple-pad2-v(width;
+            floor((@xs-apple--pad2-strandand-v*@image-gutter * @table-right-xs-precent/4)));
+    .element-preperty .apple-pad2-v(height;
+            floor((@xs-apple--pad2-strandand-v*@image-gutter * @table-right-xs-precent/4*@table-right-xs-height-precent)));
+
+    .element-preperty .apple-pad2-h(width;
+            floor((@xs-apple--pad2-strandand-h*@image-gutter * @table-right-xs-precent/4)));
+    .element-preperty .apple-pad2-h(height;
+            floor((@xs-apple--pad2-strandand-h*@image-gutter * @table-right-xs-precent/4*@table-right-xs-height-precent)));
+
+
+  }
+  .margin-left{
+    .list-md .margin-left
+  }
+}

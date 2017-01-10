@@ -8,9 +8,7 @@ const PageHeader = React.createClass({
                 <ControlLabel style={{lineHeight:'40px'}}>{this.props.title}</ControlLabel>
                  <span style={{position:"relative",float:"right",
                  lineHeight:'40px'}}>{this.props.subTitle}</span>
-                {
-                    Devices()&&Devices().deviceIsIOSAll&&(<div style={{marginBottom:'20px'}} />)
-                }
+               
             </div>
 
         );

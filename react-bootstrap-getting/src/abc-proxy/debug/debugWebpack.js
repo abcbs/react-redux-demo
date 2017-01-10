@@ -7,8 +7,9 @@ var webpack_isomorphic_tools_configuration =require(options.iso_config||'../../.
 global.__CLIENT__ = false;
 global.__SERVER__ = true;
 global.__DISABLE_SSR__ = false;
-global.__DEVELOPMENT__ =process.env.NODE_ENV !== 'production';
-global.__DEVTOOLS__=true;
+global.__DEVELOPMENT__ =process.env.__DEVELOPMENT__;
+global.__DEVTOOLS__=process.env.__DEVTOOLS__;
+
 // global.log = log
 var rootDir = path.resolve(__dirname, options.iso_rootDir||'../../../');
 var srcRoot = path.join(rootDir, 'src/todos/');

@@ -11,6 +11,12 @@ div.pos{
     width: 100%;;height:100%;
     /*border:3px solid #eee;*/
 }
+
+.imageHome{
+    background-size: 100% 100%;
+    width:100%;
+    height:100%;
+}
 span.top{
 
     display:block;height:100px;font:bold 24px/50px Georgia;

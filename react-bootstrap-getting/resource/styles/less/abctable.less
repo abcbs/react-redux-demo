@@ -1,0 +1,207 @@
+//左边的图为with:"163px",height:"192px"
+//右边图为80*80
+//容器宽度
+@width-margin:50px;
+@height-margin:50px;
+
+
+
+//容器外补白
+//
+.margin-setting--lg{
+  //margin-left: floor((@content-width-lg-lg - @image-width-lg-lg)/2);
+  .list-lg .margin-left;
+}
+.margin-setting--md{
+  //margin-left: 10px;
+  //.list-md .margin-left;
+  .list-lg .margin-left;
+}
+.margin-setting--sm{
+  //margin-left: 10px;
+  //.content-xs .margin-left;
+  .list-lg .margin-left;
+}
+//左边大图所包含的内容
+.abc-content-lg{
+  //
+  border: @none-border;
+  //margin-bottom: 20px;
+  //.list-lg .content-width;
+
+  .image{
+      width:@image-width-lg-lg ;
+      height:@image-width-lg-lg;
+      //调整边界
+      .margin-setting--lg;
+      .list-lg .image-width;
+  }
+
+  .abc-toolbar{
+    .toolbar-inline(absolute);
+    .thumbnail-btn{
+      &:extend(.btn);
+      &:extend(.content-list-font-xs  .content);
+      .btn-default;
+      padding:2px 6px;
+    }
+    //调整边界
+    .margin-setting--lg;
+    bottom: 24px;
+  }
+
+  .abc-content{
+    line-height:normal;
+    .content-sytle.title-setting(h5;1.4;relative;inherit);
+    .content-sytle.title-setting(h5;1.4;relative;inherit);
+    .content-sytle.content;
+
+    //调整内容栏
+    //.list-lg .col-width;
+    //调整边界
+    .margin-setting--lg;
+    .list-lg .content-width;
+    h6,h5,.btn{
+      &:extend(.content-list-font-md  .title);
+    }
+
+    p{
+      &:extend(.content-list-font-md  .content);
+    }
+  }
+}
+
+//上面大图，中等图形的
+.abc-content-md {
+  border: @none-border;
+  width: @content-width-lg-lg;
+  //.list-md .content-width;
+  padding-bottom:6px;
+  .abc-content{
+    .content-sytle.title-setting(h5;1.4;relative;inherit);
+    .content-sytle.title-setting(h5;1.4;relative;inherit);
+    .content-sytle.content;
+    //.list-md .content-width;
+     .list-md .content-width;
+    //调整边界
+    .margin-setting--lg;
+    h6,h5,.btn{
+      &:extend(.content-list-font-md  .title);
+    }
+
+    p{
+      &:extend(.content-list-font-md  .content);
+    }
+  }
+  .abc-toolbar{
+    .abc-content-lg .abc-toolbar;
+  }
+  .image{
+      width:@image-width-xs;
+      height:@image-width-xs;
+     .margin-setting--md;
+     .list-md .image-width;
+  }
+
+  .image-right{
+    .image;
+      //float: right;
+      //margin-left: 0;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+  }
+}
+
+
+//图片右偏移,小图右边
+.abc-content-sm{
+  //.thumbnail-image-abc-content-abc;
+  border: @none-border;
+  //width: @xs-strandand;
+  width: 60px;
+  //.content-xs .col-width;
+  padding-bottom:6px;
+
+
+  .abc-content {
+    .content-sytle.title-setting(h5; 1.4; relative; inherit);
+    .content-sytle.title-setting(h5; 1.4; relative; inherit);
+    .content-sytle.content;
+    .list-xs .content-width;
+    //调整边界
+    //.margin-setting--lg;
+    h6, h5, .btn {
+      &:extend(.content-list-font-md  .title);
+    }
+
+    p {
+      &:extend(.content-list-font-md  .content);
+    }
+  }
+
+  .image{
+    width:@content-width-xs;
+    height:@content-width-xs;
+    position: relative;
+
+    .margin-setting--sm;
+    .list-xs .image-width;
+  }
+  .image-static{
+    .image;
+    float: none;
+  }
+
+  .image-left{
+    .image;
+    float: left;
+    .margin-setting--sm;
+    margin-right: 20px;
+  }
+
+  .image-right{
+    .image;
+    margin-left: 0 !important;
+    position: absolute !important;
+    right: 20px;
+  }
+}
+
+.abc-table{
+  &:extend(.table);
+  border: @default-border;
+  border-spacing:1px 1px;
+
+  td,th{
+    width: 50%;
+    padding: 0 !important;
+    vertical-align:top;
+  }
+  tr{
+    outline: none;
+    //height: 100px;
+  }
+  
+  //多列
+  .td-1-2{//左边
+    border: @default-border;
+    width: 50%*@table-left-precent;
+  }
+
+  //右边
+  .td-1-2-r{
+    border: @default-border;
+    width: 50%*@table-right-precent;
+  }
+  //上边
+  .td-1-2-t{
+    border: @default-border;
+  }
+  //下边
+  .td-1-2-b{
+    border: @default-border;
+    width: 100px;
+  }
+
+}

@@ -12,7 +12,7 @@ export default class AbcContainer extends Component {
             <Container className={
                     classnames({
                       'container':this.props.isContainer,
-                       'marginPageTop':this.props.isMovedTop
+                       'container-fixed':this.props.isMovedTop
                     })}
             >
                   {

@@ -125,7 +125,38 @@
   display:  inline-flex;
   display:-webkit-box ;
   display:-ms-flexbox;
-  display:-moz-inline-box;
+  //display:-moz-inline-box;
+  display: -moz-box;
   position:@position;
 }
 
+.content-sytle{
+  .title-setting(@element:h5;@lineheight:1.4;@position:relative;@display:inline-block){
+    @{element}{
+      word-wrap: break-word;
+      overflow: hidden;
+      font-weight: 700;
+      line-height:@lineheight;
+      position: @position;
+      display: @display;
+    }
+    @{element}:hover{
+      left: 1px;
+      color: #77e3ff;
+    }
+  }
+  .content(@element:p){
+    @{element}{
+      word-wrap: break-word;
+      overflow: hidden;
+    }
+  }
+  //删除显示
+  .deprecated(@element:span){
+
+  }
+  //提示信息
+  .warning(@element:span){
+
+  }
+}

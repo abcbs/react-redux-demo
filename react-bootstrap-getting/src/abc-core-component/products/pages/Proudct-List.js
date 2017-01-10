@@ -20,8 +20,8 @@ import {user_manager_url} from '../../../abc-framework/routeres/ModuleURL'
 import {Modal,Glyphicon} from '../../../abc-bootstrap'
 
 //ProductList
-// import ProductList from '../components/ProductList'
-import ProductList from '../components/ListTableSample'
+import ProductList from '../components/ProductList'
+
 
 @connect
 (
@@ -45,7 +45,7 @@ import ProductList from '../components/ListTableSample'
 @international()
 @container({title:messages.authentication.title,
     subTitle:messages.authentication.subTitle})
-export default class ProductPage extends React.Component {
+export default class ProudctList extends React.Component {
     static propTypes =
     {
         users      : PropTypes.array,

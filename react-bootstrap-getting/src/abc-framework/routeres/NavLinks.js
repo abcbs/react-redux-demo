@@ -10,6 +10,13 @@ const NAV_LINKS = {
         // subLink:[App,IntroductionPage,HomePage],
         role:"public"
     },
+    ListTableSample: {
+        path: '/list',
+        nav:'/list',
+        title: '抢购',
+        subTitle:"抢购",
+        role:"private"
+    },
     ProductPage: {
         path: '/product',
         nav:'/product',

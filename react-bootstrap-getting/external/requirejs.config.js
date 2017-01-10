@@ -72,7 +72,7 @@ require(["baseframevendor"],function (baseframevendor) {
         try{
             require(["app"] ,function(app){
                 console.log("app loading..");
-                //$(".pos").remove();
+                $(".pos").remove();
             })
         }catch(e){
             console.log("Loading app error.")

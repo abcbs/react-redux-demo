@@ -22,6 +22,6 @@ export PanelGroup from  './components/PanelGroup'
 export Glyphicon from  './components/Glyphicon'
 export Thumbnail from  './components/Thumbnail'
 export Image from  './components/Image'
-
+export Table from './components/Table'
 export Media from  './components/Media'
 

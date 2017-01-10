@@ -107,7 +107,7 @@
 @screen-sm-max:              (@screen-md-min - 1);
 @screen-md-max:              (@screen-lg-min - 1);
 //
-@screen-lg-md:                1438px;
+@screen-lg-md:                1439px;
 @screen-lg-mdx:               1500px;
 //ie,firefix
 @screen-lg-xl:                1900px;
@@ -115,31 +115,17 @@
 
 //chrome
 @screen-lg-chrome:            1440px;
-@screen-lg-chromex:           1740px;
+@screen-lg-chromex:           2740px;
 
 @screen-xss:                   640px;
 
 @screen-xs4:                   480px;
 
-//(max-width: @screen-xpx) and (min-width:@screen-xs5)
-//phone-6 4.7英寸1334x750像素
-//phone-6 横屏
-@screen-xs6:                   660px;//apple-6/640
-@screen-xs6x:                  670px;//apple-6/640
-
-//phone-6 竖屏
-@screen-xs6v:                  371px;//apple-6/竖屏
-@screen-xs6vx:                 380px;//apple-6/竖屏
-
-//phone-5 4英寸1136x640像素 326ppi
-//
-@screen-xs5v:                  320px;//5s竖屏/4s竖屏
-@screen-xs5vx:                 321px;//5s竖屏/4s竖屏
-
-@screen-xs5:                   560px;//5s横屏,横屏，下线
-@screen-xs5x:                  570px;//小于568
 
 //iphone 7 1334*750（iphone6s Retina HD） 4.7英寸
+//
+@screen-xpmin:                  560px;//5s竖屏/4s竖屏
+@screen-xpmax:                  750px;
 
 //////////////////////////////////////////////////////////////////////////////////////
 //苹果6 plus 5.5英寸 1000-1600，横屏
@@ -154,37 +140,36 @@
 @screen-sclvx:                  380px;//5寸，三星S6，华为SCL，1280/720/竖屏
 
 //三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为横屏，667
-@screen-scl:                     560px;//5寸下线
-@screen-sclx:                    681px;//5寸上线
+@screen-scl:                     425px;//5寸下线
+@screen-sclx:                    759px;//5寸上线
 
-//5寸，oppo 360/640 1.5
-@screen-5oppov:                   320px;//5寸，oppo 360/640 1.5/竖屏
-@screen-5oppovx:                  370px;//5寸，oppo 360/640 1.5/竖屏
-
-//5寸，oppo 360/640
-@screen-5oppoh:                     560px;//5寸下线
-@screen-5oppohx:                    700px;//5寸上线
 
 //5.8寸,三星GT-I9152,960 540 dpr:1.5;
 //5寸，oppo 360/640 1.5
 @screen-gtv:                      320px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
-@screen-gtvx:                     370px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
+@screen-gtvx:                     380px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
 
 @screen-gt:                       425px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
-@screen-gtx:                      700px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
+@screen-gtx:                      759px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
 
 //pad2
 @screen-pad2:                    760px;//apple-6/竖屏
 @screen-pad2a:                   1000px;//apple-6/竖屏
 
-@screen-pad2v:                    1020px;//apple-6/横屏
+@screen-pad2v:                    1001px;//apple-6/横屏
 @screen-pad2vv:                   1190px;//apple-6/横屏
 
+@screen-h:                  600px;
+@screen-v:                  360px;
+@screen-h2drp:              640px;
+//992 768  sm
+@screen-min-v: 319px;
+@screen-max: 12001px;
 //调试用颜色
 //@content-v-background-color: #fff;
 //@content-h-background-color: #46ff49;
-@content-v-background-color: #f;
-@content-h-background-color: #f;
+@content-v-background-color: #fff;
+@content-h-background-color: #fff;
 //图形与内容的Col
 //内容的Col
 @72-72-content-height:     8rem;//88px; 11px-rem
@@ -471,20 +456,6 @@
 @b-image-continer-margin-left:   15%;
 @b-image-continer-margin-left-gt-v:   4rem;
 @b-image-continer-margin-left-gt-h:   2rem;
-//
-//@b-image-continer-margin-left-5scl-v:   2rem;
-//@b-image-continer-margin-left-5scl-h:   2rem;
-//
-//@b-image-continer-margin-left-6plus-v:   2rem;
-//@b-image-continer-margin-left-6plus-h:   2rem;
-//
-//@b-image-continer-margin-left-pad2-v:   2rem;
-//@b-image-continer-margin-left-pad2-h:   2rem;
-//
-//@b-image-continer-margin-left-md: 2rem;
-//@b-image-continer-margin-left-lg-xl: 2rem;
-//@b-image-continer-margin-left-lg-chrome: 2rem;
-
 
 @image-width-lg-lg-md:  17rem;
 @image-width-lg-lg-xl:  23rem;
@@ -494,4 +465,52 @@
 @panel-abc-heading-bg: #f5f5f5;
 @bnt-abc-bg:  rgba(255, 255, 255, 0.01);
 
+//Table List
+@default-border:1px solid #ddd;
+//border:"0px solid #ddd"
+@none-border:none;
+@default-margin-top-v:10px;
+@default-margin-bottom-v:10px;
 
+/////////////////////////////////
+//大格子显示
+@content-width-lg-lg: floor((@screen-sm*0.8 /4));
+@image-width-lg-lg: floor((@screen-sm*0.75 /4));
+@image-margin-left-lg-lg: floor((@screen-sm*0.75 /4));
+
+//小格子显示
+@xs-strandand:@screen-sm/2;
+@xs-strandand-v:@screen-v/2;
+@xs-strandand-h:@screen-h/2;
+@xs-strandand-h:@screen-h2drp/2;
+@xs-apple-strandand-v:@screen-xpv/2;
+@xs-apple-strandand-h:@screen-sm/2;
+//
+@xs-apple--pad2-strandand-v:@screen-pad2/2;
+@xs-apple--pad2-strandand-h:@screen-pad2v/2;
+
+@content-width-xs: floor((@xs-strandand*0.8 /4));
+@image-width-xs: floor((@xs-strandand*0.75 /4));
+@image-margin-left-xs: floor((@xs-strandand*0.75 /4));
+
+//两个格子的比例
+//大图收缩
+@table-left-precent:0.8;
+//格子中内容的收缩比例
+@table-left-content-precent:1;
+//格子图片宽度伸缩
+@table-left-height-precent:1;
+
+//中图
+@table-right-md-content-precent:1;
+//中图的缩放
+@table-right-precent:1;//
+//中图的高度收缩比例
+@table-right-md-height-precent:1;
+//
+//小图
+@table-right-xs-content-precent:1.5;
+@table-right-xs-precent:1;//
+@table-right-xs-height-precent:1;
+@with-baseline:100%;
+/////////////////////////////////////////////////////////////

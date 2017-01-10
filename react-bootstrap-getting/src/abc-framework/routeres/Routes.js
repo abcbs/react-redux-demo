@@ -17,7 +17,7 @@ import IntroductionPage from '../../todos/frames/IntroductionPage'
 import HomePage from '../../todos/frames/HomePage'
 import {UserPage} from '../../abc-core-component/users/User-Index'
 import {AuthenticationPage} from '../../abc-core-component/authentication/Authentication-Index'
-import {ProductPage} from '../../abc-core-component/products/Product-Index'
+import {ProductPage,ProudctList} from '../../abc-core-component/products/Product-Index'
 const authorize = (component, is_authorized) => authorization(is_authorized)(component);
 
 export default (//component={authorize(IntroductionPage)}
@@ -26,7 +26,8 @@ export default (//component={authorize(IntroductionPage)}
         <Route  path="/app(/:filter)" component={App} />
         <Route  path="/user" component={UserPage} />
         <Route  path="/authentication" component={AuthenticationPage} />
-         <Route  path="/product" component={ProductPage} />
+        <Route  path="/product" component={ProductPage} />
+        <Route  path="/list" component={ProudctList} />
         <Route  path="/home" component={HomePage} />
         <Route  path="/introduct" component={authorize(IntroductionPage)} />
         <Route path="unauthenticated" status={401} component={Unauthenticated}/>

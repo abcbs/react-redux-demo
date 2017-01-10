@@ -8,6 +8,7 @@
   margin-bottom:@content-72-72-margin-bottom;
   margin-right:@content-72-72-margin-right;
   border:1px solid #ddd;
+
   border-radius:4px;
   transition:border 0.2s ease-in-out;
   //line-height:1.2;
@@ -108,6 +109,41 @@
     }
 
   };
+}
+
+//4列做出
+.thumbnail-container-x4-abc{
+  &:extend(.thumbnail-image-content-abc);
+  height:116px;
+  width: 80%;
+  border: none;
+  //border-right-color: #ddd;
+  //border-right-width: 1px;
+  //border-right-style: solid;
+  padding-left:10px;
+  .element-preperty .pc-lg-xl(height;102px);
+  .element-preperty .pc-lg-chrome(height;9rem);
+  .element-preperty .apple-pad2-v(height;10rem);
+  .element-preperty .apple-pad2-h(height;10.8rem);
+  .element-preperty .android-dpr1g-h(height;102px);
+  .element-preperty .android-dpr1g-v(height;106px);
+  .element-preperty .android-dpr2-h(height;10.5rem);
+  .element-preperty .android-dpr2-v(height;10.5rem);
+
+  .thumbnail-xs4-abc{
+    &:extend(.content-list-font-xs  .common);
+    .content-sytle.title-setting(h5;1.4;inherit;inherit);
+    .content-sytle.content;
+    h5{
+      &:extend(.content-list-font-xs  .title);
+    }
+    .btn{
+      &:extend(.content-list-font-xs  .content);
+    }
+    p{
+      &:extend(.content-list-font-xs > .content);
+    }
+  }
 }
 
 /////////////////////////////////////////////
@@ -322,8 +358,9 @@
     margin-left:0;
   }
   .thumbnail-image-abc{
-    width:100%;
-    height: auto;
+    width:95px;
+    height: 121px;
+
   }
 
   .thumbnail-content-abc {

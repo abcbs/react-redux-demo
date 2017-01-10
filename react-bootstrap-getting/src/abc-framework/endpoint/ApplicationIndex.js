@@ -42,6 +42,7 @@ const authentication={authentication:{
     }
     }
 }
+
 var data= {present:[{text:"client数据"+"DPR:"+dpr.clientWidth+"drp:"+dpr.dpr+"日期："+(new Date),completed:false},
     {text:"客户端测试数据",completed:false}]};
 
@@ -84,12 +85,13 @@ international.load().then(() =>
     const create_routes = require('../routeres/Routes')
     //设置本地语言
     global._locale=window._locale=window._locale||'zh';
+
     // renders the webpage on the client side
     return isomorphicRender
     ({
             // enable/disable development mode (true/false)
-            development: __DEVELOPMENT__,
-
+            // development: __DEVELOPMENT__,
+            development: false,
             // enable/disable Redux dev-tools (true/false)
             devtools: __DEVTOOLS__ && !window.devToolsExtension?  require('./devtools').default: undefined,
 
