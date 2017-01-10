@@ -24,11 +24,8 @@
 }
 //左边大图所包含的内容
 .abc-content-lg{
-  //
-  border: @none-border;
-  //margin-bottom: 20px;
-  //.list-lg .content-width;
 
+  border: @none-border;
   .image{
       width:@image-width-lg-lg ;
       height:@image-width-lg-lg;
@@ -36,7 +33,6 @@
       .margin-setting--lg;
       .list-lg .image-width;
   }
-
   .abc-toolbar{
     .toolbar-inline(absolute);
     .thumbnail-btn{
@@ -45,20 +41,14 @@
       .btn-default;
       padding:2px 6px;
     }
-    //调整边界
     .margin-setting--lg;
     bottom: 24px;
   }
-
   .abc-content{
     line-height:normal;
     .content-sytle.title-setting(h5;1.4;relative;inherit);
     .content-sytle.title-setting(h5;1.4;relative;inherit);
     .content-sytle.content;
-
-    //调整内容栏
-    //.list-lg .col-width;
-    //调整边界
     .margin-setting--lg;
     .list-lg .content-width;
     h6,h5,.btn{
@@ -68,6 +58,23 @@
     p{
       &:extend(.content-list-font-md  .content);
     }
+  }
+}
+//大图在上面增加空白
+.abc-content-lg-top{
+  .abc-content-lg;
+  margin-bottom: 6px;
+  .image-top{
+    .abc-content-lg .image;
+    .list-lg .image-width(0.6,1);
+  }
+}
+//大图长度乘2
+.abc-content-lg-h{
+  .abc-content-lg;
+  .image{
+    .abc-content-lg .image;
+    .list-lg .image-width(1.5,0.8);
   }
 }
 
@@ -153,6 +160,11 @@
     float: none;
   }
 
+  .image-buttom{
+    .image;
+     margin-left: 0 !important;
+  }
+
   .image-left{
     .image;
     float: left;
@@ -167,6 +179,7 @@
     right: 20px;
   }
 }
+
 
 .abc-table{
   &:extend(.table);
