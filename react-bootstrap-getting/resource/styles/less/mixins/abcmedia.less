@@ -5,6 +5,7 @@
       and  (-webkit-min-device-pixel-ratio : 3){
       @{element}:@prepery;
       background-color: @content-v-background-color;
+
     }
   }
 
@@ -33,24 +34,25 @@
   //三星5.8，竖屏 oppo
   .android-dpr1g-v(@element;@prepery) {
     @media (min-width: @screen-gtv) and (max-width:@screen-gtvx)
-    and  (-webkit-min-device-pixel-ratio : 1.1) and (-webkit-max-device-pixel-ratio :1.9) {
+    and  (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9) {
         @{element}:@prepery;
-      background-color: @content-v-background-color;
+      //background-color: @content-v-background-color;
     }
   }
 
   //三星5.8，横屏bottom oppo,大于1
   .android-dpr1g-h(@element;@prepery){
     @media (min-width: @screen-gt) and (max-width: @screen-gtx )
-    and   (-webkit-min-device-pixel-ratio : 1.1) and (-webkit-max-device-pixel-ratio :1.9){
+    and   (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9){
         @{element}:@prepery;
-        background-color: @content-v-background-color;    }
+        background-color: @content-v-background-color;
+    }
   }
 
   //设备宽度和屏幕宽度，pad2 横屏
   .apple-pad2-h(@element;@prepery){
     @media (min-width : @screen-pad2v) and (max-device-width :
-            @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) {
+            @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio : 2){
         @{element}:@prepery;
         background-color: @content-v-background-color;
     }
@@ -59,7 +61,7 @@
   //设备宽度和屏幕宽度，pad2
   .apple-pad2-v(@element;@prepery){
     @media (min-width : @screen-pad2) and (max-device-width :
-            @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) {
+            @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio : 2) {
         @{element}:@prepery;
         background-color: @content-v-background-color;
     }
@@ -82,39 +84,38 @@
   //@screen-xs,小于480,手机
   .boot-min(@element;@prepery){
     @media (max-width: @screen-min-v) {
-        //@{element}:@prepery;
+        @{element}:@prepery;
       background-color: @content-v-background-color;
       background-color: #1c5518;
     }
   }
-  //767~480
+
   .boot-xs(@element;@prepery) {
-    @media (min-width: @screen-xs) and (max-width: @screen-xs-max) {
+    @media (min-width: 425px) and (max-width: 479px) {
         @{element}: @prepery;
       //background-color: @content-v-background-color;
       background-color: #2fffcd;
     }
   }
-  //992~768
+  //992~768 pad
   .boot-sm(@element;@prepery) {
     @media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
-        @{element}:@prepery;
-      background-color: @content-v-background-color;
+        //@{element}:@prepery;
+      //background-color: @content-v-background-color;
       //background-color: red;
     }
   }
 
-  //992~768
-  .boot-md(@element;@prepery) {
-    @media (min-width: @screen-md) and (max-width: @screen-lg-min) {
+  //1200~1439
+  .boot-desktop(@element;@prepery) {
+    @media (min-width: @screen-lg-xs) and (max-width: @screen-lg-xs-max) {
         @{element}:@prepery;
       background-color: @content-v-background-color;
-      background-color: #fffd20;
     }
   }
 
   .boot-max(@element;@prepery) {
-    @media (min-width:@screen-max) {
+    @media (min-width:@screen-lg-chromex +1) {
         @{element}:@prepery;
       //background-color: @content-v-background-color;
       background-color: #5bff16;

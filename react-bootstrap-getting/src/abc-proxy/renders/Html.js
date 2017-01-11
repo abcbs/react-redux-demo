@@ -58,12 +58,6 @@ export const header = {
 
 export const background = {
     __html: `
-            <div class="pos images">
-              <img id="imageHome" class="imageHome" src="/external/images/conver.jpg"/>
-              <span class="top a1" >Hello Beijing</span>
-              <span class="top a2">Hello China</span>
-              <span class="top a3">Hello World</span>
-          </div>
           <div id="root">
           <script src="/external/requirejs/require.js"></script>
           <script src="/external/requirejs.config.js"></script>

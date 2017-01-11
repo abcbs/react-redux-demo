@@ -106,65 +106,80 @@
 @screen-xs-max:              (@screen-sm-min - 1);
 @screen-sm-max:              (@screen-md-min - 1);
 @screen-md-max:              (@screen-lg-min - 1);
+
+//@screen-xs  480
+//@screen-sm 768
 //
-@screen-lg-md:                1439px;
+
+//pad2竖屏 768~992
+@screen-pad2:                    @screen-sm;
+@screen-pad2a:                   @screen-sm-max;//apple-6/竖屏
+//992~1999
+@screen-pad2v:                    @screen-md;
+@screen-pad2vv:                   @screen-md-max;
+//补缺
+@screen-lg-xs:                 @screen-lg;//1200px
+@screen-lg-xs-max:            1439px;
+
+@screen-lg-md:                1440px;
 @screen-lg-mdx:               1500px;
-//ie,firefix
-@screen-lg-xl:                1900px;
-@screen-lg-xlx:               2000px;
 
 //chrome
 @screen-lg-chrome:            1440px;
 @screen-lg-chromex:           2740px;
 
-@screen-xss:                   640px;
+//ie,firefix
+@screen-lg-xl:                1900px;
+@screen-lg-xlx:               2000px;
 
-@screen-xs4:                   480px;
-
-
-//iphone 7 1334*750（iphone6s Retina HD） 4.7英寸
-//
+//px适用于6plus横屏的配置
 @screen-xpmin:                  560px;//5s竖屏/4s竖屏
-@screen-xpmax:                  750px;
+@screen-xpmax:                  767px;//
 
 //////////////////////////////////////////////////////////////////////////////////////
+//@screen-xs-v  270~349px
+
+//@screen-xs-h  421~667px
+//注意:425/497 200~320以默认样式为基准，不做调整
+@screen-4s-v :  200px;
+@screen-4s-vx : 349px;//320屏幕、竖屏
+
+
+//@screen-sm 768
 //苹果6 plus 5.5英寸 1000-1600，横屏
 @screen-xp:                     730px;//apple-6plus
-@screen-xpx:                    750px;//apple-6plus
+@screen-xpx:                    767px;//apple-6plus
 
 @screen-xpv:                     400px;//apple-6plus 竖屏
 @screen-xpvx:                    420px;//apple-6plus 竖屏
 
 //5寸，三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为竖屏，375，5p320
-@screen-sclv:                   320px;//5寸，三星S6，华为SCL，1280/720/竖屏
-@screen-sclvx:                  380px;//5寸，三星S6，华为SCL，1280/720/竖屏
+@screen-sclv:                   350px;//5寸，三星S6，华为SCL，1280/720/竖屏
+@screen-sclvx:                  399px;//5寸，三星S6，华为SCL，1280/720/竖屏
 
 //三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为横屏，667
-@screen-scl:                     425px;//5寸下线
+@screen-scl:                     424px;//5寸下线
 @screen-sclx:                    759px;//5寸上线
 
 
 //5.8寸,三星GT-I9152,960 540 dpr:1.5;
 //5寸，oppo 360/640 1.5
-@screen-gtv:                      320px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
-@screen-gtvx:                     380px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
+@screen-gtv:                      350px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
+@screen-gtvx:                     399px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
 
-@screen-gt:                       425px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
+@screen-gt:                       424px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
 @screen-gtx:                      759px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
 
-//pad2
-@screen-pad2:                    760px;//apple-6/竖屏
-@screen-pad2a:                   1000px;//apple-6/竖屏
-
-@screen-pad2v:                    1001px;//apple-6/横屏
-@screen-pad2vv:                   1190px;//apple-6/横屏
-
-@screen-h:                  600px;
-@screen-v:                  360px;
-@screen-h2drp:              640px;
 //992 768  sm
 @screen-min-v: 319px;
 @screen-max: 12001px;
+
+//12280
+/////////////////////////////////////////////////////
+//以下废弃设置
+@screen-xss:                   640px;
+@screen-xs4:                   480px;
+/////////////////////////////////////////////////////
 //调试用颜色
 //@content-v-background-color: #fff;
 //@content-h-background-color: #46ff49;
@@ -472,22 +487,41 @@
 @default-margin-top-v:10px;
 @default-margin-bottom-v:10px;
 
-/////////////////////////////////
+////////////////////////////////////////////////////////
+//格子画图显示标准
+@screen-h:                  720px;
+@screen-v:                  480px;
+@screen-h2drp:              640px;
+
+@xs-screen-standrand: 1160px;
+@xs-strandand:@screen-sm/2;
+@xs-strandand-v:@screen-v/2;
+@xs-strandand-h:@screen-h/2;//480
+@xs-apple-strandand-v:@screen-xpv/2;
+@xs-apple-strandand-h:@screen-sm/2; //768
+//
+@xs-apple--pad2-strandand-v:@screen-pad2/2;
+@xs-apple--pad2-strandand-h:@screen-pad2v/2;
+
+//小图默认大小
+@xs-image-width:48px;
+@xs-content-width:120px;
+@xs-content-height:24px;
+//中图默认大小
+//
+@md-image-width:96px;
+@md-image-height:72px;
+@md-content-width:120px;
+//大图默认大小
+@lg-image-width:116px;
+@lg-content-width:120px;
+//默认的间隙
+@margin-left:6px;
+
 //大格子显示
 @content-width-lg-lg: floor((@screen-sm*0.8 /4));
 @image-width-lg-lg: floor((@screen-sm*0.75 /4));
 @image-margin-left-lg-lg: floor((@screen-sm*0.75 /4));
-
-//小格子显示
-@xs-strandand:@screen-sm/2;
-@xs-strandand-v:@screen-v/2;
-@xs-strandand-h:@screen-h/2;
-@xs-strandand-h:@screen-h2drp/2;
-@xs-apple-strandand-v:@screen-xpv/2;
-@xs-apple-strandand-h:@screen-sm/2;
-//
-@xs-apple--pad2-strandand-v:@screen-pad2/2;
-@xs-apple--pad2-strandand-h:@screen-pad2v/2;
 
 @content-width-xs: floor((@xs-strandand*0.8 /4));
 @image-width-xs: floor((@xs-strandand*0.75 /4));
@@ -513,4 +547,6 @@
 @table-right-xs-precent:1;//
 @table-right-xs-height-precent:1;
 @with-baseline:100%;
+
+
 /////////////////////////////////////////////////////////////

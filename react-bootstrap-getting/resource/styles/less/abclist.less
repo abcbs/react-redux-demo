@@ -3,36 +3,33 @@
 //容器宽度
 @width-margin:50px;
 @height-margin:50px;
-
-
-
 //容器外补白
-//
 .margin-setting--lg{
-  //margin-left: floor((@content-width-lg-lg - @image-width-lg-lg)/2);
   .list-lg .margin-left;
 }
 .margin-setting--md{
-  //margin-left: 10px;
-  //.list-md .margin-left;
   .list-lg .margin-left;
 }
 .margin-setting--sm{
-  //margin-left: 10px;
-  //.content-xs .margin-left;
   .list-lg .margin-left;
 }
 //左边大图所包含的内容
 .abc-content-lg{
-
+  .list-lg .col-width;
   border: @none-border;
   .image{
-      width:@image-width-lg-lg ;
-      height:@image-width-lg-lg;
+      width:@lg-image-width ;
+      height:@lg-image-width;
       //调整边界
+      margin-left: @margin-left;
       .margin-setting--lg;
       .list-lg .image-width;
   }
+  .image-1-2{
+    .image;
+    .list-lg .image-width(0.85);
+  }
+
   .abc-toolbar{
     .toolbar-inline(absolute);
     .thumbnail-btn{
@@ -41,16 +38,20 @@
       .btn-default;
       padding:2px 6px;
     }
+    margin-left: @margin-left;
     .margin-setting--lg;
     bottom: 24px;
   }
   .abc-content{
     line-height:normal;
+    width:@lg-content-width;
     .content-sytle.title-setting(h5;1.4;relative;inherit);
     .content-sytle.title-setting(h5;1.4;relative;inherit);
+
     .content-sytle.content;
+    margin-left: @margin-left;
     .margin-setting--lg;
-    .list-lg .content-width;
+    .list-lg .content-width(1);
     h6,h5,.btn{
       &:extend(.content-list-font-md  .title);
     }
@@ -66,15 +67,16 @@
   margin-bottom: 6px;
   .image-top{
     .abc-content-lg .image;
-    .list-lg .image-width(0.6,1);
+    .list-lg .image-width(1.1;0.6);
   }
+
 }
-//大图长度乘2
+//大图长度乘1.5
 .abc-content-lg-h{
   .abc-content-lg;
   .image{
     .abc-content-lg .image;
-    .list-lg .image-width(1.5,0.8);
+    .list-lg .image-width(0.9;1.5);
   }
 }
 
@@ -88,6 +90,8 @@
     .content-sytle.title-setting(h5;1.4;relative;inherit);
     .content-sytle.title-setting(h5;1.4;relative;inherit);
     .content-sytle.content;
+    width:@md-content-width;
+    margin-left: @margin-left;
     //.list-md .content-width;
      .list-md .content-width;
     //调整边界
@@ -104,8 +108,9 @@
     .abc-content-lg .abc-toolbar;
   }
   .image{
-      width:@image-width-xs;
-      height:@image-width-xs;
+      width:@md-image-width;
+      height:@md-image-width;
+      margin-left: @margin-left;
      .margin-setting--md;
      .list-md .image-width;
   }
@@ -119,7 +124,50 @@
       top: 20px;
   }
 }
+.abc-content-row-4{
+  @media (min-width: @screen-xpv) and (max-width: @screen-xpvx)
+  and  (-webkit-min-device-pixel-ratio : 3){
+    margin-left:-15px !important;
 
+  }
+  @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
+    margin-left:-15px !important;
+  }
+  .abc-content-md;
+  .image{
+
+    .list-md .image-width(1.2);
+    @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
+      .list-md .image-width(2.4);
+    }
+    @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
+      .list-md .image-width(2.2);
+    }
+  }
+  .abc-content{
+    .abc-content-md .abc-content;
+
+    @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
+      h6,h5,.btn{
+        &:extend(.content-list-font-lg  .title);
+      }
+
+      p{
+        &:extend(.content-list-font-lg  .content);
+      }
+
+    }
+    @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
+      h6,h5,.btn{
+        &:extend(.content-list-font-lg  .title);
+      }
+
+      p{
+        &:extend(.content-list-font-lg  .content);
+      }
+    }
+  }
+}
 
 //图片右偏移,小图右边
 .abc-content-sm{
@@ -135,7 +183,10 @@
     .content-sytle.title-setting(h5; 1.4; relative; inherit);
     .content-sytle.title-setting(h5; 1.4; relative; inherit);
     .content-sytle.content;
+     margin-left: @margin-left;
+     width:@xs-content-width;
     .list-xs .content-width;
+    .margin-setting--sm;
     //调整边界
     //.margin-setting--lg;
     h6, h5, .btn {
@@ -148,18 +199,23 @@
   }
 
   .image{
-    width:@content-width-xs;
-    height:@content-width-xs;
+    width:@xs-image-width;
+    height:@xs-image-width;
     position: relative;
-
+    margin-left: @margin-left;
     .margin-setting--sm;
     .list-xs .image-width;
   }
+
   .image-static{
     .image;
     float: none;
   }
-
+  .image-width-zoom2{
+    float: none;
+    .margin-setting--sm;
+    .list-xs .image-width(2;0.5);
+  }
   .image-buttom{
     .image;
      margin-left: 0 !important;
@@ -180,6 +236,10 @@
   }
 }
 
+.abc-content-sm-right{
+  .abc-content-sm;
+  .list-xs .min-size;
+}
 
 .abc-table{
   &:extend(.table);
