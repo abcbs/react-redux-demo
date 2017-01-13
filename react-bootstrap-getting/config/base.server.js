@@ -128,6 +128,7 @@ const baseServer = {
           context: __dirname,
           manifest: require(reduxvendor)
       }),
+      //生成环境需要开启
       // new webpack.DllReferencePlugin({
       //     context: __dirname,
       //     manifest: require(bootvendor)

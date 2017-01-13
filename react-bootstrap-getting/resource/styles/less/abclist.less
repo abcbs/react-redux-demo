@@ -22,6 +22,7 @@
       height:@lg-image-width;
       //调整边界
       margin-left: @margin-left;
+      margin-bottom: 6px;
       .margin-setting--lg;
       .list-lg .image-width;
   }
@@ -29,9 +30,13 @@
     .image;
     .list-lg .image-width(0.85);
   }
-
+  .image-1-1{
+    .image;
+    .list-lg .image-width(0.85;0.6);
+  }
   .abc-toolbar{
-    .toolbar-inline(absolute);
+    //.toolbar-inline(absolute);
+    .toolbar-inline;
     .thumbnail-btn{
       &:extend(.btn);
       &:extend(.content-list-font-xs  .content);
@@ -40,7 +45,7 @@
     }
     margin-left: @margin-left;
     .margin-setting--lg;
-    bottom: 24px;
+    //bottom: 24px;
   }
   .abc-content{
     line-height:normal;
@@ -190,11 +195,17 @@
     //调整边界
     //.margin-setting--lg;
     h6, h5, .btn {
-      &:extend(.content-list-font-md  .title);
+      &:extend(.content-list-font-xs  .title);
     }
 
     p {
-      &:extend(.content-list-font-md  .content);
+      &:extend(.content-list-font-xs  .content);
+    }
+    .abc-toolbar{
+      .abc-content-lg .abc-toolbar;
+      margin-top:-2px;
+      position:absolute;
+      margin-left: 56px !important;
     }
   }
 
@@ -277,4 +288,12 @@
     width: 100px;
   }
 
+}
+
+.abc-table-nobuttom{
+  .abc-table;
+  border:0 !important;
+  td,th{
+    BORDER-TOP: #ffffff 0px solid !important;
+  }
 }

@@ -9,7 +9,7 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3010
 		}
 	},
@@ -17,12 +17,12 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3002
 		},
 		database:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 5432,
 			user: 'postgres',
 			password: 'password',
@@ -33,7 +33,7 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3006
 		}
 	},
@@ -41,7 +41,7 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3007
 		}
 	},
@@ -49,7 +49,7 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3008
 		}
 	},
@@ -57,7 +57,7 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3003
 		},
 		files_directory: 'storage/images',
@@ -104,7 +104,7 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3004
 		}
 	},
@@ -112,7 +112,7 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3030
 		},
 		image_service_path: '/images'
@@ -121,12 +121,12 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3005
 		},
 		tcp:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3200,
 			// Allowed IP subnets.
 			// For more security set to local IPs only,
@@ -138,7 +138,7 @@ module.exports =
 	{
 		http:
 		{
-			host: '192.168.1.103',
+			host: '192.168.1.105',
 			port: 3009
 		},
 		// Allowed IP subnets.
@@ -166,7 +166,7 @@ module.exports =
 		{
 			development_server:
 			{
-				host: '192.168.1.103',
+				host: '192.168.1.105',
 				port: 3001
 			},
 			isomorphic_tools:

@@ -64,12 +64,16 @@ requirejs.config({
 //     }
 // })()
 (function () {
-    document.write(' <img id="imageHome" class="imageHome" src="/external/images/conver.jpg"/>');
+    // document.write(' <img id="imageHome" class="imageHome" src="/external/images/conver.jpg"/>');
 
 })();
 require(["baseframevendor"],function (baseframevendor) {
-    document.getElementById("imageHome").remove();
-    document.getElementById("spinner").remove();
+    try{
+        document.getElementById("imageHome").remove();
+        document.getElementById("spinner").remove();
+    }catch(e){
+        console.log("Loading app error.")
+    }
     require( ["react","redux","react-bootstrap"],function (react,redux,bootstrap){
         console.log("react redux");
         console.log("app bootstrap..");
@@ -77,6 +81,7 @@ require(["baseframevendor"],function (baseframevendor) {
             require(["app"] ,function(app){
                 console.log("app loading..");
                 $(".pos").remove();
+                // $(".imageHome").remove();
             })
         }catch(e){
             console.log("Loading app error.")
