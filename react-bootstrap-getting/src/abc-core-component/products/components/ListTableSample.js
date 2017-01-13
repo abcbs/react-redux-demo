@@ -20,6 +20,8 @@ import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbarRight,AbcButton,
 
 import AbcTableTop2Bottom3        from './AbcTable-Top2-Bottom3'
 
+import AbcTableLeft1Right2Row2 from './AbcTable-Left-Right2-Row2'
+
 //业务功能
 // import AuthenticationManager from './AuthenticationManager'
 // import {list} from'./formConfig'
@@ -64,9 +66,12 @@ export default class ListTableSample extends React.Component {
         const  priceReadyHeader=(<HeaderTitleAndNumber numbers="1-3/1-3" title="预热"/>);
         const tianMDHeader=(<HeaderTitleAndNumber numbers="2-3" title="天猫"/>);
         const rowProducts=require('./demo-data').rowProducts;
+
+        const rowProducts24=require('./demo-data').rowProducts24;
         return (
             <AbcPanel>
                 <AbcTableTop2Bottom3 header={tianMDHeader} rowProducts={rowProducts}/>
+                <AbcTableLeft1Right2Row2 header={coomonVenderHeader} rowProducts={rowProducts24}/>
                 <AbcPanel  header={coomonVenderHeader}>
                     <Grid className="container-list-abc">
                         <Col xs={12} xp={6} sm={6} md={6}  lg={4}>
