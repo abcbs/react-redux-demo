@@ -104,21 +104,21 @@
 
     @left-lg:floor((@contentWidthPc - @imageWidthPc)/2);
     @left-6plus:floor((@contentWidth - @imageWidth)/2);
-    @left-xs2:floor((@contentWidth2 - @imageWidth2)/2);
+    @left-xs2:floor((@contentWidth2 - @imageWidth2));
     .element-preperty .pc-lg-xl(margin-left;@left-xs2);
     .element-preperty .pc-lg-chrome(margin-left;@left-xs2);
 
     .element-preperty .android-dpr1g-v(margin-left;@left-xs2);
-    .element-preperty .android-dpr1g-h(margin-left;@left-xs2);
+    .element-preperty .android-dpr1g-h(margin-left;@left-xs2/2);
 
     .element-preperty .android-dpr2-v(margin-left;@left-xs2);
-    .element-preperty .android-dpr2-h(margin-left;@left-xs2);
+    .element-preperty .android-dpr2-h(margin-left;@left-xs2/2);
 
     .element-preperty .appple-6plus-v(margin-left;@left-6plus);
-    .element-preperty .appple-6plus-h(margin-left;@left-6plus);
+    .element-preperty .appple-6plus-h(margin-left;@left-6plus/2);
 
     .element-preperty .apple-pad2-v(margin-left;@left-xs2);
-    .element-preperty .apple-pad2-h(margin-left;@left-xs2);
+    .element-preperty .apple-pad2-h(margin-left;@left-xs2/2);
     ////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////
     .element-preperty .boot-min(margin-left;@left-xs2);
@@ -209,7 +209,7 @@
     .list-common .content-width(@zoom-precent;@lg-col;@md-col;@xs-col;@content-gutter);
   }
 
-  .image-width(@zoom-precent:1.02;@height-precent:1.2;@lg-col:6;@md-col:2;@xs-col:2){
+  .image-width(@zoom-precent:0.96;@height-precent:1.2;@lg-col:6;@md-col:2;@xs-col:2){
     .list-common .image-width(@zoom-precent;@height-precent;
       @lg-col;@md-col;@xs-col;@image-gutter);
   }
@@ -226,7 +226,7 @@
     .list-common .content-width(@lg-col;@md-col:2;@xs-col:2;@content-gutter);
 
   }
-  .image-width(@zoom-precent:0.8;@height-precent:1.2;@lg-col:12;@md-col:4;@xs-col:4){
+  .image-width(@zoom-precent:1;@height-precent:1.2;@lg-col:12;@md-col:4;@xs-col:4){
     .list-common .image-width(@zoom-precent;@height-precent;
             @lg-col;@md-col;@xs-col;@image-gutter);
   }

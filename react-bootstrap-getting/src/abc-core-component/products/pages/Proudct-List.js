@@ -20,7 +20,7 @@ import {user_manager_url} from '../../../abc-framework/routeres/ModuleURL'
 import {Modal,Glyphicon} from '../../../abc-bootstrap'
 
 //ProductList
-import ProductList from '../components/ProductList'
+import ProductList from '../components/ProductAbstract'
 
 
 @connect
@@ -63,15 +63,10 @@ export default class ProudctList extends React.Component {
     }
 
     render(){
-        // const data=require('./data').data;
-        // //查询数据放入
-        // this.props.query&&this.props.query(data);
         return (
             <div>
                 <ProductList />
             </div>
         );
     }
-
-
 }

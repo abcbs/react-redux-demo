@@ -68,18 +68,20 @@ requirejs.config({
 
 })();
 require(["baseframevendor"],function (baseframevendor) {
-    try{
-        document.getElementById("imageHome").remove();
-        document.getElementById("spinner").remove();
-    }catch(e){
-        console.log("Loading app error.")
-    }
+    // try{
+    //     document.getElementById("imageHome").remove();
+    //     document.getElementById("spinner").remove();
+    // }catch(e){
+    //     console.log("Loading app error.")
+    // }
     require( ["react","redux","react-bootstrap"],function (react,redux,bootstrap){
         console.log("react redux");
         console.log("app bootstrap..");
         try{
             require(["app"] ,function(app){
                 console.log("app loading..");
+                // document.getElementById("imageHome").remove();
+                $(".imageHome").remove();
                 $(".pos").remove();
                 // $(".imageHome").remove();
             })
