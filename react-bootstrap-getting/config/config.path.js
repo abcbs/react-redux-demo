@@ -29,9 +29,9 @@ export var entryFile='./src/abc-framework/endpoint/ApplicationIndex';
 export const options = yargs
     .alias('p', 'optimize-minimize')
     .alias('d', 'debug')
-    .default('host', '192.168.1.105')
+    .default('host', '192.168.1.106')
     .default('port', '3000')
-    .default('apiHost', '192.168.1.105')
+    .default('apiHost', '192.168.1.106')
     .default('apiPort', '3030')
     .default('debug', false)
     .default('__DEVTOOLS__', false)

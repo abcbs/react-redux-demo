@@ -14,12 +14,16 @@ import AbcLabelLimit, {lgLimit} from './ui-limit'
 
 import {composeTableLargeCell,composeTableSmallCell,AbcTableRowDefault,AbcTable,
     AbcTableSmallCell,AbcTableSmallCellToolbar,AbcTableSmallCellWithToolbar,
-    AbcTableGrid,AbcListCol,AbcTableLargeTd,AbcTableSmallTd,AbcTableFrame,
-    AbcTableLargeCell,AbcTableLargeCellToolbar,AbcTableLargeCellWithToolbar} from './AbcTableTopBottom'
+    AbcListCol,AbcTableLargeTd,AbcTableSmallTd,AbcTableFrame,
+    AbcTableLargeCell,AbcTableLargeCellToolbar,AbcTableLargeCellWithToolbar} from './AbcTableListGridFrame'
 
 //每行数据UI
 /**
- * 主，共计三列，一列大格子，三列小个子
+ * 主，共计三列，一列大格子，两列小个子
+ * -------------------
+ * \        \   \    \
+ * \        \   \    \
+ * --------------------
  */
 export class AbcTableRow extends AbcTableRowDefault{
 
@@ -80,6 +84,13 @@ export class AbcTableRow extends AbcTableRowDefault{
     }
 }
 
+/**
+ * 主，共计三列，一列大格子，两列小个子
+ * -------------------
+ * \        \   \    \
+ * \        \   \    \
+ * --------------------
+ */
 export default class AbcTableLeft1Right2Row2 extends AbcTable
 {
     static propTypes =
@@ -94,7 +105,14 @@ export default class AbcTableLeft1Right2Row2 extends AbcTable
     }
 }
 
-//每行UI,大图中包括Toolbar，小图中为文字
+//每行UI,大图中包括Toolbar，小图中为文字，左边大图
+/**
+ * 主，共计三列，一列大格子，两列小个子
+ * -------------------
+ * \        \   \    \
+ * \        \   \    \
+ * --------------------
+ */
 export class AbcRowLeftToolbarRightText extends AbcTableRowDefault{
 
     render() {
@@ -127,6 +145,14 @@ export class AbcRowLeftToolbarRightText extends AbcTableRowDefault{
     }
 }
 
+/**
+/**
+ * 主，共计三列，一列大格子，两列小个子
+ * -------------------
+ * \        \   \    \
+ * \        \   \    \
+ * --------------------
+ */
 export class AbcTableLeft1Right2Row2RightText extends AbcTableLeft1Right2Row2{
 
     buildAbcTableGrid(){

@@ -20,7 +20,7 @@ import {user_manager_url} from '../../../abc-framework/routeres/ModuleURL'
 import {Modal,Glyphicon} from '../../../abc-bootstrap'
 
 //ProductList
-import ProductList from '../components/ProductAbstract'
+import ProductList from '../components/ProductList'
 
 
 @connect

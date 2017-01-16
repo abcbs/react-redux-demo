@@ -12,7 +12,8 @@ import AbcPanel from '../../../abc-ui/AbcPanel'
 import lgShape from './lg-shape';
 import smShape from './sm-shape';
 import AbcLabelLimit, {lgLimit} from './ui-limit'
-
+///////////////////////////////////////////////////////////////////////
+////////////////////////业务UI////////////////////////////////////////
 export class AbcTableLargeCellWithToolbar extends React.Component{
 
     render() {
@@ -135,7 +136,7 @@ export class AbcTableSmallCell extends React.Component{
     {
         containerClass:"abc-content-sm",
         contentClass:"abc-content",
-        imageClass:"image-top"
+        imageClass:"image"
     }
     render() {
         const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
@@ -152,6 +153,81 @@ export class AbcTableSmallCell extends React.Component{
                     className={imageClass}
                     alt={smObject.portraitAlt}>
                 </Image>
+            </div>
+        )
+    }
+}
+
+export class AbcTableMiddleCell extends AbcTableSmallCell{
+
+    render() {
+        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
+        return (
+            <div className={containerClass}>
+                <div className={contentClass}>
+                    <div>
+                        <h5>{smObject.title}</h5>
+                        <p>{smObject.description}</p>
+                        <p>{smObject.address}</p>
+                    </div>
+                </div>
+                <Image
+                    src={smObject.portrait}
+                    className={imageClass}
+                    alt={smObject.portraitAlt}>
+                </Image>
+            </div>
+        )
+    }
+}
+
+export class AbcTableSmallCellImageTop extends AbcTableSmallCell{
+    render() {
+        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
+        return (
+            <div className={containerClass}>
+                <Image
+                    src={smObject.portrait}
+                    className={imageClass}
+                    alt={smObject.portraitAlt}>
+                </Image>
+                <div className={contentClass}>
+                    <div>
+                        <h5>{smObject.title}</h5>
+                        <p>{smObject.description}</p>
+                    </div>
+                </div>
+
+
+            </div>
+        )
+    }
+}
+export class AbcTableSmallSingleCol extends AbcTableSmallCell{
+    render() {
+        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
+        return (
+            <div className={containerClass}>
+                <Image
+                    src={smObject.portrait}
+                    className={imageClass}
+                    alt={smObject.portraitAlt}>
+                </Image>
+                <div className={contentClass}>
+                    <div>
+                        <h5>{smObject.title}</h5>
+                        <div className="cashContent">
+                            <p className="inline">{smObject.description}</p>
+                            <p className="number-postion"> {smObject.address}</p>
+                        </div>
+                        <div className="cashContent">
+                            <p className="inline">{smObject.price}<Glyphicon glyph="yen"/></p>
+                            <p className="number-postion"> {smObject.number}</p>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         )
     }
@@ -207,6 +283,47 @@ export class AbcTableSmallCellWithBadge extends React.Component{
                         <p>{smObject.description}</p>
                         <p>{smObject.address}</p>
                       </div>
+                </div>
+                <Image
+                    src={smObject.portrait}
+                    className={imageClass}
+                    alt={smObject.portraitAlt}>
+                </Image>
+
+            </div>
+        )
+    }
+}
+
+export class AbcTableMiddleCellSimple extends AbcTableSmallCell{
+
+    render() {
+        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
+        return (
+            <div className={containerClass}>
+                <div className={contentClass}>
+                    <div>
+                        <h5>{smObject.title}</h5>
+                    </div>
+                </div>
+                <Image
+                    src={smObject.portrait}
+                    className={imageClass}
+                    alt={smObject.portraitAlt}>
+                </Image>
+            </div>
+        )
+    }
+}
+export class AbcTableSmallCellSimple extends AbcTableMiddleCell{
+    render() {
+        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
+        return (
+            <div className={containerClass}>
+                <div className={contentClass}>
+                    <div>
+                        <h5>{smObject.title}</h5>
+                    </div>
                 </div>
                 <Image
                     src={smObject.portrait}
@@ -296,7 +413,8 @@ export  function composeTableLargeCell(option) {
 export  function composeTableSmallCell(option) {
 
     const imageClassComponent=option&&option.imageClassName;
-
+    const contentClassComponent=option&&option.contentClassName;
+    const containerClassComponent=option&&option.containerClassName;
     return function wrapWithConnect(WrappedComponent) {
         const connectDisplayName = `Container(${getDisplayName(WrappedComponent)})`;
         class Container extends React.Component {
@@ -312,13 +430,19 @@ export  function composeTableSmallCell(option) {
             {
                 containerClass:"abc-content-sm",
                 contentClass:"abc-content",
-                imageClass:"image-top"
+                imageClass:"image"
             };
             render() {
                 const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
                 const localImageClass=imageClassComponent||imageClass;
+                const localContentClass=contentClassComponent||contentClass;
+                const localContainerClass=containerClassComponent||containerClass;
+
                 return (
-                    <WrappedComponent  {...this.props} imageClass={localImageClass}/>
+                    <WrappedComponent  {...this.props}
+                        imageClass={localImageClass}
+                        containerClass={localContainerClass}
+                        contentClass={localContentClass}/>
                 )
 
             }
@@ -331,7 +455,8 @@ export  function composeTableSmallCell(option) {
 }
 
 /**
- * React-Bootsrap中的Grid处理
+ * React-Bootsrap中的Grid处理，
+ * 引入Grid
  */
 export class AbcTableGrid extends React.Component{
 
@@ -356,7 +481,9 @@ export class AbcTableGrid extends React.Component{
     }
 }
 
-
+/**
+ * 大图默认的TD，默认占两个Col
+ */
 export class AbcTableLargeTd extends React.Component{
 
     static propTypes =
@@ -382,6 +509,9 @@ export class AbcTableLargeTd extends React.Component{
     }
 }
 
+/**
+ * 左右结构默认占两列
+ */
 export class AbcTableLargeLeftTd extends React.Component{
     //rowSpan
     static propTypes =
@@ -406,6 +536,9 @@ export class AbcTableLargeLeftTd extends React.Component{
 
 }
 
+/**
+ * 小图默认的TD
+ */
 export class AbcTableSmallTd extends AbcTableLargeTd{
     static defaultProps =
     {
@@ -486,6 +619,9 @@ export class AbcListCol extends React.Component{
     }
 }
 
+/**
+ * Table格式的引入
+ */
 export class AbcTableFrame extends React.Component{
 
     static propTypes =
@@ -515,7 +651,14 @@ export class AbcTableFrame extends React.Component{
     }
 }
 /**
- * 以Table方式显示时，表格数据项
+ * 以Table方式显示时，表格数据项,此类的输出为上下为Table，上面两个格子，下面三个格子
+ * ---------------
+ * \      \      \
+ * \      \      \
+ * \--------------
+ * \    \   \    \
+ * \    \   \    \
+ * ---------------
  */
 export class AbcTableRowDefault extends React.Component{
 
@@ -580,7 +723,7 @@ export class AbcTableRowDefault extends React.Component{
 }
 
 /**
- * 显示为Table的结构，默认
+ * 显示为Table的结构，它是List-Grid的入口方法
  */
 export class AbcTable extends React.Component{
 
@@ -609,11 +752,12 @@ export class AbcTable extends React.Component{
         return panel;
     }
 }
+
+//上面两个下面
 export default class AbcTableTop2Bottom3 extends AbcTable
 {
 
 }
-
 //content-row-4
 export class AbcListRow4 extends React.Component{
 
@@ -636,6 +780,34 @@ export class AbcListRow4 extends React.Component{
                                   smObject={smObject} {...others} />
                         </AbcListCol>
                     )}
+
+            </AbcPanel>)
+        return panel;
+    }
+}
+//////////////////////////////每行两个,图与文字上下///////////////////////////////////////
+//content-row-4
+export class AbcListRow2 extends React.Component{
+
+    static propTypes =
+    {
+        header : PropTypes.object,
+        smObjects: PropTypes.arrayOf(smShape).isRequired
+    };
+
+    render()
+    {
+        const {header,smProducts,...others}=this.props;
+        const smObjects=smProducts
+        const panel=
+            ( <AbcPanel  header={header}>
+
+                {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
+                    <AbcListCol xs={6} xp={3} sm={4} md={2}  lg={2}>
+                        <AbcTableSmallCell containerClass="abc-content-lg" imageClass="image"
+                                           smObject={smObject} {...others} />
+                    </AbcListCol>
+                )}
 
             </AbcPanel>)
         return panel;
