@@ -57,25 +57,27 @@ export default class ListTableSample extends React.Component {
     }
 
     render() {
-
-        const tableSampleHeader=(<HeaderTitleAndNumber numbers="3,3,3,3" title="样式示例"/>);
-        const tableTodayHotHeader=(<HeaderTitleAndNumber numbers="1-2" title="抢购"/>);
+        const  priceTopHeader1=(<HeaderTitleAndNumber numbers="每行2个" title="Top5"/>);
+        const coomonVenderHeader5=(<HeaderTitleAndNumber numbers="1-2" title="普通商户-右图"/>);
+        const coomonVenderHeader6=(<HeaderTitleAndNumber numbers="1-2" title="普通商户-左图"/>);
+        const tableTodayHotHeader=(<HeaderTitleAndNumber numbers="1-2" title="抢购"/>)
+        const tableTodayHotHeader1=(<HeaderTitleAndNumber numbers="1-2" title="抢购-右图"/>);
         const productEtrHeader=(<HeaderTitleAndNumber numbers="右图" title="电器"/>);
-        const productleHeader=(<HeaderTitleAndNumber numbers="3,3,3,3" title="固定宽度"/>);
-        const tableGroupHotHeader=(<HeaderTitleAndNumber numbers="上下" title="促销"/>);
         const  productTaobaoHeader=(<HeaderTitleAndNumber numbers="右图" title="淘宝抢购"/>);
-        const  priceButtomHeader=(<HeaderTitleAndNumber numbers="1-3/1-3" title="超实惠"/>);
+        const tableSampleHeader=(<HeaderTitleAndNumber numbers="3,3,3,3" title="样式示例"/>);
+        const coomonVenderHeader7=(<HeaderTitleAndNumber numbers="1,3,3" title="普通商户-默认显示"/>);
         const tianMaoHeader=(<HeaderTitleAndNumber numbers="3,3,3,3" title="天猫必逛"/>);
-        const coomonVenderHeader=(<HeaderTitleAndNumber numbers="1,2,2" title="普通商户-默认显示"/>);
+        const tableGroupHotHeader=(<HeaderTitleAndNumber numbers="上下" title="促销"/>);
         const  priceTopHeader=(<HeaderTitleAndNumber numbers="每行三个" title="Top10"/>);
-        const  priceReadyHeader=(<HeaderTitleAndNumber numbers="1-3/1-3" title="预热"/>);
+        const coomonVenderHeader=(<HeaderTitleAndNumber numbers="1,2,2" title="普通商户-默认显示"/>);
+        const coomonVenderHeader4=(<HeaderTitleAndNumber numbers="1-2" title="普通商户-左侧图右侧文字"/>);
         const tianMDHeader=(<HeaderTitleAndNumber numbers="2-3" title="天猫"/>);
         const coomonVenderHeader1=(<HeaderTitleAndNumber numbers="1-2" title="普通商户-Toolbar"/>);
         const coomonVenderHeader2=(<HeaderTitleAndNumber numbers="1-2" title="普通商户-徽章"/>);
         const coomonVenderHeader3=(<HeaderTitleAndNumber numbers="1-2" title="普通商户无说明"/>);
-        const coomonVenderHeader4=(<HeaderTitleAndNumber numbers="1-2" title="普通商户-左侧图右侧文字"/>);
-        const coomonVenderHeader5=(<HeaderTitleAndNumber numbers="1-2" title="普通商户-默认显示"/>);
-        
+        const coomonVenderHeader8=(<HeaderTitleAndNumber numbers="1-2" title="普通商户-右图"/>);
+        const productleHeader=(<HeaderTitleAndNumber numbers="3,3,3,3" title="固定宽度"/>);
+        ////////////////////////////////////////////////////////////
         const rowProducts=require('./demo-data').rowProducts;
         const rowProducts24=require('./demo-data').rowProducts24;
         const rowProducts14=require('./demo-data').rowProducts14;
@@ -90,7 +92,7 @@ export default class ListTableSample extends React.Component {
                 {
                     //
                 }
-                <AbcListRow2  header={priceTopHeader} smProducts={rowProductsTop}/>
+                <AbcListRow2  header={priceTopHeader1} smProducts={rowProductsTop}/>
                 {
                     //
                 }
@@ -98,7 +100,7 @@ export default class ListTableSample extends React.Component {
                 {
                     //
                 }
-                <AbcTableSingleCol  header={coomonVenderHeader5} rowProducts={rowProductsSingle} />
+                <AbcTableSingleCol  header={coomonVenderHeader6} rowProducts={rowProductsSingle} />
                 {
                     //
                 }
@@ -106,7 +108,7 @@ export default class ListTableSample extends React.Component {
                 {
                     //
                 }
-                <AbcTableLeft1RightsTop1Bottom1Simple header={tableTodayHotHeader} rowProducts={rowProducts12} />
+                <AbcTableLeft1RightsTop1Bottom1Simple header={tableTodayHotHeader1} rowProducts={rowProducts12} />
                 {
                     //
                 }
@@ -116,9 +118,9 @@ export default class ListTableSample extends React.Component {
                 }
                 <AbcTableLeft1RightsTop1Bottom2 header={productTaobaoHeader} rowProducts={rowProducts13}/>
                 {
-                    //左边一个，右边上下各两个格子
+                    //左边一个，右边上面3个下面3个
                 }
-                <AbcTableLeft1RightsTop2Bottom3 header={coomonVenderHeader} rowProducts={rowProducts7}/>
+                <AbcTableLeft1RightsTop2Bottom3 header={coomonVenderHeader7} rowProducts={rowProducts7}/>
                 {
                     //2-4
                 }
@@ -149,7 +151,7 @@ export default class ListTableSample extends React.Component {
                 <AbcTableLeft1Right2Row2 header={coomonVenderHeader1} rowProducts={rowProducts24} tableType={1}/>
                 <AbcTableLeft1Right2Row2 header={coomonVenderHeader2} rowProducts={rowProducts24} tableType={2}/>
                 <AbcTableLeft1Right2Row2 header={coomonVenderHeader3} rowProducts={rowProducts24} tableType={3}/>
-                <AbcTableLeft1Right2Row2 header={coomonVenderHeader5} rowProducts={rowProducts24}/>
+                <AbcTableLeft1Right2Row2 header={coomonVenderHeader8} rowProducts={rowProducts24}/>
             </AbcPanel>
         )
     }
