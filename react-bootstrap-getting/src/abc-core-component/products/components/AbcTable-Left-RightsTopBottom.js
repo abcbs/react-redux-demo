@@ -15,7 +15,8 @@ import AbcLabelLimit, {lgLimit} from './ui-limit'
 
 import {composeTableLargeCell,composeTableSmallCell,AbcTableRowDefault,
     AbcTableSmallCell,AbcTableSmallCellToolbar,AbcTableSmallCellWithToolbar,AbcTableSmallCellSimple,
-    AbcTableMiddleCell,AbcTableMiddleCellSimple,AbcTableSmallCellImageTop,AbcTableSmallSingleCol,
+    AbcTableMiddleCell,AbcTableMiddleCellSimple,AbcTableSmallCellImageTop,
+    AbcTableSmallSingleCol,AbcTableSmallSingleColToolbar,
     AbcTable, AbcTableGrid,AbcListCol,AbcTableLargeTd,AbcTableLargeLeftTd,AbcTableSmallTd,AbcTableFrame,
     AbcTableLargeCell,AbcTableLargeCellToolbar,
     AbcTableLargeCellWithToolbarBottom,AbcTableLargeCellWithToolbar} from './AbcTableListGridFrame'
@@ -258,14 +259,14 @@ export class AbcTableLeft1RightsTop1Bottom1LeftSimple extends AbcTable{
  * ------------------
  */
 export class AbcTableTop2Bottom4Row extends AbcTableRowDefault{
-    static propTypes={
-        smImageClassName:PropTypes.string,
-        smContentClassName:PropTypes.string
-    }
-    static defaultProps={
-        smImageClassName:"image-fiexed-left",
-        smContentClassName:"abc-content-fiexed-left"
-    }
+    // static propTypes={
+    //     smImageClassName:PropTypes.string,
+    //     smContentClassName:PropTypes.string
+    // }
+    // static defaultProps={
+    //     smImageClassName:"image-fiexed-left",
+    //     smContentClassName:"abc-content-fiexed-left"
+    // }
     render() {
         const {lgObjects,smObjects,tableType,...others}=this.props;
         //对业务视图的class的调整
@@ -447,20 +448,6 @@ export class AbcTableSingleColRow extends AbcTableRowDefault{
         const {lgObjects,smObjects,tableType,...others}=this.props;
         const TableSmallCell=this.buildTableSmallCell();
         //数据
-        // return (
-        //     <AbcListCol>
-        //         <AbcTableFrame>
-        //            {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
-        //               <tr>
-        //                  <AbcTableSmallTd className="td-1-2-r">
-        //                    <TableSmallCell smObject={smObject}
-        //                                      key={index}/>
-        //                    </AbcTableSmallTd>
-        //               </tr>
-        //            )}
-        //         </AbcTableFrame>
-        //     </AbcListCol>
-        // )
         return (
             <div>
                 {smObjects && smObjects.map && smObjects.map((smObject, index) =>
@@ -511,6 +498,13 @@ export class AbcTableSingleLeftImageColRow extends AbcTableSingleColRow{
     static defaultProps={
         smContainerClassName:"abc-content-sm-right",
         smImageClassName:"image-right"
+    }
+    buildTableSmallCell(){
+        return composeTableSmallCell(
+            {imageClassName:this.props.smImageClassName,
+                containerClassName:this.props.smContainerClassName,
+                contentClassName:this.props.smContentClassName
+            })(AbcTableSmallSingleColToolbar);
     }
 }
 

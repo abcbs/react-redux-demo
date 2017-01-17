@@ -200,14 +200,14 @@ const smObjectRow121=[{title:"必买单",
         portrait:"/external/images/-905596488.jpg",
         portraitAlt:"测试"}
 ];
-const smObjectRow122=[{title:"公开测试部分上海区代理",
-    description:"支付类试用12个月",
+const smObjectRow122=[{title:"上海区",
+    description:"试用12个月",
     address:"北京",
     portrait:"/external/images/1065647146.jpg",
     portraitAlt:"测试"
 },
-    {title:"公开测试部分上海区代理",
-        description:"支付类试用12个月",
+    {title:"上海区",
+        description:"试用12个月",
         address:"逛逛看",
         portrait:"/external/images/944876135.jpg",
         portraitAlt:"测试"}

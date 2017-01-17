@@ -221,17 +221,63 @@ export class AbcTableSmallSingleCol extends AbcTableSmallCell{
                             <p className="number-postion"> {smObject.address}</p>
                         </div>
                         <div className="cashContent">
-                            <p className="inline">{smObject.price}<Glyphicon glyph="yen"/></p>
+                            <p className="inline">{smObject.price}</p>
                             <p className="number-postion"> {smObject.number}</p>
                         </div>
                     </div>
+
+                </div>
+                {
+                // <ButtonToolbar className="abc-toolbar">
+                //     <Button className="thumbnail-btn"
+                //     ><Glyphicon glyph="plus"/></Button>
+                //     <FormControl type="number"
+                //                  style={{width:"46px",padding:"2px 4px",
+                //                                        fontSize:"13px" ,border:"none",textAlign:"center"}}
+                //                  placeholder="1" />
+                //     <Button className="thumbnail-btn"><Glyphicon glyph="minus"/></Button>
+                // </ButtonToolbar>
+                }
+            </div>
+        )
+    }
+}
+
+export class AbcTableSmallSingleColToolbar extends AbcTableSmallCell{
+    render() {
+        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
+        return (
+            <div className={containerClass}>
+                <Image
+                    src={smObject.portrait}
+                    className={imageClass}
+                    alt={smObject.portraitAlt}>
+                </Image>
+                <div className={contentClass}>
+                    <div>
+                        <h5>{smObject.title}</h5>
+                        <div className="cashContent">
+                            <p className="inline">{smObject.description}</p>
+                            <p className="number-postion"> {smObject.address}</p>
+                        </div>
+                     </div>
+
                 </div>
 
+                <ButtonToolbar className="abc-toolbar">
+                    <Button className="thumbnail-btn"><Glyphicon glyph="plus"/></Button>
+                    <FormControl type="number"
+                         style={{width:"46px",padding:"1px 4px",
+                         fontSize:"10px" ,border:"none",textAlign:"center"}}
+                         placeholder="1" />
+                    <Button className="thumbnail-btn"><Glyphicon glyph="minus"/></Button>
+                </ButtonToolbar>
 
             </div>
         )
     }
 }
+
 export class AbcTableSmallCellWithToolbar extends React.Component{
     render() {
         const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
@@ -398,9 +444,7 @@ export  function composeTableLargeCell(option) {
                         containerClass={localContainerDisplayName}
                         imageClass={localImageClassName}
                     />
-
                 )
-
             }
         }//
         Container.displayName = connectDisplayName;
@@ -546,42 +590,6 @@ export class AbcTableSmallTd extends AbcTableLargeTd{
         colSpan:"0"
     };
 
-}
-
-export  function composeTableTd() {
-
-    return function wrapWithConnect(WrappedComponent) {
-        const connectDisplayName = `Container(${getDisplayName(WrappedComponent)})`;
-        class Container extends React.Component {
-            static propTypes =
-            {
-                smObject: lgShape.isRequired,
-                containerClass:PropTypes.string,
-                contentClass:PropTypes.string,
-                imageClass:PropTypes.string
-            };
-
-            static defaultProps =
-            {
-                containerClass:"abc-content-sm",
-                contentClass:"abc-content",
-                imageClass:"image-top"
-            };
-            render() {
-                const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-                return (
-                    <div  className={containerClass}>
-                        <WrappedComponent {...this.props} />
-                    </div>
-                )
-
-            }
-        }//
-        Container.displayName = connectDisplayName;
-        Container.WrappedComponent = WrappedComponent;
-
-        return hoistStatics(Container, WrappedComponent);
-    }
 }
 
 /**
@@ -773,14 +781,14 @@ export class AbcListRow4 extends React.Component{
         const smObjects=smProducts
         const panel=
             ( <AbcPanel  header={header}>
-
+                <AbcTableGrid>
                     {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                         <AbcListCol xs={3} xp={3} sm={3} md={2}  lg={2}>
                             <AbcTableSmallCell containerClass="abc-content-row-4" imageClass="image"
                                   smObject={smObject} {...others} />
                         </AbcListCol>
                     )}
-
+                </AbcTableGrid>
             </AbcPanel>)
         return panel;
     }
@@ -801,14 +809,14 @@ export class AbcListRow2 extends React.Component{
         const smObjects=smProducts
         const panel=
             ( <AbcPanel  header={header}>
-
+                <AbcTableGrid>
                 {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                     <AbcListCol xs={6} xp={3} sm={4} md={2}  lg={2}>
                         <AbcTableSmallCell containerClass="abc-content-lg" imageClass="image"
                                            smObject={smObject} {...others} />
                     </AbcListCol>
                 )}
-
+                </AbcTableGrid>
             </AbcPanel>)
         return panel;
     }

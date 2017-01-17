@@ -174,7 +174,7 @@
 
   .abc-content{
     .abc-content-md .abc-content;
-
+    width:100px;
     @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
       h6,h5,.btn{
         &:extend(.content-list-font-lg  .title);
@@ -243,6 +243,18 @@
   }
   .abc-toolbar{
     .abc-content-lg .abc-toolbar;
+    margin-top:-6px;
+    .thumbnail-btn{
+      padding:2px 0px;
+
+      .content-list-font-xs  .content;
+      &:extend(.btn);
+      &:extend(.content-list-font-xs  .content);
+      .btn-default{
+        .content-list-font-xs  .content;
+      }
+    }
+
   }
   .image{
     width:@xs-image-width;
@@ -275,12 +287,10 @@
   }
   .image-buttom{
     .image;
-     //margin-left: 0 !important;
   }
 
   .image-top{
     .image;
-    //margin-left: 0 !important;
   }
   .image-left{
     .image;
@@ -303,17 +313,52 @@
 .abc-content-sm-right{
   .abc-content-sm;
   .list-xs .min-size;
+
 }
+
+////////////////竖屏时不显示外围边界/////////////////
+.container-list-abc{
+
+  .col-lg-2{
+    .element-preperty .props-horizontal(border-bottom-style;solid);
+    .element-preperty .props-horizontal(border-bottom-width;1px);
+    .element-preperty .props-horizontal(border-bottom-color;#ddd);
+  }
+  //偶数时增加左右边框
+  //使用公式 (an + b)。描述：表示周期的长度，n 是计数器（从 0 开始），b 是偏移值。
+  .col-lg-4,
+  .col-lg-2{
+    .element-preperty .props-horizontal(border-left-style;solid);
+    .element-preperty .props-horizontal(border-left-width;1px);
+    .element-preperty .props-horizontal(border-left-color;#ddd);
+      .element-preperty .props-horizontal(border-right-style;solid);
+      .element-preperty .props-horizontal(border-right-width;1px);
+      .element-preperty .props-horizontal(border-right-color;#ddd);
+  }
+
+
+}
+  ////////////////横屏时添加边界区分元素/////////////////
 
 .abc-table{
   &:extend(.table);
-  border: @default-border;
+  //border: @default-border;
+  border:@none-border;
+  border-top-style: inherit;
+  border-top-width: 1px;
+  border-top-color: #d4d4d4;
+
+  border-bottom-style: inherit;
+  border-bottom-width: 1px;
+  border-bottom-color: #d4d4d4;
+  margin-bottom:0px !important;
   border-spacing:1px 1px;
 
   td,th{
     width: 50%;
     padding: 0 !important;
     vertical-align:top;
+
   }
   tr{
     outline: none;
@@ -323,23 +368,45 @@
   //多列
   .td-1-2{//左边
     border: @default-border;
+    border-left-style:none;
     width: 50%*@table-left-precent;
+    //最后一个元素没有右边界
+    &:first-child {
+
+    }
+    &:last-child {
+      .element-preperty .props-vertical(border-right-style;none);
+      .element-preperty .props-horizontal(border-right-style;none);
+    }
   }
 
   //右边
   .td-1-2-r{
     border: @default-border;
+    border-right-style:none;
+    border-left-style:none;
+
     width: 50%*@table-right-precent;
     height: 110px;
   }
-  //上边
+  //上边,无用边框
   .td-1-2-t{
     border: @default-border;
+    border-right-style:none;
   }
 
   //下边
   .td-1-2-b{
     border: @default-border;
+    border-left-style:none;
+    //第一个元素没有右边界
+    &:first-child {
+
+    }
+    &:last-child {
+      .element-preperty .props-vertical(border-right-style;none);
+      .element-preperty .props-horizontal(border-right-style;none);
+    }
     width: 100px;
   }
 
@@ -349,7 +416,7 @@
   .abc-table;
   border:0 !important;
   td,th{
-    BORDER-TOP: #ffffff 0px solid !important;
+    //BORDER-TOP: #ffffff 0px solid !important;
   }
 }
 
