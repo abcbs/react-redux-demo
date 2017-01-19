@@ -9,6 +9,8 @@ const propTypes = {
   componentClass: elementType,
 
   xp: React.PropTypes.number,
+  //boot-desktop
+  dt: React.PropTypes.number,
   
   xs: React.PropTypes.number,
 
@@ -19,6 +21,8 @@ const propTypes = {
   lg: React.PropTypes.number,
 
   xpHidden: React.PropTypes.bool,
+
+  dtHidden: React.PropTypes.bool,
 
   xsHidden: React.PropTypes.bool,
 

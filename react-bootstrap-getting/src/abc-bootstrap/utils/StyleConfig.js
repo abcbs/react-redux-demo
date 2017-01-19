@@ -14,6 +14,7 @@ export const SIZE_MAP = {
   sm: 'sm',
   xs: 'xs',
   xp: 'xp',
+  dt: 'dt',//desktop
 };
 
 export const DEVICE_SIZES = [
@@ -22,6 +23,7 @@ export const DEVICE_SIZES = [
   'sm',
   'xs',
   'xp',
+  'dt'
 ];
 
 export const State = {

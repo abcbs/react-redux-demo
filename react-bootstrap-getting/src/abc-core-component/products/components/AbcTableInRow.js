@@ -13,10 +13,60 @@ import smShape from './sm-shape';
 import AbcLabelLimit, {lgLimit} from './ui-limit'
 
 import {composeTableLargeCell,composeTableSmallCell,AbcTableRowDefault,AbcTable,
-    AbcTableSmallCell,AbcTableSmallCellToolbar,AbcTableSmallCellWithToolbar,
+    AbcTableSmallCell,AbcTableSmallCellToolbar,AbcTableSmallCellWithToolbar,AbcTableSmallCellWithBadge,
     AbcListCol,AbcTableLargeTd,AbcTableSmallTd,AbcTableFrame,
     AbcTableLargeCell,AbcTableLargeCellToolbar,AbcTableLargeCellWithToolbar} from './AbcTableListGridFrame'
 
+export class AbcTableRowFrame extends AbcTableRowDefault{
+
+    buildTableLargeCellWithToolbar(option){
+        const TableLargeCell=composeTableLargeCell(option)(AbcTableLargeCellWithToolbar);
+        return TableLargeCell
+    }
+    buildTableLargeCellToolbar(option){
+        const TableLargeCell=composeTableLargeCell(option)(AbcTableLargeCellToolbar);
+        return TableLargeCell
+    }
+
+    buildTableSmallCellWithToolbar(option){
+        return composeTableSmallCell(option)(AbcTableSmallCellWithToolbar)
+    }
+    buildTableSmallCellToolbar(option){
+        return composeTableSmallCell(option)(AbcTableSmallCellToolbar)
+    }
+    buildTableSmallCellWithBadge(option){
+        return composeTableSmallCell(option)(AbcTableSmallCellWithBadge)
+    }
+    render() {
+        const {lgObjects,smObjects,...others}=this.props;
+        const TableLargeCell=this.buildTableLargeCell();
+        const TableSmallCell=this.buildTableSmallCell();
+        return (
+            <AbcListCol>
+                <AbcTableFrame>
+                    <tr align="center">
+                        {lgObjects&&lgObjects.map&&lgObjects.map((lgObject, index) =>
+                            <AbcTableLargeTd>
+                                <TableLargeCell lgObject={lgObject}
+                                                key={index}/>
+                            </AbcTableLargeTd>
+                        )}
+                    </tr>
+                </AbcTableFrame>
+                <AbcTableFrame tableFrameClassName="abc-table-nobuttom">
+                    <tr>
+                        {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
+                            <AbcTableSmallTd>
+                                <TableSmallCell smObject={smObject}
+                                                key={index}/>
+                            </AbcTableSmallTd>
+                        )}
+                    </tr>
+                </AbcTableFrame>
+            </AbcListCol>
+        )
+    }
+}
 //每行数据UI
 /**
  * 主，共计三列，一列大格子，两列小个子
@@ -25,7 +75,7 @@ import {composeTableLargeCell,composeTableSmallCell,AbcTableRowDefault,AbcTable,
  * \        \   \    \
  * --------------------
  */
-export class AbcTableRow extends AbcTableRowDefault{
+export class AbcTableRow extends AbcTableRowFrame{
 
     render() {
         const {lgObjects,smObjects,tableType,...others}=this.props;
@@ -113,7 +163,7 @@ export default class AbcTableLeft1Right2Row2 extends AbcTable
  * \        \   \    \
  * --------------------
  */
-export class AbcRowLeftToolbarRightText extends AbcTableRowDefault{
+export class AbcRowLeftToolbarRightText extends AbcTableRowFrame{
 
     render() {
         const {lgObjects,smObjects,tableType,...others}=this.props;

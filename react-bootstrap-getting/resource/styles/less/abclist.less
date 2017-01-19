@@ -40,17 +40,17 @@
     .list-lg .image-width(0.85);
   }
   .abc-toolbar{
-    //.toolbar-inline(absolute);
     .toolbar-inline;
+    .btn-toolbar;
+
     .thumbnail-btn{
-      &:extend(.btn);
       &:extend(.content-list-font-xs  .content);
-      .btn-default;
+      &:extend(.btn) ;
       padding:2px 6px;
     }
     margin-left: @margin-left;
     .margin-setting--lg;
-    //bottom: 24px;
+
   }
   .abc-content{
     line-height:normal;
@@ -89,6 +89,7 @@
     .abc-content-lg .image;
     .list-lg .image-width(0.9;1.5);
   }
+  //.abc-content-lg .abc-toolbar;
 }
 
 //大图长度乘1.5
@@ -141,12 +142,10 @@
   }
   .image-right{
     .image;
-      //float: right;
-      //margin-left: 0;
       position: absolute;
-      right: 20px;
+      right: 2px;
       top: 20px;
-      margin-top:-10px;
+      margin-top:-16px;
   }
 }
 .abc-content-row-4{
@@ -235,26 +234,29 @@
   .abc-content-fiexed-left {
     .abc-content;
     margin-left: 2px !important;
+
   }
 
   .abc-content-fiexed-width{
     .abc-content;
-    width: 270px !important;
+    width:270px !important;
+    .cashContent{
+      width: 80%;
+      &:extend(.content-list-font-xs  .content);
+      .element-preperty .boot-desktop(width;65%);
+    }
   }
   .abc-toolbar{
     .abc-content-lg .abc-toolbar;
-    margin-top:-6px;
+    //margin-top:-6px;
     .thumbnail-btn{
       padding:2px 0px;
-
       .content-list-font-xs  .content;
-      &:extend(.btn);
       &:extend(.content-list-font-xs  .content);
-      .btn-default{
+      .btn-abc{
         .content-list-font-xs  .content;
       }
     }
-
   }
   .image{
     width:@xs-image-width;
@@ -298,6 +300,7 @@
     float: left;
     .margin-setting--sm;
     margin-right: 20px;
+    //.element-preperty .boot-desktop(margin-right;2px);
   }
 
   .image-right{
@@ -306,14 +309,39 @@
     margin-left: 0 !important;
     position: absolute !important;
     right: 20px;
-
+    //.element-preperty .boot-desktop(right;2px);
   }
 }
 
 .abc-content-sm-right{
   .abc-content-sm;
   .list-xs .min-size;
+  .abc-toolbar{
+    .toolbar-inline;
+    margin-top:-6px;
+  }
+  .cashContent{
+    width: 80%;
+    &:extend(.content-list-font-xs  .content);
 
+  }
+}
+
+.abc-content-sm-single{
+  .abc-content-sm;
+  .list-xs .min-size;
+  .element-preperty .boot-min(height,82px);
+  .element-preperty .android-dpr2-v(height,86px);
+  .element-preperty .android-dpr2-h(height,86px);
+  .element-preperty .android-dpr1g-v(height,86px);
+  .element-preperty .android-dpr1g-v(height,86px);
+  .element-preperty .boot-desktop(height;86px);
+
+  .image-left{
+    .abc-content-sm .image-left;
+    .element-preperty .boot-min(height,70px);
+    .element-preperty .boot-min(width,70px);
+  }
 }
 
 ////////////////竖屏时不显示外围边界/////////////////
@@ -388,6 +416,13 @@
 
     width: 50%*@table-right-precent;
     height: 110px;
+    .element-preperty .boot-min(height,86px);
+    .element-preperty .android-dpr2-v(height,90px);
+    .element-preperty .android-dpr2-h(height,90px);
+    .element-preperty .android-dpr1g-v(height,90px);
+    .element-preperty .android-dpr1g-v(height,90px);
+    .element-preperty .boot-desktop(height;90px);
+
   }
   //上边,无用边框
   .td-1-2-t{
@@ -410,6 +445,19 @@
     width: 100px;
   }
 
+  .td-edit-button-left{
+    width:5%;
+    vertical-align:middle;
+    border: @default-border;
+    border-left-style:none;
+  }
+  .td-edit-button-right{
+    width:5%;
+    vertical-align:middle;
+    border: @default-border;
+    border-right-style:none;
+
+  }
 }
 
 .abc-table-nobuttom{
@@ -420,20 +468,40 @@
   }
 }
 
+.abc-toolbar-xs{
+  //.abc-content-lg .abc-toolbar;
+  .toolbar-inline;
+  .thumbnail-btn{
+    &:extend(.btn-abc);
+    &:extend(.content-list-font-xs  .content);
+    //.btn-default;
+    padding:2px 6px;
+  }
+ .content-list-font-xs  .content;
+  margin-left: @margin-left !important;
+
+}
+
 .cashContent{
   .content-sytle.title-setting(h5);
   .content-sytle.content;
-  .inline{
-    //display:inline;
-  }
+
   p{
+    //.content-list-font-xs  .content !important;
     display:inline-flex;
     display: -webkit-inline-box;
-    display:-ms-inline-flexbox;
+    display:-ms-inline-box;
     display:-moz-inline-box;
+  }
+
+  .inline{
+    //&:extend(.content-list-font-xs  .content);
   }
   .number-postion{
     float:right;
-
+    //&:extend(.content-list-font-xs  .content);
+    //.element-preperty .appple-6plus-v(margin-top; 5px);
+    //.element-preperty .appple-6plus-v(text-align; right);
+    //.element-preperty .appple-6plus-h(margin-top; 2px);
   }
 }

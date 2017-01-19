@@ -1,5 +1,5 @@
 .list-common{
-  .content-width(@zoom-precent:0.7;@lg-col:4;@md-col:2;@xs-col:2;@content-gutter:0.8){
+  .content-width(@zoom-precent:0.7;@lg-col:4;@md-col:2;@xs-col:2;@content-gutter:0.8;@xs-320:1){
     .element-preperty .pc-lg-xl(width;floor((@screen-lg*@content-gutter*@zoom-precent/@lg-col)));
     .element-preperty .pc-lg-chrome(width;floor((@screen-lg*@content-gutter*@zoom-precent/@lg-col*1.2)));
 
@@ -15,12 +15,15 @@
     .element-preperty .apple-pad2-v(width;floor((@xs-apple--pad2-strandand-v*@content-gutter*@zoom-precent/@md-col)));
     .element-preperty .apple-pad2-h(width;floor((@xs-apple--pad2-strandand-h*@content-gutter*@zoom-precent/@md-col)));
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    .element-preperty .boot-min(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent)));
+    /////////////////////////////////////////////////////////////////////////////////
+    //////////////////////修改为百分比方式/////////////////////
+    .element-preperty .boot-min(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent*0.8*@xs-320)));
     .element-preperty .boot-xs(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent)));
-    .element-preperty .boot-sm(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent)));
+
+    .element-preperty .boot-sm(width;floor((@xs-apple--pad2-strandand-h*@content-gutter*@zoom-precent/@md-col)));
     //////////////////////////跟随Pad横屏设置
-    .element-preperty .boot-desktop(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent/@md-col)));
+    .element-preperty .boot-desktop(width;floor((@screen-lg*@content-gutter*@zoom-precent/@lg-col*1.2)));
+
     .element-preperty .boot-max(width;floor((@screen-lg*@content-gutter*@zoom-precent/@lg-col)));
     /////////////////////////////////////////////////////////////////////////////////////////////////
   }
@@ -79,19 +82,46 @@
             floor((@xs-apple--pad2-strandand-h*@image-gutter * @zoom-precent/@md-col
             *@height-precent)));
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    .element-preperty .boot-desktop(width;
-            floor((@xs-strandand*@image-gutter * @zoom-precent/@md-col)));
-    .element-preperty .boot-desktop(height;
-            floor((@xs-strandand*@image-gutter * @zoom-precent/@md-col*@height-precent)));
+    ///////////////////////////////////////////////////////////
+    //////////////////////修改为百分比方式/////////////////////
+    .element-preperty .boot-min(width;floor((@xs-strandand-h*@image-gutter *
+                                @zoom-precent  /@xs-col *0.8)));
+    .element-preperty .boot-min(height;floor((@xs-strandand-h*@image-gutter
+                                * @zoom-precent /@xs-col*@height-precent *0.8)));
 
-    .element-preperty .boot-max(width;
-            floor((@xs-strandand*@image-gutter * @zoom-precent/@md-col)));
-    .element-preperty .boot-max(height;
-            floor((@xs-strandand*@image-gutter * @zoom-precent/@md-col*@height-precent)));
+
+    .element-preperty .boot-xs(width;floor((@xs-strandand-h*@image-gutter *
+                                @zoom-precent  /@xs-col)));
+    .element-preperty .boot-xs(height;floor((@xs-strandand-h*@image-gutter
+                                * @zoom-precent /@xs-col*@height-precent)));
+
+    //按照Pad
+
+    .element-preperty .boot-sm(width;
+            floor((@xs-apple--pad2-strandand-h*@image-gutter * @zoom-precent/@md-col)));
+    .element-preperty .boot-sm(height;
+            floor((@xs-apple--pad2-strandand-h*@image-gutter * @zoom-precent/@md-col
+            *@height-precent)));
+
+    .element-preperty .boot-desktop(width;
+            floor((@xs-apple--pad2-strandand-v*@image-gutter * @zoom-precent/@md-col)));
+    .element-preperty .boot-desktop(height;
+            floor((@xs-apple--pad2-strandand-v*@image-gutter *
+            @zoom-precent/@md-col*@height-precent)));
+
+    .element-preperty .boot-max(width;floor((@xs-screen-standrand*@image-gutter*
+                                @zoom-precent /@lg-col)));
+    .element-preperty .boot-max(height;floor((@xs-screen-standrand*@image-gutter  *
+                                @zoom-precent /@lg-col*@height-precent)));
     /////////////////////////////////////////////////////////////////////////////////////////////////
   }
 
+  .image-surplus(@zoom-precent-content:0.7;@lg-col-content:4;@md-col-content:2;
+                  @xs-col-content:2;@content-gutter-content:0.8;
+                  @zoom-precent:0.8; @lg-col:6;@md-col:4;@xs-col:2;@image-gutter:0.7
+  ){
+
+  }
   .margin-left(@zoom-precent:0.4;@lg-col:6;@xs-col:2;@content-gutter:0.8;@image-gutter:0.7){
     @contentWidth:floor(@xs-screen-standrand*@content-gutter*@zoom-precent/@xs-col);
     @imageWidth:floor(@xs-screen-standrand*@image-gutter*@zoom-precent/@xs-col);
@@ -120,12 +150,12 @@
     .element-preperty .apple-pad2-v(margin-left;@left-xs2);
     .element-preperty .apple-pad2-h(margin-left;@left-xs2/2);
     ////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////
-    .element-preperty .boot-min(margin-left;@left-xs2);
+    //////////////////////修改为百分比方式/////////////////////
+    .element-preperty .boot-min(margin-left;@left-xs2 *0.5);
     .element-preperty .boot-xs(margin-left;@left-xs2);
-    .element-preperty .boot-sm(margin-left;@left-xs2);
+    .element-preperty .boot-sm(margin-left;@left-xs2/2);
     //////////////////////////
-    .element-preperty .boot-desktop(margin-left;@left-lg);
+    .element-preperty .boot-desktop(margin-left;@left-xs2);
     .element-preperty .boot-max(margin-left;@left-xs2);
     //////////////////////////////////////////////////////////
   }
@@ -184,7 +214,24 @@
             floor((@xs-apple--pad2-strandand-h*@image-gutter * @zoom-precent/@md-col
             *@height-precent)));
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .element-preperty .boot-min(min-width;floor((@xs-strandand-v*@image-gutter *
+                                @zoom-precent  /@xs-col)));
+    .element-preperty .boot-min(min-height;floor((@xs-strandand-v*@image-gutter
+                                * @zoom-precent /@xs-col*@height-precent)));
+
+    .element-preperty .boot-xs(min-width;floor((@xs-strandand-v*@image-gutter *
+                                @zoom-precent  /@xs-col)));
+    .element-preperty .boot-xs(min-height;floor((@xs-strandand-v*@image-gutter
+                                * @zoom-precent /@xs-col*@height-precent)));
+
+    .element-preperty .boot-sm(min-width;floor((@xs-strandand-v*@image-gutter *
+                                @zoom-precent  /@xs-col)));
+    .element-preperty .boot-sm(min-height;floor((@xs-strandand-v*@image-gutter
+                                * @zoom-precent /@xs-col*@height-precent)));
+
+
+    /////////////////////////////////////////////////////////////////
     .element-preperty .boot-desktop(min-width;
             floor((@xs-strandand*@image-gutter * @zoom-precent/@md-col)));
     .element-preperty .boot-desktop(min-height;
@@ -202,11 +249,11 @@
   @image-gutter:0.7;
   //大图内容宽度,@xs-col,格子数*2，以便放下文字比图大的内容
   .content-width(@zoom-precent:0.7;@lg-col:8;@md-col:2;@xs-col:1){
-    .list-common .content-width(@zoom-precent;@lg-col;@md-col;@xs-col;@content-gutter);
+    .list-common .content-width(@zoom-precent;@lg-col;@md-col;@xs-col;@content-gutter;@xs-320:1.2);
   }
   //
   .col-width(@zoom-precent:0.8;@lg-col:6;@md-col:4;@xs-col:2){
-    .list-common .content-width(@zoom-precent;@lg-col;@md-col;@xs-col;@content-gutter);
+    .list-common .content-width(@zoom-precent;@lg-col;@md-col;@xs-col;@content-gutter;@xs-320:1);
   }
 
   .image-width(@zoom-precent:0.96;@height-precent:1.2;@lg-col:6;@md-col:2;@xs-col:2){
@@ -240,11 +287,11 @@
   @image-gutter:0.7;
 
   .content-width(@zoom-precent:1.8){
-    .list-common .content-width(@lg-col:6;@md-col:1;@xs-col:0.6;@content-gutter);
+    .list-common .content-width(@lg-col:6;@md-col:1;@xs-col:0.6;@content-gutter;@xs-320:1.2);
   }
 
   .col-width(@zoom-precent:1){
-    .list-common .content-width(@lg-col:6;@md-col:2;@xs-col:2;@content-gutter);
+    .list-common .content-width(@lg-col:6;@md-col:2;@xs-col:2;@content-gutter;@xs-320:1);
   }
 
   .image-width(@zoom-precent:1; @height-precent:1){

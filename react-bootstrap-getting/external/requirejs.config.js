@@ -23,6 +23,25 @@ requirejs.config({
     }
 });
 
+
+// (function clientWidth() {
+//     try{
+//         var dpr =1, scale =1;
+//         var isIPhone = window.navigator.appVersion.match(/iphone/gi);
+//         var isIpdad = window.navigator.appVersion.match(/ipad/gi);
+//         var devicePixelRatio = window.devicePixelRatio+0;
+//         var clientWidth=document.documentElement.clientWidth+0;
+//         var clientHight=document.documentElement.clientHeight +0;
+//         alert("clientWidth:"+clientWidth+" clientHight: "+clientHight+
+//             " devicePixelRatio: "+devicePixelRatio+
+//             " isIPhone:"+isIPhone+" isIpdad:"+isIpdad)
+//
+//
+//     }catch(err){
+//         return;
+//     }
+// })();
+
 // (function fixedDevice() {
 //     try{
 //         var dpr =1, scale =1;
@@ -31,11 +50,11 @@ requirejs.config({
 //         var devicePixelRatio = window.devicePixelRatio+0;
 //         var clientWidth=document.documentElement.clientWidth+0;
 //         var clientHight=document.documentElement.clientHeight +0;
-//         // alert("clientWidth:"+clientWidth+" clientHight: "+clientHight+
-//         //     " devicePixelRatio: "+devicePixelRatio+
-//         //     " isIPhone:"+isIPhone+" isIpdad:"+isIpdad)
-//         //对iPhone4修改
-//         //devicePixelRatio===1.5
+//         alert("clientWidth:"+clientWidth+" clientHight: "+clientHight+
+//             " devicePixelRatio: "+devicePixelRatio+
+//             " isIPhone:"+isIPhone+" isIpdad:"+isIpdad)
+//         对iPhone4修改
+//         devicePixelRatio===1.5
 //         var fixed=isIPhone&&clientWidth===320&&clientHight<400;//||devicePixelRatio===1.5
 //
 //         if(fixed){

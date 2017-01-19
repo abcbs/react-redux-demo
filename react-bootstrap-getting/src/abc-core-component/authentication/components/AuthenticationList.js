@@ -40,16 +40,15 @@ export default class AuthenticationList extends React.Component {
     }
 
     render() {
-        const authenticationSearchHeader=(<HeaderTitleAndNumber numbers="17" title="权限列表"/>);
-        const authenticationListHeader=(<HeaderTitleAndNumber numbers="10" title="用户权限"/>);
-        const authenticationAdimHeader=(<HeaderTitleAndNumber numbers="10" title="管理权限"/>);
+        const authenticationListHeader=(<HeaderTitleAndNumber numbers="10" title="权限列表"/>);
+        const authenticationAdimHeader=(<HeaderTitleAndNumber numbers="2" title="权限底数"/>);
         return (
-            <AbcPanel  header={authenticationSearchHeader}
-                       footer={authenticationSearchHeader}>
-                <AuthenticationManager formConfig={this.props.formConfig}/>
-                <AuthenticationManager formConfig={this.props.formConfig}/>
-                <AuthenticationManager formConfig={this.props.formConfig}/>
-                <AuthenticationManager formConfig={this.props.formConfig}/>
+            <AbcPanel  header={authenticationListHeader}
+                       footer={authenticationAdimHeader}>
+                <AuthenticationManager key="01" formConfig={this.props.formConfig}/>
+                <AuthenticationManager key="02" formConfig={this.props.formConfig}/>
+                <AuthenticationManager key="03" formConfig={this.props.formConfig}/>
+                <AuthenticationManager key="04" formConfig={this.props.formConfig}/>
             </AbcPanel>
 
         )

@@ -74,7 +74,7 @@ class MainSection extends Component {
     );
 
     return (
-      <section className="main">
+      <div>
         {this.renderToggleAll(completedCount)}
         <ul className="todo-list">
           {filteredTodos.map(todo =>
@@ -82,7 +82,7 @@ class MainSection extends Component {
           )}
         </ul>
         {this.renderFooter(completedCount)}
-      </section>
+      </div>
     )
   }
 }

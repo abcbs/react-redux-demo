@@ -45,7 +45,7 @@ const warnAuthentication = values => {
         const authenticationServer=state.authenticationServer
         return(
         {
-            initialValues: state.authenticationClient.data,
+            // initialValues: state.authenticationClient.data,
             adding: authenticationServer.adding
         })
 

@@ -21,7 +21,8 @@ export default class AbcPage extends Component {
         const { children,router,title, subTitle,theme,...other} = this.props;
         return (
             <div className="container container-desktop container-lg " {...other}
-                 style={{zIndex:'1060',marginTop:"60px",paddingLeft:"0px",paddingRight:"0px"}}>
+                 style={{zIndex:'1060',marginTop:"60px",
+                 paddingLeft:"0px",paddingRight:"0px" ,overflow:"hidden"}}>
                  <AbcNavMain />
                  <PageHeader title={title}  subTitle={subTitle}  />
                  {this.rederChildren(children)}

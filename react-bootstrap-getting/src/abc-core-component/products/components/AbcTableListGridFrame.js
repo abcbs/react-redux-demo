@@ -9,11 +9,28 @@ import {Modal,Glyphicon,Grid,Row,Col,Thumbnail,
     Image,Button,Media,Checkbox,ButtonToolbar,FormControl,Table} from '../../../abc-bootstrap'
 
 import AbcPanel from '../../../abc-ui/AbcPanel'
+
+import {AbcButtonToolbarRight,AbcButton,
+    AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
+    from '../../../abc-ui/abc-ui-index'
+
 import lgShape from './lg-shape';
 import smShape from './sm-shape';
 import AbcLabelLimit, {lgLimit} from './ui-limit'
+
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////业务UI////////////////////////////////////////
+export class AbcTableCellFunctions extends React.Component{
+
+    render() {
+        const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
+        return (
+            <ButtonToolbar className="abc-toolbar-xs">
+                <Glyphicon glyph="pencil"/>
+            </ButtonToolbar>
+        )
+    }
+}
 export class AbcTableLargeCellWithToolbar extends React.Component{
 
     render() {
@@ -197,8 +214,6 @@ export class AbcTableSmallCellImageTop extends AbcTableSmallCell{
                         <p>{smObject.description}</p>
                     </div>
                 </div>
-
-
             </div>
         )
     }
@@ -214,6 +229,7 @@ export class AbcTableSmallSingleCol extends AbcTableSmallCell{
                     alt={smObject.portraitAlt}>
                 </Image>
                 <div className={contentClass}>
+
                     <div>
                         <h5>{smObject.title}</h5>
                         <div className="cashContent">
@@ -226,18 +242,22 @@ export class AbcTableSmallSingleCol extends AbcTableSmallCell{
                         </div>
                     </div>
 
+                    {
+                    // <table min-height="90px" style={{minHeight:"90px", marginTop:"10px"}}>
+                    //     <tr>
+                    //         <td colSpan="2"><h5>{smObject.title}</h5></td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td width="80%"><p className="inline">{smObject.description}</p></td>
+                    //         <td><p className="number-postion"> {smObject.address}</p></td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td><p className="inline">{smObject.price}</p></td>
+                    //         <td><p className="number-postion"> {smObject.number}</p></td>
+                    //     </tr>
+                    // </table>
+                    }
                 </div>
-                {
-                // <ButtonToolbar className="abc-toolbar">
-                //     <Button className="thumbnail-btn"
-                //     ><Glyphicon glyph="plus"/></Button>
-                //     <FormControl type="number"
-                //                  style={{width:"46px",padding:"2px 4px",
-                //                                        fontSize:"13px" ,border:"none",textAlign:"center"}}
-                //                  placeholder="1" />
-                //     <Button className="thumbnail-btn"><Glyphicon glyph="minus"/></Button>
-                // </ButtonToolbar>
-                }
             </div>
         )
     }
@@ -264,7 +284,7 @@ export class AbcTableSmallSingleColToolbar extends AbcTableSmallCell{
 
                 </div>
 
-                <ButtonToolbar className="abc-toolbar">
+                <ButtonToolbar className="abc-toolbar" style={{minWidth: "100px"}}>
                     <Button className="thumbnail-btn"><Glyphicon glyph="plus"/></Button>
                     <FormControl type="number"
                          style={{width:"46px",padding:"1px 4px",
@@ -601,6 +621,7 @@ export class AbcListCol extends React.Component{
     {
         xs: PropTypes.number.isRequired,
         xp: PropTypes.number.isRequired,
+        dt: PropTypes.number.isRequired,
         sm: PropTypes.number.isRequired,
         md: PropTypes.number.isRequired,
         lg: PropTypes.number.isRequired
@@ -613,13 +634,14 @@ export class AbcListCol extends React.Component{
         xp: 6,
         sm: 6,
         md: 6,
-        lg: 4
+        dt: 6,
+        lg: 6
     };
 
     render() {
-        const {xs,xp,sm,md,lg,children,...others}=this.props;
+        const {xs,xp,sm,md,lg,dt,children,...others}=this.props;
         return (
-            <Col xs={xs} xp={xp} sm={sm} md={md} lg={lg}>{
+            <Col xs={xs} xp={xp} sm={sm} md={md} lg={lg} dt={dt}>{
                 children
             }
             </Col>
@@ -675,30 +697,22 @@ export class AbcTableRowDefault extends React.Component{
         lgObjects: PropTypes.arrayOf(lgShape).isRequired,
         smObjects: PropTypes.arrayOf(smShape).isRequired
     };
+
+    tableLargeCell(){
+        return AbcTableLargeCell;
+    }
+    tableSmallCell(){
+        return AbcTableSmallCell;
+    }
     buildTableLargeCell(option){
-        const TableLargeCell=composeTableLargeCell(option)(AbcTableLargeCell);
+        const TableLargeCell=composeTableLargeCell(option)(this.tableLargeCell());
         return TableLargeCell
     }
-    buildTableLargeCellWithToolbar(option){
-        const TableLargeCell=composeTableLargeCell(option)(AbcTableLargeCellWithToolbar);
-        return TableLargeCell
-    }
-    buildTableLargeCellToolbar(option){
-        const TableLargeCell=composeTableLargeCell(option)(AbcTableLargeCellToolbar);
-        return TableLargeCell
-    }
+
     buildTableSmallCell(option){
-        return composeTableSmallCell(option)(AbcTableSmallCell)
+        return composeTableSmallCell(option)(this.tableSmallCell())
     }
-    buildTableSmallCellWithToolbar(option){
-        return composeTableSmallCell(option)(AbcTableSmallCellWithToolbar)
-    }
-    buildTableSmallCellToolbar(option){
-        return composeTableSmallCell(option)(AbcTableSmallCellToolbar)
-    }
-    buildTableSmallCellWithBadge(option){
-        return composeTableSmallCell(option)(AbcTableSmallCellWithBadge)
-    }
+
     render() {
         const {lgObjects,smObjects,...others}=this.props;
         const TableLargeCell=this.buildTableLargeCell();
@@ -715,7 +729,7 @@ export class AbcTableRowDefault extends React.Component{
                       )}
                       </tr>
                 </AbcTableFrame>
-                <AbcTableFrame tableFrameClassName="abc-table-nobuttom" style={{marginTop:"-22px"}}>
+                <AbcTableFrame tableFrameClassName="abc-table-nobuttom">
                     <tr>
                         {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                             <AbcTableSmallTd>
@@ -783,7 +797,7 @@ export class AbcListRow4 extends React.Component{
             ( <AbcPanel  header={header}>
                 <AbcTableGrid>
                     {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
-                        <AbcListCol xs={3} xp={3} sm={3} md={2}  lg={2}>
+                        <AbcListCol xs={3} xp={3} sm={3} md={2}   dt={3}  lg={3}>
                             <AbcTableSmallCell containerClass="abc-content-row-4" imageClass="image"
                                   smObject={smObject} {...others} />
                         </AbcListCol>
@@ -811,7 +825,7 @@ export class AbcListRow2 extends React.Component{
             ( <AbcPanel  header={header}>
                 <AbcTableGrid>
                 {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
-                    <AbcListCol xs={6} xp={3} sm={4} md={2}  lg={2}>
+                    <AbcListCol xs={6} xp={3} sm={4} md={2}  dt={3} lg={3}>
                         <AbcTableSmallCell containerClass="abc-content-lg" imageClass="image"
                                            smObject={smObject} {...others} />
                     </AbcListCol>

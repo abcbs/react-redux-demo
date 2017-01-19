@@ -20,6 +20,8 @@ export { default as navigator }      from './ui-reducers/navigator'
 
 export {visibilityFilter,addTodoVerfiy,todos} from '../../todos/reducers'
 
+export {default as todosmvn} from '../../todomvc/reducers/todos'
+
 export {authenticationClient,authenticationServer}
     from '../../abc-core-component/authentication/reducers/authentication-reducer-index'
 // import { default as authentication } from './authentication'

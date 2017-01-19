@@ -53,6 +53,13 @@ const NAV_LINKS = {
         subTitle:"介绍ABC内容",
         role:"needLogined"
     },
+    HomePage: {
+        path: '/todosmvc',
+        nav:'/todosmvc',
+        title: 'TodosMvc',
+        subTitle:"Todo",
+        role:"needLogined"
+    }
 };
 
 export default NAV_LINKS;

@@ -42,8 +42,8 @@
         "NODE_PATH": "./src",
         "NODE_ENV": "development",
         "PORT": 3000,
-        "HOST": "192.168.1.105",
-        "APIHOST": "192.168.1.105",
+        "HOST": "192.168.1.106",
+        "APIHOST": "192.168.1.106",
         "APIPORT": 3030,
         "__DEVTOOLS__": false,
         "__DEVELOPMENT__": false

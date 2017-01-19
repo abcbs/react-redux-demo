@@ -85,24 +85,26 @@
   .boot-min(@element;@prepery){
     @media (max-width: @screen-min-v) {
         @{element}:@prepery;
-      background-color: @content-v-background-color;
-      background-color: #1c5518;
+      //background-color: @content-v-background-color;
+      background-color: #80ff47;
     }
   }
+
 
   .boot-xs(@element;@prepery) {
     @media (min-width: 425px) and (max-width: 479px) {
         @{element}: @prepery;
-      //background-color: @content-v-background-color;
-      background-color: #2fffcd;
+      background-color: @content-v-background-color;
+      //background-color: #41ffe3;
     }
   }
-  //992~768 pad
+
+  //按照pad2
   .boot-sm(@element;@prepery) {
-    @media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
-        //@{element}:@prepery;
-      //background-color: @content-v-background-color;
-      //background-color: red;
+    @media (min-width: @screen-pad-md) and (max-width: @screen-pad-md-max) {
+        @{element}:@prepery;
+      background-color: @content-v-background-color;
+      //background-color:greenyellow;
     }
   }
 
@@ -114,11 +116,11 @@
     }
   }
 
+  //按照最大屏幕设置
   .boot-max(@element;@prepery) {
-    @media (min-width:@screen-lg-chromex +1) {
+    @media (min-width:@screen-lg-xl) {
         @{element}:@prepery;
-      //background-color: @content-v-background-color;
-      background-color: #5bff16;
+      background-color: @content-v-background-color;
     }
 
   }

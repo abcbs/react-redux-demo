@@ -5,6 +5,28 @@ import Header from '../components/Header'
 import MainSection from '../components/MainSection'
 import * as TodoActions from '../reducers/todos'
 
+import international from '../../abc-framework/international/internationalize'
+import container from '../../abc-framework/ui/AbcPageContainer'
+import { defineMessages }              from 'react-intl'
+//
+const messages = defineMessages
+({
+      title:
+      {
+        id             : 'main.title',
+        description    : 'Todos',
+        defaultMessage : 'product'
+      },
+      subTitle:
+      {
+        id             : 'main.subTitle',
+        description    : 'Mvc',
+        defaultMessage : '新增产品，可以撤销'
+      }
+    }
+)
+@international()
+@container({title:messages.title, subTitle:messages.subTitle})
 class App extends Component {
   render() {
     {/*
@@ -12,7 +34,7 @@ class App extends Component {
       actions为执行的动作，action为具体的动作，以(type,data)方式处理
 
     */}
-    const { todos, actions } = this.props;
+    const { todosmvn, actions } = this.props;
     return (
       <div>
         {
@@ -20,7 +42,7 @@ class App extends Component {
           //
           }
         <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
+        <MainSection todos={todosmvn} actions={actions} />
       </div>
     )
   }
@@ -29,14 +51,14 @@ class App extends Component {
 //组件的属性可以接受任意值，字符串、对象、函数等等都可以。
 //有时，我们需要一种机制，验证别人使用组件时，提供的参数是否符合要求。
 App.propTypes = {
-  todos: PropTypes.array.isRequired,
+  todosmvn: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 //将state.todos绑定到props的todos
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todosmvn: state.todosmvn
   }
 }
 

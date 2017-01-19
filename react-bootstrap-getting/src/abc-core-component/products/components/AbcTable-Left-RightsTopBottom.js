@@ -9,6 +9,11 @@ import {Modal,Glyphicon,Grid,Row,Col,Thumbnail,
     Image,Button,Media,Checkbox,ButtonToolbar,FormControl,Table} from '../../../abc-bootstrap'
 
 import AbcPanel from '../../../abc-ui/AbcPanel'
+
+import {AbcButtonToolbarRight,AbcButton,
+    AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
+    from '../../../abc-ui/abc-ui-index'
+
 import lgShape from './lg-shape';
 import smShape from './sm-shape';
 import AbcLabelLimit, {lgLimit} from './ui-limit'
@@ -18,7 +23,7 @@ import {composeTableLargeCell,composeTableSmallCell,AbcTableRowDefault,
     AbcTableMiddleCell,AbcTableMiddleCellSimple,AbcTableSmallCellImageTop,
     AbcTableSmallSingleCol,AbcTableSmallSingleColToolbar,
     AbcTable, AbcTableGrid,AbcListCol,AbcTableLargeTd,AbcTableLargeLeftTd,AbcTableSmallTd,AbcTableFrame,
-    AbcTableLargeCell,AbcTableLargeCellToolbar,
+    AbcTableLargeCell,AbcTableLargeCellToolbar,AbcTableCellFunctions,
     AbcTableLargeCellWithToolbarBottom,AbcTableLargeCellWithToolbar} from './AbcTableListGridFrame'
 
 
@@ -36,17 +41,32 @@ export class AbcTableLeft1RightsTop2Bottom2Row extends AbcTableRowDefault{
     static defaultProps={
         slicePoint:2,
     }
-    render() {
-        const {lgObjects,smObjects,tableType,slicePoint,...others}=this.props;
-        const  TableLargeCell=super.buildTableLargeCell(
-            {containerClassName:"abc-content-lg-h12",imageClassName:"image"});
-        const  smObjectsTop= smObjects.slice(0,slicePoint);
-        const  smObjectsBottom=smObjects.slice(slicePoint,smObjects.length);
-        //{imageClassName:"image-width-zoom2"} contentClassName
-        let TableSmallCell=super.buildTableSmallCell({
+    buildTableLargeCell(){
+        return composeTableLargeCell({containerClassName:"abc-content-lg-h12",imageClassName:"image"})
+        (this.tableLargeCell())
+    }
+
+    buildTableSmallCell(){
+        return composeTableSmallCell({
             imageClassName:this.props.smImageClassName,
             contentClassName:this.props.smContentClassName
-        });
+        })(this.tableSmallCell())
+    }
+    tableLargeCell(){
+        return AbcTableLargeCell;
+    }
+    tableSmallCell(){
+        return AbcTableSmallCell;
+    }
+    render() {
+        const {lgObjects,smObjects,tableType,slicePoint,...others}=this.props;
+
+        const  TableLargeCell=this.buildTableLargeCell();
+
+        const  smObjectsTop= smObjects.slice(0,slicePoint);
+        const  smObjectsBottom=smObjects.slice(slicePoint,smObjects.length);
+
+        const TableSmallCell=this.buildTableSmallCell();
         return (
             <AbcListCol>
                 <AbcTableFrame>
@@ -116,20 +136,24 @@ export class AbcTableLeft1RightsTop1Bottom1Row extends AbcTableRowDefault{
         smContainerClassName:PropTypes.string,
         smImageClassName:PropTypes.string
     }
+
     static defaultProps={
         lgContainerClassName:"abc-content-lg-h",
         lgImageClassName:"image",
         smContainerClassName:"abc-content-sm",
         smImageClassName:"image-width-zoom2"
     }
+
     buildTableLargeCell(){
         return composeTableLargeCell(
             {containerClassName:this.props.lgContainerClassName,
                 imageClassName:this.props.lgImageClassName})(AbcTableLargeCellWithToolbarBottom)
     }
+
     buildTableSmallCell(){
-        return super.buildTableSmallCell( {imageClassName:this.props.smImageClassName});
+        return composeTableSmallCell({imageClassName:this.props.smImageClassName})(AbcTableSmallCell)
     }
+
     render() {
         const {lgObjects,smObjects,tableType,...others}=this.props;
         //对业务视图的class的调整
@@ -259,22 +283,15 @@ export class AbcTableLeft1RightsTop1Bottom1LeftSimple extends AbcTable{
  * ------------------
  */
 export class AbcTableTop2Bottom4Row extends AbcTableRowDefault{
-    // static propTypes={
-    //     smImageClassName:PropTypes.string,
-    //     smContentClassName:PropTypes.string
-    // }
-    // static defaultProps={
-    //     smImageClassName:"image-fiexed-left",
-    //     smContentClassName:"abc-content-fiexed-left"
-    // }
+
     render() {
         const {lgObjects,smObjects,tableType,...others}=this.props;
         //对业务视图的class的调整
         const TableLargeCell=composeTableLargeCell()(AbcTableLargeCellWithToolbar);
-        const TableSmallCell=super.buildTableSmallCell({
+        const TableSmallCell =composeTableSmallCell({
             imageClassName:this.props.smImageClassName,
             contentClassName:this.props.smContentClassName
-        });
+        })(AbcTableSmallCell);
         return (
             <AbcListCol>
                 <AbcTableFrame>
@@ -433,7 +450,7 @@ export class AbcTableSingleColRow extends AbcTableRowDefault{
         smContentClassName:PropTypes.string
     }
     static defaultProps={
-        smContainerClassName:"abc-content-sm",
+        smContainerClassName:"abc-content-sm-single",
         smImageClassName:"image-left",
         smContentClassName:"abc-content-fiexed-width"
     }
@@ -447,7 +464,7 @@ export class AbcTableSingleColRow extends AbcTableRowDefault{
     render() {
         const {lgObjects,smObjects,tableType,...others}=this.props;
         const TableSmallCell=this.buildTableSmallCell();
-        //数据
+        //数据,默认可以有个编辑按钮
         return (
             <div>
                 {smObjects && smObjects.map && smObjects.map((smObject, index) =>
@@ -458,6 +475,9 @@ export class AbcTableSingleColRow extends AbcTableRowDefault{
                                     <TableSmallCell smObject={smObject}
                                                     key={index}/>
                                 </AbcTableSmallTd>
+                                <td className="td-edit-button-right">
+                                    <AbcTableCellFunctions />
+                                </td>
                             </tr>
                         </AbcTableFrame>
                     </AbcListCol>
@@ -505,6 +525,32 @@ export class AbcTableSingleLeftImageColRow extends AbcTableSingleColRow{
                 containerClassName:this.props.smContainerClassName,
                 contentClassName:this.props.smContentClassName
             })(AbcTableSmallSingleColToolbar);
+    }
+    render() {
+        const {lgObjects,smObjects,tableType,...others}=this.props;
+        const TableSmallCell=this.buildTableSmallCell();
+        //数据,默认可以有个编辑按钮
+        return (
+            <div>
+                {smObjects && smObjects.map && smObjects.map((smObject, index) =>
+                    <AbcListCol>
+                        <AbcTableFrame>
+                            <tr>
+                                <td className="td-edit-button-left">
+                                    <AbcTableCellFunctions />
+                                </td>
+                                <AbcTableSmallTd className="td-1-2-r">
+                                    <TableSmallCell smObject={smObject}
+                                                    key={index}/>
+                                </AbcTableSmallTd>
+
+                            </tr>
+                        </AbcTableFrame>
+                    </AbcListCol>
+                )
+                }
+            </div>
+        )
     }
 }
 
