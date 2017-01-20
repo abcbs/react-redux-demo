@@ -1,3 +1,6 @@
+/**
+ * 整体页面，即区分手机、Pad和电脑的布局
+ */
 import React,{ Component, PropTypes, Children } from 'react'
 import {Row,Col} from '../../abc-bootstrap'
 import AbcNavMain from './AbcNavMain'

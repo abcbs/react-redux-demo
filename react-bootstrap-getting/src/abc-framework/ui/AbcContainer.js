@@ -1,3 +1,6 @@
+/**
+ * 手机内容页
+ */
 import React,{ Component, PropTypes, Children } from 'react'
 import classnames from 'classnames';
 import map  from 'lodash/map';

@@ -171,11 +171,14 @@
 @screen-gtv:                      350px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
 @screen-gtvx:                     399px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
 
-@screen-gt:                       424px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
+@screen-gt:                       600px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
 @screen-gtx:                      759px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
 
 //992 768  sm
-@screen-min-v: 349px;
+@screen-min-xsm: 299px;
+@screen-min-v: 300px;
+@screen-min-vmax: 349px;
+
 @screen-max: 12001px;
 
 //12280
@@ -492,6 +495,7 @@
 @default-margin-bottom-v:10px;
 
 ////////////////////////////////////////////////////////
+
 //格子画图显示标准
 @screen-h:                  720px;
 @screen-v:                  480px;
@@ -508,20 +512,27 @@
 @xs-apple--pad2-strandand-h:@screen-pad2v/2;
 
 //小图默认大小
-@xs-image-width:48px;
-@xs-content-width:120px;
+@xs-image-width:80px;
+@xs-content-width:160px;
+@xs-content-col-width:90px;
 @xs-content-height:24px;
+@sm-text-width:120px;
 //中图默认大小
 //
-@md-image-width:96px;
-@md-image-height:72px;
-@md-content-width:120px;
+@md-image-width:80px;
+@md-image-height:80px;
+@md-content-width:140px;
+@md-content-col-width:120px;
+@md-text-width:160px;
 //大图默认大小
-@lg-image-width:116px;
-@lg-content-width:120px;
+@lg-image-width:120px;
+@lg-image-hight:180px;
+@lg-content-col-width:130px;
+@lg-content-width:160px;
+@lg-text-width:160px;
 //默认的间隙
 @margin-left:6px;
-
+@image-z-index:2;
 //大格子显示
 @content-width-lg-lg: floor((@screen-sm*0.8 /4));
 @image-width-lg-lg: floor((@screen-sm*0.75 /4));

@@ -15,11 +15,15 @@
 }
 //左边大图所包含的内容
 .abc-content-lg{
+
+  font-size: small;
+   width:        @lg-content-col-width;
   .list-lg .col-width;
   border: @none-border;
   .image{
+      z-index:@image-z-index;
       width:@lg-image-width ;
-      height:@lg-image-width;
+      height:@lg-image-hight;
       //调整边界
       margin-left: @margin-left;
       margin-bottom: 6px;
@@ -45,8 +49,9 @@
 
     .thumbnail-btn{
       &:extend(.content-list-font-xs  .content);
-      &:extend(.btn) ;
-      padding:2px 6px;
+      .btn-abc;
+      padding:2px,6px;
+      .element-preperty .boot-min(padding;2px 2px);
     }
     margin-left: @margin-left;
     .margin-setting--lg;
@@ -56,12 +61,14 @@
     line-height:normal;
     width:@lg-content-width;
     .content-sytle.title-setting(h5;1.4;relative;inherit);
-    .content-sytle.title-setting(h5;1.4;relative;inherit);
-
     .content-sytle.content;
     margin-left: @margin-left;
+    .element-preperty .boot-min(margin-left;2px);
     .margin-setting--lg;
     .list-lg .content-width(1);
+    //h6,h5,p{
+    //  width: @lg-text-width;
+    //}
     h6,h5,.btn{
       &:extend(.content-list-font-md  .title);
     }
@@ -95,28 +102,38 @@
 //大图长度乘1.5
 .abc-content-lg-h12{
   .abc-content-lg;
+  //@zoom-precent:0.8;@lg-col:6;@md-col:4;@xs-col:2;@desktop:1
+  .list-lg .col-width(1);
+  .element-preperty .boot-desktop(width;120px);
+  .element-preperty .boot-xs-min(width;120px);
   .image{
     .abc-content-lg .image;
     .list-lg .image-width(0.86;1.72);
+    //.element-preperty .boot-xs-min(width;80px);
   }
+
 }
 
 //上面大图，中等图形的
 .abc-content-md {
   border: @none-border;
-  width: @content-width-lg-lg;
-  //.list-md .content-width;
+  width: @md-content-col-width;
+  .list-md .content-width(0.5);
   padding-bottom:6px;
+  font-size: small;
   .abc-content{
     .content-sytle.title-setting(h5;1.4;relative;inherit);
     .content-sytle.title-setting(h5;1.4;relative;inherit);
     .content-sytle.content;
     width:@md-content-width;
     margin-left: @margin-left;
-    //.list-md .content-width;
-     .list-md .content-width;
+     .element-preperty .boot-min(margin-left;2px);
+     .list-md .content-width(1.5);
     //调整边界
     .margin-setting--lg;
+    //h6,h5,p{
+    //  width: @md-text-width;
+    //}
     h6,h5,.btn{
       &:extend(.content-list-font-md  .title);
     }
@@ -129,8 +146,9 @@
     .abc-content-lg .abc-toolbar;
   }
   .image{
+      z-index:@image-z-index;
       width:@md-image-width;
-      height:@md-image-width;
+      height:@md-image-height;
       margin-left: @margin-left;
      .margin-setting--md;
      .list-md .image-width;
@@ -161,6 +179,8 @@
   .abc-content-md;
 
   .image{
+    width: @md-image-height;
+    height: @md-image-height;
 
     .list-md .image-width(1.2);
     @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
@@ -172,14 +192,21 @@
   }
 
   .abc-content{
+    word-wrap:break-word;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    h6,h5,p{
+      width: @md-text-width;
+    }
     .abc-content-md .abc-content;
-    width:100px;
+    width:@xs-content-col-width;
     @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
       h6,h5,.btn{
         &:extend(.content-list-font-lg  .title);
       }
 
       p{
+        width: 100px;
         &:extend(.content-list-font-lg  .content);
       }
 
@@ -198,24 +225,30 @@
 
 //图片右偏移,小图右边
 .abc-content-sm{
-  //.thumbnail-image-abc-content-abc;
+  font-size: small;
   border: @none-border;
-  //width: @xs-strandand;
-  width: 60px;
-  //.content-xs .col-width;
+  width: @xs-content-col-width;
+  .list-xs .col-width(0.8);
+  .element-preperty .boot-min(width;60px);
+  .element-preperty .boot-sm(width;60px);
+  .element-preperty .boot-xs-min(width;60px);
   padding-bottom:6px;
 
-
   .abc-content {
+    width:@xs-content-width;
+
     .content-sytle.title-setting(h5; 1.4; relative; inherit);
     .content-sytle.title-setting(h5; 1.4; relative; inherit);
     .content-sytle.content;
      margin-left: @margin-left;
-     //width:@xs-content-width;
-    .list-xs .content-width;
+    .element-preperty .boot-min(margin-left;2px);
+    .list-xs .content-width(0.8);
+
     .margin-setting--sm;
     //调整边界
-    //.margin-setting--lg;
+    //h6,h5,p{
+    //  width: @sm-text-width;
+    //}
     h6, h5, .btn {
       &:extend(.content-list-font-md  .title);
     }
@@ -238,8 +271,26 @@
   }
 
   .abc-content-fiexed-width{
+
     .abc-content;
-    width:270px !important;
+    width:270px ;
+
+    .element-preperty .boot-max(width;320px);
+    .element-preperty .android-dpr2-v(width;270px);
+    .element-preperty .android-dpr2-h(width;270px);
+    .element-preperty .boot-sm(width;270px);
+
+    .element-preperty .android-dpr1g-v(width;270px);
+    .element-preperty .android-dpr1g-h(width;270px);
+    .element-preperty .appple-6plus-v(width;270px);
+    .element-preperty .appple-6plus-h(width;270px);
+    .element-preperty .boot-desktop(width;270px);
+    .element-preperty .pc-lg-chrome(width;270px);
+    .element-preperty .pc-lg-xl(width;270px);
+    .element-preperty .boot-xs-min(width;270px);
+    .element-preperty .boot-min(width;270px);
+    .element-preperty .pc-lg-chrome(width;270px);
+    .element-preperty .apple-pad2-v(width;270px);
     .cashContent{
       width: 80%;
       &:extend(.content-list-font-xs  .content);
@@ -259,6 +310,7 @@
     }
   }
   .image{
+    z-index:@image-z-index;
     width:@xs-image-width;
     height:@xs-image-width;
     position: relative;
@@ -300,7 +352,7 @@
     float: left;
     .margin-setting--sm;
     margin-right: 20px;
-    //.element-preperty .boot-desktop(margin-right;2px);
+    .element-preperty .boot-min(margin-right;2px);
   }
 
   .image-right{
@@ -314,11 +366,19 @@
 }
 
 .abc-content-sm-right{
+  width:@lg-content-width;
   .abc-content-sm;
+  margin-left: 2px;
   .list-xs .min-size;
   .abc-toolbar{
     .toolbar-inline;
     margin-top:-6px;
+  }
+  .abc-content{
+    margin-left: 2px;
+    .element-preperty .boot-min(width;140px);
+    .element-preperty .boot-xs-min(width;140px);
+
   }
   .cashContent{
     width: 80%;
@@ -330,23 +390,28 @@
 .abc-content-sm-single{
   .abc-content-sm;
   .list-xs .min-size;
-  .element-preperty .boot-min(height,82px);
-  .element-preperty .android-dpr2-v(height,86px);
-  .element-preperty .android-dpr2-h(height,86px);
-  .element-preperty .android-dpr1g-v(height,86px);
-  .element-preperty .android-dpr1g-v(height,86px);
+  .element-preperty .boot-min(height;82px);
+  .element-preperty .boot-xs-min(height;82px);
+  .element-preperty .android-dpr2-v(height;86px);
+  .element-preperty .android-dpr2-h(height;86px);
+  .element-preperty .android-dpr1g-v(height;86px);
+  .element-preperty .android-dpr1g-v(height;86px);
   .element-preperty .boot-desktop(height;86px);
 
+  //.element-preperty .boot-max(height;100px);
   .image-left{
     .abc-content-sm .image-left;
-    .element-preperty .boot-min(height,70px);
-    .element-preperty .boot-min(width,70px);
+    .element-preperty .boot-min(height;70px);
+    .element-preperty .boot-min(width;70px);
+
+    .element-preperty .boot-xs-min(height;60px);
+    .element-preperty .boot-xs-min(width;60px);
   }
 }
 
 ////////////////竖屏时不显示外围边界/////////////////
 .container-list-abc{
-
+  .col-xs-6,
   .col-lg-2{
     .element-preperty .props-horizontal(border-bottom-style;solid);
     .element-preperty .props-horizontal(border-bottom-width;1px);
@@ -354,6 +419,8 @@
   }
   //偶数时增加左右边框
   //使用公式 (an + b)。描述：表示周期的长度，n 是计数器（从 0 开始），b 是偏移值。
+  .col-xs-6,
+  .col-xp-6,
   .col-lg-4,
   .col-lg-2{
     .element-preperty .props-horizontal(border-left-style;solid);
@@ -416,12 +483,14 @@
 
     width: 50%*@table-right-precent;
     height: 110px;
-    .element-preperty .boot-min(height,86px);
-    .element-preperty .android-dpr2-v(height,90px);
-    .element-preperty .android-dpr2-h(height,90px);
-    .element-preperty .android-dpr1g-v(height,90px);
-    .element-preperty .android-dpr1g-v(height,90px);
+    .element-preperty .boot-min(height;86px);
+    .element-preperty .boot-xs-min(height;86px);
+    .element-preperty .android-dpr2-v(height;90px);
+    .element-preperty .android-dpr2-h(height;90px);
+    .element-preperty .android-dpr1g-v(height;90px);
+    .element-preperty .android-dpr1g-v(height;90px);
     .element-preperty .boot-desktop(height;90px);
+    .element-preperty .boot-max(height;130px);
 
   }
   //上边,无用边框

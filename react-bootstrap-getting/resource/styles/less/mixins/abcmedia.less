@@ -36,8 +36,8 @@
     @media (min-width: @screen-gtv) and (max-width:@screen-gtvx)
     and  (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9) {
         @{element}:@prepery;
-      //background-color: @content-v-background-color;
-    }
+      background-color: @content-v-background-color;
+      }
   }
 
   //三星5.8，横屏bottom oppo,大于1
@@ -81,15 +81,21 @@
     }
   }
 
-  //@screen-xs,小于480,手机
-  .boot-min(@element;@prepery){
-    @media (max-width: @screen-min-v) {
+  //@screen-xs,小于480,手机,349,
+  .boot-xs-min(@element;@prepery){
+    @media (max-width: @screen-min-vmax) and (min-width: @screen-min-v){
         @{element}:@prepery;
-      //background-color: @content-v-background-color;
-      background-color: #80ff47;
+      background-color: @content-v-background-color;
     }
   }
 
+  //@screen-xs,小于480,手机
+  .boot-min(@element;@prepery){
+    @media (max-width: @screen-min-xsm){
+        @{element}:@prepery;
+      background-color: @content-v-background-color;
+    }
+  }
 
   .boot-xs(@element;@prepery) {
     @media (min-width: 425px) and (max-width: 479px) {
@@ -99,7 +105,7 @@
     }
   }
 
-  //按照pad2
+  //按照pad2,1199,769
   .boot-sm(@element;@prepery) {
     @media (min-width: @screen-pad-md) and (max-width: @screen-pad-md-max) {
         @{element}:@prepery;

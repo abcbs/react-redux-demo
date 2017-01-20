@@ -1,3 +1,6 @@
+/**
+ * Pad的布局
+ */
 import React,{ Component, createElement ,PropTypes} from 'react'
 import hoistStatics from 'hoist-non-react-statics'
 //
