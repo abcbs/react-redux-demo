@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route,IndexRoute, browserHistory } from 'react-router';
 import authorization from '../authorize/authorize'
-import AbcMainPage from '../ui/AbcMainPage'
+import AbcMainPage from '../ui/AbcPCUIPage'
 
 //
 import Not_found        from '../../abc-ui/errors/notfound'

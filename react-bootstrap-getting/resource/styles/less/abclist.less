@@ -229,9 +229,10 @@
   border: @none-border;
   width: @xs-content-col-width;
   .list-xs .col-width(0.8);
-  .element-preperty .boot-min(width;60px);
   .element-preperty .boot-sm(width;60px);
-  .element-preperty .boot-xs-min(width;60px);
+  .element-preperty .boot-xs(width;60px);
+   .element-preperty .boot-xs-min(width;60px);
+  .element-preperty .boot-min(width;60px);
   padding-bottom:6px;
 
   .abc-content {
@@ -278,7 +279,7 @@
     .element-preperty .boot-max(width;320px);
     .element-preperty .android-dpr2-v(width;270px);
     .element-preperty .android-dpr2-h(width;270px);
-    .element-preperty .boot-sm(width;270px);
+
 
     .element-preperty .android-dpr1g-v(width;270px);
     .element-preperty .android-dpr1g-h(width;270px);
@@ -288,6 +289,9 @@
     .element-preperty .pc-lg-chrome(width;270px);
     .element-preperty .pc-lg-xl(width;270px);
     .element-preperty .boot-xs-min(width;270px);
+    .element-preperty .boot-sm(width;270px);
+    // min-width: 425px) and (max-width: 479px
+    .element-preperty .boot-xs(width;270px);
     .element-preperty .boot-min(width;270px);
     .element-preperty .pc-lg-chrome(width;270px);
     .element-preperty .apple-pad2-v(width;270px);
@@ -400,12 +404,18 @@
 
   //.element-preperty .boot-max(height;100px);
   .image-left{
+
     .abc-content-sm .image-left;
+    width:80px;
+    height: 80px;
+
     .element-preperty .boot-min(height;70px);
     .element-preperty .boot-min(width;70px);
 
     .element-preperty .boot-xs-min(height;60px);
     .element-preperty .boot-xs-min(width;60px);
+
+
   }
 }
 

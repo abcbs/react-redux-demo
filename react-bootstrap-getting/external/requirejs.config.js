@@ -93,7 +93,7 @@ require(["baseframevendor"],function (baseframevendor) {
     // }catch(e){
     //     console.log("Loading app error.")
     // }
-    require( ["react","redux","react-bootstrap"],function (react,redux,bootstrap){
+    require( ["react","redux"],function (react,redux){
         console.log("react redux");
         console.log("app bootstrap..");
         try{
@@ -109,6 +109,21 @@ require(["baseframevendor"],function (baseframevendor) {
         }
     });
 
+    // require( ["react","redux","react-bootstrap"],function (react,redux,bootstrap){
+    //     console.log("react redux");
+    //     console.log("app bootstrap..");
+    //     try{
+    //         require(["app"] ,function(app){
+    //             console.log("app loading..");
+    //             // document.getElementById("imageHome").remove();
+    //             $(".imageHome").remove();
+    //             $(".pos").remove();
+    //             // $(".imageHome").remove();
+    //         })
+    //     }catch(e){
+    //         console.log("Loading app error.")
+    //     }
+    // });
     // require( ['react-bootstrap'],function (bootstrap){
     //     console.log("app bootstrap..");
     //     try{

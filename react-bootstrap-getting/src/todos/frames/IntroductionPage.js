@@ -1,7 +1,7 @@
 import React,{ PropTypes,Component,createElement } from 'react';
 import ReactDOM from 'react-dom'
-import AbcContainer from '../../abc-framework/ui/AbcContainer'
-import AbcPage from '../../abc-framework/ui/AbcPage'
+import AbcContainer from '../../abc-framework/ui/AbcContainerWrape'
+import AbcPage from '../../abc-framework/ui/AbcContainerFramePage'
 import { defineMessages }              from 'react-intl'
 import international from '../../abc-framework/international/internationalize'
 // import Preloading      from '../../abc-ui/preloading'
@@ -14,7 +14,7 @@ import { bindActionCreators } from 'redux'
 import { Button,ButtonToolbar} from '../../abc-bootstrap'
 // import 'bootstrap/less/theme.less'
 // import 'bootstrap/less/bootstrap.less';
-import container from '../../abc-framework/ui/AbcPageContainer'
+import container from '../../abc-framework/ui/AbcContainerPage'
 import Spinner        from '../../abc-ui/spinner'
 import '../../../resource/styles/abc-components/styles/style.scss'
 import {Popover} from '../../abc-bootstrap'

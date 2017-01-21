@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from 'react-dom'
 import { defineMessages }              from 'react-intl'
 
-import AbcContainer from '../abc-framework/ui/AbcContainer'
-import AbcPage from '../abc-framework/ui/AbcPage'
+import AbcContainer from '../abc-framework/ui/AbcContainerWrape'
+import AbcPage from '../abc-framework/ui/AbcContainerFramePage'
 import {Label,Badge,ButtonToolbar,Button,Checkbox} from '../abc-bootstrap'
 
 import 'bootstrap/less/theme.less'

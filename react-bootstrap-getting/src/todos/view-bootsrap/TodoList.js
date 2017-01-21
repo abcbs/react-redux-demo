@@ -1,7 +1,7 @@
 import React, { findDOMNode, Component,PropTypes  } from 'react';
 // import {ListGroupItem, ListGroup,ControlLabel,HelpBlock,Checkbox,FormGroup} from '../../abc-bootstrap'
 // import '../../../resource/styles/css/index.css'
-import AbcContainer from '../../abc-framework/ui/AbcContainer'
+import AbcContainer from '../../abc-framework/ui/AbcContainerWrape'
 import Todo from './Todo'
 import list from '../../abc-framework/ui/AbcList'
 

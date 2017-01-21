@@ -6,7 +6,7 @@ import MainSection from '../components/MainSection'
 import * as TodoActions from '../reducers/todos'
 
 import international from '../../abc-framework/international/internationalize'
-import container from '../../abc-framework/ui/AbcPageContainer'
+import container from '../../abc-framework/ui/AbcContainerPage'
 import { defineMessages }              from 'react-intl'
 //
 const messages = defineMessages

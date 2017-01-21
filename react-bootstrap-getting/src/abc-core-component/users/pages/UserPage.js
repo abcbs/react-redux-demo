@@ -10,7 +10,7 @@ import international from '../../../abc-framework/international/internationalize
 import { preload,goto }            from '../../../abc-framework/react-isomorphic-render/redux'
 // import AbcContainer from '../../../abc-framework/ui/AbcContainer'
 // import AbcPage from '../../../abc-framework/ui/AbcPage'
-import container from '../../../abc-framework/ui/AbcPageContainer'
+import container from '../../../abc-framework/ui/AbcContainerPage'
 import errorInfo from '../../../abc-framework/ui/errorInfo'
 
 import {Label,Badge,ButtonToolbar,Button,Checkbox,Col,Row ,Panel} from '../../../abc-bootstrap'

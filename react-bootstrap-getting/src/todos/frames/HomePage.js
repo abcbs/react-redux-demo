@@ -1,6 +1,6 @@
 import React ,{PropTypes}from 'react';
-import AbcContainer from '../../abc-framework/ui/AbcContainer'
-import AbcPage from '../../abc-framework/ui/AbcPage'
+import AbcContainer from '../../abc-framework/ui/AbcContainerWrape'
+import AbcPage from '../../abc-framework/ui/AbcContainerFramePage'
 import {Label,Badge,ButtonToolbar,Button,Checkbox} from '../../abc-bootstrap'
 import { connect }            from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -9,7 +9,7 @@ import 'bootstrap/less/bootstrap.less';
 import { defineMessages }              from 'react-intl'
 import international from '../../abc-framework/international/internationalize'
 import { preload,goto }            from '../../abc-framework/react-isomorphic-render/redux'
-import container from '../../abc-framework/ui/AbcPageContainer'
+import container from '../../abc-framework/ui/AbcContainerPage'
 import { browserHistory } from 'react-router'
 import { push } from 'redux-router';
 import errorInfo from '../../abc-framework/ui/errorInfo'

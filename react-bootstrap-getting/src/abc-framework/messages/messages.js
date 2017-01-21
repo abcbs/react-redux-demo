@@ -14,7 +14,36 @@ const messages = defineMessages
                 description    : '权限子标题',
                 defaultMessage : '权限维护信息'
             }
+        },
+
+    producmanager:{
+        title:
+        {
+            id             : 'authentication.title',
+            description    : '商品主页，包括商品的增删改查，商品的增删改查，商品图像的修改，后端存储采用mysql',
+            defaultMessage : '商品管理'
+        },
+        subTitle:
+        {
+            id             : 'authentication.subTitle',
+            description    : '商品管理',
+            defaultMessage : '商品信息'
         }
+    },
+    produclist:{
+        title:
+        {
+            id             : 'authentication.title',
+            description    : '商品展现，包括商品的增删改查，商品的增删改查，商品图像的修改，后端存储采用mysql',
+            defaultMessage : '商品上架'
+        },
+        subTitle:
+        {
+            id             : 'authentication.subTitle',
+            description    : '商品列表',
+            defaultMessage : '商品信息'
+        }
+    },
     }
 )
 

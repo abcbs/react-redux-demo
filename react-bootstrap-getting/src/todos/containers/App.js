@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 //
 import { defineMessages }              from 'react-intl'
 import international from '../../abc-framework/international/internationalize'
-import container from '../../abc-framework/ui/AbcPageContainer'
+import container from '../../abc-framework/ui/AbcContainerPage'
 
 import { addTodo, completeTodo, setVisibilityFilter,
     VisibilityFilters,addTodoVerfiy ,ADD_TODO,SUBMMIT_TODO,submmitTodo} from '../actions'
@@ -19,7 +19,7 @@ import UndoRedoUtil from './UndoRedo'
 import {visibleTodosSelector} from '../selectors/TodoSelectors'
 
 
-import AbcPage from '../../abc-framework/ui/AbcPage'
+import AbcPage from '../../abc-framework/ui/AbcContainerFramePage'
 
 //
 const messages = defineMessages

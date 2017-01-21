@@ -7,7 +7,7 @@
     .element-preperty .android-dpr2-v(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent/@xs-col)/1.2));
     .element-preperty .android-dpr2-h(width;floor((@xs-strandand-h*@content-gutter*@zoom-precent/@xs-col/2.2)));
 
-    .element-preperty .android-dpr1g-v(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent/@xs-col)));
+    .element-preperty .android-dpr1g-v(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent/@xs-col*0.9)));
     .element-preperty .android-dpr1g-h(width;floor((@xs-strandand-h*@content-gutter*@zoom-precent/@xs-col*0.5)));
 
     .element-preperty .appple-6plus-v(width;floor((@xs-apple-strandand-v*@content-gutter*@zoom-precent/@xs-col *1.2)));
@@ -20,8 +20,8 @@
     //////////////////////修改为百分比方式/////////////////////
     .element-preperty .boot-min(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent*0.5*@xs-320)));
     .element-preperty .boot-xs-min(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent*0.8*@xs-320)));
-
-    .element-preperty .boot-xs(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent)));
+    //(max-width: 479px) and (min-width: 425px)
+    .element-preperty .boot-xs(width;floor((@xs-strandand-v*@content-gutter*@zoom-precent*0.8*@xs-320)));
     //////////////////////////跟随Pad横屏设置
     .element-preperty .boot-sm(width;floor((@xs-apple--pad2-strandand-h*@content-gutter*@zoom-precent/@md-col*1.5)));
     //1200~1449
@@ -97,19 +97,18 @@
                                 @zoom-precent  /@xs-col *0.9)));
     .element-preperty .boot-xs-min(height;floor((@xs-strandand-h*@image-gutter
                                 * @zoom-precent /@xs-col*@height-precent *1)));
-
+     // min-width: 425px) and (max-width: 479px
     .element-preperty .boot-xs(width;floor((@xs-strandand-h*@image-gutter *
-                                @zoom-precent  /@xs-col)));
+                                @zoom-precent  /@xs-col *0.9)));
     .element-preperty .boot-xs(height;floor((@xs-strandand-h*@image-gutter
-                                * @zoom-precent /@xs-col*@height-precent)));
+                                * @zoom-precent /@xs-col*@height-precent *1)));
 
     //按照Pad
-
     .element-preperty .boot-sm(width;
-            floor((@xs-apple--pad2-strandand-h*@image-gutter * @zoom-precent/@md-col)));
+            floor((@xs-apple--pad2-strandand-h*@image-gutter * @zoom-precent/@md-col*0.8)));
     .element-preperty .boot-sm(height;
             floor((@xs-apple--pad2-strandand-h*@image-gutter * @zoom-precent/@md-col
-            *@height-precent)));
+            *@height-precent*0.8)));
 
     .element-preperty .boot-desktop(width;
             floor((@xs-apple--pad2-strandand-v*@image-gutter * @zoom-precent/@md-col)));
@@ -163,7 +162,7 @@
     .element-preperty .boot-min(margin-left;2px);
     .element-preperty .boot-xs-min(margin-left;@left-xs2 *0.2);
     .element-preperty .boot-xs(margin-left;@left-xs2);
-    .element-preperty .boot-sm(margin-left;@left-xs2/2);
+    .element-preperty .boot-sm(margin-left;@left-xs2);
     //////////////////////////
     .element-preperty .boot-desktop(margin-left;@left-xs2);
     .element-preperty .boot-max(margin-left;@left-xs2);
@@ -263,7 +262,7 @@
   @content-gutter:0.8;
   @image-gutter:0.7;
   //大图内容宽度,@xs-col,格子数*2，以便放下文字比图大的内容
-  .content-width(@zoom-precent:0.7;@lg-col:8;@md-col:2;@xs-col:1){
+  .content-width(@zoom-precent:0.7;@lg-col:4;@md-col:2;@xs-col:1){
     .list-common .content-width(@zoom-precent;@lg-col;@md-col;@xs-col;@content-gutter;@xs-320:1.2;@desktop:1);
   }
   //

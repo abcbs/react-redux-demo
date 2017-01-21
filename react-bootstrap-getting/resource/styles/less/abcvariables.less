@@ -137,7 +137,7 @@
 @screen-lg-xlx:               2000px;
 
 //px适用于6plus横屏的配置
-@screen-xpmin:                  560px;//5s竖屏/4s竖屏
+@screen-xpmin:                  600px;//5s竖屏/4s竖屏
 @screen-xpmax:                  767px;//
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -165,7 +165,9 @@
 @screen-scl:                     424px;//5寸下线
 @screen-sclx:                    759px;//5寸上线
 
-
+//(min-width: 425px) and (max-width: 479px
+@boot-xs-v:                     425px;
+@boot-xs-vmax:                  479px;
 //5.8寸,三星GT-I9152,960 540 dpr:1.5;
 //5寸，oppo 360/640 1.5
 @screen-gtv:                      350px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
@@ -511,23 +513,24 @@
 @xs-apple--pad2-strandand-v:@screen-pad2/2;
 @xs-apple--pad2-strandand-h:@screen-pad2v/2;
 
+@xs-image-width:80px;
 //小图默认大小
 @xs-image-width:80px;
 @xs-content-width:160px;
-@xs-content-col-width:90px;
+@xs-content-col-width:80px;
 @xs-content-height:24px;
 @sm-text-width:120px;
 //中图默认大小
 //
 @md-image-width:80px;
 @md-image-height:80px;
-@md-content-width:140px;
-@md-content-col-width:120px;
+@md-content-width:120px;
+@md-content-col-width:100px;
 @md-text-width:160px;
 //大图默认大小
-@lg-image-width:120px;
-@lg-image-hight:180px;
-@lg-content-col-width:130px;
+@lg-image-width:100px;
+@lg-image-hight:160px;
+@lg-content-col-width:120px;
 @lg-content-width:160px;
 @lg-text-width:160px;
 //默认的间隙

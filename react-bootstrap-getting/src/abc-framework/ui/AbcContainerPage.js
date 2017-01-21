@@ -4,8 +4,8 @@
 import React,{ Component, createElement ,PropTypes} from 'react'
 import hoistStatics from 'hoist-non-react-statics'
 //
-import AbcContainer from  './AbcContainer'
-import AbcPage from './AbcPage'
+import AbcContainer from  './AbcContainerWrape'
+import AbcPage from './AbcContainerFramePage'
 import {Col} from '../../abc-bootstrap'
 import AbcNestLeftPage from './AbcNestLeftPage'
 import AbcNavMain from './AbcNavMain'
@@ -39,13 +39,13 @@ export default function container(options) {
                                     //xs={5} sm={6} md={7} lg={4}
                                     //xsHidden ={true} smHidden ={true} mdHidden ={true}
                                 }
-                                <Col xs={0}  sm={0}  md={0}   lg={2}
-                                     xsHidden ={true} smHidden ={true} mdHidden ={true}
+                                <Col xs={0}  sm={0}  md={0}   lg={0}
+                                     xsHidden ={true} smHidden ={true} mdHidden ={true}  lgHidden ={true}
                                      style={{paddingLeft:"1px",paddingRight:"1px",marginTop:"1px"}}
                                     >
                                     <AbcNestLeftPage />
                                 </Col>
-                                <Col xs={12}  sm={12} md={12} lg={10}
+                                <Col xs={12}  sm={12} md={12} lg={12}
                                      style={{paddingLeft:"1px",paddingRight:"1px",marginTop:"1px"}}>
                                     <span  style={{marginRight:"2px" ,display:"block-inline"}}>
                                         <WrappedComponent {...this.props} />

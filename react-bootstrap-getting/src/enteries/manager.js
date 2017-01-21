@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom'
-import AbcContainer from '../abc-framework/ui/AbcContainer'
-import AbcPage from '../abc-framework/ui/AbcPage'
+import AbcContainer from '../abc-framework/ui/AbcContainerWrape'
+import AbcPage from '../abc-framework/ui/AbcContainerFramePage'
 
 const Introduct = React.createClass({
     render() {
