@@ -81,15 +81,7 @@
     }
   }
 
-  //@screen-xs,小于480,手机,349,
-  .boot-xs-min(@element;@prepery){
-    @media (max-width: @screen-min-vmax) and (min-width: @screen-min-v){
-        @{element}:@prepery;
-      background-color: @content-v-background-color;
-    }
-  }
-
-  //@screen-xs,小于480,手机
+  //@screen-xs,小于299,手机
   .boot-min(@element;@prepery){
     @media (max-width: @screen-min-xsm){
         @{element}:@prepery;
@@ -97,8 +89,17 @@
     }
   }
 
+  //@screen-xs,小于349,大于300,手机,
+  .boot-xs-min(@element;@prepery){
+    @media (max-width: @screen-min-vmax) and (min-width: @screen-min-v){
+        @{element}:@prepery;
+      background-color: @content-v-background-color;
+    }
+  }
+
+  //@media (min-width: 425px) and (max-width: 479px)
   .boot-xs(@element;@prepery) {
-    @media (min-width: 425px) and (max-width: 479px) {
+    @media (min-width: @boot-xs-v) and (max-width: @boot-xs-vmax) {
         @{element}: @prepery;
       background-color: @content-v-background-color;
       //background-color: #41ffe3;
