@@ -12,13 +12,13 @@ var _reactDom = require('react-dom');
 
 var _reactIntl = require('react-intl');
 
-var _AbcContainer = require('../abc-framework/ui/AbcContainer');
+var _AbcContainerWrape = require('../abc-framework/ui/AbcContainerWrape');
 
-var _AbcContainer2 = _interopRequireDefault(_AbcContainer);
+var _AbcContainerWrape2 = _interopRequireDefault(_AbcContainerWrape);
 
-var _AbcPage = require('../abc-framework/ui/AbcPage');
+var _AbcContainerFramePage = require('../abc-framework/ui/AbcContainerFramePage');
 
-var _AbcPage2 = _interopRequireDefault(_AbcPage);
+var _AbcContainerFramePage2 = _interopRequireDefault(_AbcContainerFramePage);
 
 var _abcBootstrap = require('../abc-bootstrap');
 
@@ -67,10 +67,10 @@ var Home = (_dec = (0, _internationalize2.default)(), _dec(_class = function (_R
             //label-primary-bg
             //this.props.translate(layout_messages.title)
             return _react2.default.createElement(
-                _AbcPage2.default,
+                _AbcContainerFramePage2.default,
                 { title: this.props.translate(messages.title), router: 'home', subTitle: '\u6B22\u8FCE\u5149\u4E34' },
                 _react2.default.createElement(
-                    _AbcContainer2.default,
+                    _AbcContainerWrape2.default,
                     null,
                     _react2.default.createElement(
                         'div',

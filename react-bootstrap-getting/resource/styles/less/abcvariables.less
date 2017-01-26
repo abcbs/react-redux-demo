@@ -111,33 +111,35 @@
 //@screen-sm 768
 //768~1024
 
-//pad2竖屏 768~992
-@screen-pad2:                    @screen-sm;
-@screen-pad2a:                   @screen-sm-max;//apple-6/竖屏
+//pad2竖屏 768~991
+@screen-pad2v:                    @screen-sm;
+@screen-pad2v-max:                   @screen-sm-max;
 //992~1199
-@screen-pad2v:                    @screen-md;//
-@screen-pad2vv:                   @screen-md-max;//1199
+@screen-pad2h:                    @screen-md;//
+@screen-pad2h-max:                   @screen-md-max;//1199
 
 //pad
 @screen-pad-md:                769px ;
 @screen-pad-md-max:            1199px ;
-//补缺
-@screen-lg-xs:                 @screen-lg;//1200px
-@screen-lg-xs-max:            1439px;
 
 @screen-lg-md:                1440px;
 @screen-lg-mdx:               1500px;
 
 //chrome
 @screen-lg-chrome:            1440px;
-@screen-lg-chromex:           2740px;
+@screen-lg-chromex:           1899px;
 
 //ie,firefix
 @screen-lg-xl:                1900px;
 @screen-lg-xlx:               2000px;
+@screen-lg-max:               2001px;
+
+//台式机
+@screen-dt:                    2001px;
+@screen-dt-max:                3000px;
 
 //px适用于6plus横屏的配置
-@screen-xpmin:                  600px;//5s竖屏/4s竖屏
+@screen-xpmin:                  590px;//xp 手机横屏
 @screen-xpmax:                  767px;//
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -512,8 +514,8 @@
 @xs-apple-strandand-v:@screen-xpv/2;
 @xs-apple-strandand-h:@screen-sm/2; //768
 //
-@xs-apple--pad2-strandand-v:@screen-pad2/2;
-@xs-apple--pad2-strandand-h:@screen-pad2v/2;
+@xs-apple--pad2-strandand-v:@screen-pad2v/2;
+@xs-apple--pad2-strandand-h:@screen-pad2h/2;
 
 @xs-image-width:80px;
 //小图默认大小

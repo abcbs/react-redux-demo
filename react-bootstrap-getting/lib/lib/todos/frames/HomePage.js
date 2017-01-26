@@ -13,13 +13,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _AbcContainer = require('../../abc-framework/ui/AbcContainer');
+var _AbcContainerWrape = require('../../abc-framework/ui/AbcContainerWrape');
 
-var _AbcContainer2 = _interopRequireDefault(_AbcContainer);
+var _AbcContainerWrape2 = _interopRequireDefault(_AbcContainerWrape);
 
-var _AbcPage = require('../../abc-framework/ui/AbcPage');
+var _AbcContainerFramePage = require('../../abc-framework/ui/AbcContainerFramePage');
 
-var _AbcPage2 = _interopRequireDefault(_AbcPage);
+var _AbcContainerFramePage2 = _interopRequireDefault(_AbcContainerFramePage);
 
 var _abcBootstrap = require('../../abc-bootstrap');
 
@@ -39,9 +39,9 @@ var _internationalize2 = _interopRequireDefault(_internationalize);
 
 var _redux2 = require('../../abc-framework/react-isomorphic-render/redux');
 
-var _AbcPageContainer = require('../../abc-framework/ui/AbcPageContainer');
+var _AbcContainerPage = require('../../abc-framework/ui/AbcContainerPage');
 
-var _AbcPageContainer2 = _interopRequireDefault(_AbcPageContainer);
+var _AbcContainerPage2 = _interopRequireDefault(_AbcContainerPage);
 
 var _reactRouter = require('react-router');
 
@@ -105,7 +105,7 @@ var HomePage = (_dec = (0, _reactRedux.connect)(function (state) {
 }), _dec2 = (0, _redux2.preload)(function (_ref) {
     var dispatch = _ref.dispatch;
     return dispatch(fetchUsers());
-}), _dec3 = (0, _internationalize2.default)(), _dec4 = (0, _AbcPageContainer2.default)({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = (_temp = _class2 = function (_React$Component) {
+}), _dec3 = (0, _internationalize2.default)(), _dec4 = (0, _AbcContainerPage2.default)({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = _dec4(_class = (_temp = _class2 = function (_React$Component) {
     _inherits(HomePage, _React$Component);
 
     function HomePage() {

@@ -41,7 +41,7 @@ class TodoItem extends Component {
     } else {
       element = (//列表行中的checkbox
         <div className="view">
-          <input className="toggle"
+          <input className="checkbox"
                  type="checkbox"
                  checked={todo.completed}
                  onChange={

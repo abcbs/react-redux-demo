@@ -28,9 +28,9 @@ var _internationalize = require('../../abc-framework/international/international
 
 var _internationalize2 = _interopRequireDefault(_internationalize);
 
-var _AbcPageContainer = require('../../abc-framework/ui/AbcPageContainer');
+var _AbcContainerPage = require('../../abc-framework/ui/AbcContainerPage');
 
-var _AbcPageContainer2 = _interopRequireDefault(_AbcPageContainer);
+var _AbcContainerPage2 = _interopRequireDefault(_AbcContainerPage);
 
 var _actions = require('../actions');
 
@@ -52,9 +52,9 @@ var _UndoRedo2 = _interopRequireDefault(_UndoRedo);
 
 var _TodoSelectors = require('../selectors/TodoSelectors');
 
-var _AbcPage = require('../../abc-framework/ui/AbcPage');
+var _AbcContainerFramePage = require('../../abc-framework/ui/AbcContainerFramePage');
 
-var _AbcPage2 = _interopRequireDefault(_AbcPage);
+var _AbcContainerFramePage2 = _interopRequireDefault(_AbcContainerFramePage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -141,7 +141,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-var App = (_dec = (0, _reactRedux.connect)(_TodoSelectors.visibleTodosSelector, mapDispatchToProps), _dec2 = (0, _internationalize2.default)(), _dec3 = (0, _AbcPageContainer2.default)({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = function (_React$Component) {
+var App = (_dec = (0, _reactRedux.connect)(_TodoSelectors.visibleTodosSelector, mapDispatchToProps), _dec2 = (0, _internationalize2.default)(), _dec3 = (0, _AbcContainerPage2.default)({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = function (_React$Component) {
     _inherits(App, _React$Component);
 
     function App() {

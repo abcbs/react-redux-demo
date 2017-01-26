@@ -6,13 +6,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = require('react-dom');
 
-var _AbcContainer = require('../abc-framework/ui/AbcContainer');
+var _AbcContainerWrape = require('../abc-framework/ui/AbcContainerWrape');
 
-var _AbcContainer2 = _interopRequireDefault(_AbcContainer);
+var _AbcContainerWrape2 = _interopRequireDefault(_AbcContainerWrape);
 
-var _AbcPage = require('../abc-framework/ui/AbcPage');
+var _AbcContainerFramePage = require('../abc-framework/ui/AbcContainerFramePage');
 
-var _AbcPage2 = _interopRequireDefault(_AbcPage);
+var _AbcContainerFramePage2 = _interopRequireDefault(_AbcContainerFramePage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20,10 +20,10 @@ var Introduct = _react2.default.createClass({
     displayName: 'Introduct',
     render: function render() {
         return _react2.default.createElement(
-            _AbcPage2.default,
+            _AbcContainerFramePage2.default,
             { title: '\u5C55\u793A\u4E92\u52A8', subTitle: '\u6B22\u8FCE\u5149\u4E34' },
             _react2.default.createElement(
-                _AbcContainer2.default,
+                _AbcContainerWrape2.default,
                 null,
                 _react2.default.createElement(
                     'p',

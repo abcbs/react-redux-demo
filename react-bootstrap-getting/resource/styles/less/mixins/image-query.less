@@ -69,7 +69,7 @@
 .image-pad2-h(@width; @marginLeft: @5scl-72-margin-h-left;
                 @marginTop: @5scl-72-margin-h-top){
   @media (min-width : @screen-pad2v) and (max-device-width :
-          @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) {
+          @screen-pad2v-max) and (-webkit-min-device-pixel-ratio : 1) {
     .image-setting(@width; @marginLeft;@marginTop);
   }
 }
@@ -77,8 +77,8 @@
 //设备宽度和屏幕宽度，pad2 竖屏
 .image-pad2-v(@width; @marginLeft: @5scl-72-margin-h-left;
                 @marginTop: @5scl-72-margin-h-top){
-  @media (min-width : @screen-pad2) and (max-device-width :
-          @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) {
+  @media (min-width : @screen-pad2v) and (max-device-width :
+          @screen-pad2v-max) and (-webkit-min-device-pixel-ratio : 1) {
     .image-setting(@width; @marginLeft;@marginTop);
   }
 }

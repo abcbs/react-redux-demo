@@ -19,9 +19,7 @@ export default class AbcLGLeftPage extends React.Component
     render()
     {
         return (
-            <div className="container-frame menu-background"
-                 style={{
-                  width:"160px", height:"100%",borderRightStyle:"double",overflow:"hidden"}}>
+            <div className="container-frame menu-background">
                 <AbcNavItems/>
                 <hr/>
 

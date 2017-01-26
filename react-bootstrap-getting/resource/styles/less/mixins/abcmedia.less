@@ -1,5 +1,7 @@
 .element-preperty{
-  //6plus竖屏
+  //6plus竖屏 @
+  //screen-xpv: 400px;//apple-6plus 竖屏
+  //@screen-xpvx:420px;//apple-6plus 竖屏
   .appple-6plus-v(@element;@prepery){
     @media (min-width: @screen-xpv) and (max-width: @screen-xpvx)
       and  (-webkit-min-device-pixel-ratio : 3){
@@ -10,6 +12,8 @@
   }
 
   //6plus横屏
+  //@screen-xp: 730px;//apple-6plus
+  //@screen-xpx:767px;//apple-6plus
   .appple-6plus-h(@element;@prepery){
     @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
         @{element}:@prepery;
@@ -17,6 +21,8 @@
     }
   }
   //华为、三星5寸，竖屏
+  //@screen-sclv:  350px;//5寸，三星S6，华为SCL，1280/720/竖屏
+  //@screen-sclvx: 399px;//5寸，三星S6，华为SCL，1280/720/竖屏
   .android-dpr2-v(@element;@prepery){
     @media (min-width: @screen-sclv) and (max-width: @screen-sclvx) and (-webkit-min-device-pixel-ratio :2){
         @{element}:@prepery;
@@ -32,6 +38,8 @@
   }
 
   //三星5.8，竖屏 oppo
+  //@screen-gtv:  350px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
+  //@screen-gtvx: 399px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
   .android-dpr1g-v(@element;@prepery) {
     @media (min-width: @screen-gtv) and (max-width:@screen-gtvx)
     and  (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9) {
@@ -49,37 +57,7 @@
     }
   }
 
-  //设备宽度和屏幕宽度，pad2 横屏
-  .apple-pad2-h(@element;@prepery){
-    @media (min-width : @screen-pad2v) and (max-device-width :
-            @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio : 2){
-        @{element}:@prepery;
-        background-color: @content-v-background-color;
-    }
-  }
 
-  //设备宽度和屏幕宽度，pad2
-  .apple-pad2-v(@element;@prepery){
-    @media (min-width : @screen-pad2) and (max-device-width :
-            @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio : 2) {
-        @{element}:@prepery;
-        background-color: @content-v-background-color;
-    }
-  }
-   //笔记本，ie,firefix
-  .pc-lg-xl(@element;@prepery){
-    @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
-        @{element}:@prepery;
-        background-color: @content-v-background-color;
-    }
-  }
-
-  .pc-lg-chrome(@element;@prepery) {
-    @media (min-width: @screen-lg-chrome) and (max-width: @screen-lg-chromex) {
-        @{element}:@prepery;
-        background-color: @content-v-background-color;
-    }
-  }
 
   //@screen-xs,小于299,手机
   .boot-min(@element;@prepery){
@@ -106,7 +84,28 @@
     }
   }
 
-  //按照pad2,1199,769
+  //Pad类设备
+  //设备宽度和屏幕宽度，pad2 横屏
+  //1199~992 1024
+  .apple-pad2-h(@element;@prepery){
+    @media (min-width : @screen-pad2h) and (max-device-width :
+            @screen-pad2h-max) and (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio : 2){
+        @{element}:@prepery;
+      background-color: @content-v-background-color;
+    }
+  }
+
+  //设备宽度和屏幕宽度，pad2
+  ////pad2竖屏 768~991
+  .apple-pad2-v(@element;@prepery){
+    @media (min-width : @screen-pad2v) and (max-device-width :
+            @screen-pad2v-max) and (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio : 2) {
+        @{element}:@prepery;
+      background-color: @content-v-background-color;
+    }
+  }
+
+  //按照pad2,1199,769,
   .boot-sm(@element;@prepery) {
     @media (min-width: @screen-pad-md) and (max-width: @screen-pad-md-max) {
         @{element}:@prepery;
@@ -114,22 +113,41 @@
       //background-color:greenyellow;
     }
   }
-
+  //笔记本设备
   //1200~1439
   .boot-desktop(@element;@prepery) {
-    @media (min-width: @screen-lg-xs) and (max-width: @screen-lg-xs-max) {
+    @media (min-width: @screen-dt) and (max-width: @screen-dt-max) {
+        @{element}:@prepery;
+      background-color: @content-v-background-color;
+    }
+  }
+
+  //@screen-lg-chrome:            1440px;
+  //@screen-lg-chromex:           1899px;
+  .pc-lg-chrome(@element;@prepery) {
+    @media (min-width: @screen-lg-chrome) and (max-width: @screen-lg-chromex) {
+        @{element}:@prepery;
+      background-color: @content-v-background-color;
+    }
+  }
+
+  //笔记本，ie,firefix
+  //@screen-lg-xl:                1900px;
+  //@screen-lg-xlx:               2000px;
+  .pc-lg-xl(@element;@prepery){
+    @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
         @{element}:@prepery;
       background-color: @content-v-background-color;
     }
   }
 
   //按照最大屏幕设置
+  //2001
   .boot-max(@element;@prepery) {
-    @media (min-width:@screen-lg-xl) {
+    @media (min-width:@screen-lg-max) {
         @{element}:@prepery;
       background-color: @content-v-background-color;
     }
-
   }
 
   //竖屏时处理变量

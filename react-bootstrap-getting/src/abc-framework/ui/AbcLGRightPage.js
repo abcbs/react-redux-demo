@@ -16,8 +16,7 @@ export default class AbcRightLGPage extends React.Component
     }
     render()
     {
-        return (  <div className="container-frame right-background"
-                       style={{width:"200px",height:"100%", borderLeftStyle:"double",overflow:"hidden"}}>
+        return (  <div className="container-frame right-background">
 
             </div>);
     }

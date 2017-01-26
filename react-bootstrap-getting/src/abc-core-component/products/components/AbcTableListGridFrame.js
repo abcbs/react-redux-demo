@@ -634,7 +634,7 @@ export class AbcListCol extends React.Component{
         xp: 6,
         sm: 6,
         md: 6,
-        dt: 6,
+        dt: 4,
         lg: 6
     };
 
@@ -797,7 +797,7 @@ export class AbcListRow4 extends React.Component{
             ( <AbcPanel  header={header}>
                 <AbcTableGrid>
                     {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
-                        <AbcListCol xs={3} xp={3} sm={3} md={2}   dt={3}  lg={3}>
+                        <AbcListCol xs={3} xp={3} sm={3} md={2}   dt={2}  lg={3}>
                             <AbcTableSmallCell containerClass="abc-content-row-4" imageClass="image"
                                   smObject={smObject} {...others} />
                         </AbcListCol>
@@ -825,7 +825,7 @@ export class AbcListRow2 extends React.Component{
             ( <AbcPanel  header={header}>
                 <AbcTableGrid>
                 {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
-                    <AbcListCol xs={6} xp={3} sm={4} md={2}  dt={3} lg={3}>
+                    <AbcListCol xs={6} xp={3} sm={4} md={2}  dt={2} lg={3}>
                         <AbcTableSmallCell containerClass="abc-content-lg" imageClass="image"
                                            smObject={smObject} {...others} />
                     </AbcListCol>

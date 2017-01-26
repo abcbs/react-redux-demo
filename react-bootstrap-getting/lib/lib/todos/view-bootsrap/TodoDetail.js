@@ -17,9 +17,9 @@ var _TodoEvent = require('../view-bootsrap/TodoEvent');
 
 var _TodoEvent2 = _interopRequireDefault(_TodoEvent);
 
-var _AbcContainer = require('../../abc-framework/ui/AbcContainer');
+var _AbcContainerWrape = require('../../abc-framework/ui/AbcContainerWrape');
 
-var _AbcContainer2 = _interopRequireDefault(_AbcContainer);
+var _AbcContainerWrape2 = _interopRequireDefault(_AbcContainerWrape);
 
 var _logger = require('../../abc-framework/utils/logger');
 

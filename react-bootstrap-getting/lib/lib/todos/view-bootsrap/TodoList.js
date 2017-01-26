@@ -18,9 +18,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _AbcContainer = require('../../abc-framework/ui/AbcContainer');
+var _AbcContainerWrape = require('../../abc-framework/ui/AbcContainerWrape');
 
-var _AbcContainer2 = _interopRequireDefault(_AbcContainer);
+var _AbcContainerWrape2 = _interopRequireDefault(_AbcContainerWrape);
 
 var _Todo = require('./Todo');
 

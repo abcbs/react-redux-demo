@@ -150,15 +150,15 @@
 //设备宽度和屏幕宽度，pad2 横屏
 .fontSize-pad2-h(@fontSize){
   @media (min-width : @screen-pad2v) and (max-device-width :
-          @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) {
+          @screen-pad2v-max) and (-webkit-min-device-pixel-ratio : 1) {
     font-size: @fontSize;
   }
 }
 
 //设备宽度和屏幕宽度，pad2
 .fontSize-pad2-v(@fontSize){
-  @media (min-width : @screen-pad2) and (max-device-width :
-          @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) {
+  @media (min-width : @screen-pad2v) and (max-device-width :
+          @screen-pad2v-max) and (-webkit-min-device-pixel-ratio : 1) {
     font-size: @fontSize;
   }
 }
@@ -228,8 +228,8 @@
 
 //设备宽度和屏幕宽度，pad2 横屏
 .marginTopAndBottom-pad2-h(@marginTop;@marginBottom){
-  @media (min-width : @screen-pad2v) and (max-device-width :
-          @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) {
+  @media (min-width : @screen-pad2h) and (max-device-width :
+          @screen-pad2h-max) and (-webkit-min-device-pixel-ratio : 1) {
     .marginTopAndBottom(@marginTop;@marginBottom);
   }
 }
@@ -308,16 +308,16 @@
 
 //设备宽度和屏幕宽度，pad2 横屏
 .padding-pad2-h(@top:@marginDefault;@right:@marginDefault;@bottom:@marginDefault;@left:@marginDefault){
-  @media (min-width : @screen-pad2v) and (max-device-width :
-          @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) {
+  @media (min-width : @screen-pad2h) and (max-device-width :
+          @screen-pad2h-max) and (-webkit-min-device-pixel-ratio : 1) {
     .padding-setting(@top;@right;@bottom;@left);
   }
 }
 
 //设备宽度和屏幕宽度，pad2
 .padding-pad2-v(@top:@marginDefault;@right:@marginDefault;@bottom:@marginDefault;@left:@marginDefault){
-  @media (min-width : @screen-pad2) and (max-device-width :
-          @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) {
+  @media (min-width : @screen-pad2v) and (max-device-width :
+          @screen-pad2v-max) and (-webkit-min-device-pixel-ratio : 1) {
     .padding-setting(@top;@right;@bottom;@left);
   }
 }
@@ -388,16 +388,16 @@
 
 //设备宽度和屏幕宽度，pad2 横屏
 .margin-pad2-h(@top:@marginDefault;@right:@marginDefault;@bottom:@marginDefault;@left:@marginDefault){
-  @media (min-width : @screen-pad2v) and (max-device-width :
-          @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) {
+  @media (min-width : @screen-pad2h) and (max-device-width :
+          @screen-pad2v-max) and (-webkit-min-device-pixel-ratio : 1) {
     .margin-setting(@top;@right;@bottom;@left);
   }
 }
 
 //设备宽度和屏幕宽度，pad2
 .margin-pad2-v(@top:@marginDefault;@right:@marginDefault;@bottom:@marginDefault;@left:@marginDefault){
-  @media (min-width : @screen-pad2) and (max-device-width :
-          @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) {
+  @media (min-width : @screen-pad2v) and (max-device-width :
+          @screen-pad2v-max) and (-webkit-min-device-pixel-ratio : 1) {
     .margin-setting(@top;@right;@bottom;@left);
   }
 }
@@ -474,8 +474,8 @@
 
 //设备宽度和屏幕宽度，pad2 横屏
 .widthAndHeight-pad2-h(@width;@height){
-  @media (min-width : @screen-pad2v) and (max-device-width :
-          @screen-pad2vv) and (-webkit-min-device-pixel-ratio : 1) {
+  @media (min-width : @screen-pad2h) and (max-device-width :
+          @screen-pad2h-max) and (-webkit-min-device-pixel-ratio : 1) {
     .widthAndHeight-setting(@width;@height);
     background-color: @content-h-background-color;
   }
@@ -483,8 +483,8 @@
 
 //设备宽度和屏幕宽度，pad2
 .widthAndHeight-pad2-v(@width;@height){
-  @media (min-width : @screen-pad2) and (max-device-width :
-          @screen-pad2a) and (-webkit-min-device-pixel-ratio : 1) {
+  @media (min-width : @screen-pad2v) and (max-device-width :
+          @screen-pad2v-max) and (-webkit-min-device-pixel-ratio : 1) {
     .widthAndHeight-setting(@width;@height);
     background-color: @content-v-background-color;
   }
