@@ -152,7 +152,7 @@
 
 
 //@screen-sm 768
-//苹果6 plus 5.5英寸 1000-1600，横屏
+//苹果6 plus 5.5英寸 ,横屏
 @screen-xp:                     730px;//apple-6plus
 @screen-xpx:                    767px;//apple-6plus
 
@@ -164,7 +164,7 @@
 @screen-sclvx:                  399px;//5寸，三星S6，华为SCL，1280/720/竖屏
 
 //三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为横屏，667
-@screen-scl:                     424px;//5寸下线
+@screen-scl:                     590px;//5寸下线
 @screen-sclx:                    759px;//5寸上线
 
 
@@ -173,25 +173,22 @@
 @screen-gtv:                      350px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
 @screen-gtvx:                     399px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
 
-@screen-gt:                       600px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
+@screen-gt:                       590px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
 @screen-gtx:                      759px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
-
+//手机横屏
 @screen-min-xsm: 299px;
-
+//手机横屏，如iphone4s 320，
 @screen-min-v: 300px;
 @screen-min-vmax: 349px;
 
 //@media (min-width: 425px) and (max-width: 479px)
-@boot-xs-v:                     425px;
-@boot-xs-vmax:                  479px;
+//手机横屏，介于
+@boot-xs-v:                     421px;
+@boot-xs-vmax:                  589px;
 
 @screen-max: 12001px;
 
-//12280
-/////////////////////////////////////////////////////
-//以下废弃设置
-@screen-xss:                   640px;
-@screen-xs4:                   480px;
+
 /////////////////////////////////////////////////////
 //调试用颜色
 //@content-v-background-color: #fff;
@@ -532,8 +529,8 @@
 @md-content-col-width:100px;
 @md-text-width:160px;
 //大图默认大小
-@lg-image-width:100px;
-@lg-image-hight:160px;
+@lg-image-width:160px;
+@lg-image-hight:84px;
 @lg-content-col-width:120px;
 @lg-content-width:160px;
 @lg-text-width:160px;

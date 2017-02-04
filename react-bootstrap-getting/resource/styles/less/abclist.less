@@ -167,13 +167,19 @@
   }
 }
 .abc-content-row-4{
+  //竖屏
   @media (min-width: @screen-xpv) and (max-width: @screen-xpvx)
   and  (-webkit-min-device-pixel-ratio : 3){
     margin-left:-15px !important;
 
   }
+  //横屏
   @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
     margin-left:-15px !important;
+    //border-left-style: solid;
+    //border-left-width: 1px;
+    //border-left-color: #ddd;
+
   }
 
   .abc-content-md;
@@ -184,8 +190,9 @@
 
     .list-md .image-width(1.2);
     @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
-      .list-md .image-width(2.4);
+      .list-md .image-width(1.4);
     }
+
     @media(min-width: @screen-lg-xl) and (max-width: @screen-lg-xlx){
       .list-md .image-width(2.2);
     }
@@ -360,6 +367,7 @@
     .margin-setting--sm;
     margin-right: 20px;
     .element-preperty .boot-min(margin-right;2px);
+    .element-preperty .boot-xs-min(margin-right;8px);
   }
 
   .image-right{
@@ -368,7 +376,7 @@
     margin-left: 0 !important;
     position: absolute !important;
     right: 20px;
-    //.element-preperty .boot-desktop(right;2px);
+    .element-preperty .boot-xs-min(right;2px);
   }
 }
 
@@ -425,6 +433,8 @@
 ////////////////竖屏时不显示外围边界/////////////////
 .container-list-abc{
   .col-xs-6,
+  .col-xp-2,
+  .col-xp-6,
   .col-lg-2{
     .element-preperty .props-horizontal(border-bottom-style;solid);
     .element-preperty .props-horizontal(border-bottom-width;1px);

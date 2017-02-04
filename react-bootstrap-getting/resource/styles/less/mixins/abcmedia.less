@@ -30,6 +30,9 @@
     }
   }
   //华为5寸，横屏
+  //三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为横屏，667
+  //@screen-scl:                     424px;//5寸下线
+  //@screen-sclx:                    759px;//5寸上线
   .android-dpr2-h(@element;@prepery){
     @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
         @{element}:@prepery;
@@ -49,6 +52,8 @@
   }
 
   //三星5.8，横屏bottom oppo,大于1
+  //@screen-gt:                       600px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
+  //@screen-gtx:                      759px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
   .android-dpr1g-h(@element;@prepery){
     @media (min-width: @screen-gt) and (max-width: @screen-gtx )
     and   (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9){
@@ -68,6 +73,9 @@
   }
 
   //@screen-xs,小于349,大于300,手机,
+  //iphone 4s 竖屏 320实测
+  //@screen-min-v: 300px;
+  //@screen-min-vmax: 349px;
   .boot-xs-min(@element;@prepery){
     @media (max-width: @screen-min-vmax) and (min-width: @screen-min-v){
         @{element}:@prepery;
@@ -75,7 +83,9 @@
     }
   }
 
-  //@media (min-width: 425px) and (max-width: 479px)
+  //@boot-xs-v:                     421px;
+  //@boot-xs-vmax:                  589px;
+  //作为横屏时，和竖屏保持一致
   .boot-xs(@element;@prepery) {
     @media (min-width: @boot-xs-v) and (max-width: @boot-xs-vmax) {
         @{element}: @prepery;

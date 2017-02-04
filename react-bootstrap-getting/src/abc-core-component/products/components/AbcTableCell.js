@@ -8,10 +8,10 @@ import hoistStatics from 'hoist-non-react-statics'
 import {Modal,Glyphicon,Grid,Row,Col,Thumbnail,
     Image,Button,Media,Checkbox,ButtonToolbar,FormControl,Table} from '../../../abc-bootstrap'
 
-import AbcPanel from '../../../abc-ui/AbcPanel'
-import lgShape from './lg-shape';
-import smShape from './sm-shape';
+
 import AbcLabelLimit, {lgLimit} from './ui-limit'
+
+import {AbcTableLargeCell,AbcTableSmallCell} from './AbcTableListGridFrame'
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////业务UI////////////////////////////////////////
 export class AbcTableCellFunctions extends React.Component{
@@ -25,7 +25,8 @@ export class AbcTableCellFunctions extends React.Component{
         )
     }
 }
-export class AbcTableLargeCellWithToolbar extends React.Component{
+
+export class AbcTableLargeCellWithToolbar extends AbcTableLargeCell{
 
     render() {
         const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
@@ -55,7 +56,7 @@ export class AbcTableLargeCellWithToolbar extends React.Component{
     }
 }
 
-export class AbcTableLargeCellWithToolbarBottom extends React.Component{
+export class AbcTableLargeCellWithToolbarBottom extends AbcTableLargeCell{
 
     render() {
         const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
@@ -86,7 +87,7 @@ export class AbcTableLargeCellWithToolbarBottom extends React.Component{
     }
 }
 
-export class AbcTableLargeCellToolbar extends React.Component{
+export class AbcTableLargeCellToolbar extends AbcTableLargeCell{
 
     render() {
         const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
@@ -115,59 +116,7 @@ export class AbcTableLargeCellToolbar extends React.Component{
     }
 }
 
-export class AbcTableLargeCell extends React.Component{
 
-    render() {
-        const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <h5><AbcLabelLimit contentText={lgObject.title} limit={lgLimit.title} /></h5>
-                    <p>{lgObject.description}</p>
-                </div>
-                <Image
-                    className={imageClass||'image-1-1'}
-                    src={lgObject.portrait}>
-                </Image>
-            </div>
-        )
-    }
-}
-
-export class AbcTableSmallCell extends React.Component{
-
-    static propTypes =
-    {
-        smObject: lgShape.isRequired,
-        containerClass:PropTypes.string,
-        contentClass:PropTypes.string,
-        imageClass:PropTypes.string
-    };
-    static defaultProps =
-    {
-        containerClass:"abc-content-sm",
-        contentClass:"abc-content",
-        imageClass:"image"
-    }
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <div>
-                        <h5>{smObject.title}</h5>
-                        <p>{smObject.description}</p>
-                    </div>
-                </div>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-            </div>
-        )
-    }
-}
 
 export class AbcTableMiddleCell extends AbcTableSmallCell{
 
@@ -261,7 +210,7 @@ export class AbcTableSmallSingleColToolbar extends AbcTableSmallCell{
 
                 </div>
 
-                <ButtonToolbar className="abc-toolbar">
+                <ButtonToolbar className="abc-toolbar" style={{minWidth: "100px"}}>
                     <Button className="thumbnail-btn"><Glyphicon glyph="plus"/></Button>
                     <FormControl type="number"
                                  style={{width:"46px",padding:"1px 4px",
@@ -275,7 +224,7 @@ export class AbcTableSmallSingleColToolbar extends AbcTableSmallCell{
     }
 }
 
-export class AbcTableSmallCellWithToolbar extends React.Component{
+export class AbcTableSmallCellWithToolbar extends AbcTableSmallCell{
     render() {
         const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
         return (
@@ -303,7 +252,7 @@ export class AbcTableSmallCellWithToolbar extends React.Component{
     }
 }
 
-export class AbcTableSmallCellWithBadge extends React.Component{
+export class AbcTableSmallCellWithBadge extends AbcTableSmallCell{
     static propTypes =
     {
         imageClass:PropTypes.string
@@ -379,7 +328,7 @@ export class AbcTableSmallCellSimple extends AbcTableMiddleCell{
     }
 }
 
-export class AbcTableSmallCellToolbar extends React.Component{
+export class AbcTableSmallCellToolbar extends AbcTableMiddleCell{
     render() {
         const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
         return (

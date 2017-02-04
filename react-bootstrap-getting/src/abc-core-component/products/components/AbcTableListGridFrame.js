@@ -10,119 +10,25 @@ import {Modal,Glyphicon,Grid,Row,Col,Thumbnail,
 
 import AbcPanel from '../../../abc-ui/AbcPanel'
 
-import {AbcButtonToolbarRight,AbcButton,
-    AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
-    from '../../../abc-ui/abc-ui-index'
-
 import lgShape from './lg-shape';
 import smShape from './sm-shape';
 import AbcLabelLimit, {lgLimit} from './ui-limit'
 
 ///////////////////////////////////////////////////////////////////////
-////////////////////////业务UI////////////////////////////////////////
-export class AbcTableCellFunctions extends React.Component{
-
-    render() {
-        const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <ButtonToolbar className="abc-toolbar-xs">
-                <Glyphicon glyph="pencil"/>
-            </ButtonToolbar>
-        )
-    }
-}
-export class AbcTableLargeCellWithToolbar extends React.Component{
-
-    render() {
-        const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <h5><AbcLabelLimit contentText={lgObject.title} limit={lgLimit.title} /></h5>
-                    <p>{lgObject.description}</p>
-                </div>
-                <ButtonToolbar className="abc-toolbar">
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="save"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="save"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="pencil"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="trash"/></Button>
-                </ButtonToolbar>
-                <Image
-                    className={imageClass||'image-1-1'}
-                    src={lgObject.portrait}>
-                </Image>
-            </div>
-
-        )
-    }
-}
-
-export class AbcTableLargeCellWithToolbarBottom extends React.Component{
-
-    render() {
-        const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <h5><AbcLabelLimit contentText={lgObject.title} limit={lgLimit.title} /></h5>
-                    <p>{lgObject.description}</p>
-                </div>
-
-                <Image
-                    className={imageClass||'image-1-1'}
-                    src={lgObject.portrait}>
-                </Image>
-                <ButtonToolbar className="abc-toolbar">
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="save"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="save"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="pencil"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="trash"/></Button>
-                </ButtonToolbar>
-            </div>
-
-        )
-    }
-}
-
-export class AbcTableLargeCellToolbar extends React.Component{
-
-    render() {
-        const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <h5><AbcLabelLimit contentText={lgObject.title} limit={lgLimit.title} /></h5>
-                </div>
-                <ButtonToolbar className="abc-toolbar">
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="save"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="save"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="pencil"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="trash"/></Button>
-                </ButtonToolbar>
-                <Image
-                    className={imageClass||'image-1-1'}
-                    src={lgObject.portrait}>
-                </Image>
-            </div>
-
-        )
-    }
-}
-
 export class AbcTableLargeCell extends React.Component{
-
+    static propTypes =
+    {
+        lgObject: lgShape.isRequired,
+        containerClass: PropTypes.string,
+        contentClass: PropTypes.string,
+        imageClass: PropTypes.string
+    };
+    static defaultProps =
+    {
+        containerClass: "abc-content-lg-top",
+        contentClass: "abc-content",
+        imageClass: "image-top"
+    }
     render() {
         const {lgObject,containerClass,contentClass,imageClass,...others}=this.props;
         return (
@@ -140,23 +46,24 @@ export class AbcTableLargeCell extends React.Component{
     }
 }
 
-export class AbcTableSmallCell extends React.Component{
+export class AbcTableSmallCell extends React.Component {
 
     static propTypes =
     {
-        smObject: lgShape.isRequired,
-        containerClass:PropTypes.string,
-        contentClass:PropTypes.string,
-        imageClass:PropTypes.string
+        smObject: smShape.isRequired,
+        containerClass: PropTypes.string,
+        contentClass: PropTypes.string,
+        imageClass: PropTypes.string
     };
     static defaultProps =
     {
-        containerClass:"abc-content-sm",
-        contentClass:"abc-content",
-        imageClass:"image"
+        containerClass: "abc-content-sm",
+        contentClass: "abc-content",
+        imageClass: "image"
     }
+
     render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
+        const {smObject, containerClass, contentClass, imageClass, ...others}=this.props;
         return (
             <div className={containerClass}>
                 <div className={contentClass}>
@@ -174,261 +81,6 @@ export class AbcTableSmallCell extends React.Component{
         )
     }
 }
-
-export class AbcTableMiddleCell extends AbcTableSmallCell{
-
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <div>
-                        <h5>{smObject.title}</h5>
-                        <p>{smObject.description}</p>
-                        <p>{smObject.address}</p>
-                    </div>
-                </div>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-            </div>
-        )
-    }
-}
-
-export class AbcTableSmallCellImageTop extends AbcTableSmallCell{
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-                <div className={contentClass}>
-                    <div>
-                        <h5>{smObject.title}</h5>
-                        <p>{smObject.description}</p>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-}
-export class AbcTableSmallSingleCol extends AbcTableSmallCell{
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-                <div className={contentClass}>
-
-                    <div>
-                        <h5>{smObject.title}</h5>
-                        <div className="cashContent">
-                            <p className="inline">{smObject.description}</p>
-                            <p className="number-postion"> {smObject.address}</p>
-                        </div>
-                        <div className="cashContent">
-                            <p className="inline">{smObject.price}</p>
-                            <p className="number-postion"> {smObject.number}</p>
-                        </div>
-                    </div>
-
-                    {
-                    // <table min-height="90px" style={{minHeight:"90px", marginTop:"10px"}}>
-                    //     <tr>
-                    //         <td colSpan="2"><h5>{smObject.title}</h5></td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td width="80%"><p className="inline">{smObject.description}</p></td>
-                    //         <td><p className="number-postion"> {smObject.address}</p></td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td><p className="inline">{smObject.price}</p></td>
-                    //         <td><p className="number-postion"> {smObject.number}</p></td>
-                    //     </tr>
-                    // </table>
-                    }
-                </div>
-            </div>
-        )
-    }
-}
-
-export class AbcTableSmallSingleColToolbar extends AbcTableSmallCell{
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-                <div className={contentClass}>
-                    <div>
-                        <h5>{smObject.title}</h5>
-                        <div className="cashContent">
-                            <p className="inline">{smObject.description}</p>
-                            <p className="number-postion"> {smObject.address}</p>
-                        </div>
-                     </div>
-
-                </div>
-
-                <ButtonToolbar className="abc-toolbar" style={{minWidth: "100px"}}>
-                    <Button className="thumbnail-btn"><Glyphicon glyph="plus"/></Button>
-                    <FormControl type="number"
-                         style={{width:"46px",padding:"1px 4px",
-                         fontSize:"10px" ,border:"none",textAlign:"center"}}
-                         placeholder="1" />
-                    <Button className="thumbnail-btn"><Glyphicon glyph="minus"/></Button>
-                </ButtonToolbar>
-
-            </div>
-        )
-    }
-}
-
-export class AbcTableSmallCellWithToolbar extends React.Component{
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <div>
-                        <h5>{smObject.title}</h5>
-                        <p>{smObject.description}</p>
-                    </div>
-                </div>
-                <ButtonToolbar className="abc-toolbar">
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="save"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="trash"/></Button>
-                </ButtonToolbar>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-
-            </div>
-        )
-    }
-}
-
-export class AbcTableSmallCellWithBadge extends React.Component{
-    static propTypes =
-    {
-        imageClass:PropTypes.string
-    };
-    static defaultProps =
-    {
-        imageClass:"image"
-    }
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <div>
-                        <ButtonToolbar className="abc-toolbar">
-                            <Button className="thumbnail-btn">
-                                <Glyphicon glyph="trash"/></Button>
-                        </ButtonToolbar>
-                        <h5>{smObject.title}</h5>
-                        <p>{smObject.description}</p>
-                        <p>{smObject.address}</p>
-                      </div>
-                </div>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-
-            </div>
-        )
-    }
-}
-
-export class AbcTableMiddleCellSimple extends AbcTableSmallCell{
-
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <div>
-                        <h5>{smObject.title}</h5>
-                    </div>
-                </div>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-            </div>
-        )
-    }
-}
-export class AbcTableSmallCellSimple extends AbcTableMiddleCell{
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <div>
-                        <h5>{smObject.title}</h5>
-                    </div>
-                </div>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-
-            </div>
-        )
-    }
-}
-
-export class AbcTableSmallCellToolbar extends React.Component{
-    render() {
-        const {smObject,containerClass,contentClass,imageClass,...others}=this.props;
-        return (
-            <div className={containerClass}>
-                <div className={contentClass}>
-                    <div>
-                        <h5>{smObject.title}</h5>
-                    </div>
-                </div>
-                <ButtonToolbar className="abc-toolbar">
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="save"/></Button>
-                    <Button className="thumbnail-btn">
-                        <Glyphicon glyph="trash"/></Button>
-                </ButtonToolbar>
-                <Image
-                    src={smObject.portrait}
-                    className={imageClass}
-                    alt={smObject.portraitAlt}>
-                </Image>
-            </div>
-        )
-    }
-}
-///////////////////////////////////////////////////////////////////////
-///////////////////////////以上是具体内容部分/////////////////////////
 //////////////////////////////////////////////////////////////////////
 function getDisplayName(WrappedComponent) {
     return WrappedComponent.displayName || WrappedComponent.name || 'Component'
@@ -797,7 +449,7 @@ export class AbcListRow4 extends React.Component{
             ( <AbcPanel  header={header}>
                 <AbcTableGrid>
                     {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
-                        <AbcListCol xs={3} xp={3} sm={3} md={2}   dt={2}  lg={3}>
+                        <AbcListCol xs={3} xp={2} sm={2} md={2}   dt={2}  lg={2}>
                             <AbcTableSmallCell containerClass="abc-content-row-4" imageClass="image"
                                   smObject={smObject} {...others} />
                         </AbcListCol>
@@ -825,7 +477,7 @@ export class AbcListRow2 extends React.Component{
             ( <AbcPanel  header={header}>
                 <AbcTableGrid>
                 {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
-                    <AbcListCol xs={6} xp={3} sm={4} md={2}  dt={2} lg={3}>
+                    <AbcListCol xs={6} xp={3} sm={3} md={2}  dt={2} lg={2}>
                         <AbcTableSmallCell containerClass="abc-content-lg" imageClass="image"
                                            smObject={smObject} {...others} />
                     </AbcListCol>

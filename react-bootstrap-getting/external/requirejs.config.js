@@ -29,6 +29,7 @@ requirejs.config({
 //         var dpr =1, scale =1;
 //         var isIPhone = window.navigator.appVersion.match(/iphone/gi);
 //         var isIpdad = window.navigator.appVersion.match(/ipad/gi);
+//         //设备像素比
 //         var devicePixelRatio = window.devicePixelRatio+0;
 //         var clientWidth=document.documentElement.clientWidth+0;
 //         var clientHight=document.documentElement.clientHeight +0;
