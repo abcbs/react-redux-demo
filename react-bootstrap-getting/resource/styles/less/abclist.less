@@ -71,6 +71,7 @@
     //}
     h6,h5,.btn{
       &:extend(.content-list-font-md  .title);
+      position: inherit;
     }
 
     p{
@@ -78,6 +79,7 @@
     }
   }
 }
+///////////////////////////////////////////////////////
 //大图在上面增加空白
 .abc-content-lg-top{
   .abc-content-lg;
@@ -105,11 +107,11 @@
   //@zoom-precent:0.8;@lg-col:6;@md-col:4;@xs-col:2;@desktop:1
   .list-lg .col-width(1);
   .element-preperty .boot-desktop(width;120px);
-  .element-preperty .boot-xs-min(width;120px);
+  .element-preperty .boot-xs-v(width;120px);
   .image{
     .abc-content-lg .image;
     .list-lg .image-width(0.86;1.72);
-    //.element-preperty .boot-xs-min(width;80px);
+
   }
 
 }
@@ -166,20 +168,26 @@
       margin-top:-16px;
   }
 }
+////////////////////////////////////////////////////////////
 .abc-content-row-4{
-  //竖屏
+  ////竖屏
+  //.element-preperty .props-vertical(border-bottom-style;solid);
+  //.element-preperty .props-vertical(border-bottom-width;1px);
+  //.element-preperty .props-vertical(border-bottom-color;#ddd);
+  //
+  ////横屏
+  ////.element-preperty .props-horizontal(margin-left;-15px);
+  //.element-preperty .props-horizontal(border-left-style;solid);
+  //.element-preperty .props-horizontal(border-left-width;1px);
+  //.element-preperty .props-horizontal(border-left-color;#ddd);
+
   @media (min-width: @screen-xpv) and (max-width: @screen-xpvx)
   and  (-webkit-min-device-pixel-ratio : 3){
     margin-left:-15px !important;
-
   }
   //横屏
   @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
     margin-left:-15px !important;
-    //border-left-style: solid;
-    //border-left-width: 1px;
-    //border-left-color: #ddd;
-
   }
 
   .abc-content-md;
@@ -225,11 +233,11 @@
 
       p{
         &:extend(.content-list-font-lg  .content);
-      }
+       }
     }
   }
 }
-
+////////////////////////////////////////////////////////////
 //图片右偏移,小图右边
 .abc-content-sm{
   font-size: small;
@@ -238,7 +246,7 @@
   .list-xs .col-width(0.8);
   .element-preperty .boot-sm(width;60px);
   .element-preperty .boot-xs(width;60px);
-   .element-preperty .boot-xs-min(width;60px);
+   .element-preperty .boot-xs-v(width;60px);
   .element-preperty .boot-min(width;60px);
   padding-bottom:6px;
 
@@ -259,10 +267,13 @@
     //}
     h6, h5, .btn {
       &:extend(.content-list-font-md  .title);
+      &:extend(.content-list-font-xs  .boot-xs-lg);
+      position: inherit;
     }
 
     p {
       &:extend(.content-list-font-md  .content);
+      &:extend(.content-list-font-xs  .boot-xs-lg);
     }
     .abc-toolbar{
       .abc-content-lg .abc-toolbar;
@@ -277,12 +288,19 @@
     margin-left: 2px !important;
 
   }
+  //每行4个的左补白
+  .abc-content-row4{
+    .abc-content;
+     &:extend(.content-list-font-xs  .boot-xs-lg);
+    .list-xs .margin-left(0.8);
+    .list-common .margin-left-4s(0.3);
 
+  }
   .abc-content-fiexed-width{
 
     .abc-content;
     width:270px ;
-
+    &:extend(.content-list-font-xs  .boot-xs-lg);
     .element-preperty .boot-max(width;370px);
     .element-preperty .android-dpr2-v(width;270px);
     .element-preperty .android-dpr2-h(width;270px);
@@ -298,10 +316,10 @@
     .element-preperty .pc-lg-xl(width;370px);
     .element-preperty .boot-max(width;370px);
 
-    .element-preperty .boot-xs-min(width;270px);
+    .element-preperty .boot-xs-v(width;270px);
     .element-preperty .boot-sm(width;370px);
     // min-width: 425px) and (max-width: 479px
-    .element-preperty .boot-xs(width;270px);
+    .element-preperty .boot-xs(width;360px);
     .element-preperty .boot-min(width;220px);
 
     .element-preperty .apple-pad2-v(width;270px);
@@ -336,6 +354,17 @@
     .image;
     margin-top:-4px;
   }
+
+  //每行四个左补白
+  .image-list-row4{
+    .image;
+    margin-top:-4px;
+
+    .list-xs .margin-left(0.8);
+    .list-common .margin-left-4s(0.3);
+    .list-common .image-width-4s(0.9);
+
+  }
   .image-fiexed-left{
     .image;
     margin-left: 2px !important;
@@ -367,7 +396,7 @@
     .margin-setting--sm;
     margin-right: 20px;
     .element-preperty .boot-min(margin-right;2px);
-    .element-preperty .boot-xs-min(margin-right;8px);
+    .element-preperty .boot-xs-v(margin-right;8px);
   }
 
   .image-right{
@@ -376,10 +405,11 @@
     margin-left: 0 !important;
     position: absolute !important;
     right: 20px;
-    .element-preperty .boot-xs-min(right;2px);
+    .element-preperty .boot-xs-v(right;2px);
   }
 }
 
+//竖屏单行，右边为图
 .abc-content-sm-right{
   width:@lg-content-width;
   .abc-content-sm;
@@ -392,7 +422,7 @@
   .abc-content{
     margin-left: 2px;
     .element-preperty .boot-min(width;140px);
-    .element-preperty .boot-xs-min(width;140px);
+    .element-preperty .boot-xs-v(width;140px);
 
   }
   .cashContent{
@@ -406,16 +436,16 @@
   .abc-content-sm;
   .list-xs .min-size;
   .element-preperty .boot-min(height;82px);
-  .element-preperty .boot-xs-min(height;82px);
+  .element-preperty .boot-xs-v(height;82px);
   .element-preperty .android-dpr2-v(height;86px);
   .element-preperty .android-dpr2-h(height;86px);
   .element-preperty .android-dpr1g-v(height;86px);
   .element-preperty .android-dpr1g-v(height;86px);
   .element-preperty .boot-desktop(height;86px);
+  .element-preperty .boot-lg-md(height;86px);
 
   //.element-preperty .boot-max(height;100px);
   .image-left{
-
     .abc-content-sm .image-left;
     width:80px;
     height: 80px;
@@ -423,9 +453,8 @@
     .element-preperty .boot-min(height;70px);
     .element-preperty .boot-min(width;70px);
 
-    .element-preperty .boot-xs-min(height;60px);
-    .element-preperty .boot-xs-min(width;60px);
-
+    .element-preperty .boot-xs-v(height;70px);
+    .element-preperty .boot-xs-v(width;70px);
 
   }
 }
@@ -440,6 +469,7 @@
     .element-preperty .props-horizontal(border-bottom-width;1px);
     .element-preperty .props-horizontal(border-bottom-color;#ddd);
   }
+
   //偶数时增加左右边框
   //使用公式 (an + b)。描述：表示周期的长度，n 是计数器（从 0 开始），b 是偏移值。
   .col-xs-6,
@@ -453,7 +483,6 @@
       .element-preperty .props-horizontal(border-right-width;1px);
       .element-preperty .props-horizontal(border-right-color;#ddd);
   }
-
 
 }
   ////////////////横屏时添加边界区分元素/////////////////
@@ -488,6 +517,10 @@
     border: @default-border;
     border-left-style:none;
     width: 50%*@table-left-precent;
+    .element-preperty .boot-xs-v(width;30%);
+    //@boot-xs-v:  421px;
+    //@boot-xs-vmax: 589px;
+    .element-preperty .boot-xs(width;40%);
     //最后一个元素没有右边界
     &:first-child {
 
@@ -507,13 +540,13 @@
     width: 50%*@table-right-precent;
     height: 110px;
     .element-preperty .boot-min(height;90px);
-    .element-preperty .boot-xs-min(height;100px);
+    .element-preperty .boot-xs-v(height;100px);
     .element-preperty .android-dpr2-v(height;90px);
     .element-preperty .android-dpr2-h(height;90px);
     .element-preperty .android-dpr1g-v(height;110px);
     .element-preperty .android-dpr1g-h(height;90px);
     .element-preperty .boot-desktop(height;90px);
-    .element-preperty .boot-max(height;130px);
+    .element-preperty .boot-max(height;90px);
 
   }
   //上边,无用边框

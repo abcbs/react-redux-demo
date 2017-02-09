@@ -4,11 +4,12 @@
 .thumbnail-image-content-abc {
   padding-top:@content-72-72-padding-top;
   padding-right:@content-72-72-padding-right;
+
   padding-bottom:@content-72-72-padding-bottom;
   margin-bottom:@content-72-72-margin-bottom;
   margin-right:@content-72-72-margin-right;
   border:1px solid #ddd;
-
+  border-left: none;
   border-radius:4px;
   transition:border 0.2s ease-in-out;
   //line-height:1.2;
@@ -339,10 +340,22 @@
     .thumbnail-toolbar-abc;
     margin-left:0;
   }
+  //三行为一般大小
   .thumbnail-image-abc{
-    width:95px;
-    height: 121px;
+    width:@image-width-common;
+    height: @image-height-common;
+    margin-bottom: @image-margin-bottom-md;
 
+    .element-preperty .android-dpr1g-v(width;@image-width-md-gt-v);
+    .element-preperty .android-dpr1g-v(height;@image-width-md-gt-v);
+
+    .element-preperty .android-dpr2-v(width;@image-width-md-scl);
+    .element-preperty .android-dpr2-v(height;@image-width-md-scl);
+
+    .element-preperty .boot-xs-v(width;@image-width-md-gt-v);
+    .element-preperty .boot-xs-v(height;@image-width-md-gt-v);
+    .element-preperty .boot-min(width;@image-width-md-gt-v);
+    .element-preperty .boot-min(height;@image-width-md-gt-v);
   }
 
   .thumbnail-content-abc {
@@ -395,5 +408,14 @@
     }
   }
 }
+//普通三个
+.thumbnail-common-md {
+  .thumbnail-container-common-abc;
+  padding-left: 2rem;
+  .element-preperty .android-dpr2-v(padding-left;1rem);
+  .element-preperty .android-dpr1g-v(padding-left;0.5rem);
+  .element-preperty .boot-xs-v(padding-left;0.5rem);
+  .element-preperty .boot-min(padding-left;0.5rem);
 
+}
 

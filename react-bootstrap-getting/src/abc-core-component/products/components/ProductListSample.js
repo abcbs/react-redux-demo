@@ -22,7 +22,7 @@ import Spinner        from '../../../abc-ui/spinner'
 //业务功能
 // import AuthenticationManager from './AuthenticationManager'
 // import {list} from'./formConfig'
-
+//动态查询时，改为真实应用
 export default class ProductList extends React.Component {
 
     static propTypes =
@@ -68,9 +68,9 @@ export default class ProductList extends React.Component {
                            key="productListHeader"  header={productListHeader}
                            onClick={this.handleClick.bind(this)}
                 >
-                    <Grid className="container-abc">
+                    <Grid className="container-abc-grid">
                         <Row>
-                            <Col xs={6} xp={6} sm={6} md={3}  lg={3}>
+                            <Col xs={6} xp={4} sm={6} md={3}  lg={3}>
                                 <div className="thumbnail-b-image-abc">
                                     <div >
                                         <h6>公开测试部分上海区代理</h6>
@@ -81,7 +81,7 @@ export default class ProductList extends React.Component {
                                     <Row>
                                         <Col  xs={12} sm={12} md={12} lg={12}>
                                             <div className="thumbnail-inline-abc">
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 <Button bsStyle="default"
@@ -122,7 +122,7 @@ export default class ProductList extends React.Component {
                                     </div>
                                 </div>
                             </Col>
-                            <Col xs={6} xp={6} sm={6} md={3}  lg={3}>
+                            <Col xs={6} xp={4} sm={6} md={3}  lg={3}>
                                 <div className="thumbnail-b-image-abc">
                                     <div >
                                         <h6>公开测试部分上海区代理</h6>
@@ -131,7 +131,107 @@ export default class ProductList extends React.Component {
                                     <Row>
                                         <Col  xs={12} sm={12} md={12} lg={12}>
                                             <div className="thumbnail-inline-abc">
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
+                                                        style={{padding:"2px 6px",border:"none"}}
+                                                ><Glyphicon glyph="save"/></Button>
+                                                <Button bsStyle="default"
+                                                        style={{padding:"2px 6px",border:"none"}}
+                                                ><Glyphicon glyph="save"/></Button>
+                                                <Button bsStyle="default"
+                                                        style={{padding:"2px 6px",border:"none"}}
+                                                ><Glyphicon glyph="pencil"/></Button>
+                                                <Button bsStyle="default"
+                                                        style={{padding:"2px 6px",border:"none"}}
+                                                ><Glyphicon glyph="trash"/></Button>
+                                            </div>
+                                        </Col>
+                                    </Row>
+
+                                    <Row>
+                                        <Col xs={12} sm={12} md={12} lg={12}>
+                                            <Image
+                                                src="/external/images/restau05i.jpg">
+                                            </Image>
+                                        </Col>
+                                    </Row>
+                                    <div >
+                                        <h6>公开测试部分上海区代理</h6>
+                                        <p>支付类试用12个月</p>
+                                    </div>
+                                    <div >
+                                        <h6  >公开测试部分上海区代理</h6>
+                                        <p >支付类试用12个月</p>
+                                    </div>
+                                    <div >
+                                        <h6  >公开测试部分上海区代理</h6>
+                                        <p >支付类试用12个月</p>
+                                    </div>
+                                    <div >
+                                        <h6>公开测试部分上海区代理</h6>
+                                        <p>支付类试用12个月</p>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={6} md={3}  lg={3}>
+                                <div className="thumbnail-b-image-abc">
+                                    <div >
+                                        <h6>公开测试部分上海区代理</h6>
+                                        <p>支付类试用12个月</p>
+                                    </div>
+                                    <Row>
+                                        <Col  xs={12} sm={12} md={12} lg={12}>
+                                            <div className="thumbnail-inline-abc">
+                                                <Button bsStyle="default"
+                                                        style={{padding:"2px 6px",border:"none"}}
+                                                ><Glyphicon glyph="save"/></Button>
+                                                <Button bsStyle="default"
+                                                        style={{padding:"2px 6px",border:"none"}}
+                                                ><Glyphicon glyph="save"/></Button>
+                                                <Button bsStyle="default"
+                                                        style={{padding:"2px 6px",border:"none"}}
+                                                ><Glyphicon glyph="pencil"/></Button>
+                                                <Button bsStyle="default"
+                                                        style={{padding:"2px 6px",border:"none"}}
+                                                ><Glyphicon glyph="trash"/></Button>
+                                            </div>
+                                        </Col>
+                                    </Row>
+
+                                    <Row>
+                                        <Col xs={12} sm={12} md={12} lg={12}>
+                                            <Image
+                                                src="/external/images/restau05i.jpg">
+                                            </Image>
+                                        </Col>
+                                    </Row>
+                                    <div >
+                                        <h6>公开测试部分上海区代理</h6>
+                                        <p>支付类试用12个月</p>
+                                    </div>
+                                    <div >
+                                        <h6  >公开测试部分上海区代理</h6>
+                                        <p >支付类试用12个月</p>
+                                    </div>
+                                    <div >
+                                        <h6  >公开测试部分上海区代理</h6>
+                                        <p >支付类试用12个月</p>
+                                    </div>
+                                    <div >
+                                        <h6>公开测试部分上海区代理</h6>
+                                        <p>支付类试用12个月</p>
+                                    </div>
+                                </div>
+                            </Col>
+                            <Col xs={6} xp={4} sm={6} md={3}  lg={3}>
+                                <div className="thumbnail-b-image-abc">
+                                    <div >
+                                        <h6>公开测试部分上海区代理</h6>
+                                        <p>支付类试用12个月</p>
+                                    </div>
+                                    <Row>
+                                        <Col  xs={12} sm={12} md={12} lg={12}>
+                                            <div className="thumbnail-inline-abc">
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 <Button bsStyle="default"
@@ -177,10 +277,10 @@ export default class ProductList extends React.Component {
                 </AbcPanel>
 
                 <AbcPanel  header={productThirdHeader}>
-                    <Grid className="container-abc">
+                    <Grid className="container-abc-grid">
                         <Row>
                             <Col xs={4} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-container-common-abc">
+                                <div className="thumbnail-common-md">
                                     <div className="thumbnail-content-abc-xs">
                                         <h6>公开测试东北区代理</h6>
                                         <p>每列三个上下架构</p>
@@ -193,7 +293,7 @@ export default class ProductList extends React.Component {
                                 </div>
                             </Col>
                             <Col xs={4} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-container-common-abc">
+                                <div className="thumbnail-common-md">
                                     <div className="thumbnail-content-abc-xs">
                                         <h6>公开测试东北区代理</h6>
                                         <p>每列三个上下架构</p>
@@ -206,7 +306,7 @@ export default class ProductList extends React.Component {
                                 </div>
                             </Col>
                             <Col xs={4} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-container-common-abc">
+                                <div className="thumbnail-common-md">
                                     <div className="thumbnail-content-abc-xs">
                                         <h6>公开测试东北区代理</h6>
                                         <p>每列三个上下架构</p>
@@ -219,7 +319,7 @@ export default class ProductList extends React.Component {
                                 </div>
                             </Col>
                             <Col xs={4} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-container-common-abc">
+                                <div className="thumbnail-common-md">
                                     <div className="thumbnail-content-abc-xs">
                                         <h6>公开测试东北区代理</h6>
                                         <p>每列三个上下架构</p>
@@ -232,7 +332,7 @@ export default class ProductList extends React.Component {
                                 </div>
                             </Col>
                             <Col xs={4} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-container-common-abc">
+                                <div className="thumbnail-common-md">
                                     <div className="thumbnail-content-abc-xs">
                                         <h6>公开测试部分东北</h6>
                                         <p>每列三个上下架构</p>
@@ -245,7 +345,7 @@ export default class ProductList extends React.Component {
                                 </div>
                             </Col>
                             <Col xs={4} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-container-common-abc">
+                                <div className="thumbnail-common-md">
                                     <div className="thumbnail-content-abc-xs">
                                         <h6>公开测试部分东北区</h6>
                                         <p>每列三个上下架构</p>
@@ -258,7 +358,7 @@ export default class ProductList extends React.Component {
                                 </div>
                             </Col>
                             <Col xs={4} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-container-common-abc">
+                                <div className="thumbnail-common-md">
                                     <div className="thumbnail-content-abc-xs">
                                         <h6>公开测试部分东北</h6>
                                         <p>每列三个上下架构</p>
@@ -273,312 +373,9 @@ export default class ProductList extends React.Component {
                         </Row>
                     </Grid>
                 </AbcPanel>
-                <AbcPanel header={productPriceHeader}>
-                    <Grid>
-                        <Row className="thumbnail-container-common-abc"
-                             style={{border:"1px solid #ddd",marginBottom:"6px",marginTop:"6px"
-                                , padding:"6px 4px"}}>
-                            <Col xs={1} xp={1} sm={1} md={1} lg={1} >
-                                <Checkbox className="thumbnail-checkbox-abc"/>
-                            </Col>
-                            <Col xs={4}  xp={2} sm={2}  md={2} lg={2} >
-                                <Image
-                                    src="/external/images/kebap.jpg"
-                                    className="thumbnail-image-abc"
-                                    alt="Pizza">
-                                </Image>
 
-                                <ButtonToolbar className="thumbnail-toolbar-abc">
-                                    <Button bsStyle="default"
-                                    ><Glyphicon glyph="plus"/></Button>
-                                    <FormControl type="number"
-                                                 style={{width:"46px",padding:"2px 4px",
-                                                       fontSize:"13px" ,border:"none",textAlign:"center"}}
-                                                 placeholder="1" />
-                                    <Button bsStyle="default"><Glyphicon glyph="minus"/></Button>
-                                </ButtonToolbar>
-                            </Col>
-                            <Col xs={7} xp={8} sm={7} md={7} lg={7} >
-                                <div className="thumbnail-content-abc">
-                                    <h5>Chromse<Glyphicon glyph="mark"/>个性彩色剪刀钢笔式
-                                        炫彩便携安全手工剪刀
-                                    </h5>
-                                    <p>颜色分类:蓝色</p>
-                                    <div className="cashContent">
-                                        <p className="inline">
-                                            <Glyphicon glyph="yen"/>4.5</p>
-                                        <p className="number-postion">*1</p>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xsHidden={true} xpHidden={true} sm={2} md={2} lg={2} >
-                                <div  className="thumbnail-operator-abc">
-                                    <Button bsStyle="default"><Glyphicon glyph="pencil"/></Button>
-                                    <Button bsStyle="default"><Glyphicon glyph="trash"/></Button>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row className="thumbnail-container-common-abc"
-                             style={{border:"1px solid #ddd",marginBottom:"6px",marginTop:"6px"  , padding:"6px 4px"}}>
-                            <Col xs={1} xp={1} sm={1} md={1} lg={1} >
-                                <Checkbox className="thumbnail-checkbox-abc"/>
-                            </Col>
-                            <Col xs={4}  xp={2} sm={2}  md={2} lg={2} >
-                                <Image
-                                    src="/external/images/-1372248994.jpg"
-                                    className="thumbnail-image-abc"
-                                    alt="Pizza">
-                                </Image>
-
-                            </Col>
-                            <Col xs={7} xp={8} sm={7} md={7} lg={7} >
-                                <div className="thumbnail-content-abc">
-                                    <h5>Chromse<Glyphicon glyph="mark"/>个性彩色剪刀钢笔式
-                                        炫彩便携安全手工剪刀
-                                    </h5>
-                                    <p>颜色分类:蓝色</p>
-
-                                    <ButtonToolbar className="thumbnail-toolbar-abc">
-                                        <Button bsStyle="default"
-                                        ><Glyphicon glyph="plus"/></Button>
-                                        <FormControl type="number"
-                                                     style={{width:"46px",padding:"2px 4px",
-                                                       fontSize:"13px" ,border:"none",textAlign:"center"}}
-                                                     placeholder="1" />
-                                        <Button bsStyle="default"><Glyphicon glyph="minus"/></Button>
-                                    </ButtonToolbar>
-                                </div>
-                            </Col>
-                            <Col xsHidden={true} xpHidden={true} sm={2} md={2} lg={2} >
-                                <div  className="thumbnail-operator-abc">
-                                    <Button bsStyle="default"><Glyphicon glyph="pencil"/></Button>
-                                    <Button bsStyle="default"><Glyphicon glyph="trash"/></Button>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Grid>
-                </AbcPanel>
-
-                <AbcPanel header={productHeader}>
-                    <Grid>
-                        <Row className="thumbnail-container-single-abc">
-                            <Col xs={1} xp={1} sm={1} md={1} lg={1} >
-                                <Checkbox className="thumbnail-checkbox-single-abc"/>
-                            </Col>
-                            <Col xs={4}  xp={2} sm={2}  md={2} lg={2} >
-                                <Image
-                                    src="/external/images/kebap.jpg"
-                                    className="thumbnail-image-single-abc"
-                                    alt="Pizza">
-                                </Image>
-
-                                <ButtonToolbar className="thumbnail-toolbar-inimage-abc">
-                                    <Button bsStyle="default"
-                                    ><Glyphicon glyph="plus"/></Button>
-                                    <FormControl type="number"
-                                                 style={{width:"46px",padding:"2px 4px",
-                                                       fontSize:"13px" ,border:"none",textAlign:"center"}}
-                                                 placeholder="1" />
-                                    <Button bsStyle="default"><Glyphicon glyph="minus"/></Button>
-                                </ButtonToolbar>
-                            </Col>
-                            <Col xs={7} xp={8} sm={7} md={7} lg={7} >
-                                <div className="thumbnail-content-abc">
-                                    <h5>Chromse<Glyphicon glyph="mark"/>个性彩色剪刀钢笔式
-                                        炫彩便携安全手工剪刀
-                                    </h5>
-                                    <p>颜色分类:蓝色</p>
-                                    <div className="cashContent">
-                                        <p className="inline">
-                                            <Glyphicon glyph="yen"/>4.5</p>
-                                        <p className="number-postion">*1</p>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xsHidden={true} xpHidden={true} sm={2} md={2} lg={2} >
-                                <div  className="thumbnail-operator-abc">
-                                    <Button bsStyle="default"><Glyphicon glyph="pencil"/></Button>
-                                    <Button bsStyle="default"><Glyphicon glyph="trash"/></Button>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row  className="thumbnail-container-single-abc">
-                            <Col xs={1} xp={1} sm={1} md={1} lg={1} >
-                                <Checkbox className="thumbnail-checkbox-single-abc"/>
-                            </Col>
-                            <Col xs={4}  xp={2} sm={2}  md={2} lg={2} >
-                                <Image
-                                    src="/external/images/2100187990.jpg"
-                                    className="thumbnail-image-single-abc"
-                                    alt="Pizza">
-                                </Image>
-                                <ButtonToolbar className="thumbnail-toolbar-inimage-abc">
-                                    <Button bsStyle="default"
-                                    ><Glyphicon glyph="plus"/></Button>
-                                    <FormControl type="number"
-                                                 style={{width:"46px",padding:"2px 4px",
-                                                       fontSize:"13px" ,border:"none",textAlign:"center"}}
-                                                 placeholder="1" />
-                                    <Button bsStyle="default"><Glyphicon glyph="minus"/></Button>
-                                </ButtonToolbar>
-                            </Col>
-                            <Col xs={7} xp={8} sm={7} md={7} lg={7} >
-                                <div className="thumbnail-content-abc">
-                                    <h5>Pad2-横<Glyphicon glyph="mark"/>个性彩色剪刀钢笔式
-                                        炫彩便携安全手工剪刀</h5>
-                                    <p>颜色分类:蓝色</p>
-                                    <div className="cashContent">
-                                        <p className="inline">
-                                            <Glyphicon glyph="yen"/>4.5</p>
-                                        <p className="number-postion">*1</p>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xsHidden={true} xpHidden={true} sm={2} md={2} lg={2} >
-                                <div  className="thumbnail-operator-abc">
-                                    <Button bsStyle="default"><Glyphicon glyph="pencil"/></Button>
-                                    <Button bsStyle="default"><Glyphicon glyph="trash"/></Button>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row className="thumbnail-container-single-abc">
-                            <Col xs={1} xp={1} sm={1} md={1} lg={1} >
-                                <Checkbox className="thumbnail-checkbox-single-abc"/>
-                            </Col>
-                            <Col xs={4}  xp={2} sm={2}  md={2} lg={2} >
-                                <Image
-                                    src="/external/images/1069629669.jpg"
-                                    className="thumbnail-image-single-abc"
-                                    alt="Pizza">
-                                </Image>
-                            </Col>
-                            <Col xs={7} xp={8} sm={7} md={7} lg={7} >
-                                <div className="thumbnail-content-abc">
-
-                                    <h5>Chromse<Glyphicon glyph="mark"/>个性彩色剪刀钢笔式
-                                        炫彩便携安全手工剪刀</h5>
-                                    <p>颜色分类:蓝色</p>
-                                    <div className="cashContent">
-                                        <p className="inline">
-                                            <Glyphicon glyph="yen"/>4.5</p>
-                                        <p className="number-postion">*1</p>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xsHidden={true} xpHidden={true} sm={2} md={2} lg={2} >
-                                <div  className="thumbnail-operator-abc">
-                                    <Button bsStyle="default"><Glyphicon glyph="pencil"/></Button>
-                                    <Button bsStyle="default"><Glyphicon glyph="trash"/></Button>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row className="thumbnail-container-single-abc">
-                            <Col xs={1} xp={1} sm={1} md={1} lg={1} >
-                                <Checkbox className="thumbnail-checkbox-single-abc"/>
-                            </Col>
-                            <Col xs={4}  xp={2} sm={2}  md={2} lg={2} >
-                                <Image
-                                    src="/external/images/-1532917364.jpg"
-                                    className="thumbnail-image-single-abc"
-                                    alt="Pizza">
-                                </Image>
-                            </Col>
-                            <Col xs={7} xp={8} sm={7} md={7} lg={7} >
-                                <div className="thumbnail-content-abc">
-
-                                    <h5>火狐、微软<Glyphicon glyph="mark"/>个性彩色剪刀钢笔式
-                                        炫彩便携安全手工剪刀</h5>
-                                    <p>颜色分类:蓝色</p>
-                                    <div className="cashContent">
-                                        <p className="inline">
-                                            <Glyphicon glyph="yen"/>4.5</p>
-                                        <p className="number-postion">*1</p>
-                                    </div>
-
-                                </div>
-                            </Col>
-                            <Col xsHidden={true} xpHidden={true} sm={2} md={2} lg={2} >
-                                <div  className="thumbnail-operator-abc">
-                                    <Button bsStyle="default"><Glyphicon glyph="pencil"/></Button>
-                                    <Button bsStyle="default"><Glyphicon glyph="trash"/></Button>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row className="thumbnail-container-single-abc">
-                            <Col xs={1} xp={1} sm={1} md={1} lg={1} >
-                                <Checkbox className="thumbnail-checkbox-single-abc"/>
-                            </Col>
-                            <Col xs={4}  xp={2} sm={2}  md={2} lg={2} >
-                                <Image
-                                    src="/external/images/-1936960561.jpg"
-                                    className="thumbnail-image-single-abc"
-                                    alt="Pizza">
-                                </Image>
-                            </Col>
-                            <Col xs={7} xp={8} sm={7} md={7} lg={7} >
-                                <div className="thumbnail-content-abc">
-                                    <h5>
-                                        三星<Glyphicon glyph="mark"/>
-                                        个性彩色剪刀钢笔式
-                                        炫彩</h5>
-                                    <p>支付类试用12个月</p>
-                                    <ButtonToolbar className="thumbnail-toolbar-abc">
-                                        <Button bsStyle="default"
-                                        ><Glyphicon glyph="plus"/></Button>
-                                        <FormControl type="number"
-                                                     style={{width:"46px",padding:"2px 4px",
-                                                       fontSize:"13px" ,border:"none",textAlign:"center"}}
-                                                     placeholder="1" />
-                                        <Button bsStyle="default"><Glyphicon glyph="minus"/></Button>
-                                    </ButtonToolbar>
-                                </div>
-                            </Col>
-                            <Col xsHidden={true} xpHidden={true} sm={2} md={2} lg={2} >
-                                <div  className="thumbnail-operator-abc">
-                                    <Button bsStyle="default"><Glyphicon glyph="pencil"/></Button>
-                                    <Button bsStyle="default"><Glyphicon glyph="trash"/></Button>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row className="thumbnail-container-single-abc">
-                            <Col xs={1} xp={1} sm={1} md={1} lg={1} >
-                                <Checkbox className="thumbnail-checkbox-single-abc"/>
-                            </Col>
-                            <Col xs={4}  xp={2} sm={2}  md={2} lg={2} >
-                                <Image
-                                    src="/external/images/kebap.jpg"
-                                    className="thumbnail-image-single-abc"
-                                    alt="苹果">
-                                </Image>
-                            </Col>
-                            <Col xs={7} xp={8} sm={7} md={7} lg={7} >
-                                <div className="thumbnail-content-abc">
-                                    <h5>
-                                        苹果<Glyphicon glyph="mark"/>个性彩色剪刀钢笔式
-                                        炫彩便携安全手工剪刀</h5>
-                                    <p>带保护套,支付类试用12个月</p>
-                                    <ButtonToolbar className="thumbnail-toolbar-abc">
-                                        <Button bsStyle="default"
-                                        ><Glyphicon glyph="plus"/></Button>
-                                        <FormControl type="number"
-                                                     style={{width:"46px",padding:"2px 4px",
-                                                       fontSize:"13px" ,border:"none",textAlign:"center"}}
-                                                     placeholder="1" />
-                                        <Button bsStyle="default"><Glyphicon glyph="minus"/></Button>
-                                    </ButtonToolbar>
-                                </div>
-                            </Col>
-                            <Col xsHidden={true} xpHidden={true} sm={2} md={2} lg={2} >
-                                <div  className="thumbnail-operator-abc">
-                                    <Button bsStyle="default"><Glyphicon glyph="pencil"/></Button>
-                                    <Button bsStyle="default"><Glyphicon glyph="trash"/></Button>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Grid>
-                </AbcPanel>
                 <AbcPanel  header={produceVendderCashListHeader}>
-                    <Grid className="container-abc">
+                    <Grid className="container-abc-grid">
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={4}  lg={3}>
                                 <div className="thumbnail-b-image-abc">
@@ -731,7 +528,7 @@ export default class ProductList extends React.Component {
                     </Grid>
                 </AbcPanel>
                 <AbcPanel  header={productHeader}>
-                    <Grid>
+                    <Grid className="container-abc-grid">
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3} >
                                 <div className="thumbnail-image-content-abc">
@@ -802,7 +599,7 @@ export default class ProductList extends React.Component {
                                             <p>Description</p>
                                         </div>
                                         <div className="thumbnail-buttons-abc">
-                                            <Button bsStyle="primary"
+                                            <Button bsStyle="default"
                                                     style={{padding:"2px 6px",border:"none"}}
                                             ><Glyphicon glyph="save"/></Button>
                                             &nbsp;
@@ -827,7 +624,7 @@ export default class ProductList extends React.Component {
                                             <p>Description</p>
                                         </div>
                                         <div className="thumbnail-buttons-abc">
-                                            <Button bsStyle="primary"
+                                            <Button bsStyle="default"
                                                     style={{padding:"2px 6px",border:"none"}}
                                             ><Glyphicon glyph="save"/></Button>
                                             &nbsp;
@@ -851,7 +648,7 @@ export default class ProductList extends React.Component {
                     </Grid>
                 </AbcPanel>
                 <AbcPanel  header={productHeader}>
-                    <Grid>
+                    <Grid className="container-abc-grid">
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3} >
                                 <div className="thumbnail-image-content-abc">
@@ -919,7 +716,7 @@ export default class ProductList extends React.Component {
                                             <p>Description</p>
                                         </div>
                                         <div className="thumbnail-buttons-abc">
-                                            <Button bsStyle="primary"
+                                            <Button bsStyle="default"
                                                     style={{padding:"2px 6px",border:"none"}}
                                             ><Glyphicon glyph="save"/></Button>
                                             &nbsp;
@@ -943,7 +740,7 @@ export default class ProductList extends React.Component {
                                             <p>Description</p>
                                         </div>
                                         <div className="thumbnail-buttons-abc">
-                                            <Button bsStyle="primary"
+                                            <Button bsStyle="default"
                                                     style={{padding:"2px 6px",border:"none"}}
                                             ><Glyphicon glyph="save"/></Button>
                                             &nbsp;
@@ -967,7 +764,7 @@ export default class ProductList extends React.Component {
                     </Grid>
                 </AbcPanel>
                 <AbcPanel  header={productHeader}>
-                    <Grid>
+                    <Grid className="container-abc-grid">
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3} >
                                 <div className="thumbnail-image-content-abc">
@@ -979,7 +776,7 @@ export default class ProductList extends React.Component {
                                          style={{color:"red"}}>
                                         <h5  >公开测试部分上海区代理</h5>
                                         <p >支付类试用12个月</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1007,7 +804,7 @@ export default class ProductList extends React.Component {
                                     <div className="thumbnail-content-abc">
                                         <h5>公开测试部分上海区代理</h5>
                                         <p>支付类试用12个月</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1026,7 +823,7 @@ export default class ProductList extends React.Component {
                                     <div className="thumbnail-content-abc">
                                         <h5>公开测试部分北京区代理</h5>
                                         <p>三个月开放</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1046,7 +843,7 @@ export default class ProductList extends React.Component {
                                     <div className="thumbnail-content-abc">
                                         <h5>Thumbnail</h5>
                                         <p>Description</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1065,7 +862,7 @@ export default class ProductList extends React.Component {
                                     <div className="thumbnail-content-abc">
                                         <h5>Thumbnail</h5>
                                         <p>Description</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1088,7 +885,7 @@ export default class ProductList extends React.Component {
 
                 </AbcPanel>
                 <AbcPanel  header={authenticationAdimHeader}>
-                    <Grid>
+                    <Grid className="container-abc-grid">
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={3} lg={3} >
                                 <div className="thumbnail-abc">
@@ -1100,7 +897,7 @@ export default class ProductList extends React.Component {
                                          style={{color:"red"}}>
                                         <h5  >公开测试部分上海区代理</h5>
                                         <p >支付类试用12个月</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1128,7 +925,7 @@ export default class ProductList extends React.Component {
                                     <div className="thumbnail-content-abc">
                                         <h5>Thumbnail</h5>
                                         <p>Description</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1147,7 +944,7 @@ export default class ProductList extends React.Component {
                                     <div className="thumbnail-content-abc">
                                         <h5>公开测试部分北京区代理</h5>
                                         <p>三个月开放</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1167,7 +964,7 @@ export default class ProductList extends React.Component {
                                     <div className="thumbnail-content-abc">
                                         <h5>Thumbnail</h5>
                                         <p>Description</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1186,7 +983,7 @@ export default class ProductList extends React.Component {
                                     <div className="thumbnail-content-abc">
                                         <h5>Thumbnail</h5>
                                         <p>Description</p>
-                                        <Button bsStyle="primary"
+                                        <Button bsStyle="default"
                                                 style={{padding:"2px 6px",border:"none"}}
                                         ><Glyphicon glyph="save"/></Button>
                                         &nbsp;
@@ -1208,386 +1005,9 @@ export default class ProductList extends React.Component {
                     </Grid>
 
                 </AbcPanel>
-                <AbcPanel  header={authenticationAdimHeader}>
-                    <Grid>
-                        <Row>
-                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
-                                <div className="thumbnail-b-image-abc">
-                                    <Image
-                                        src="/external/images/1441742482.jpg"
-                                        className="b-image-xs"
-                                        alt="Pizza">
-                                    </Image>
-                                    <div className="thumbnail-xs4-abc"
-                                         style={{color:"red"}}>
-                                        <h5>上海区代理</h5>
-                                        <p >试用12个月</p>
-                                        <Button bsStyle="primary"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                        <Button bsStyle="default"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
-                                <div className="thumbnail-b-image-abc">
-                                    <Image
-                                        src="/external/images/1441742482.jpg"
-                                        className="b-image-xs"
-                                        circle
-                                        alt="Pizza">
-                                    </Image>
-                                    <div className="thumbnail-xs4-abc">
-                                        <h5>中心</h5>
-                                        <p>中心说明</p>
-                                        <Button bsStyle="primary"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                        &nbsp;
-                                        <Button bsStyle="default"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
-                                <div className="thumbnail-b-image-abc">
-                                    <Image
-                                        src="/external/images/burger.jpg"
-                                        className="b-image-xs"
-                                        alt="Pizza">
-                                    </Image>
-                                    <div className="thumbnail-xs4-abc">
-                                        <h5>北京区代理</h5>
-                                        <p>三个月开放</p>
-                                        <Button bsStyle="primary"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                        &nbsp;
-                                        <Button bsStyle="default"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
-                                <div className="thumbnail-b-image-abc">
-                                    <Image
-                                        src="/external/images/IMG_20160930_194031.jpg"
-                                        className="b-image-xs"
-                                        alt="Pizza">
-                                    </Image>
-                                    <div className="thumbnail-xs4-abc">
-                                        <h5>Thumbnail</h5>
-                                        <p>Description</p>
-                                        <Button bsStyle="primary"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                        <Button bsStyle="default"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xs={3} xp={2} sm={2} md={2} lg={1} >
-                                <div className="thumbnail-b-image-abc">
-                                    <Image
-                                        src="/external/images/IMG_20161004_123305.jpg"
-                                        className="b-image-xs"
-                                        alt="Pizza">
-                                    </Image>
-                                    <div className="thumbnail-xs4-abc">
-                                        <h5>Thumbnail</h5>
-                                        <p>Description</p>
-                                        <Button bsStyle="primary"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                        <Button bsStyle="default"
-                                                style={{padding:"2px 6px",border:"none"}}
-                                        ><Glyphicon glyph="save"/></Button>
-                                    </div>
 
-                                </div>
-                            </Col>
-                        </Row>
-                    </Grid>
-
-                </AbcPanel>
-                <AbcPanel  header={productHotHeader}>
-                    <Grid className="container-abc">
-                        <Row>
-                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-b-image-abc">
-
-                                    <div className="thumbnail-md-abc">
-                                        <h6>公开测试部分东北区代理</h6>
-                                        <p>支付类试用12个月</p>
-                                    </div>
-
-
-                                    <Row>
-                                        <Col xs={12} sm={12} md={12} lg={12}>
-                                            <Image
-                                                className="b-image"
-                                                src="/external/images/kebap.jpg">
-                                            </Image>
-                                        </Col>
-                                    </Row>
-                                    <div className="thumbnail-md-abc">
-                                        <h6>公开测试部分上海区代理</h6>
-                                        <p>支付类试用12个月</p>
-                                    </div>
-                                    <Row>
-                                        <Col  xs={12} sm={12} md={12} lg={12}>
-                                            <div className="thumbnail-inline-abc">
-                                                <Button bsStyle="primary"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="pencil"/></Button>
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="trash"/></Button>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-b-image-abc">
-                                    <div className="thumbnail-md-abc">
-                                        <h6  >公开测试部分上海区代理</h6>
-
-                                    </div>
-                                    <Row>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div className="thumbnail-inline-abc">
-
-                                                <Button bsStyle="primary"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                                &nbsp;
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div  className="thumbnail-inline-abc">
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="pencil"/></Button>
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="trash"/></Button>
-                                            </div>
-                                        </Col>
-                                    </Row>
-
-                                    <Row>
-                                        <Image
-                                            className="b-image"
-                                            src="/external/images/kebap.jpg">
-                                        </Image>
-                                    </Row>
-                                    <div className="thumbnail-md-abc">
-                                        <h6  >公开测试部分上海区代理</h6>
-                                        <p >支付类试用12个月</p>
-                                        <p >支付类试用12个月</p>
-                                    </div>
-
-                                </div>
-                            </Col>
-                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-b-image-abc">
-                                    <div className="thumbnail-md-abc">
-                                        <h6  >公开测试部分上海区代理</h6>
-
-                                    </div>
-
-
-                                    <Row>
-                                        <Image
-                                            className="b-image"
-                                            src="/external/images/kebap.jpg">
-                                        </Image>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div className="thumbnail-inline-abc">
-
-                                                <Button bsStyle="primary"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                                &nbsp;
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div  className="thumbnail-inline-abc">
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="pencil"/></Button>
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="trash"/></Button>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <div className="thumbnail-md-abc">
-                                        <h6 >公开测试部分上海区代理</h6>
-                                        <p >支付类试用12个月</p>
-                                        <p >支付类试用12个月</p>
-                                    </div>
-
-                                </div>
-                            </Col>
-                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-b-image-abc">
-                                    <div className="thumbnail-md-abc">
-                                        <h6  >公开测试部分上海区代理</h6>
-
-                                    </div>
-
-
-                                    <Row>
-                                        <Image
-                                            className="b-image"
-                                            src="/external/images/kebap.jpg">
-                                        </Image>
-                                    </Row>
-                                    <div className="thumbnail-md-abc">
-                                        <h6  >公开测试部分上海区代理</h6>
-                                        <p >支付类试用12个月</p>
-                                    </div>
-                                    <Row>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div className="thumbnail-inline-abc">
-
-                                                <Button bsStyle="primary"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                                &nbsp;
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div  className="thumbnail-inline-abc">
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="pencil"/></Button>
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="trash"/></Button>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <div> <p >支付类试用12个月</p></div>
-                                </div>
-                            </Col>
-                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-b-image-abc">
-                                    <div className="thumbnail-md-abc">
-                                        <h6  >公开测试部分上海区代理</h6>
-                                        <p >支付类试用12个月</p>
-                                    </div>
-                                    <Row>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div className="thumbnail-inline-abc">
-
-                                                <Button bsStyle="primary"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                                &nbsp;
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div  className="thumbnail-inline-abc">
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="pencil"/></Button>
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="trash"/></Button>
-                                            </div>
-                                        </Col>
-                                    </Row>
-
-                                    <Row>
-                                        <Image
-                                            className="b-image"
-                                            src="/external/images/kebap.jpg">
-                                        </Image>
-                                    </Row>
-                                    <div className="thumbnail-md-abc">
-                                        <h6  >公开测试部分上海区代理</h6>
-                                        <p >支付类试用12个月</p>
-                                    </div>
-
-                                </div>
-                            </Col>
-                            <Col xs={6} xp={3} sm={3} md={2}  lg={2}>
-                                <div className="thumbnail-b-image-abc">
-                                    <div className="thumbnail-md-abc">
-                                        <h6  >公开测试部分上海区代理</h6>
-                                        <p >支付类试用12个月</p>
-                                    </div>
-                                    <Row>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div className="thumbnail-inline-abc">
-
-                                                <Button bsStyle="primary"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                                &nbsp;
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="save"/></Button>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} sm={6} md={6} lg={6}>
-                                            <div  className="thumbnail-inline-abc">
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="pencil"/></Button>
-                                                <Button bsStyle="default"
-                                                        style={{padding:"2px 6px",border:"none"}}
-                                                ><Glyphicon glyph="trash"/></Button>
-                                            </div>
-                                        </Col>
-                                    </Row>
-
-                                    <Row>
-                                        <Image
-                                            className="b-image"
-                                            src="/external/images/kebap.jpg">
-                                        </Image>
-                                    </Row>
-                                    <div className="thumbnail-md-abc">
-                                        <h6  >公开测试部分上海区代理</h6>
-                                        <p >支付类试用12个月</p>
-                                    </div>
-
-                                </div>
-                            </Col>
-                        </Row>
-                    </Grid>
-                </AbcPanel>
                 <AbcPanel  header={authenticationListHeader}>
-                    <Grid className="container-abc">
+                    <Grid className="container-abc-grid">
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
                                 <div className="thumbnail-b-image-abc">
@@ -1598,7 +1018,7 @@ export default class ProductList extends React.Component {
                                     <Row>
                                         <Col  xs={12} sm={12} md={12} lg={12}>
                                             <div className="thumbnail-inline-abc">
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 <Button bsStyle="default"
@@ -1634,7 +1054,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -1673,7 +1093,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -1712,7 +1132,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -1751,7 +1171,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -1790,7 +1210,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -1822,7 +1242,7 @@ export default class ProductList extends React.Component {
                     </Grid>
                 </AbcPanel>
                 <AbcPanel  header={authenticationListHeader}>
-                    <Grid className="container-abc">
+                    <Grid className="container-abc-grid">
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
                                 <div className="thumbnail-b-image-abc">
@@ -1833,7 +1253,7 @@ export default class ProductList extends React.Component {
                                     <Row>
                                         <Col  xs={12} sm={12} md={12} lg={12}>
                                             <div className="thumbnail-inline-abc">
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 <Button bsStyle="default"
@@ -1873,7 +1293,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -1916,7 +1336,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -1959,7 +1379,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -2002,7 +1422,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -2045,7 +1465,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -2083,7 +1503,7 @@ export default class ProductList extends React.Component {
                 </AbcPanel>
 
                 <AbcPanel  header={authenticationListHeader}>
-                    <Grid className="container-abc">
+                    <Grid className="container-abc-grid">
                         <Row>
                             <Col xs={6} xp={4} sm={4} md={3}  lg={3}>
                                 <div className="thumbnail-b-image-abc">
@@ -2094,7 +1514,7 @@ export default class ProductList extends React.Component {
                                     <Row>
                                         <Col  xs={12} sm={12} md={12} lg={12}>
                                             <div className="thumbnail-inline-abc">
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 <Button bsStyle="default"
@@ -2145,7 +1565,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -2199,7 +1619,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -2253,7 +1673,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -2307,7 +1727,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -2361,7 +1781,7 @@ export default class ProductList extends React.Component {
                                         <Col xs={6} sm={6} md={6} lg={6}>
                                             <div className="thumbnail-inline-abc">
 
-                                                <Button bsStyle="primary"
+                                                <Button bsStyle="default"
                                                         style={{padding:"2px 6px",border:"none"}}
                                                 ><Glyphicon glyph="save"/></Button>
                                                 &nbsp;
@@ -2462,7 +1882,7 @@ export default class ProductList extends React.Component {
                                                              style={{color:"red"}}>
                                                             <h5  >公开测试部分上海区代理</h5>
                                                             <p >支付类试用12个月</p>
-                                                            <Button bsStyle="primary"
+                                                            <Button bsStyle="default"
                                                                     style={{padding:"2px 6px",border:"none"}}
                                                             ><Glyphicon glyph="save"/></Button>
                                                             &nbsp;
@@ -2490,7 +1910,7 @@ export default class ProductList extends React.Component {
                                                         <div className="thumbnail-content-abc">
                                                             <h5>公开测试部分上海区代理</h5>
                                                             <p>支付类试用12个月</p>
-                                                            <Button bsStyle="primary"
+                                                            <Button bsStyle="default"
                                                                     style={{padding:"2px 6px",border:"none"}}
                                                             ><Glyphicon glyph="save"/></Button>
                                                             &nbsp;
@@ -2509,7 +1929,7 @@ export default class ProductList extends React.Component {
                                                         <div className="thumbnail-content-abc">
                                                             <h5>公开测试部分北京区代理</h5>
                                                             <p>三个月开放</p>
-                                                            <Button bsStyle="primary"
+                                                            <Button bsStyle="default"
                                                                     style={{padding:"2px 6px",border:"none"}}
                                                             ><Glyphicon glyph="save"/></Button>
                                                             &nbsp;
@@ -2529,7 +1949,7 @@ export default class ProductList extends React.Component {
                                                         <div className="thumbnail-content-abc">
                                                             <h5>Thumbnail</h5>
                                                             <p>Description</p>
-                                                            <Button bsStyle="primary"
+                                                            <Button bsStyle="default"
                                                                     style={{padding:"2px 6px",border:"none"}}
                                                             ><Glyphicon glyph="save"/></Button>
                                                             &nbsp;
@@ -2548,7 +1968,7 @@ export default class ProductList extends React.Component {
                                                         <div className="thumbnail-content-abc">
                                                             <h5>Thumbnail</h5>
                                                             <p>Description</p>
-                                                            <Button bsStyle="primary"
+                                                            <Button bsStyle="default"
                                                                     style={{padding:"2px 6px",border:"none"}}
                                                             ><Glyphicon glyph="save"/></Button>
                                                             &nbsp;
@@ -2638,7 +2058,7 @@ export default class ProductList extends React.Component {
                                 </Media.Left>
                                 <Media.Body style={{border:"1px solid #ddd"}}>
                                     <AbcPanel  header={produceVendderCashListHeader}>
-                                        <Grid className="container-abc">
+                                        <Grid className="container-abc-grid">
                                             <Row>
                                                 <Col xs={12} xp={4} sm={4} md={3}  lg={3}>
                                                     <div className="thumbnail-b-image-abc">
@@ -2796,798 +2216,6 @@ export default class ProductList extends React.Component {
                     </Media.List>
                 </AbcPanel>
 
-                <AbcPanel  header={productSallonHeader}>
-                    <Grid className="container-abc">
-                        <Col xs={12} xp={6} sm={6} md={6}  lg={4}
-                             style={{borderBottomStyle:"solid",borderBottomWidth:"1px" ,
-                                      borderBottomColor: "#ddd", marginBottom:"6px"}}
-                        >
-                            <Col xs={5} xp={5} sm={4} md={4}  lg={4}>
-                                <div className="thumbnail-container-common-abc"
-
-                                >
-                                    <div className="thumbnail-content-abc">
-                                        <h5>公开测试部分东北</h5>
-                                        <p>产品任性</p>
-                                    </div>
-                                    <ButtonToolbar className="thumbnail-toolbar-nomargin-abc">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-                                    </ButtonToolbar>
-                                    <Image
-                                        className="thumbnail-image-abc"
-                                        style={{width:"95px" , height:"112px"}}
-                                        src="/external/images/logo.png">
-                                    </Image>
-                                </div>
-                            </Col>
-                            <Col xs={7} xp={7} sm={8} md={8}  lg={8}>
-                                <div style={{marginLeft:"20px"}}>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc"
-                                                 style={{border:"none"}}
-                                            >
-                                                <Image
-                                                    src="/external/images/nems.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc"  style={{border:"none"}}>
-                                                <Image
-                                                    src="/external/images/burger.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc"  style={{border:"none"}}>
-                                                <Image
-                                                    src="/external/images/95826644.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc"  style={{border:"none"}}>
-                                                <Image
-                                                    src="/external/images/944876135.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Col>
-                        <Col xs={12} xp={6} sm={6} md={6}  lg={4}
-                             style={{borderBottomStyle:"solid",borderBottomWidth:"1px" ,
-                                      borderBottomColor: "#ddd", marginBottom:"6px"}}
-                        >
-                            <Col xs={5} xp={5} sm={4} md={4}  lg={4}>
-                                <div className="thumbnail-container-common-abc">
-                                    <div className="thumbnail-content-abc">
-                                        <h5>公开测试部分东北</h5>
-                                        <p>产品任性</p>
-                                    </div>
-                                    <ButtonToolbar className="thumbnail-toolbar-nomargin-abc">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-                                    </ButtonToolbar>
-                                    <Image
-                                        className="thumbnail-image-abc"
-                                        src="/external/images/IMG_20160930_194031.jpg">
-                                    </Image>
-                                </div>
-                            </Col>
-                            <Col xs={7} xp={7} sm={8} md={8}  lg={8}>
-                                <div style={{marginLeft:"20px"}}>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc"  style={{border:"none"}}>
-                                                <Image
-                                                    src="/external/images/IMG_20161004_123456.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc"  style={{border:"none"}}>
-                                                <Image
-                                                    src="/external/images/310288666.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/-1532917364.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/-1562635978.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Col>
-                        <Col xs={12} xp={6} sm={6} md={6}  lg={4}
-                             style={{borderBottomStyle:"solid",borderBottomWidth:"1px" ,
-                                      borderBottomColor: "#ddd", marginBottom:"6px"}}
-                        >
-                            <Col xs={5} xp={5} sm={4} md={4}  lg={4}>
-                                <div className="thumbnail-container-common-abc">
-                                    <div className="thumbnail-content-abc">
-                                        <h5>公开测试部分东北</h5>
-                                        <p>产品任性</p>
-                                    </div>
-                                    <ButtonToolbar className="thumbnail-toolbar-nomargin-abc">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-                                    </ButtonToolbar>
-                                    <Image
-                                        className="thumbnail-image-abc"
-                                        src="/external/images/944876135.jpg">
-                                    </Image>
-                                </div>
-                            </Col>
-                            <Col xs={7} xp={7} sm={8} md={8}  lg={8}>
-                                <div style={{marginLeft:"20px"}}>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Col>
-                        <Col xs={12} xp={6} sm={6} md={6}  lg={4}
-                             style={{borderBottomStyle:"solid",borderBottomWidth:"1px" ,
-                                      borderBottomColor: "#ddd", marginBottom:"6px"}}
-                        >
-                            <Col xs={5} xp={5} sm={4} md={4}  lg={4}>
-                                <div className="thumbnail-container-common-abc">
-                                    <div className="thumbnail-content-abc">
-                                        <h5>公开测试部分东北</h5>
-                                        <p>产品任性</p>
-                                    </div>
-                                    <ButtonToolbar className="thumbnail-toolbar-nomargin-abc">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-                                    </ButtonToolbar>
-                                    <Image
-                                        className="thumbnail-image-abc"
-                                        src="/external/images/logo.png">
-                                    </Image>
-                                </div>
-                            </Col>
-                            <Col xs={7} xp={7} sm={8} md={8}  lg={8}>
-                                <div style={{marginLeft:"20px"}}>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/-1936960561.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/-1372248994.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/2142000808.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Col>
-                        <Col xs={12} xp={6} sm={6} md={6}  lg={4}
-                             style={{borderBottomStyle:"solid",borderBottomWidth:"1px" ,
-                                      borderBottomColor: "#ddd" , marginBottom:"6px"}}
-                        >
-                            <Col xs={5} xp={5} sm={4} md={4}  lg={4}>
-                                <div className="thumbnail-container-common-abc">
-                                    <div className="thumbnail-content-abc">
-                                        <h5>公开测试部分东北</h5>
-                                        <p>产品任性</p>
-                                    </div>
-                                    <ButtonToolbar className="thumbnail-toolbar-nomargin-abc">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-                                    </ButtonToolbar>
-                                    <Image
-                                        className="thumbnail-image-abc"
-                                        src="/external/images/logo.png">
-                                    </Image>
-                                </div>
-                            </Col>
-                            <Col xs={7} xp={7} sm={8} md={8}  lg={8}>
-                                <div style={{marginLeft:"20px"}}>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Col>
-                        <Col xs={12} xp={6} sm={6} md={6}  lg={4}
-                             style={{borderBottomStyle:"solid",borderBottomWidth:"1px" ,
-                                      borderBottomColor: "#ddd", marginBottom:"6px"}}
-                        >
-                            <Col xs={5} xp={5} sm={4} md={4}  lg={4}>
-                                <div className="thumbnail-container-common-abc">
-                                    <div className="thumbnail-content-abc">
-                                        <h5>公开测试部分东北</h5>
-                                        <p>产品任性</p>
-                                    </div>
-                                    <ButtonToolbar className="thumbnail-toolbar-nomargin-abc">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-                                    </ButtonToolbar>
-                                    <Image
-                                        className="thumbnail-image-abc"
-                                        src="/external/images/logo.png">
-                                    </Image>
-                                </div>
-                            </Col>
-                            <Col xs={7} xp={7} sm={8} md={8}  lg={8}>
-                                <div style={{marginLeft:"20px"}}>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Col>
-                        <Col xs={12} xp={6} sm={6} md={6}  lg={4}
-                             style={{borderBottomStyle:"solid",borderBottomWidth:"1px" ,
-                                      borderBottomColor: "#ddd", marginBottom:"6px"}}
-                        >
-                            <Col xs={5} xp={5} sm={4} md={4}  lg={4}>
-                                <div className="thumbnail-container-common-abc">
-                                    <div className="thumbnail-content-abc">
-                                        <h5>公开测试部分东北</h5>
-                                        <p>产品任性</p>
-                                    </div>
-                                    <ButtonToolbar className="thumbnail-toolbar-nomargin-abc">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-                                    </ButtonToolbar>
-                                    <Image
-                                        className="thumbnail-image-abc"
-                                        src="/external/images/logo.png">
-                                    </Image>
-                                </div>
-                            </Col>
-                            <Col xs={7} xp={7} sm={8} md={8}  lg={8}>
-                                <div style={{marginLeft:"20px"}}>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Col>
-                        <Col xs={12} xp={6} sm={6} md={6}  lg={4}
-                             style={{borderBottomStyle:"solid",borderBottomWidth:"1px" ,
-                                      borderBottomColor: "#ddd", marginBottom:"6px"}}
-                        >
-                            <Col xs={5} xp={5} sm={4} md={4}  lg={4}>
-                                <div className="thumbnail-container-common-abc">
-                                    <div className="thumbnail-content-abc">
-                                        <h5>公开测试部分东北</h5>
-                                        <p>产品任性</p>
-                                    </div>
-                                    <ButtonToolbar className="thumbnail-toolbar-nomargin-abc">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-                                    </ButtonToolbar>
-                                    <Image
-                                        className="thumbnail-image-abc"
-                                        src="/external/images/logo.png">
-                                    </Image>
-                                </div>
-                            </Col>
-                            <Col xs={7} xp={7} sm={8} md={8}  lg={8}>
-                                <div style={{marginLeft:"20px"}}>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Col>
-                        <Col xs={12} xp={6} sm={6} md={6}  lg={4}
-                             style={{borderBottomStyle:"solid",borderBottomWidth:"1px" ,
-                                      borderBottomColor: "#ddd", marginBottom:"6px"}}
-                        >
-                            <Col xs={5} xp={5} sm={4} md={4}  lg={4}>
-                                <div className="thumbnail-container-common-abc">
-                                    <div className="thumbnail-content-abc">
-                                        <h5>公开测试部分东北</h5>
-                                        <p>产品任性</p>
-                                    </div>
-                                    <ButtonToolbar className="thumbnail-toolbar-nomargin-abc">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-                                    </ButtonToolbar>
-                                    <Image
-                                        className="thumbnail-image-abc"
-                                        src="/external/images/logo.png">
-                                    </Image>
-                                </div>
-                            </Col>
-                            <Col xs={7} xp={7} sm={8} md={8}  lg={8}>
-                                <div style={{marginLeft:"20px"}}>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col xs={6} xp={6} sm={6} md={6} lg={6} >
-                                            <div className="thumbnail-container-x4-abc">
-                                                <Image
-                                                    src="/external/images/1441742482.jpg"
-                                                    className="image-static"
-                                                    alt="Pizza">
-                                                </Image>
-                                                <div className="thumbnail-xs4-abc"
-                                                     style={{color:"red"}}>
-                                                    <h5>上海区代理</h5>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Col>
-                        </Col>
-                    </Grid>
-                </AbcPanel>
             </AbcPanel>
 
         )

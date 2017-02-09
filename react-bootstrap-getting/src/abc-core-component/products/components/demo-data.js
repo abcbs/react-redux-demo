@@ -163,6 +163,65 @@ export const rowProducts24=[{
 }
 ]
 
+const smObjectRow3=[{title:"必买单",
+    description:"为您整理好了",
+    address:"北京",
+    portrait:"/external/images/-1562635978.jpg",
+    portraitAlt:"测试"
+},
+    {title:"爱逛街",
+        description:"流行的好品味",
+        address:"逛逛看",
+        portrait:"/external/images/944876135.jpg",
+        portraitAlt:"测试"},
+    {title:"爱逛街",
+        description:"流行的好品味",
+        address:"逛逛看",
+        portrait:"/external/images/944876135.jpg",
+        portraitAlt:"测试"}
+];
+
+export const rowProducts3=[{
+    smObjects:smObjectRow3
+},{
+    smObjects:smObjectRow3
+},{
+    smObjects:smObjectRow3
+}
+]
+
+const smObjectRow4=[{title:"必买单",
+    description:"为您整理好了",
+    address:"北京",
+    portrait:"/external/images/-1562635978.jpg",
+    portraitAlt:"测试"
+},
+    {title:"爱逛街",
+        description:"流行的好品味",
+        address:"逛逛看",
+        portrait:"/external/images/944876135.jpg",
+        portraitAlt:"测试"},
+    {title:"爱逛街",
+        description:"流行的好品味",
+        address:"逛逛看",
+        portrait:"/external/images/944876135.jpg",
+        portraitAlt:"测试"},
+    {title:"必买单",
+        description:"为您整理好了",
+        address:"北京",
+        portrait:"/external/images/-1562635978.jpg",
+        portraitAlt:"测试"
+    },
+];
+export const rowProducts4=[{
+    smObjects:smObjectRow4
+},{
+    smObjects:smObjectRow4
+},{
+    smObjects:smObjectRow4
+}
+]
+
 const lgObjectRow12=[{title:"公开部分大西北区",
     description:"上两下三-上下架构",
     portrait:"/external/images/465430911.jpg"}

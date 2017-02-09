@@ -50,7 +50,7 @@ export class AbcTableRowFrame extends AbcTableRowDefault{
                         {lgObjects&&lgObjects.map&&lgObjects.map((lgObject, index) =>
                             <AbcTableLargeTd>
                                 <TableLargeCell lgObject={lgObject}
-                                                key={index}/>
+                                                key={index} {...others}/>
                             </AbcTableLargeTd>
                         )}
                     </tr>
@@ -60,7 +60,7 @@ export class AbcTableRowFrame extends AbcTableRowDefault{
                         {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                             <AbcTableSmallTd>
                                 <TableSmallCell smObject={smObject}
-                                                key={index}/>
+                                                key={index} {...others}/>
                             </AbcTableSmallTd>
                         )}
                     </tr>
@@ -118,13 +118,13 @@ export class AbcTableRow extends AbcTableRowFrame{
                         {lgObjects&&lgObjects.map&&lgObjects.map((lgObject, index) =>
                             <AbcTableLargeTd>
                                 <TableLargeCell lgObject={lgObject}
-                                                key={index}/>
+                                                key={index} {...others}/>
                             </AbcTableLargeTd>
                         )}
                         {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                             <AbcTableSmallTd>
                                 <TableSmallCell smObject={smObject}
-                                                  key={index} />
+                                                  key={index} {...others} />
                             </AbcTableSmallTd>
                         )
                         }
@@ -166,12 +166,23 @@ export default class AbcTableLeft1Right2Row2 extends AbcTable
  * --------------------
  */
 export class AbcRowLeftToolbarRightText extends AbcTableRowFrame{
-
+    static propTypes =
+    {
+        smImageClassName:PropTypes.string,
+        smContentClassName:PropTypes.string
+    };
+    static defaultProps =
+    {
+        smImageClassName:"image-fixed--by-left-cell",
+        smContentClassName:"abc-content"
+    }
     render() {
         const {lgObjects,smObjects,tableType,...others}=this.props;
         const  TableLargeCell=super.buildTableLargeCellToolbar({imageClassName:"image-1-1"});
 
-        let TableSmallCell=super.buildTableSmallCell({imageClassName:"image-fixed--by-left-cell"});
+        let TableSmallCell=super.buildTableSmallCell({imageClassName:this.props.smImageClassName,
+            contentClassName:this.props.smContentClassName
+        });
         return (
             <AbcListCol>
                 <AbcTableFrame>
@@ -179,13 +190,13 @@ export class AbcRowLeftToolbarRightText extends AbcTableRowFrame{
                         {lgObjects&&lgObjects.map&&lgObjects.map((lgObject, index) =>
                             <AbcTableLargeTd>
                                 <TableLargeCell lgObject={lgObject}
-                                                key={index}/>
+                                                key={index} {...others} />
                             </AbcTableLargeTd>
                         )}
                         {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                             <AbcTableSmallTd>
                                 <TableSmallCell smObject={smObject}
-                                                key={index} />
+                                                  key={index} {...others} />
                             </AbcTableSmallTd>
                         )
                         }
@@ -209,5 +220,29 @@ export class AbcTableLeft1Right2Row2RightText extends AbcTableLeft1Right2Row2{
 
     buildAbcTableGrid(){
         return AbcRowLeftToolbarRightText;
+    }
+}
+
+//每行UI,均为小个子Toolbar
+/**
+ * 共计三列，三个格子大小一致
+ * -------------------
+ * \   \   \   \    \
+ * \   \   \   \    \
+ * --------------------
+ */
+export class AbcRow4 extends AbcRowLeftToolbarRightText{
+    static defaultProps =
+    {
+        smImageClassName:"image-list-row4",
+        smContentClassName:"abc-content-row4"
+    }
+
+}
+
+export class AbcTableRow4 extends AbcTableLeft1Right2Row2{
+
+    buildAbcTableGrid(){
+        return AbcRow4;
     }
 }

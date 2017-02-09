@@ -4,8 +4,9 @@
   padding-right:2px;
   margin-bottom:8px;
   margin-right:2px;
-  //margin-left: 20px;
+  padding-left: 2px;
   border:1px solid #ddd;
+  border-left: none;
   border-radius:4px;
   transition:border 0.2s ease-in-out;
   font-size: @content-font-size-lg;
@@ -36,6 +37,7 @@
     margin-left: @image-margin-left-lg;
     //6plus横屏
     .image-6plus-h(@image-width-lg-6plus-v;@image-margin-left-lg;@image-margin-top-lg);
+    .image-6plus-v(@image-width-lg-6plus-h;@image-margin-left-lg;@image-margin-top-lg);
        //华为5寸，横屏
     .image-5scl-h(@image-width-lg-5scl-h;@image-margin-left-lg;@image-margin-top-lg);
     .image-5scl-v(@image-width-lg-5scl-v;@image-margin-left-lg;@image-margin-top-lg);
@@ -58,8 +60,13 @@
     height: @image-height-md;
     margin-left: @image-margin-left-md;
 
+    .image-6plus-h(@image-width-lg-6plus-v;@image-margin-left-lg;@image-margin-top-lg);
+    .image-6plus-v(@image-width-lg-6plus-h;@image-margin-left-lg;@image-margin-top-lg);
+
     .image-gt-v(@image-width-md-gt-v;@image-margin-left-md-gt-v;auto);
     .image-gt-h(@image-width-md-gt-h;@image-margin-left-md-gt-h;auto);
+
+
 
     .image-5scl-h(@image-width-md-scl;
             @image-margin-left-md-scl;@image-margin-top-md);
@@ -70,8 +77,8 @@
   //用于一行显示
   .b-image-xs{
     &:extend(img);
-    width:@image-width-xs;
-    height: @image-height-xs;
+    width:@image-72-72;
+    height: @image-72-72;
     margin-left:@image-margin-left-xs;
     margin-top: @image-margin-top-xs;
     .alignCenter-common(50%,50%);
@@ -87,7 +94,9 @@
     margin-left:@b-image-continer-margin-left;
     margin-top: @image-margin-top-xs;
 
-    .margin-6plus-v(@marginDefault;@marginDefault;@marginDefault;@b-image-continer-margin-left-gt-v);
+    .margin-6plus-v(@marginDefault;@marginDefault;@marginDefault;@b-image-continer-margin-left-6plus-v);
+    //两个图片时调整
+    .element-preperty .android-dpr1g-v(margin-left;@b-image-continer-margin-left-gt-v);
 
   }
 
@@ -105,7 +114,7 @@
 
   .thumbnail-inline-abc {
     margin-top:6px;
-    margin-left: 32px;
+    margin-left: 26px;
     margin-bottom: 6px;
   }
 

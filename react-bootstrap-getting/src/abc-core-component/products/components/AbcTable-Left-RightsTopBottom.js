@@ -67,13 +67,13 @@ export class AbcTableLeft1RightsTop2Bottom2Row extends AbcTableRowDefault{
                         {lgObjects&&lgObjects.map&&lgObjects.map((lgObject, index) =>
                             <AbcTableLargeLeftTd>
                                 <TableLargeCell lgObject={lgObject}
-                                                key={index}/>
+                                                key={index} {...others}/>
                             </AbcTableLargeLeftTd>
                         )}
                         {smObjectsTop&&smObjectsTop.map&&smObjectsTop.map((smObject, index) =>
                             <AbcTableSmallTd>
                                 <TableSmallCell smObject={smObject}
-                                                key={index} />
+                                                key={index} {...others} />
                             </AbcTableSmallTd>
                         )
                         }
@@ -83,7 +83,7 @@ export class AbcTableLeft1RightsTop2Bottom2Row extends AbcTableRowDefault{
                         {smObjectsBottom&&smObjectsBottom.map&&smObjectsBottom.map((smObject, index) =>
                             <AbcTableSmallTd>
                                 <TableSmallCell smObject={smObject}
-                                                key={index}/>
+                                                key={index} {...others}/>
                             </AbcTableSmallTd>
                         )}
                     </tr>
@@ -162,13 +162,13 @@ export class AbcTableLeft1RightsTop1Bottom1Row extends AbcTableRowDefault{
                         {lgObjects&&lgObjects.map&&lgObjects.map((lgObject, index) =>
                             <AbcTableLargeLeftTd>
                                 <TableLargeCell lgObject={lgObject}
-                                                key={index}/>
+                                                key={index} {...others} />
                             </AbcTableLargeLeftTd>
                         )}
                         {smObjectsTop&&smObjectsTop.map&&smObjectsTop.map((smObject, index) =>
                             <AbcTableSmallTd className="td-1-2-r">
                                 <TableSmallCell smObject={smObject}
-                                                key={index} />
+                                                key={index} {...others} />
                             </AbcTableSmallTd>
                         )
                         }
@@ -178,7 +178,7 @@ export class AbcTableLeft1RightsTop1Bottom1Row extends AbcTableRowDefault{
                         {smObjectsBottom&&smObjectsBottom.map&&smObjectsBottom.map((smObject, index) =>
                             <AbcTableSmallTd className="td-1-2-r">
                                 <TableSmallCell smObject={smObject}
-                                                key={index}/>
+                                                key={index} {...others} />
                             </AbcTableSmallTd>
                         )}
                     </tr>
@@ -292,7 +292,7 @@ export class AbcTableTop2Bottom4Row extends AbcTableRowDefault{
                         {lgObjects&&lgObjects.map&&lgObjects.map((lgObject, index) =>
                             <AbcTableLargeTd>
                                 <TableLargeCell lgObject={lgObject}
-                                                key={index}/>
+                                                key={index} {...others} />
                             </AbcTableLargeTd>
                         )}
                     </tr>
@@ -300,7 +300,7 @@ export class AbcTableTop2Bottom4Row extends AbcTableRowDefault{
                         {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                             <AbcTableSmallTd>
                                 <TableSmallCell smObject={smObject}
-                                                key={index}/>
+                                                key={index} {...others} />
                             </AbcTableSmallTd>
                         )}
                     </tr>
@@ -363,13 +363,13 @@ export class AbcTableLeft1RightsTop1Bottom2Row extends AbcTableRowDefault{
                         {lgObjects&&lgObjects.map&&lgObjects.map((lgObject, index) =>
                             <AbcTableLargeLeftTd>
                                 <TableLargeCell lgObject={lgObject}
-                                                key={index}/>
+                                                key={index} {...others} />
                             </AbcTableLargeLeftTd>
                         )}
                         {smObjectsTop&&smObjectsTop.map&&smObjectsTop.map((smObject, index) =>
                             <AbcTableSmallTd className="td-1-2-t" colSpan={2}>
                                 <TableMiddleCellTop smObject={smObject}
-                                                key={index} />
+                                                key={index} {...others} />
                             </AbcTableSmallTd>
                         )
                         }
@@ -379,7 +379,7 @@ export class AbcTableLeft1RightsTop1Bottom2Row extends AbcTableRowDefault{
                         {smObjectsBottom&&smObjectsBottom.map&&smObjectsBottom.map((smObject, index) =>
                             <AbcTableSmallTd className="td-1-2-b">
                                 <TableSmallCellBottom smObject={smObject}
-                                                key={index}/>
+                                                key={index} {...others} />
                             </AbcTableSmallTd>
 
                         )}
@@ -466,10 +466,10 @@ export class AbcTableSingleColRow extends AbcTableRowDefault{
                             <tr>
                                 <AbcTableSmallTd className="td-1-2-r">
                                     <TableSmallCell smObject={smObject}
-                                                    key={index}/>
+                                                    key={index} {...others} />
                                 </AbcTableSmallTd>
                                 <td className="td-edit-button-right">
-                                    <AbcTableCellFunctions />
+                                    <AbcTableCellFunctions  {...others} />
                                 </td>
                             </tr>
                         </AbcTableFrame>
@@ -530,11 +530,11 @@ export class AbcTableSingleLeftImageColRow extends AbcTableSingleColRow{
                         <AbcTableFrame>
                             <tr>
                                 <td className="td-edit-button-left">
-                                    <AbcTableCellFunctions />
+                                    <AbcTableCellFunctions {...others} />
                                 </td>
                                 <AbcTableSmallTd className="td-1-2-r">
                                     <TableSmallCell smObject={smObject}
-                                                    key={index}/>
+                                                    key={index} {...others}/>
                                 </AbcTableSmallTd>
 
                             </tr>

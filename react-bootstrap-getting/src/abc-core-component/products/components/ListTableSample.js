@@ -20,14 +20,14 @@ import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbarRight,AbcButton,
 
 import AbcTableTop2Bottom3,{AbcListRow4,AbcListRow2}        from './AbcTableListGridFrame'
 
-import AbcTableLeft1Right2Row2,{AbcTableLeft1Right2Row2RightText} from './AbcTableInRow'
+import AbcTableLeft1Right2Row2,{AbcTableLeft1Right2Row2RightText,AbcTableRow4} from './AbcTableInRow'
 
 import AbcTableLeft1RightsTop2Bottom2,{AbcTableLeft1RightsTop1Bottom1,
     AbcTableTop2Bottom4,AbcTableSingleCol,AbcTableSingleLeftImageColCol,
     AbcTableLeft1RightsTop2Bottom3,AbcTableLeft1RightsTop1Bottom2Simple,
     AbcTableLeft1RightsTop1Bottom1Simple,AbcTableLeft1RightsTop1Bottom1LeftSimple,
     AbcTableLeft1RightsTop1Bottom2} from './AbcTable-Left-RightsTopBottom'
-//业务功能
+//业务功能，静态数据实现，而且没有增加事件
 // import AuthenticationManager from './AuthenticationManager'
 // import {list} from'./formConfig'
 
@@ -80,6 +80,8 @@ export default class ListTableSample extends React.Component {
         ////////////////////////////////////////////////////////////
         const rowProducts=require('./demo-data').rowProducts;
         const rowProducts24=require('./demo-data').rowProducts24;
+        const rowProducts3=require('./demo-data').rowProducts3;
+        const rowProducts4=require('./demo-data').rowProducts4;
         const rowProducts14=require('./demo-data').rowProducts14;
         const rowProductsTop=require('./demo-data').smProducts;
         const rowProducts12=require('./demo-data').rowProducts12;
@@ -89,6 +91,8 @@ export default class ListTableSample extends React.Component {
         const rowProductsSingle=require('./demo-data').rowProductsSingle;
         return (
             <AbcPanel>
+                <AbcTableRow4 header={coomonVenderHeader4} rowProducts={rowProducts4}/>
+                <AbcTableLeft1Right2Row2RightText header={coomonVenderHeader4} rowProducts={rowProducts3}/>
                 {
                     //
                 }

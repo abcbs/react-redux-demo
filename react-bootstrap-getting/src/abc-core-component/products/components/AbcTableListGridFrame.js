@@ -189,7 +189,7 @@ export class AbcTableGrid extends React.Component{
     render() {
         const {className,children,...others}=this.props;
         return (
-            <Grid className={className}>{
+            <Grid className={className} {...others}>{
                 children
             }
             </Grid>
@@ -376,7 +376,7 @@ export class AbcTableRowDefault extends React.Component{
                     {lgObjects&&lgObjects.map&&lgObjects.map((lgObject, index) =>
                         <AbcTableLargeTd>
                               <TableLargeCell lgObject={lgObject}
-                                key={index}/>
+                                key={index} {...others} />
                         </AbcTableLargeTd>
                       )}
                       </tr>
@@ -386,7 +386,7 @@ export class AbcTableRowDefault extends React.Component{
                         {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                             <AbcTableSmallTd>
                                 <TableSmallCell smObject={smObject}
-                                                  key={index}/>
+                                                  key={index} {...others}/>
                             </AbcTableSmallTd>
                         )}
                     </tr>
@@ -460,7 +460,7 @@ export class AbcListRow4 extends React.Component{
     }
 }
 //////////////////////////////每行两个,图与文字上下///////////////////////////////////////
-//content-row-4
+//content-row-2
 export class AbcListRow2 extends React.Component{
 
     static propTypes =
@@ -477,8 +477,8 @@ export class AbcListRow2 extends React.Component{
             ( <AbcPanel  header={header}>
                 <AbcTableGrid>
                 {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
-                    <AbcListCol xs={6} xp={3} sm={3} md={2}  dt={2} lg={2}>
-                        <AbcTableSmallCell containerClass="abc-content-lg" imageClass="image"
+                    <AbcListCol xs={4} xp={3} sm={3} md={2}  dt={2} lg={2}>
+                        <AbcTableSmallCell containerClass="abc-content-row-4" imageClass="image"
                                            smObject={smObject} {...others} />
                     </AbcListCol>
                 )}

@@ -21,6 +21,7 @@ import {Modal,Glyphicon} from '../../../abc-bootstrap'
 
 //ProductList
 // import ProductList from '../components/ProductList'
+//ProductPage
 import ProductList from '../components/ListTableSample'
 
 @connect

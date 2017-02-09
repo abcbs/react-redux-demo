@@ -107,10 +107,6 @@
 @screen-sm-max:              (@screen-md-min - 1);
 @screen-md-max:              (@screen-lg-min - 1);
 
-//@screen-xs  480
-//@screen-sm 768
-//768~1024
-
 //pad2竖屏 768~991
 @screen-pad2v:                    @screen-sm;
 @screen-pad2v-max:                   @screen-sm-max;
@@ -122,8 +118,8 @@
 @screen-pad-md:                769px ;
 @screen-pad-md-max:            1199px ;
 
-@screen-lg-md:                1440px;
-@screen-lg-mdx:               1500px;
+@screen-lg-md:                1200px;
+@screen-lg-mdx:               1439px;
 
 //chrome
 @screen-lg-chrome:            1440px;
@@ -141,16 +137,16 @@
 //px适用于6plus横屏的配置
 @screen-xpmin:                  590px;//xp 手机横屏
 @screen-xpmax:                  767px;//
-
-//////////////////////////////////////////////////////////////////////////////////////
-//@screen-xs-v  270~349px
-
-//@screen-xs-h  421~667px
-//注意:425/497 200~320以默认样式为基准，不做调整
-@screen-4s-v :  200px;
-@screen-4s-vx : 349px;//320屏幕、竖屏
-
-
+//////////////////////////////////////////////////////
+//手机：iphone-4s：320~480 2 3.5寸
+//      iphone-6plus:414~736 3
+//      gt-l9100G: 320~533 1.5
+//      gt:360~640 1.5 5.8寸
+//      honor:scl:360~598 2
+//
+// samsung:g6:360~640 4 5寸
+//5.8寸,三星GT-I9152,960 540 dpr:1.5; 360~640
+//5寸，oppo 360/640 1.5
 //@screen-sm 768
 //苹果6 plus 5.5英寸 ,横屏
 @screen-xp:                     730px;//apple-6plus
@@ -159,7 +155,20 @@
 @screen-xpv:                     400px;//apple-6plus 竖屏
 @screen-xpvx:                    420px;//apple-6plus 竖屏
 
-//5寸，三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为竖屏，375，5p320
+//手机横屏
+@screen-min-xsm: 299px;
+//手机竖屏，如iphone4s 320， gt-l9100G:320/480
+@screen-min-v: 300px;
+@screen-min-vmax: 349px;
+
+//@media (min-width: 425px) and (max-width: 479px)
+//手机横屏，介于横竖屏之间，主要用于区别px的方式,4s横屏显示，4s为480
+//手机横屏，如iphone4s 480， gt-l9100G:533
+//这里包括iphone6se-568,iphone5-568
+@boot-xs-v:                     421px;
+@boot-xs-vmax:                  589px;
+
+//5寸，三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为竖屏
 @screen-sclv:                   350px;//5寸，三星S6，华为SCL，1280/720/竖屏
 @screen-sclvx:                  399px;//5寸，三星S6，华为SCL，1280/720/竖屏
 
@@ -175,19 +184,8 @@
 
 @screen-gt:                       590px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
 @screen-gtx:                      759px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
-//手机横屏
-@screen-min-xsm: 299px;
-//手机横屏，如iphone4s 320，
-@screen-min-v: 300px;
-@screen-min-vmax: 349px;
-
-//@media (min-width: 425px) and (max-width: 479px)
-//手机横屏，介于
-@boot-xs-v:                     421px;
-@boot-xs-vmax:                  589px;
 
 @screen-max: 12001px;
-
 
 /////////////////////////////////////////////////////
 //调试用颜色
@@ -258,7 +256,18 @@
 @content-font-lg-chrome-72-size: 12px;
 @content-font-lg-chrome-72-title: 11px;
 @content-font-lg-chrome-72-content: 11px;
-//
+//横屏字体
+@content-font-xs-h-size: 14px;
+@content-font-xs-h-title: 14px;
+@content-font-xs-h-content: 13px;
+
+@content-font-md-h-size: 15px;
+@content-font-md-h-title: 15px;
+@content-font-md-h-content: 14px;
+
+@content-font-lg-h-size: 16px;
+@content-font-lg-h-title: 16px;
+@content-font-lg-h-content: 15px;
 
 //列表类字体调整
 @content-font-size-md: 13px;
@@ -398,8 +407,8 @@
 
 
 //xs 4rem
-@image-width-xs:  80px;
-@image-height-xs:  80px;
+@image-width-common:  10rem;
+@image-height-common:  10rem;
 @image-margin-left-xs: 4px;
 @image-margin-top-xs: 2px;
 
@@ -430,19 +439,20 @@
 @image-margin-top-xs-scl-v: @image-72-72-margin-top;
 
 //md 200*200
-@image-width-md:  14rem;
-@image-height-md:  14rem;
+@image-width-md:  10rem;
+@image-height-md:  10rem;
+@image-margin-bottom-md:1rem;
 @image-margin-left-md: 3rem;
 @image-margin-top-md: 0;
 
-@image-width-md:  14rem;
-@image-height-md:  14rem;
+@image-width-md:  8rem;
+@image-height-md:  8rem;
 @image-margin-left-md: 3rem;
 //华为5寸，横屏
-@image-width-md-scl  :13rem;
+@image-width-md-scl  :7.8rem;
 @image-margin-left-md-scl  : 2.5rem;
 
-@image-width-md-gt-v  :12rem;
+@image-width-md-gt-v  :8rem;
 @image-margin-left-md-gt-v   : 26px;
 
 @image-width-md-gt-h  :14rem;
@@ -452,13 +462,15 @@
 @image-margin-left-md-lg-chrome : 2.5rem;
 
 //lg
-@image-width-lg:  16rem;
-@image-height-lg:  16rem;
+@image-width-lg:  14rem;
+@image-height-lg:  14rem;
 @image-margin-left-lg: 2.8rem;
 @image-margin-top-lg: 0;
 
 //6plus横屏
 @image-width-lg-6plus-v:  20rem;
+@image-width-lg-6plus-h:16rem;
+
 //华为5寸，横屏
 @image-width-lg-5scl-h:  17rem;
 @image-width-lg-5scl-v:  14rem;
@@ -478,8 +490,9 @@
 //两个图显示偏移，即b-image-continer
 //设置四个外补白，默认值为auto
 @marginDefault:           auto;
-@b-image-continer-margin-left:   15%;
-@b-image-continer-margin-left-gt-v:   4rem;
+@b-image-continer-margin-left:   2rem;
+@b-image-continer-margin-left-6plus-v:   2rem;
+@b-image-continer-margin-left-gt-v:   1rem;
 @b-image-continer-margin-left-gt-h:   2rem;
 
 @image-width-lg-lg-md:  17rem;
