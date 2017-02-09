@@ -3,13 +3,21 @@
   //screen-xpv: 400px;//apple-6plus 竖屏
   //@screen-xpvx:420px;//apple-6plus 竖屏
   .appple-6plus-v(@element;@prepery){
-    @media (min-width: @screen-xpv) and (max-width: @screen-xpvx)
-      and  (-webkit-min-device-pixel-ratio : 3){
+    @media (min-width: @screen-xpv) and (max-width: @screen-xpvx){
       @{element}:@prepery;
       background-color: @content-v-background-color;
 
     }
   }
+
+  //.appple-6plus-v(@element;@prepery){
+  //  @media (min-width: @screen-xpv) and (max-width: @screen-xpvx)
+  //  and  (-webkit-min-device-pixel-ratio : 3){
+  //      @{element}:@prepery;
+  //    background-color: @content-v-background-color;
+  //
+  //  }
+  //}
 
   //6plus横屏
   //@screen-xp: 730px;//apple-6plus
@@ -20,6 +28,7 @@
         background-color: @content-h-background-color;
     }
   }
+
   //华为、三星5寸，竖屏
   //@screen-sclv:  350px;//5寸，三星S6，华为SCL，1280/720/竖屏
   //@screen-sclvx: 399px;//5寸，三星S6，华为SCL，1280/720/竖屏

@@ -412,14 +412,14 @@ export class AbcTable extends React.Component{
     }
     render()
     {
-        const {header,rowProducts,...others}=this.props;
+        const {header,headerId,headerRef,handleHeaderClick,rowProducts,...others}=this.props;
         const TableRow=this.buildAbcTableGrid();
         const panel=
-            ( <AbcPanel  header={header}>
+            ( <AbcPanel  header={header} id={headerId} ref={headerRef} onClick={handleHeaderClick}>
                 <AbcTableGrid>
                     {rowProducts&&rowProducts.map&&rowProducts.map((rowProduct, index) =>
                         <TableRow lgObjects={rowProduct.lgObjects}
-                                  smObjects={rowProduct.smObjects} {...others}/>
+                                   smObjects={rowProduct.smObjects} {...others}/>
                     )}
                 </AbcTableGrid>
             </AbcPanel>)
@@ -443,10 +443,10 @@ export class AbcListRow4 extends React.Component{
 
     render()
     {
-        const {header,smProducts,...others}=this.props;
+        const {header,headerId,headerRef,handleHeaderClick,smProducts,...others}=this.props;
         const smObjects=smProducts
         const panel=
-            ( <AbcPanel  header={header}>
+            ( <AbcPanel  header={header} id={headerId} ref={headerRef} onClick={handleHeaderClick}>
                 <AbcTableGrid>
                     {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                         <AbcListCol xs={3} xp={2} sm={2} md={2}   dt={2}  lg={2}>
@@ -471,10 +471,10 @@ export class AbcListRow2 extends React.Component{
 
     render()
     {
-        const {header,smProducts,...others}=this.props;
-        const smObjects=smProducts
+        const {header,headerId,headerRef,handleHeaderClick,smProducts,...others}=this.props;
+        const smObjects=smProducts;
         const panel=
-            ( <AbcPanel  header={header}>
+            ( <AbcPanel  header={header}  header={header} id={headerId} ref={headerRef} onClick={handleHeaderClick}>
                 <AbcTableGrid>
                 {smObjects&&smObjects.map&&smObjects.map((smObject, index) =>
                     <AbcListCol xs={4} xp={3} sm={3} md={2}  dt={2} lg={2}>

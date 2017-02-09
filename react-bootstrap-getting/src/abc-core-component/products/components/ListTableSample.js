@@ -77,6 +77,8 @@ export default class ListTableSample extends React.Component {
         const coomonVenderHeader3=(<HeaderTitleAndNumber numbers="1-2" title="普通商户无说明"/>);
         const coomonVenderHeader8=(<HeaderTitleAndNumber numbers="1-2" title="普通商户-右图"/>);
         const productleHeader=(<HeaderTitleAndNumber numbers="3,3,3,3" title="固定宽度"/>);
+        const commonProductHeader4=(<HeaderTitleAndNumber numbers="每行四个" title="普通产品"/>);
+        const commonProductHeader3=(<HeaderTitleAndNumber numbers="每行三个" title="普通产品"/>);
         ////////////////////////////////////////////////////////////
         const rowProducts=require('./demo-data').rowProducts;
         const rowProducts24=require('./demo-data').rowProducts24;
@@ -91,8 +93,8 @@ export default class ListTableSample extends React.Component {
         const rowProductsSingle=require('./demo-data').rowProductsSingle;
         return (
             <AbcPanel>
-                <AbcTableRow4 header={coomonVenderHeader4} rowProducts={rowProducts4}/>
-                <AbcTableLeft1Right2Row2RightText header={coomonVenderHeader4} rowProducts={rowProducts3}/>
+                <AbcTableRow4 header={commonProductHeader4} rowProducts={rowProducts4}/>
+                <AbcTableLeft1Right2Row2RightText header={commonProductHeader3} rowProducts={rowProducts3}/>
                 {
                     //
                 }
