@@ -22,7 +22,8 @@ export default class AbcCol233WLReduxForm extends React.Component
         col:PropTypes.object,
         col_lable:PropTypes.object,
         col_content:PropTypes.object,
-        ref:PropTypes.string
+        ref:PropTypes.string,
+        data:PropTypes.string
     }
 
     static defaultProps =
@@ -53,7 +54,7 @@ export default class AbcCol233WLReduxForm extends React.Component
                 </AbcCol>
                  <AbcCol {...colContent}>
                     <AbcFormControl  {...input}  type={type}
-                                                                               placeholder={placeholder}
+                                       placeholder={placeholder}
                     />
 
                     <AbcFormControl.Feedback />
@@ -78,7 +79,7 @@ export default class AbcCol233WLReduxForm extends React.Component
                 </AbcCol>
                <AbcCol {...colContent}>
                 <AbcControllerLabel
-                          >{input.value}</AbcControllerLabel>
+                          >{other.data||input.value}</AbcControllerLabel>
                 </AbcCol>
             </AbcCol>
         )
@@ -86,18 +87,30 @@ export default class AbcCol233WLReduxForm extends React.Component
     render()
     {
         const {controlId, type,placeholder,name,
-            label,  ...other} = this.props;
-         return (//[linkName, {path, title}]
-             <Field
-                 name={name}
-                 component={other.readonly? this.renderFieldReadonly.bind(this):this.renderField.bind(this)}
-                 controlId={controlId}
-                 type={type}
-                 label={label}
-                 placeholder={placeholder}
-                 { ...other}
-             />
-        );
+            label,value,  ...other} = this.props;
+        if(value) {
+            return <Field
+                    name={name}
+                    controlId={controlId}
+                    component={this.renderFieldReadonly.bind(this)}
+                    type={type}
+                    label={label}
+                    value={value}
+                    placeholder={placeholder}
+                    { ...other}
+                />
+        }
+        return <Field
+                name={name}
+                component={other.readonly? this.renderFieldReadonly.bind(this):this.renderField.bind(this)}
+                controlId={controlId}
+                type={type}
+                label={label}
+                placeholder={placeholder}
+                { ...other}
+            />
+
+
     }
 }
 

@@ -196,8 +196,6 @@
   }
   //横屏处理变量
   .props-horizontal(@element;@prepery){
-    .pc-lg-xl(@element;@prepery);
-    .pc-lg-chrome(@element;@prepery);
     .android-dpr2-h(@element;@prepery);
     .android-dpr1g-h(@element;@prepery);
     .appple-6plus-h(@element;@prepery);
@@ -206,6 +204,15 @@
     .boot-sm(@element;@prepery);
     .boot-xs(@element;@prepery);
      //////跟随Pad横屏设置
+    //.boot-desktop(@element;@prepery);
+    //.boot-lg-md(@element;@prepery);
+    //.boot-max(@element;@prepery);
+    /////////////////////////////////
+  }
+  .props-desktop(@element;@prepery){
+    .pc-lg-xl(@element;@prepery);
+    .pc-lg-chrome(@element;@prepery);
+    //跟随Pad横屏设置
     .boot-desktop(@element;@prepery);
     .boot-lg-md(@element;@prepery);
     .boot-max(@element;@prepery);

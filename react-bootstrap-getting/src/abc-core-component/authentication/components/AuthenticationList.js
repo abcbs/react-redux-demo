@@ -10,9 +10,7 @@ import international from '../../../abc-framework/international/internationalize
 import { preload,goto }            from '../../../abc-framework/react-isomorphic-render/redux'
 import {Modal,Glyphicon,Grid,Row,Col,Thumbnail,Image,Button,Media} from '../../../abc-bootstrap'
 
-import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbarRight,AbcButton,
-    AbcColRedFormA,AbcColRedFormB,AbcColRedFormC,
-    AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
+import {AbcPanelOrientation,AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
     from '../../../abc-ui/abc-ui-index'
 import Spinner        from '../../../abc-ui/spinner'
 
@@ -40,16 +38,22 @@ export default class AuthenticationList extends React.Component {
     }
 
     render() {
+        const data=require('./authenication-simulate-data').data;
         const authenticationListHeader=(<HeaderTitleAndNumber numbers="10" title="权限列表"/>);
         const authenticationAdimHeader=(<HeaderTitleAndNumber numbers="2" title="权限底数"/>);
         return (
-            <AbcPanel  header={authenticationListHeader}
+            <AbcPanelOrientation  header={authenticationListHeader}
                        footer={authenticationAdimHeader}>
-                <AuthenticationManager key="01" formConfig={this.props.formConfig}/>
-                <AuthenticationManager key="02" formConfig={this.props.formConfig}/>
-                <AuthenticationManager key="03" formConfig={this.props.formConfig}/>
-                <AuthenticationManager key="04" formConfig={this.props.formConfig}/>
-            </AbcPanel>
+                <AuthenticationManager key="01" formName="authentication01"
+                                       formConfig={this.props.formConfig} authenticationModel={data[0]}/>
+                <AuthenticationManager key="02" formName="authentication02"
+                                       formConfig={this.props.formConfig} authenticationModel={data[1]}/>
+                <AuthenticationManager key="03"
+                                       formName="authentication03"
+                                       formConfig={this.props.formConfig} authenticationModel={data[2]}/>
+                <AuthenticationManager key="04" formName="authentication04"
+                                       formConfig={this.props.formConfig} authenticationModel={data[3]}/>
+            </AbcPanelOrientation>
 
         )
     }

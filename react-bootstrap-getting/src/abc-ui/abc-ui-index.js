@@ -14,6 +14,8 @@ export {default as AbcControllerLabel} from './AbcControllerLabel'
 
 export {default as AbcRow} from './AbcRow'
 export {default as AbcPanel} from './AbcPanel'
+export {AbcPanelOrientation as AbcPanelOrientation} from './AbcPanel'
+
 export {default as AbcPanelHeaderTitleAndNumber} from './AbcPanelHeaderTitleAndNumber'
 export {default as Container} from './AbcContainer'
 

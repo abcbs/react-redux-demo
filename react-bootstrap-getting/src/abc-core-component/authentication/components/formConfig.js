@@ -6,10 +6,10 @@ export  const list={
         operattion:{
             display:false,
             inline:true,
-            add:true,
-            edit:false,
+            add:false,
+            edit:true,
             delete:false,
-            reset:true,
+            reset:false,
             simulate:false
         },
         header:{display:false},

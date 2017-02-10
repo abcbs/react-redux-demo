@@ -15,7 +15,7 @@ import messages from '../../../abc-framework/messages/messages'
 import Spinner        from '../../../abc-ui/spinner'
 import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbarRight,AbcButton,
     AbcColRedFormA,AbcColRedFormB,AbcColRedFormC,
-    AbcButtonToolbarInline,AbcCol,
+    AbcButtonToolbarInline,AbcPanelOrientation,
     AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
     from '../../../abc-ui/abc-ui-index'
 
@@ -45,7 +45,8 @@ const warnAuthentication = values => {
         const authenticationServer=state.authenticationServer
         return(
         {
-            // initialValues: state.authenticationClient.data,
+            //模拟数据
+            initialValues: state.authenticationClient.data,
             adding: authenticationServer.adding
         })
 
@@ -71,7 +72,8 @@ export default class AuthenticationManager extends React.Component {
         adding       : PropTypes.bool,
         loading_error : PropTypes.object,
         adding_error  : PropTypes.object,
-        formConfig:PropTypes.object
+        formConfig:PropTypes.object,
+        authenticationModel:PropTypes.object
     }
 
     static contextTypes =
@@ -83,6 +85,12 @@ export default class AuthenticationManager extends React.Component {
     static defaultProps =
     {
         formConfig:manager.formConfig
+    }
+    //构造方法
+    //
+    constructor(props, context) {
+        super(props, context);
+        this.initStates();
     }
     //数据提交方法
     handleSubmit() {
@@ -121,19 +129,17 @@ export default class AuthenticationManager extends React.Component {
     hideModal() {
         this.setState({show: false,});
     }
-    //
-    constructor(props, context) {
-        super(props, context);
-        this.initStates();
-    }
+
 
     initStates(){
         this.state = {
-            show: true
+            show: true,
+           //读入数据
+           //  authenticationModel: this.props.authenticationModel
         }
     }
     render() {
-        const {handleSubmit,reset, pristine, submitting ,invalid,...others} = this.props;
+        const {handleSubmit,reset, pristine, submitting ,invalid,formName,authenticationModel,...others} = this.props;
         const userSearchHeader=(<HeaderTitleAndNumber numbers="17" title="权限"/>);
         const abcButtonToolbarRight=(<AbcButtonToolbarRight>
             {
@@ -156,26 +162,41 @@ export default class AuthenticationManager extends React.Component {
                         onClick={reset}>重置</AbcButton>
             }
         </AbcButtonToolbarRight>)
+        //列表中的按钮
         const buttonsGlyphs=(
             <span>
-                {this.props.formConfig.operattion.add &&
+                {
+                this.props.formConfig.operattion.add &&
                 <AbcButton type="button" bsStyle="abc"
                     onClick={this.handleSubmit.bind(this)}
                     disabled={pristine || invalid || submitting||this.props.adding}>
-                    <Glyphicon glyph="save"/>
+                    <Glyphicon glyph="plus"/>
                 </AbcButton>
+                }
+                {this.props.formConfig.operattion.edit&&
+                <AbcButton type="button" bsStyle="abc"
+                           onClick={() => others.simulate(require('../pages/data.js').data)}
+                ><Glyphicon glyph="pencil"/>
+                </AbcButton>
+                }
+                {this.props.formConfig.operattion.delete&&
+                <AbcButton type="button" bsStyle="abc"
+                           onClick={() => others.simulate(require('../pages/data.js').data)}
+                ><Glyphicon glyph="minus"/>
+                </AbcButton>
+                }
+                {
+                    this.props.formConfig.operattion.reset&&
+                    <AbcButton type="button" bsStyle="abc"
+                               disabled={pristine || submitting}
+                               onClick={reset}>
+                        <Glyphicon glyph="erase"/>{''}
+                    </AbcButton>
                 }
                 {this.props.formConfig.operattion.simulate&&
                 <AbcButton type="button" bsStyle="abc"
                     onClick={() => others.simulate(require('../pages/data.js').data)}
                 ><Glyphicon glyph="import"/>
-                </AbcButton>
-                }
-                {this.props.formConfig.operattion.reset&&
-                <AbcButton type="button" bsStyle="abc"
-                   disabled={pristine || submitting}
-                   onClick={reset}>
-                    <Glyphicon glyph="erase"/>{''}
                 </AbcButton>
                 }
             </span>
@@ -189,17 +210,18 @@ export default class AuthenticationManager extends React.Component {
             </AbcButtonToolbarRight>);
         return (
             <div>
-                <AbcPanel
+                <AbcPanelOrientation
                     header={this.props.formConfig.header.display&&userSearchHeader}
                     footer={this.props.formConfig.footer.display&&abcButtonToolbarRightGlyphs}
                 >
-                    <AbcFormInline>
+                    <AbcFormInline name={formName||''}  id={formName||''}>
                         <AbcRow>
                             <AbcColRedFormA
                                 name="authName"
                                 controlId="authName"
                                 type='text'
                                 label='名称'
+                                data={authenticationModel&&authenticationModel.authName}
                                 readonly={ this.props.formConfig.authName&& this.props.formConfig.authName.readonly}
                                 displayLabel={ this.props.formConfig.authName&&this.props.formConfig.authName.displayLabel}
                                 placeholder='权限名称'/>
@@ -207,6 +229,7 @@ export default class AuthenticationManager extends React.Component {
                                 name ="authCode"
                                 controlId="authCode"
                                 type="text"
+                                data={authenticationModel&&authenticationModel.authCode}
                                 ref="authCode"
                                 readonly={ this.props.formConfig.authCode&& this.props.formConfig.authCode.readonly}
                                 displayLabel={ this.props.formConfig.authCode&& this.props.formConfig.authCode.displayLabel}
@@ -218,6 +241,7 @@ export default class AuthenticationManager extends React.Component {
                                             type="text"
                                             ref="authDecript"
                                             label="描述"
+                                            data={authenticationModel&&authenticationModel.authDecript}
                                             readonly={ this.props.formConfig.authDecript
                                                         && this.props.formConfig.authDecript.readonly}
                                             displayLabel={ this.props.formConfig.authDecript&&
@@ -239,7 +263,7 @@ export default class AuthenticationManager extends React.Component {
                         }
                     </AbcFormInline>
 
-                </AbcPanel>
+                </AbcPanelOrientation>
                 {this.state.forminfo&&
                 <Modal
                     show={this.state.show}

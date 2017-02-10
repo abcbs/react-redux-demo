@@ -217,7 +217,21 @@
     .element-preperty .boot-max(font-size;@content-font-lg-xl-lg-content);
   }
 }
-
+.orientation-font-size{
+  @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
+      font-size: 20px !important;
+  }
+  @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
+    font-size: 20px !important;
+  }
+  @media (min-width: @screen-gt) and (max-width: @screen-gtx )
+  and   (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9){
+    font-size: 20px !important;
+  }
+  @media (min-width: @boot-xs-v) and (max-width: @boot-xs-vmax) {
+    font-size: 20px !important;
+  }
+}
 .toolbar-inline(@position:relative){
   display:  inline-flex;
   //display: flex;

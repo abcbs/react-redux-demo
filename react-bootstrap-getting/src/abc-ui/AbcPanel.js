@@ -27,3 +27,13 @@ export default class AbcPanel extends React.Component
         return buttonToolbar;
     }
 }
+
+export class AbcPanelOrientation extends AbcPanel
+{
+
+    static defaultProps =
+    {
+        bsStyle : "orientation",
+    }
+
+}

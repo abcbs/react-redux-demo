@@ -4,11 +4,23 @@ import {Form} from '../abc-bootstrap'
 
 export default class AbcFormInline extends React.Component
 {
+    static propTypes =
+    {
+        style :PropTypes.string,
+        bsStyle : PropTypes.string,
+        bsSize :PropTypes.string,
+    }
+    static defaultProps =
+    {
+        bsStyle : "default",
+        bsSize :"abc",
+
+    }
     //<Form inline onSubmit={this.handleClick.bind(this)}>
     render()
     {
-        const { children, ...other} = this.props
-        const form=(<Form inline  {...other}>
+        const {style,bsStyle, bsSize, children, ...other} = this.props
+        const form=(<Form inline  bsStyle={bsStyle}  bsSize={bsSize} style={style}  {...other}>
             {children}</Form>)
         return form;
     }

@@ -7,17 +7,21 @@ export default class AbcFormControl extends React.Component
     static propTypes =
     {
         style :PropTypes.string,
+        bsStyle : PropTypes.string,
+        bsSize :PropTypes.string,
     }
 
     static defaultProps =
     {
         style :{ width: '100%'},
+        bsStyle : "abc",
+        // bsSize :"abc",
         
     }
     render()
     {
-        const { style,children, ...other} = this.props
-        const formControl=(<FormControl  style={style}  {...other}>
+        const { style,bsStyle, bsSize, children, ...other} = this.props
+        const formControl=(<FormControl  bsStyle={bsStyle}  bsSize={bsSize} style={style}  {...other}>
             {children}</FormControl>)
         return formControl;
     }
