@@ -5,6 +5,38 @@ module.exports =
 	{
 		email: 'abc@webapp.com'
 	},
+	part_service:
+	{
+		http:
+		{
+			host: '192.168.1.106',
+			port: 3014
+		}
+	},
+	order_service:
+	{
+		http:
+		{
+			host: '192.168.1.106',
+			port: 3013
+		}
+	},
+	shopping_cart_service:
+	{
+		http:
+		{
+			host: '192.168.1.106',
+			port: 3012
+		}
+	},
+	product_service:
+	{
+		http:
+		{
+			host: '192.168.1.106',
+			port: 3011
+		}
+	},
 	sample_service:
 	{
 		http:

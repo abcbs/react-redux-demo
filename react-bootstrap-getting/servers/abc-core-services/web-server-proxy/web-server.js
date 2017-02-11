@@ -40,10 +40,18 @@ web.proxy('/authentication', address_book.authentication_service, { name: 'Authe
 
 // Proxy /users requests to user-service
 web.proxy('/users', address_book.user_service, { name: 'User service' })
-
 // web.proxy('/users', address_ssl_book.user_service, { name: 'User service' })
+
+web.proxy('/part', address_book.part_service, { name: 'Part LD service' })
+
+web.proxy('/product', address_book.product_service, { name: 'Product service' })
+
+web.proxy('/order', address_book.order_service, { name: 'Order service' })
+
+web.proxy('/shopping', address_book.order_service, { name: 'shopping cart service' })
+
 // // Proxy /api requests to API server
-// web.proxy('/api', address_book.api_service, { name: 'API service' })
+web.proxy('/api', address_book.api_service, { name: 'sample service' })
 //
 // // Proxy /images requests to Image server
 // web.proxy('/images', address_book.image_service, { name: 'Image service' })

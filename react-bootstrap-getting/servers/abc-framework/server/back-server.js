@@ -27,12 +27,12 @@ for (let key of Object.keys(global_variables))
 
 global.address_book = {};
 global.address_ssl_book = {};
-console.log("global.configuration,",global.configuration);
-console.log("global_variables,",global_variables);
+// console.log("global.configuration,",global.configuration);
+// console.log("global_variables,",global_variables);
 
 for (let key of Object.keys(global.configuration))
 {
-    console.log("key,",key);
+    // console.log("key,",key);
     if (!key.endsWith('_server') && !key.endsWith('_service'))
     {
         continue
@@ -46,7 +46,7 @@ for (let key of Object.keys(global.configuration))
         global.address_ssl_book[key] = `https://${value.http.host}:${value.http.port}`
     }
 }
-console.log("address_book,",address_book);
+// console.log("address_book,",address_book);
 global.wait_for_stores = function(stores, then)
 {
     return Promise.all(stores.map(

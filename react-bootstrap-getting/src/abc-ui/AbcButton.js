@@ -13,7 +13,7 @@ export default class AbcButton extends React.Component
 
     static defaultProps =
     {
-        bsStyle : "primary",
+        bsStyle : "default",
         //style :{display:'inline' ,width:'98%'},
         
     }

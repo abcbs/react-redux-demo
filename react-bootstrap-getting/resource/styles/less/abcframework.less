@@ -217,6 +217,7 @@
     .element-preperty .boot-max(font-size;@content-font-lg-xl-lg-content);
   }
 }
+//
 .orientation-font-size{
   @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
       font-size: 20px !important;
@@ -229,7 +230,26 @@
     font-size: 20px !important;
   }
   @media (min-width: @boot-xs-v) and (max-width: @boot-xs-vmax) {
-    font-size: 20px !important;
+    font-size: 16px !important;
+  }
+}
+.vertical-font-size{
+  @media (min-width: @screen-xpv) and (max-width: @screen-xpvx){
+    font-size: 14px !important;
+  }
+  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx) and (-webkit-min-device-pixel-ratio :2){
+    font-size: 12px !important;
+  }
+  @media (min-width: @screen-gtv) and (max-width:@screen-gtvx)
+  and  (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9) {
+    font-size: 12px !important;
+  }
+  @media (max-width: @screen-min-vmax) and (min-width: @screen-min-v){
+    font-size: 10px !important;
+  }
+
+  @media (max-width: @screen-min-xsm){
+    font-size: 10px !important;
   }
 }
 .toolbar-inline(@position:relative){
