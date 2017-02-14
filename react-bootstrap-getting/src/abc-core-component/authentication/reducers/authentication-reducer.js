@@ -6,6 +6,7 @@ const initial_state =
 const handlers =
 {
 
+    //检索权限
     'retrieving authenication': (result, state) =>
         ({
             ...state,
@@ -28,6 +29,7 @@ const handlers =
             loading_error : error
         }),
 
+    //添加权限
     //events: ['adding user', 'user added', 'adding user failed']
     'adding authenication': (result, state) =>
         ({

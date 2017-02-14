@@ -8,19 +8,19 @@ export default class AbcButton extends React.Component
     static propTypes =
     {
         bsStyle : PropTypes.string,
-        // style :PropTypes.string,
+        bsSize :PropTypes.string,
     }
 
     static defaultProps =
     {
         bsStyle : "default",
-        //style :{display:'inline' ,width:'98%'},
+        bsSize :"abc",
         
     }
     render()
     {
-        const { bsStyle, style,children, ...other} = this.props
-        const button=(<Button bsStyle={bsStyle} style={style}  {...other}>
+        const { bsStyle, bsSize,style,children, ...other} = this.props
+        const button=(<Button bsStyle={bsStyle} bsSize={bsSize}  style={style}  {...other}>
             {children}</Button>)
         return button;
     }

@@ -1,1 +1,1 @@
-export UserPage from './pages/UserPage'
+export UserPage from './pages/User-List'

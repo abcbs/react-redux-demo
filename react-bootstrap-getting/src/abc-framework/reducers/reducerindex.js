@@ -5,7 +5,7 @@ import multireducer from 'multireducer';
 import { routerReducer } from 'react-router-redux';
 import { pagination } from 'violet-paginator';
 
-import user_settings_main  from './user/settings/main'
+import user_settings_main  from './user/settings/user'
 import user_settings_change_password from './user/settings/changepassword'
 
 export {reducer as form} from 'redux-form';

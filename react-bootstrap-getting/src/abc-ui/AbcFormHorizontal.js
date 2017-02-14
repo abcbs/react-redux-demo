@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import classNames           from 'classnames'
 import {Form} from '../abc-bootstrap'
 
-export default class AbcFormInline extends React.Component
+export default class AbcFormHorizontal extends React.Component
 {
     static propTypes =
     {
@@ -22,7 +22,7 @@ export default class AbcFormInline extends React.Component
         //inline
         // horizontal
         const {style,bsStyle, bsSize, children, ...other} = this.props
-        const form=(<Form inline  bsStyle={bsStyle}  bsSize={bsSize} style={style}  {...other}>
+        const form=(<Form horizontal  bsStyle={bsStyle}  bsSize={bsSize} style={style}  {...other}>
             {children}</Form>)
         return form;
     }

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import classNames           from 'classnames'
 import {Row} from '../abc-bootstrap'
 
-export default class AbcButton extends React.Component
+export default class AbcRow extends React.Component
 {
     //style={{ position: 'relative'}}
     static propTypes =
@@ -21,4 +21,14 @@ export default class AbcButton extends React.Component
             {children}</Row>)
         return buttonToolbar;
     }
+}
+
+export class AbcRowHorizontal extends AbcRow
+{
+
+    static defaultProps =
+    {
+        style :{marginLeft:"15px",marginRight:"15px"},
+    }
+
 }

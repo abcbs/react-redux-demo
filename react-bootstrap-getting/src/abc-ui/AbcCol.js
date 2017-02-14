@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react'
 import classNames           from 'classnames'
 import {Col} from '../abc-bootstrap'
-
+// import {deviceType }from '../abc-framework/utils/Devices'
 export default class AbcCol extends React.Component
 {
     //style={{ position: 'relative'}}
     static propTypes =
     {
-        bsStyle : "abc",
+        bsStyle : "col-abc",
         style :PropTypes.string,
     }
 
@@ -17,9 +17,12 @@ export default class AbcCol extends React.Component
     }
     render()
     {
-        const {bsStyle, style,children, ...other} = this.props
-        const buttonToolbar=(<Col   bsStyle={bsStyle} style={style}  {...other}>
+        // const isMobile=deviceType().mobile;
+        const {bsStyle, style,children,colStyle, ...other} = this.props
+        const _style={...colStyle,...style};
+        //style={isMobile?_style:style}
+        const col=(<Col   className={bsStyle} style={style}  {...other}>
             {children}</Col>)
-        return buttonToolbar;
+        return col;
     }
 }

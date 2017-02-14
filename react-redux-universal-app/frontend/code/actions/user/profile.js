@@ -9,6 +9,10 @@ export const update_user_reset_error = () =>
 	type : 'user profile: update user info: reset error'
 })
 
+// {
+// 	event  : 'user profile: get user',
+// 		result : 'user'
+// }
 export const get_user = (user_id) =>
 ({
 	promise : http => http.get(`/users/${user_id}`),

@@ -217,20 +217,28 @@
     .element-preperty .boot-max(font-size;@content-font-lg-xl-lg-content);
   }
 }
+////横屏字体
+//.orientation-font-size{
+//   .content-list-font-md .common;
+//}
+//.vertical-font-size{
+//  .content-list-font-md .common;
+//}
+
 //
 .orientation-font-size{
   @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
-      font-size: 20px !important;
+    font-size: 14px !important;
   }
   @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
-    font-size: 20px !important;
+    font-size: 14px !important;
   }
   @media (min-width: @screen-gt) and (max-width: @screen-gtx )
   and   (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9){
-    font-size: 20px !important;
+    font-size: 14px !important;
   }
   @media (min-width: @boot-xs-v) and (max-width: @boot-xs-vmax) {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
 }
 .vertical-font-size{
@@ -245,13 +253,46 @@
     font-size: 12px !important;
   }
   @media (max-width: @screen-min-vmax) and (min-width: @screen-min-v){
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
 
   @media (max-width: @screen-min-xsm){
-    font-size: 10px !important;
+    font-size: 12px !important;
   }
 }
+//缺省
+.toolbar-icon-abc{
+  .toolbar-inline;
+  .btn-toolbar;
+
+  .thumbnail-btn{
+    &:extend(.content-list-font-xs  .content);
+    .btn-abc;
+    padding:2px,6px;
+    .element-preperty .boot-min(padding;2px 2px);
+  }
+  margin-left: @margin-left;
+  .margin-setting--lg;
+
+}
+
+.image-abc{
+  //z-index:@image-z-index;
+  width:120px;
+  height:120px;
+  position: absolute;
+  right: 2px;
+  //360,1.5
+  .element-preperty .boot-min(width;90px);
+  .element-preperty .boot-min(height;90px);
+  .element-preperty .boot-xs-v(width;90px);
+  .element-preperty .boot-xs-v(height;90px);
+  .element-preperty .android-dpr2-v(width;100px);
+  .element-preperty .android-dpr2-v(height;100px);
+  .element-preperty .android-dpr1g-v(width;100px);
+  .element-preperty .android-dpr1g-v(height;100px);
+}
+
 .toolbar-inline(@position:relative){
   display:  inline-flex;
   //display: flex;

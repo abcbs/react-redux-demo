@@ -67,6 +67,10 @@ export function clientWidth() {
         //1280  800     Medium screen / desktop
         //1440  900     Large screen / wide desktop
         const width=document.documentElement.clientWidth;
+        const isIPhone = window.navigator.appVersion.match(/iphone/gi);
+        const ipad= window.navigator.appVersion.match(/ipad/gi);
+         //设备像素比
+        const devicePixelRatio = window.devicePixelRatio+0;
         if(width<=480){
             client='xs';
         }else if(width>480&&width<=768){
@@ -79,6 +83,52 @@ export function clientWidth() {
         return client;
     }catch(err){
         return xs;//手机
+    }
+}
+
+export function deviceType() {
+
+    var client={xs:1,//480手机
+                mobile:1,//是
+                sm:"",
+                md:"",
+                lg:"",
+                ipad:""
+                }
+    try{
+        //480   763     Phone/
+        //768   1024    pad mini,Small screen / tablet
+        //1280  800     Medium screen / desktop
+        //1440  900     Large screen / wide desktop
+        const width=document.documentElement.clientWidth;
+        const isIPhone = window.navigator.appVersion.match(/iphone/gi);
+        const ipad= window.navigator.appVersion.match(/ipad/gi);
+        //设备像素比
+        const devicePixelRatio = window.devicePixelRatio+0;
+        //appple-6plus-v
+        // @screen-xpv:                     400px;//apple-6plus 竖屏
+        // @screen-xpvx:                    420px;//apple-6plus 竖屏
+        if(devicePixelRatio===0){
+            client.mobile="";
+        }
+        if(width<=480){
+            client.xs='1';
+        }else if(width>480&&width<=768){
+            client.sm='1'
+            client.ipad=''
+        }else if(width>768&&width<=1280){
+            client.md='1'
+            client.ipad='1'
+
+            client.mobile=''
+        }else if(width>1280){
+            client.lg='1'
+            client.mobile=''
+            client.ipad=''
+        }
+        return client;
+    }catch(err){
+        return client;//手机
     }
 }
 

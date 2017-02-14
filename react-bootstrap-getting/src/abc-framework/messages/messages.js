@@ -1,6 +1,21 @@
 import { defineMessages }              from 'react-intl'
 const messages = defineMessages
 ({
+    user:{
+        title:
+        {
+            id             : 'user.title',
+            description    : '用户主页，包括用户的增删改查，权限的增删改查，用户图像的修改，后端存储采用mysql',
+            defaultMessage : '用户管理'
+        },
+        subTitle:
+        {
+            id             : 'user.subTitle',
+            description    : '首页子标题',
+            defaultMessage : '用户维护信息'
+        }
+   },
+
     authentication:{
         title:
             {

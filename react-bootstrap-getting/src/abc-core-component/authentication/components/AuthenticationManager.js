@@ -14,7 +14,7 @@ import errorInfo from '../../../abc-framework/ui/errorInfo'
 import messages from '../../../abc-framework/messages/messages'
 import Spinner        from '../../../abc-ui/spinner'
 import {AbcFormInline,AbcRow,AbcPanel,AbcButtonToolbarRight,AbcButton,
-    AbcColRedFormA,AbcColRedFormB,AbcColRedFormC,
+    AbcColRedFormA,AbcColRedFormB,AbcColRedFormC,AbcColRedFormSingle,
     AbcButtonToolbarInline,AbcPanelOrientation,
     AbcPanelHeaderTitleAndNumber as HeaderTitleAndNumber}
     from '../../../abc-ui/abc-ui-index'
@@ -216,7 +216,7 @@ export default class AuthenticationManager extends React.Component {
                 >
                     <AbcFormInline name={formName||''}  id={formName||''}>
                         <AbcRow>
-                            <AbcColRedFormA
+                            <AbcColRedFormSingle
                                 name="authName"
                                 controlId="authName"
                                 type='text'
@@ -225,7 +225,7 @@ export default class AuthenticationManager extends React.Component {
                                 readonly={ this.props.formConfig.authName&& this.props.formConfig.authName.readonly}
                                 displayLabel={ this.props.formConfig.authName&&this.props.formConfig.authName.displayLabel}
                                 placeholder='权限名称'/>
-                            <AbcColRedFormB
+                            <AbcColRedFormSingle
                                 name ="authCode"
                                 controlId="authCode"
                                 type="text"

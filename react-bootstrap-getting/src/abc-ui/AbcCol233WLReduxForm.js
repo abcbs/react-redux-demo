@@ -20,8 +20,8 @@ export default class AbcCol233WLReduxForm extends React.Component
         label:PropTypes.string,
         placeholder:PropTypes.string.isRequired,
         col:PropTypes.object,
-        col_lable:PropTypes.object,
-        col_content:PropTypes.object,
+        colLabel:PropTypes.object,
+        colContent:PropTypes.object,
         ref:PropTypes.string,
         data:PropTypes.string
     }
@@ -30,25 +30,23 @@ export default class AbcCol233WLReduxForm extends React.Component
     {
         //xs={6} sm={4} md={4} lg={4}
         col:{xs:6, sm:4, md:4, lg:4,xsHidden:false},
-        //md={2} lg={2} xsHidden ={true} smHidden ={true}
-        colLable:{md:2, lg:2, xsHidden :true, smHidden :true},
+         //md={2} lg={2} xsHidden ={true} smHidden ={true}
+        colLabel:{md:2, lg:2, xsHidden :true, smHidden :true},
         //xs={12} sm={12} md={10} lg={10}
         colContent:{xs:12, sm:12, md:10, lg:10},
         type:'text'
     }
 
     renderField = ({ input, controlId,label,
-        type,placeholder,col,colLable,colContent,
+        type,placeholder,col,colLabel,colContent,colStyle,
         meta: { asyncValidating, touched, error,warning } }) => {
         return (
-            <AbcCol
-                {...col
-                }
+            <AbcCol {...col} colStyle={colStyle}
             >
             <AbcFormGroup controlId={controlId}
                  validationState={error&&error.flag||warning&&warning.flag||!error&&'success'}>
                 <AbcCol
-                    {...colLable}
+                    {...colLabel}
                 >
                 <ControlLabel style={{marginTop: "6px"}}>{label}</ControlLabel>
                 </AbcCol>
@@ -69,12 +67,12 @@ export default class AbcCol233WLReduxForm extends React.Component
     }
 
     renderFieldReadonly = ({ input, controlId,label,
-        type,placeholder,col,colLable,colContent,
+        type,placeholder,col,colLabel,colContent,colStyle,
         meta: { asyncValidating, touched, error,warning },...other }) => {
         return (
 
-            <AbcCol {...col}>
-                <AbcCol {...colLable}>
+            <AbcCol {...col} colStyle={colStyle}>
+                <AbcCol {...colLabel}>
                    <ControlLabel style={{marginTop: "6px"}}>{other.displayLabel&&label}</ControlLabel>
                 </AbcCol>
                <AbcCol {...colContent}>
@@ -86,7 +84,7 @@ export default class AbcCol233WLReduxForm extends React.Component
     }
     render()
     {
-        const {controlId, type,placeholder,name,
+        const {controlId,type,placeholder,name,
             label,value,  ...other} = this.props;
         if(value) {
             return <Field
@@ -117,6 +115,7 @@ export default class AbcCol233WLReduxForm extends React.Component
 export class AbcCol233WLA extends React.Component{
     render() {
         const col={xs:6, sm:4, md:4, lg:4,xsHidden:false};
+        // const col={xs:12,xp:6, sm:4, md:4, lg:4,smHidden:false};
         const colLable={md:2, lg:2, xsHidden :true, smHidden :true};
         const colContent={xs:12, sm:12, md:10, lg:10};
         return (
@@ -144,6 +143,72 @@ export class AbcCol233WLC extends React.Component{
         const col={xs:0,sm:4, md:4, lg:4,xsHidden:true};
         const colLabel={md:2, lg:2 ,xsHidden:true ,smHidden :true};
         const colContent={xs:12, sm:12, md:10, lg:10};
+        return (
+            <AbcCol233WLReduxForm
+                col={col}
+                colLabel={colLabel}
+                colContent={colContent}
+                {...this.props} />
+        )
+    }
+
+}
+
+//单行
+export class AbcCol233WLD extends React.Component{
+    render() {
+        // const col={xs:6, sm:4, md:4, lg:4,xsHidden:false};
+        const col={xs:12,xp:6, sm:4, md:4, lg:4,xsHidden:false};
+        const colLabel={xs:2,sm:2,md:2, lg:2,xsHidden :false, smHidden :false};
+        const colContent={xs:10,sm:10, md:10, lg:10};
+        return (//colLable
+            <AbcCol233WLReduxForm
+                col={col} colLabel={colLabel}  colContent={colContent}
+                {...this.props} />
+        )
+    }
+
+}
+//隐藏Lable
+export class AbcColHiddenLabelA extends React.Component{
+
+    render() {
+        const col={xs:12, xp:6,sm:4, md:4, lg:4,xsHidden:false};
+        const colLabel={md:2, lg:2, xsHidden :true, smHidden :true};
+        const colContent={xs:12, sm:12, md:10, lg:10};
+        return(
+            <AbcCol233WLReduxForm
+                col={col}
+                colLabel={colLabel}
+                colContent={colContent}
+                {...this.props} />
+        )
+    }
+
+}
+
+export class AbcColHiddenLabelC extends React.Component{
+    render() {
+        const col={xs:0,xp:6,sm:4, md:4, lg:4,xsHidden:true};
+        const colLabel={md:2, lg:2 ,xsHidden:true ,smHidden :true};
+        const colContent={xs:12, sm:12, md:10, lg:10};
+        return (
+            <AbcCol233WLReduxForm
+                col={col}
+                colLabel={colLabel}
+                colContent={colContent}
+                {...this.props} />
+        )
+    }
+
+}
+
+export class AbcColHiddenLabelImage extends React.Component{
+    render() {
+        //const col={xs:12, xp:6,sm:4, md:4, lg:4,xsHidden:false};
+        const col={xs:9,xp:5, sm:5, md:5, lg:5,smHidden:false};
+        const colLabel={md:2, lg:2 ,xsHidden:true ,smHidden :true};
+        const colContent={xs:11, sm:12, md:10, lg:10};
         return (
             <AbcCol233WLReduxForm
                 col={col}

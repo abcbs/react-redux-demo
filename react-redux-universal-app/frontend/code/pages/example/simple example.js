@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators as bind_action_creators } from 'redux'
 
 import { get as get_users, add as add_user, remove as delete_user, upload_picture } 
-	from '../../actions/a'
+	from '../../actions/example users'
 
 import Button from '../../components/button'
 
@@ -161,7 +161,8 @@ export default class Page extends Component
 							return <li key={user.id}>
 								<span style={style.user.id}>{user.id}</span>
 
-								<img style={style.user.picture} src={user.picture && user.picture.sizes ? `${_image_service_url_}/uploaded/${user.picture.sizes[0].name}` : no_user_picture}/>
+								<img style={style.user.picture} 
+									 src={user.picture && user.picture.sizes ? `${_image_service_url_}/uploaded/${user.picture.sizes[0].name}` : no_user_picture}/>
 
 								<span style={style.user.name}>{user.name}</span>
 

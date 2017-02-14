@@ -30,7 +30,7 @@ export default class AbcCol233WL extends React.Component
     static defaultProps =
     {
         //xs={6} sm={4} md={4} lg={4}
-        col:{xs:6, sm:4, md:4, lg:4,xsHidden:false},
+        col:{xs:12, xp:6,sm:4, md:4, lg:4,xsHidden:false},
         //md={2} lg={2} xsHidden ={true} smHidden ={true}
         colLable:{md:2, lg:2, xsHidden :true, smHidden :true},
         //xs={12} sm={12} md={10} lg={10}
@@ -82,7 +82,7 @@ export class AbcCol233WLA extends React.Component{
 
 export class AbcCol233WLB extends React.Component{
     render() {
-        const col={xs:6, sm:4, md:4, lg:4,smHidden:false};
+        const col={xs:12,xp:6, sm:4, md:4, lg:4,smHidden:false};
         const colLabel={md:2, lg:2 ,xsHidden:true ,smHidden :true};
         const colContent={xs:12, sm:12, md:10, lg:10};
         return (
@@ -98,7 +98,7 @@ export class AbcCol233WLB extends React.Component{
 
 export class AbcCol233WLC extends React.Component{
     render() {
-        const col={xs:0,sm:4, md:4, lg:4,xsHidden:true};
+        const col={xs:0,xp:6,sm:4, md:4, lg:4,xsHidden:true};
         const colLabel={md:2, lg:2 ,xsHidden:true ,smHidden :true};
         const colContent={xs:12, sm:12, md:10, lg:10};
         return (

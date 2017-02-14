@@ -34,6 +34,8 @@ const propTypes = {
 
   xsOffset: React.PropTypes.number,
 
+  xpOffset: React.PropTypes.number,
+
   smOffset: React.PropTypes.number,
 
   mdOffset: React.PropTypes.number,
@@ -42,6 +44,8 @@ const propTypes = {
 
   xsPush: React.PropTypes.number,
 
+  xpPush: React.PropTypes.number,
+
   smPush: React.PropTypes.number,
 
   mdPush: React.PropTypes.number,
@@ -49,6 +53,8 @@ const propTypes = {
   lgPush: React.PropTypes.number,
 
   xsPull: React.PropTypes.number,
+
+  xpPull: React.PropTypes.number,
 
   smPull: React.PropTypes.number,
 
