@@ -1,3 +1,4 @@
+
 .control-label-abc{
     margin-top: 6px !important;
     //font-size: @font-size-base !important;
@@ -66,6 +67,7 @@
             .orientation-font-size;
             .vertical-font-size;
         }
+        //调整chekbox
         label > input{
             .orientation-font-size;
             .vertical-font-size;
@@ -98,8 +100,7 @@
 .form-horizontal {
     // Make form groups behave like rows
     .form-group {
-        .make-grid(xp);
-        .make-grid(xs);
+        //.make-grid(xp);
     }
 
     @media (max-width: @screen-xpmax) and (min-width:@screen-xpmin) {
@@ -118,7 +119,7 @@
             margin-top: 2px;
         }
     }
-    //
+    //小于480
     @media (max-width:@screen-xs-min) {
         .control-label {
             .orientation-font-size;

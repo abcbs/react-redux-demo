@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
+
 import elementType from 'react-prop-types/lib/elementType';
 import warning from 'warning';
 
@@ -28,6 +29,7 @@ const contextTypes = {
 };
 
 class FormControl extends React.Component {
+
   render() {
     const formGroup = this.context.$bs_formGroup;
     const controlId = formGroup && formGroup.controlId;

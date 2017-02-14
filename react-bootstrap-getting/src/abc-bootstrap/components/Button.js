@@ -78,7 +78,7 @@ Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
 
 export default bsClass('btn',
-  bsSizes([Size.LARGE, Size.SMALL, Size.XSMALL],
+  bsSizes([Size.LARGE, Size.SMALL, Size.XSMALL,Size.ABC],
     bsStyles(
       [...Object.values(State), Style.DEFAULT, Style.PRIMARY, Style.LINK],
       Style.DEFAULT,

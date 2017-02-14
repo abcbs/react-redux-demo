@@ -90,7 +90,7 @@ export default class AbcCol233WLReduxForm extends React.Component
             return <Field
                     name={name}
                     controlId={controlId}
-                    component={this.renderFieldReadonly.bind(this)}
+                    component={this.renderFieldReadonly}
                     type={type}
                     label={label}
                     value={value}
@@ -100,7 +100,7 @@ export default class AbcCol233WLReduxForm extends React.Component
         }
         return <Field
                 name={name}
-                component={other.readonly? this.renderFieldReadonly.bind(this):this.renderField.bind(this)}
+                component={other.readonly? this.renderFieldReadonly:this.renderField}
                 controlId={controlId}
                 type={type}
                 label={label}

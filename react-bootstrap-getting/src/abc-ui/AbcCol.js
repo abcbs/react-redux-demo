@@ -7,21 +7,25 @@ export default class AbcCol extends React.Component
     //style={{ position: 'relative'}}
     static propTypes =
     {
-        bsStyle : "col-abc",
+
         style :PropTypes.string,
+        bsStyle : PropTypes.string,
+        bsSize :PropTypes.string,
     }
 
     static defaultProps =
     {
-        style :{ zIndex: '1040', paddingLeft:"1px",paddingRight:"1px"},
+        // style :{ zIndex: '1040', paddingLeft:"1px",paddingRight:"1px"},
+        bsStyle : "default",
+        bsSize :"abc",
     }
     render()
     {
         // const isMobile=deviceType().mobile;
-        const {bsStyle, style,children,colStyle, ...other} = this.props
+        const {bsStyle, bsSize,style,children,colStyle, ...other} = this.props
         const _style={...colStyle,...style};
-        //style={isMobile?_style:style}
-        const col=(<Col   className={bsStyle} style={style}  {...other}>
+        // style={isMobile?_style:style}
+        const col=(<Col   bsStyle={bsStyle} bsSize={bsSize}  style={_style}  {...other}>
             {children}</Col>)
         return col;
     }

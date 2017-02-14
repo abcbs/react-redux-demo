@@ -21,6 +21,7 @@ import {Modal,Glyphicon} from '../../../abc-bootstrap'
 
 //业务功能实现
 import UserManager from '../components/UserManager'
+import WizardForm from '../samples/WizardForm'
 
 function fetchUsers()
 {
@@ -84,6 +85,7 @@ export default class UserList extends React.Component {
         return (
             <div>
                 <UserManager/>
+      
             </div>
         );
     }

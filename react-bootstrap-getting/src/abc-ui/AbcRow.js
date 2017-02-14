@@ -28,7 +28,7 @@ export class AbcRowHorizontal extends AbcRow
 
     static defaultProps =
     {
-        style :{marginLeft:"15px",marginRight:"15px"},
+        style :{marginLeft:"15px",marginRight:"-15px"},
     }
 
 }

@@ -280,7 +280,7 @@
     "redux": "^3.5.2",
     "redux-act": "^1.1.0",
     "redux-async-connect": "^1.0.0-rc4",
-    "redux-form": "^6.2.0",
+    "redux-form": "^6.5.0",
     "redux-logger": "^2.7.0",
     "redux-router": "^2.1.2",
     "redux-thunk": "^2.1.0",

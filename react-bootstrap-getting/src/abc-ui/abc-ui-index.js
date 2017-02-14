@@ -38,5 +38,6 @@ export {AbcColHiddenLabelA as AbcColRedFormHiddenLabelA,
     AbcColHiddenLabelC as AbcColRedFormHiddenLabelC} from './AbcCol233WLReduxForm'
 
 export {default as AbcColReduxFormInput,AbcColReduxFormCheckbox,
+    AbcColReduxFormFixedContent as AbcColReduxFormFixedContent,AbcColReduxFormHiddenLabel,
     AbcColReduxFormButtons,AbcColReduxFormButtonIcons,AbcColReduxFormImage} from './AbcColReduxFormHorizontal'
 

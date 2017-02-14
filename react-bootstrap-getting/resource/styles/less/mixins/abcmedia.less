@@ -222,3 +222,74 @@
   }
 }
 
+//横向可见性-plus横屏，xs-480:手机竖屏最小值
+//@screen-xpmin:                  590px;//xp 手机横屏
+//@screen-xpmax:                  767px;//
+//
+.visible-vp,
+.visible-dt,
+.visible-xp//plus横屏
+{
+  .responsive-invisibility();
+}
+
+.visible-vp-block,
+.visible-vp-inline,
+.visible-vp-inline-block,
+.visible-dt-block,
+.visible-dt-inline,
+.visible-dt-inline-block,
+.visible-xp-block,
+.visible-xp-inline,
+.visible-xp-inline-blockk{
+  display: none !important;
+}
+
+.visible-xp {
+  @media (max-width: @screen-xpmax) and (min-width:@screen-xpmin) {
+    .responsive-visibility();
+  }
+}
+.visible-xp-block {
+  @media (max-width: @screen-xpmax) and (min-width:@screen-xpmin) {
+    display: block !important;
+  }
+}
+.visible-xp-inline {
+  @media (max-width: @screen-xpmax) and (min-width:@screen-xpmin) {
+    display: inline !important;
+  }
+}
+.visible-xp-inline-block {
+  @media (max-width: @screen-xpmax) and (min-width:@screen-xpmin) {
+    display: inline-block !important;
+  }
+}
+
+.visible-vp {
+  @media (max-width: @screen-vertical-max) and (min-width:@screen-vertical-min) {
+    .responsive-visibility();
+  }
+}
+.visible-vp-block {
+  @media (max-width: @screen-vertical-max) and (min-width:@screen-vertical-min) {
+    display: block !important;
+  }
+}
+.visible-vp-inline {
+  @media (max-width: @screen-vertical-max) and (min-width:@screen-vertical-min) {
+    display: inline !important;
+  }
+}
+.visible-vp-inline-block {
+  @media (max-width: @screen-vertical-max) and (min-width:@screen-vertical-min) {
+    display: inline-block !important;
+  }
+}
+
+
+.hidden-vp {
+  @media (max-width: @screen-vertical-max) and (min-width:@screen-vertical-min) {
+    .responsive-invisibility();
+  }
+}

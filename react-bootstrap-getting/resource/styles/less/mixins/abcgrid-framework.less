@@ -6,11 +6,11 @@
 .make-grid-columns-extents() {
   // Common styles for all sizes of grid columns, widths 1-12
   .col(@index) { // initial
-    @item: ~".col-xs6-@{index}, .col-xp-@{index}, .col-xs5-@{index}, .col-xs4-@{index}";
+    @item: ~".col-dt-@{index}, .col-xp-@{index}, .col-vp-@{index}, .col-xs4-@{index}";
     .col((@index + 1), @item);
   }
   .col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
-    @item: ~".col-xs6-@{index}, .col-xp-@{index}, .col-xs5-@{index}, .col-xs4-@{index}";
+    @item: ~".col-dt-@{index}, .col-xp-@{index}, .col-vp-@{index}, .col-xs4-@{index}";
     .col((@index + 1), ~"@{list}, @{item}");
   }
   .col(@index, @list) when (@index > @grid-columns) { // terminal

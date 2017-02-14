@@ -29,7 +29,8 @@ import {
     from '../../../abc-ui/abc-ui-index'
 
 import {AbcColReduxFormInput,AbcColReduxFormCheckbox,AbcColReduxFormButtons,
-    AbcColReduxFormButtonIcons, AbcColReduxFormImage
+    AbcColReduxFormButtonIcons, AbcColReduxFormImage,
+    AbcColReduxFormFixedContent,AbcColReduxFormHiddenLabel
 
 } from '../../../abc-ui/abc-ui-index'
 
@@ -174,103 +175,13 @@ export default class UserManager extends React.Component {
         //                 手机      平板         笔记本     台式
         //Class 前缀	.col-xs-	.col-sm-	.col-md-	.col-lg-
         const userSearchHeader=(<UserSearchHeader numbers="17" title="用户查询"/>);
-        const formInstance = (
-            <AbcFormHorizontal>
-                <AbcRowHz>
-                    <Image className="image-abc"
-                           src="/external/images/restau05i.jpg">
-                    </Image>
-                    <AbcCol  xs={12} xp={6} sm={6} lg={3} >
-                        <FormGroup controlId="formHorizontalUserName">
-                            <AbcRow>
-                                <AbcCol componentClass={ControlLabel}  xp={3}>
-                                    Name
-                                </AbcCol>
-                                <AbcCol xp={8}>
-                                    <FormControl type="name" placeholder="Name" />
-                                </AbcCol>
-                            </AbcRow>
-                        </FormGroup>
-                    </AbcCol>
-                    <AbcCol  xs={12} xp={6} sm={6} lg={3} >
-                        <FormGroup controlId="formHorizontalEmail">
-                            <AbcRow>
-                                <AbcCol componentClass={ControlLabel}  xp={3}>
-                                    Email
-                                </AbcCol>
-                                <AbcCol xp={8}>
-                                    <FormControl type="email" placeholder="Email" />
-                                </AbcCol>
-                            </AbcRow>
-                        </FormGroup>
-                    </AbcCol>
-                    <AbcCol  xs={12} xp={6} sm={6} lg={3}>
-                        <FormGroup controlId="formHorizontalPassword">
-                            <AbcRow>
-                                <AbcCol componentClass={ControlLabel} xp={3}>
-                                    Password
-                                </AbcCol>
-                                <AbcCol   xp={8}>
-                                    <FormControl type="password" placeholder="Password" />
-                                </AbcCol>
-                            </AbcRow>
-                        </FormGroup>
-                    </AbcCol>
-                    <AbcCol xs={12} xp={6} sm={6} lg={1}>
-                        <FormGroup>
-                            <AbcRow>
-                                <AbcCol xpOffset={3} xp={9}>
-                                    <Checkbox>记住我</Checkbox>
-                                </AbcCol>
-                            </AbcRow>
-                        </FormGroup>
-                    </AbcCol>
-                    <AbcCol   xs={12} xp={6} sm={6} lg={3}>
-                        <AbcRow>
-                            <AbcCol xpOffset={3} xp={9}>
-                                <ButtonToolbar>
-                                    <AbcButton>确定</AbcButton>
-                                    <AbcButton>取消</AbcButton>
-                                    <AbcButton>重置</AbcButton>
-                                    <HelpBlock></HelpBlock>
-                                </ButtonToolbar>
-
-                            </AbcCol>
-                        </AbcRow>
-                    </AbcCol>
-
-                    <AbcCol xs={12} xp={6} sm={6} lg={3}>
-                        <FormGroup>
-                            <AbcRow>
-                                <AbcCol xpOffset={3} xp={9}>
-                                    <ButtonToolbar className="abc-toolbar">
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="save"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="plus"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="pencil"/></Button>
-                                        <Button className="thumbnail-btn">
-                                            <Glyphicon glyph="trash"/></Button>
-
-                                    </ButtonToolbar>
-                                </AbcCol>
-                            </AbcRow>
-                        </FormGroup>
-                    </AbcCol>
-
-                </AbcRowHz>
-            </AbcFormHorizontal>
-        );
         const formHorizontal = (
             <AbcFormHorizontal>
-                <Image className="image-abc"
+                <Image className="col-abc-input-imagedisplay"
                        src="/external/images/favicon.jpg">
                 </Image>
                 <AbcRowHz>
-
                     <AbcColReduxFormImage
-                        colStyle={{width:"85%"}}
                         name="name"
                         controlId="email"
                         type='text'
@@ -285,45 +196,66 @@ export default class UserManager extends React.Component {
                         data="111111"
                         placeholder='13666667777'/>
 
-                    <AbcColReduxFormImage
+                    <AbcColReduxFormFixedContent
                         name="password"
                         controlId="password"
                         type='text'
                         label='密码'
                         data="111111"
-                        placeholder='122222aA'/>
+                        placeholder='密码信息'/>
 
-                    <AbcColReduxFormImage
+                    <AbcColReduxFormFixedContent
                         name="email"
                         controlId="email"
                         type='text'
                         label='Email'
                         data="abc@qq.com"
-                        placeholder='abc@qq.com'/>
+                        placeholder='邮箱'/>
 
-                    <AbcColReduxFormImage
+                    <AbcColReduxFormHiddenLabel
                         name="qqNumber"
                         controlId="qqNumber"
                         type='text'
                         label='QQ号码'
                         data="111111"
-                        placeholder='455222888'/>
+                        placeholder='QQ号码'/>
 
-                    <AbcColReduxFormImage
+                    <AbcColReduxFormHiddenLabel
                         name="weiXinNumber"
                         controlId="weiXinNumber"
                         type='text'
                         label='微信号码'
                         data="111111"
-                        placeholder='13622228899'/>
+                        placeholder='微信号码'/>
+
+                    <AbcColReduxFormHiddenLabel
+                        // contentStyle={{marginLeft:"-6%"}}
+                        name="contractAddress"
+                        controlId="contractAddress"
+                        type='text'
+                        label='联系地址'
+                        data="111111"
+                        placeholder='联系地址'/>
+
+                    <AbcColReduxFormHiddenLabel
+                        // contentStyle={{marginLeft:"-6%"}}
+                        name="contractTel"
+                        controlId="contractTel"
+                        type='text'
+                        label='座机号码'
+                        data="111111"
+                        placeholder='座机号码'/>
 
                     <AbcColReduxFormCheckbox
+                        // contentStyle={{marginLeft:"6%"}}
                         name="isSameCity"
                         controlId="isSameCity"
                         type='text'
                         label='是否同城'
                         data="1"/>
-                    <AbcColReduxFormButtons/>
+                    <AbcColReduxFormButtons
+                        // contentStyle={{marginLeft:"-6%"}}
+                    />
                 </AbcRowHz>
             </AbcFormHorizontal>
         );
@@ -338,3 +270,6 @@ export default class UserManager extends React.Component {
     }
 
 }
+
+
+

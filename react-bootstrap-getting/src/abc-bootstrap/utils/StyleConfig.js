@@ -2,6 +2,7 @@ export const Size = {
   LARGE: 'large',
   SMALL: 'small',
   XSMALL: 'xsmall',
+  ABC: 'abc',
 };
 
 export const SIZE_MAP = {
@@ -9,20 +10,24 @@ export const SIZE_MAP = {
   medium: 'md',
   small: 'sm',
   xsmall: 'xs',
+  abc: 'abc',
+  dt: 'dt',//desktop
   lg: 'lg',
   md: 'md',
   sm: 'sm',
-  xs: 'xs',
   xp: 'xp',
-  dt: 'dt',//desktop
+  vp: 'xp',
+  xs: 'xs'
+
 };
 
 export const DEVICE_SIZES = [
   'lg',
   'md',
   'sm',
-  'xs',
   'xp',
+  'vp',
+  'xs',
   'dt'
 ];
 
