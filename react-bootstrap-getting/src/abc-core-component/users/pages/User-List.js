@@ -22,7 +22,7 @@ import {Modal,Glyphicon} from '../../../abc-bootstrap'
 //业务功能实现
 import UserManager from '../components/UserManager'
 import WizardForm from '../samples/WizardForm'
-
+import ReactWidgetsForm from '../samples/ReactWidgetsForm'
 function fetchUsers()
 {
     return {
@@ -40,6 +40,14 @@ function fetchUsers()
         events: ['GET_USERS_PENDING', 'GET_USERS_SUCCESS', 'GET_USERS_FAILURE']
     }
 }
+
+const showResults = values =>
+    new Promise(resolve => {
+        setTimeout(() => {  // simulate server latency
+            window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
+            resolve()
+        }, 500)
+    })
 
 @connect
 (
@@ -85,7 +93,8 @@ export default class UserList extends React.Component {
         return (
             <div>
                 <UserManager/>
-      
+                <ReactWidgetsForm onSubmit={showResults}/>
+
             </div>
         );
     }

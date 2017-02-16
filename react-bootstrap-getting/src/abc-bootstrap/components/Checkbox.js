@@ -39,6 +39,8 @@ class Checkbox extends React.Component {
       className,
       style,
       children,
+        name,
+        controlId,
       ...props
     } = this.props;
 
@@ -47,6 +49,9 @@ class Checkbox extends React.Component {
     const input = (
       <input
         {...elementProps}
+        name={name}
+        id={controlId}
+        controlId={controlId}
         ref={inputRef}
         type="checkbox"
         disabled={disabled}

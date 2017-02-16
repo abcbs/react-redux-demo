@@ -62,6 +62,18 @@ const renderField = ({ input, controlId,label,
     )
 }
 
+const renderCheckbox = ({ input, label,controlId,ref }) => {
+    return (
+        <Checkbox
+                {...input}
+                controlId={controlId}
+                ref={ref}
+                checked={input.value ? true : false}
+              >{label}
+        </Checkbox>
+    )
+}
+
 export default class AbcColReduxFormHorizontal extends React.Component
 {
 
@@ -117,7 +129,6 @@ export default class AbcColReduxFormHorizontal extends React.Component
             label,value,  ...other} = this.props;
         if(value) {
             return <Field
-                ref="input"
                 name={name}
                 controlId={controlId}
                 component={renderField}
@@ -209,7 +220,7 @@ export class AbcColReduxFormFixedContent extends React.Component{
 }
 
 
-export class AbcColReduxFormCheckbox extends AbcColReduxFormHorizontal{
+export class AbcColReduxFormCheckbox extends React.Component{
     static propTypes =
     {
         controlId :PropTypes.string.isRequired,
@@ -240,6 +251,7 @@ export class AbcColReduxFormCheckbox extends AbcColReduxFormHorizontal{
         contentSize:"abc-checkbox-content",
 
     }
+
     render(){
         const {col,colContent,contentStyle,colSize,labelSize,contentSize,controlId,name,checked,ref,
             label,value,  ...other} = this.props;
@@ -248,8 +260,13 @@ export class AbcColReduxFormCheckbox extends AbcColReduxFormHorizontal{
                 <AbcFormGroup controlId={controlId}>
 
                         <AbcCol {...colContent} colStyle={contentStyle}>
-                            <Checkbox controlId={controlId} name={name } ref={ref}
-                                      value={value} checked={checked}>{label}</Checkbox>
+                            <Field
+                                name={name}
+                                controlId={controlId}
+                                component={renderCheckbox}
+                                label={label}
+                                value={value}
+                            { ...other}/>
                         </AbcCol>
 
                 </AbcFormGroup>

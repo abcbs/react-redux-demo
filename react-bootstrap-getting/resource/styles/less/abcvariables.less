@@ -107,16 +107,18 @@
 @screen-sm-max:              (@screen-md-min - 1);
 @screen-md-max:              (@screen-lg-min - 1);
 
-//pad2竖屏 768~991
+//pad2竖屏 767~991
 @screen-pad2v:                    @screen-sm;
-@screen-pad2v-max:                   @screen-sm-max;
-//992~1199
-@screen-pad2h:                    @screen-md;//
-@screen-pad2h-max:                   @screen-md-max;//1199
+@screen-pad2v-max:               @screen-sm-max;
 
-//pad
-@screen-pad-md:                769px ;
-@screen-pad-md-max:            1199px ;
+
+//pad,768为pad竖屏
+@screen-pad-md:                767px ;
+@screen-pad-md-max:            991px ;
+
+//992~1199
+@screen-pad2h:                    @screen-md;//992
+@screen-pad2h-max:                @screen-md-max;//1199
 
 @screen-lg-md:                1200px;
 @screen-lg-mdx:               1439px;
@@ -139,7 +141,7 @@
 @screen-vertical-min:          100px;//xp 手机横屏
 //px适用于6plus等横屏的配置
 @screen-xpmin:                  590px;//xp 手机横屏
-@screen-xpmax:                  767px;//
+@screen-xpmax:                  766px;//
 //////////////////////////////////////////////////////
 //手机：iphone-4s：320~480 2 3.5寸
 //      iphone-6plus:414~736 3
@@ -177,19 +179,17 @@
 //5寸，三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为竖屏
 @screen-sclv:                   350px;//5寸，三星S6，华为SCL，1280/720/竖屏
 @screen-sclvx:                  399px;//5寸，三星S6，华为SCL，1280/720/竖屏
-
-//三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为横屏，667
-@screen-scl:                     590px;//5寸下线
-@screen-sclx:                    759px;//5寸上线
-
-
 //5.8寸,三星GT-I9152,960 540 dpr:1.5;
 //5寸，oppo 360/640 1.5
 @screen-gtv:                      350px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
 @screen-gtvx:                     399px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/竖屏
 
+//三星S6，华为SCL，1280/720实测进行, 理论上应当包含6p为横屏，667
+@screen-scl:                     590px;//5寸下线
+@screen-sclx:                    767px;//5寸上线
+
 @screen-gt:                       590px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
-@screen-gtx:                      759px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
+@screen-gtx:                      767px;//5.8寸,三星GT-I9152,960 540 dpr:1.5/横屏
 
 @screen-max: 12001px;
 

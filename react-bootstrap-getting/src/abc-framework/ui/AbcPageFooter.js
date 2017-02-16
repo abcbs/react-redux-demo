@@ -17,20 +17,24 @@ const PageFooter = React.createClass({
         // console.log("this.================================,idx==>",idx);
     },
     getInitialState: function() {
-        return {visible:"hidden"};
+        return {visible:"visible"};
     },
 
     render() {
         const v=this.state.visible;
+        {
+            // <div  onMouseMove ={this.handleFocus}
+            //       onTouchStart={this.handleFocus}>
+            //     <p  style={{visibility:this.state.visible}} >ABC right ABC right</p>
+            //     <Navbar fixedBottom className="container container-desktop container-lg">
+            //         <p  style={{visibility:this.state.visible}} >ABC right ABC right</p>
+            //     </Navbar>
+            // </div>
+        }
         return (
-            <div  onMouseMove ={this.handleFocus}
-                  onTouchStart={this.handleFocus}>
-            <Navbar fixedBottom className="container container-desktop container-lg"
-                   
-            >
-            <p  style={{visibility:this.state.visible}} >ABC right ABC right</p>
-            </Navbar>
-            </div>
+            <div style={{position:"fixed",bottom:"0"}}>
+
+                </div>
         );
     }
 });

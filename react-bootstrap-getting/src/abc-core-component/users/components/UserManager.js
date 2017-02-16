@@ -247,10 +247,9 @@ export default class UserManager extends React.Component {
                         placeholder='座机号码'/>
 
                     <AbcColReduxFormCheckbox
-                        // contentStyle={{marginLeft:"6%"}}
+                        ref="isSameCity"
                         name="isSameCity"
                         controlId="isSameCity"
-                        type='text'
                         label='是否同城'
                         data="1"/>
                     <AbcColReduxFormButtons

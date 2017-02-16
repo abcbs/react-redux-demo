@@ -91,8 +91,11 @@ const baseServer = {
             //loader: 'file?name=[name].[ext]'
             loader: 'url-loader?limit=8192&name=images/[name]_[hash].[ext]' // 图片提取到images目录
         },
-        { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]'
-        },
+        // { test: /\.eot$|\.ttf$|\.svg$|\.woff2?$/, loader: 'file?name=[name].[ext]'
+        // },
+
+        { test: /\.woff(2)?(\?v=[0-9].[0-9].[0-9])?$/, loader: "url-loader?mimetype=application/font-woff" },
+        { test: /\.(ttf|eot|svg)(\?v=[0-9].[0-9].[0-9])?$/, loader: "file-loader?name=[name].[ext]" },
         // {
         //     test    : webpack_isomorphic_tools_plugin.regular_expression('fonts'),
         //     include : assets_source_folder,
@@ -157,12 +160,32 @@ if(options.debug===false){
                     path.resolve(frontend_root_folder, codePath)
                 ],
         },
+        {
+            // React-hot loader and
+            test: /\.jsx$/, // All .js files
+            loaders: ['react-hot', 'babel-loader'], //babel loads jsx and es6-7
+            exclude: [nodeModulesPath],
+            include :
+                [
+                    path.resolve(frontend_root_folder, codePath)
+                ],
+        },
     ])
 }else{
     baseServer.module.loaders = (baseServer.module.loaders || []).concat([
         {
             // React-hot loader and
             test: /\.js$/, // All .js files
+            loaders: [ 'babel-loader'], //babel loads jsx and es6-7
+            exclude: [nodeModulesPath],
+            include :
+                [
+                    path.resolve(frontend_root_folder, codePath)
+                ],
+        },
+        {
+            // React-hot loader and
+            test: /\.jsx$/, // All .js files
             loaders: [ 'babel-loader'], //babel loads jsx and es6-7
             exclude: [nodeModulesPath],
             include :

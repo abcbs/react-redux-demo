@@ -14,7 +14,8 @@ const reduxvendor=['redux','react-redux',
   'react-helmet','react-intl','react-isomorphic-render',
   'react-styling','scroll-behavior','intl','intl-locales-supported',
   'intl-messageformat','redux-form','invariant',
-  'multireducer','violet-paginator','warning','lru-memoize', 'hoist-non-react-statics'];
+  'multireducer','violet-paginator','warning','lru-memoize',
+  'hoist-non-react-statics','react-widgets'];
 
 const baseframevendor=['babel-runtime/core-js','babel-preset-react','babel-polyfill',
   'classnames','lodash','normalizr',
