@@ -11,7 +11,9 @@ var list = [
         { label: 'red',    id: 3 },
         { label: 'maroon', id: 4 },
         { label: 'purple', id: 5 },
-        { label: 'mauve',  id: 6 }
+        { label: 'mauve',  id: 6 },
+        { label: 'mauve',  id: 7 }
+
       ];
 
 var SelectListApi = React.createClass({

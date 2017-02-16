@@ -6,6 +6,7 @@ import WizardFormThirdPage from './WizardFormThirdPage'
 class WizardForm extends Component {
   constructor(props) {
     super(props)
+    //绑定的位置
     this.nextPage = this.nextPage.bind(this)
     this.previousPage = this.previousPage.bind(this)
     this.state = {

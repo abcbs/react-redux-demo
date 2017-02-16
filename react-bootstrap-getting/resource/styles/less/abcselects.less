@@ -1,0 +1,46 @@
+.rw-selectlist{
+   > ul{
+     //display:-webkit-box ;
+     //display:-ms-flexbox;
+     //display:-moz-inline-box;
+     //display:flex ;
+     ////下面值ios有误，不能反行
+     ////-webkit-box
+     //display: -moz-box;
+     ////多行
+     //flex-direction:row;
+     //-webkit-flex-flow:wrap;
+     //-webkit-flex-wrap:wrap;
+     ////
+     //-ms-flex-wrap:wrap;
+
+     //-webkit-align-content:flex-start;
+     //align-content:flex-start;
+
+     .rw-list-option:active,
+     .rw-list-option:hover{
+       background-color:white !important;
+       border-color:white !important;
+     }
+     .rw-list-option:visited{
+       background-color:white !important;
+       border:none;
+     }
+     //-webkit-align-content:flex-end;
+     //align-content:flex-end;
+     //
+     //-webkit-align-content:center;
+     //align-content:center;
+     //-webkit-align-content:space-between;
+     //align-content:space-between;
+
+     //-webkit-align-content:strecth;
+     //align-content:strecth;
+      //samsung g100可以正常显示
+     -ms-grid-columns: 80px;
+     -moz-columns:80px;
+     -webkit-columns:80px;
+     columns:80px;
+     -webkit-column-fill:balance;
+   }
+}

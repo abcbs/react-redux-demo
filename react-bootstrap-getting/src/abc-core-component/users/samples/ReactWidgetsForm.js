@@ -23,6 +23,8 @@ globalizeLocalizer(Globalize);
 import Calendarsample from './Calendarsample'
 import ComboboxSample from './ComboboxSample'
 import DateTimePicker from './DateTimePicker'
+import  SelectlistSample from './SelectlistSample'
+
 const colors = [ { color: 'Red', value: 'ff0000' },
   { color: 'Green', value: '00ff00' },
   { color: 'Blue', value: '0000ff' } ]
@@ -30,9 +32,16 @@ const colors = [ { color: 'Red', value: 'ff0000' },
 const renderDropdownList = ({ input, ...rest }) =>
   <DropdownList {...input} {...rest}/>
 
+const  messages= {
+    open: '下拉',
+    filterPlaceholder: '',
+    emptyList:   '无选项条目',
+    emptyFilter: '没有结果',
+}
 const renderMultiselect = ({ input, ...rest }) =>
   <Multiselect {...input}
     onBlur={() => input.onBlur()}
+    messages={messages}
     value={input.value || []} // requires value to be an array
     {...rest}/>
 
@@ -44,7 +53,9 @@ let ReactWidgetsForm = props => {
     const reactHeader=(<UserSearchHeader numbers="-" title="Widgets测试"/>);
     const calendarHeader=(<UserSearchHeader numbers="-" title="Widgets-日期"/>);
     const comboboxHeader=(<UserSearchHeader numbers="-" title="Widgets-选择"/>);
-  return (
+
+
+    return (
       <AbcPanel>
       <AbcPanel header={calendarHeader}>
           <AbcRow>
@@ -52,13 +63,16 @@ let ReactWidgetsForm = props => {
               <div>
                   <Calendarsample />
               </div>
-             
+
               </AbcRow>
       </AbcPanel>
           <AbcPanel header={comboboxHeader}>
               <AbcRow>
                   <div>
                       <ComboboxSample/>
+                  </div>
+                  <div>
+                      <SelectlistSample/>
                   </div>
               </AbcRow>
           </AbcPanel>
@@ -96,7 +110,7 @@ let ReactWidgetsForm = props => {
               </div>
             </form>
           </AbcRow>
-      </AbcPanel>
+         </AbcPanel>
       </AbcPanel>
   )
 }

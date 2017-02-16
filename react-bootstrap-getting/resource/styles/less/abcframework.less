@@ -227,34 +227,18 @@
 
 //
 .orientation-font-size{
-  @media (min-width: @screen-xp) and (max-width: @screen-xpx ) and  (-webkit-min-device-pixel-ratio : 3){
-    font-size: 14px !important;
-  }
-  @media (min-width: @screen-scl) and (max-width: @screen-sclx) and (-webkit-min-device-pixel-ratio :2){
-    font-size: 14px !important;
-  }
-  @media (min-width: @screen-gt) and (max-width: @screen-gtx )
-  and   (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9){
-    font-size: 14px !important;
-  }
-  @media (min-width: @boot-xs-v) and (max-width: @boot-xs-vmax) {
-    font-size: 14px !important;
-  }
+  .element-preperty .appple-6plus-h-imp(font-size;14px);
+  .element-preperty .android-dpr2-h-imp(font-size;14px);
+  .element-preperty .android-dpr1g-h-imp(font-size;14px);
+  .element-preperty .boot-xs-imp(font-size;12px);
+
 }
 .vertical-font-size{
-  @media (min-width: @screen-xpv) and (max-width: @screen-xpvx){
-    font-size: 14px !important;
-  }
-  @media (min-width: @screen-sclv) and (max-width: @screen-sclvx) and (-webkit-min-device-pixel-ratio :2){
-    font-size: 12px !important;
-  }
-  @media (min-width: @screen-gtv) and (max-width:@screen-gtvx)
-  and  (-webkit-min-device-pixel-ratio : 1) and (-webkit-max-device-pixel-ratio :1.9) {
-    font-size: 12px !important;
-  }
-  @media (max-width: @screen-min-vmax) and (min-width: @screen-min-v){
-    font-size: 12px !important;
-  }
+  .element-preperty .appple-6plus-v-imp(font-size;14px);
+  .element-preperty .android-dpr2-v-imp(font-size;12px);
+  .element-preperty .android-dpr1g-v-imp(font-size;12px);
+  .element-preperty .boot-xs-v-imp(font-size;12px);
+  .element-preperty .boot-min-imp(boot-min-imp;12px);
 
   @media (max-width: @screen-min-xsm){
     font-size: 12px !important;

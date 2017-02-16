@@ -6,8 +6,8 @@ import RW from 'react-widgets';
 import {DropdownList} from 'react-widgets';
 var i = 0
   , list = [
-    { id: i += 1, name: 'James' },
-    { id: i += 1, name: 'Jan' },
+    { id: i += 1, name: '张三' },
+    { id: i += 1, name: '张三无' },
     { id: i += 1, name: 'Jase' },
     { id: i += 1, name: 'Jason' },
     { id: i += 1, name: 'Jim' },
@@ -52,6 +52,8 @@ export  default class ComboboxSample extends React.Component {
       isRtl: this.state.isRtl
     }
     const c=RW.Combobox;
+
+
     return (
       <div className='example' role='application'>
         <AbcRow>
@@ -113,6 +115,7 @@ export  default class ComboboxSample extends React.Component {
           <AbcRow>
               <div className='form-group col-xs-6'>
                 <label className='form-label'>Filter</label>
+
                 <DropdownList
                     value={this.state.filter || false}
                     data={[false, 'startsWith', 'endsWith', 'contains']}

@@ -22,7 +22,7 @@ export  default class Calendarsample extends React.Component {
       footer: true,
       culture:'zh',
       disabled:false,
-      isRtl:true
+      isRtl:false
     }
   }
   render(){
@@ -110,7 +110,9 @@ export  default class Calendarsample extends React.Component {
                   <RW.DateTimePicker
                       time={false}
                       culture={this.state.culture}
-                      format='MMM dd, yyyy'
+                      // format='MMM dd, yyyy'
+                      format= "yyyy'年'MM'月'd'日'"
+                      // format="yyyy'年'M'月'd'日'"
                       footer={false}
                       value={this.state.min}
                       onChange={this._set.bind(this, 'min')}/>
@@ -120,7 +122,8 @@ export  default class Calendarsample extends React.Component {
                   <RW.DateTimePicker
                       time={false}
                       culture={this.state.culture}
-                      format='MMM dd yyyy'
+                      // format='MMM dd yyyy'
+                      format="yyyy-MM-dd"
                       value={this.state.max}
                       footer={false}
                       onChange={this._set.bind(this, 'max')}/>
