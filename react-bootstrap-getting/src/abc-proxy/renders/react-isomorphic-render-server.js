@@ -143,14 +143,14 @@ const server = webpageServer
     //     const loader=require('../../abc-framework/international/loader').default;
     //     return loader;
     // }
-    // localize: (store, preferredLocales) => {
-    //         console.log("preferredLocales,",preferredLocales)
-    //         const data=require('../../abc-framework/international/translations/zh').default;
-    //         return {
-    //             locale: 'zh',
-    //             messages: data
-    //         }
-    // },
+    localize: (store, preferredLocales) => {
+            console.log("preferredLocales,",preferredLocales)
+            const data=require('../../abc-framework/international/translations/zh').default;
+            return {
+                locale: 'zh',
+                messages: data
+            }
+    },
 
     authentication: {
             cookie: 'authentication'

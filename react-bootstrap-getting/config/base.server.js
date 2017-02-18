@@ -68,7 +68,12 @@ const baseServer = {
     publicPath: !options.debug ? `${webpackDevServerAddress}${buildConfig.publicPath}`
         : buildConfig.publicPath
   },
+
+    resolve: {
+        extensions: ['', '.js', '.jsx','.less','.css','scss','.json']
+   },
   module: {
+
     loaders: [
         {
             test: /\.css/,
@@ -154,16 +159,18 @@ if(options.debug===false){
           // React-hot loader and
           test: /\.js$/, // All .js files
           loaders: ['react-hot', 'babel-loader'], // react-hot is like browser sync and babel loads jsx and es6-7
-          exclude: [nodeModulesPath],
-            include :
-                [
+
+           exclude: [nodeModulesPath],
+           include :
+          [
                     path.resolve(frontend_root_folder, codePath)
-                ],
+          ],
         },
         {
             // React-hot loader and
             test: /\.jsx$/, // All .js files
             loaders: ['react-hot', 'babel-loader'], //babel loads jsx and es6-7
+
             exclude: [nodeModulesPath],
             include :
                 [
@@ -177,6 +184,7 @@ if(options.debug===false){
             // React-hot loader and
             test: /\.js$/, // All .js files
             loaders: [ 'babel-loader'], //babel loads jsx and es6-7
+
             exclude: [nodeModulesPath],
             include :
                 [
@@ -187,6 +195,7 @@ if(options.debug===false){
             // React-hot loader and
             test: /\.jsx$/, // All .js files
             loaders: [ 'babel-loader'], //babel loads jsx and es6-7
+
             exclude: [nodeModulesPath],
             include :
                 [

@@ -7,7 +7,7 @@ import { render } from 'react-dom'
 import io from 'socket.io-client';
 // import 'bootstrap/less/theme.less'
 // import 'bootstrap/less/bootstrap.less';
-import FastClick from 'fastclick';
+import FastClick from './fastclick';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import international from '../international/loader';
 
@@ -26,7 +26,7 @@ for (let asset of Object.keys(assets))
 const dpr=devicePixelRatio();
 injectTapEventPlugin();
 // Make taps on links and buttons work fast on mobiles
-FastClick.attach(document.body);
+// FastClick.attach(document.body,{tapDelay:10,tapTimeout:200});
 
 //在服务端渲染中，这是客户端
 //store(Redux Store): 应用程序中唯一的Redux store对象

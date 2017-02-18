@@ -1,5 +1,5 @@
-import countries from '../../../../resource/json/countries/en'
-import messages  from '../../../../resource/json/messages/en'
+import countries from '../../messages/abc-locales/countries/en'
+import messages  from '../../messages/abc-locales/messages/en'
 import generate  from './common'
 
 export default generate(messages, countries)

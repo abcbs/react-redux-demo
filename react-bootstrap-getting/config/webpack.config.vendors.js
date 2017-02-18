@@ -15,12 +15,13 @@ const reduxvendor=['redux','react-redux',
   'react-styling','scroll-behavior','intl','intl-locales-supported',
   'intl-messageformat','redux-form','invariant',
   'multireducer','violet-paginator','warning','lru-memoize',
-  'hoist-non-react-statics','react-widgets'];
+  'hoist-non-react-statics','loose-envify','uncontrollable'];
 
 const baseframevendor=['babel-runtime/core-js','babel-preset-react','babel-polyfill',
   'classnames','lodash','normalizr',
-  'isomorphic-fetch','react-tap-event-plugin','fastclick','humps',
-  'superagent','deep-equal','immutable','socket.io-client'];
+  'isomorphic-fetch','react-tap-event-plugin','humps',
+  'superagent','deep-equal','immutable','socket.io-client','dom-helpers',
+  'date-arithmetic','deconstruct-number-format','format-number-with-string'];
 
 const materialuivendor=['material-ui'];
 

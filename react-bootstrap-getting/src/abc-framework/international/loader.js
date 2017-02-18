@@ -54,8 +54,27 @@ const international =
 						resolve();
 					},
 					'intl');
-					break
+					break;
+				case 'en':
+					// When building: create a intl chunk with webpack
+					// When executing: run the callback once the chunk has been download.
+					require.ensure
+					([
+							'intl',
+							'intl/locale-data/jsonp/en.js',
+							'./translations/en'
+						],
+						(require) =>
+						{
+							// apply the polyfill
+							require('intl');
+							require('intl/locale-data/jsonp/en.js');
 
+							debug(`Intl polyfill for "${locale}" has been loaded`);
+							resolve();
+						},
+						'intl');
+					break
 
 			}
 		})
@@ -111,7 +130,15 @@ const international =
 						resolve(data)
 					})
 				})
-
+			case 'en':
+				return new Promise(resolve =>
+				{
+					require.ensure(['./translations/en'], require =>
+					{
+						const data=require('./translations/en').default;
+						resolve(data)
+					})
+				})
 		}
 	},
 

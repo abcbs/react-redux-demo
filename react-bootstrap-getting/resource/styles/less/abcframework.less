@@ -217,15 +217,7 @@
     .element-preperty .boot-max(font-size;@content-font-lg-xl-lg-content);
   }
 }
-////横屏字体
-//.orientation-font-size{
-//   .content-list-font-md .common;
-//}
-//.vertical-font-size{
-//  .content-list-font-md .common;
-//}
-
-//
+//横屏字体
 .orientation-font-size{
   .element-preperty .appple-6plus-h-imp(font-size;14px);
   .element-preperty .android-dpr2-h-imp(font-size;14px);
@@ -277,16 +269,6 @@
   .element-preperty .android-dpr1g-v(height;100px);
 }
 
-.toolbar-inline(@position:relative){
-  display:  inline-flex;
-  //display: flex;
-  display:-webkit-box ;
-  display:-ms-flexbox;
-  //display:-moz-inline-box;
-  display: -moz-box;
-  position:@position;
-}
-
 .content-sytle{
   .title-setting(@element:h5;@lineheight:1.4;@position:relative;@display:inline-block){
     @{element}{
@@ -318,5 +300,31 @@
   }
 }
 
+.toolbar-inline(@position:relative){
+  display: inline-flex;
+  display:-webkit-box ;
+  display:-ms-flexbox;
+  display: -moz-box;
+  position:@position;
+}
+//在一行中显示
+.inline-form-abc{
+  .toolbar-inline(@position:inherit);
+   margin-bottom:1px;
+}
 
+//多行显示
+.columns-abc(@width:80px){
+  columns:@width;
+  -moz-column-width: @width;
+  -webkit-column-width: @width;
+  -ms-grid-columns: @width;
+  -moz-columns:@width;
+  -webkit-columns:@width;
+  -webkit-column-fill:balance;
 
+}
+
+.flex-box-abc{
+  .columns-abc;
+}

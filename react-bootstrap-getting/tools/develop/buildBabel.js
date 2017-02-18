@@ -12,22 +12,33 @@ function buildContent(content, filename, destination, babelOptions = {}) {
   outputFileSync(destination, result.code, {encoding: 'utf8'});
 }
 
+function copyContent(content, filename, destination, babelOptions = {}) {
+  outputFileSync(destination, content, {encoding: 'utf8'});
+}
+
 function buildFile(filename, destination, babelOptions = {}) {
   const content = fs.readFileSync(filename, {encoding: 'utf8'});
   // We only have .js files that we need to build
   const value=filename.toLowerCase();
   let fileType=0;
-  if(value&&(value.indexOf(".css")!==-1||
-      value.indexOf("less")!==-1||value.indexOf("sass")!==-1)){
-      fileType=2
-  }else if(value&&(value.indexOf("js")!==-1||value.indexOf("jsx")!==-1)){
-      fileType=1
-  }else if(value&&(value.indexOf("html")!==-1||value.indexOf("htm")!==-1)){
-    fileType=3;
+  if(value&&(value.match(/.css/i)||
+    value.match(/.less/i)||value.match(/.sass/i))){
+    fileType=2
+  }else if(value&&(value.match(/.json/i))){
+    fileType=4;
+  }else if(value&&(value.match(/.js/i)||value.match(/.jsx/i))){
+    fileType=1
+  }else if(value&&(value.match(/.html/i)||value.match(/.htm/i))){
+    fileType=3;///\d+/g)
+  }else{
+    fileType=5;
   }
   if (fileType===1) {
     //处理js内容
-    const outputPath = path.join(destination, path.basename(filename));
+    let outputPath = path.join(destination, path.basename(filename));
+    if(value.match(/.jsx/i)){
+      outputPath=outputPath.replace(/.jsx/i, ".js")
+    }
     buildContent(content, filename, outputPath, babelOptions);
   }else if (fileType===2) {
     const outputPath = path.join(destination, path.basename(filename));
@@ -39,8 +50,10 @@ function buildFile(filename, destination, babelOptions = {}) {
     copy(filename, templateRoot);
   }else
   {
-    const outputPath = path.join(mediaRoot, path.basename(filename));
-    copy(filename, outputPath);
+    // const outputPath = path.join(mediaRoot, path.basename(filename));
+    // copy(filename, outputPath);
+    let outputPath = path.join(destination, path.basename(filename));
+    copyContent(content, filename, outputPath, babelOptions);
   }
 }
 

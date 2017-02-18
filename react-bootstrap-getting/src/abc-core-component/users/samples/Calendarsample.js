@@ -2,13 +2,18 @@ import React, { Component, PropTypes } from 'react'
 
 import {ButtonGroup,Button,Checkbox,Col,Row ,Panel} from '../../../abc-bootstrap'
 import {AbcPanel,AbcRow,AbcFormHorizontal} from '../../../abc-ui/abc-ui-index'
+import globalizeLocalizer from '../../../abc-widgets/localizers/globalize';
+import {Calendar as Calendar} from '../../../abc-widgets/abc-widgets-index';
+
 var RW          = require('react-widgets');
-var globalizeLocalizer = require('react-widgets/lib/localizers/globalize');
+// var globalizeLocalizer = require('react-widgets/lib/localizers/globalize');
 
 var Globalize = require ( 'globalize');
 // Globalize.locale('zh-CN');
-import Calendar from 'react-widgets/lib/Calendar';
+// import Calendar from 'react-widgets/lib/Calendar';
+
 globalizeLocalizer(Globalize);
+
 require('globalize/lib/cultures/globalize.culture.zh');
 require('globalize/lib/cultures/globalize.culture.es');
 require('globalize/lib/cultures/globalize.culture.en-GB');
@@ -26,12 +31,13 @@ export  default class Calendarsample extends React.Component {
     }
   }
   render(){
-    let cultures = ['zh','es','en-GB']
+    let cultures = ['zh','es','en-GB'];
+    const RW_Calendar=Calendar;
     return (
         <AbcPanel>
           <AbcRow>
             <div className='col-md-6 col-lg-7 demo'>
-              <RW.Calendar
+              <RW_Calendar
                   value={this.state.value}
                   onChange={this._change}
                   max={this.state.max}

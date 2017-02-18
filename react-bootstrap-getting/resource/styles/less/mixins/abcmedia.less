@@ -3,7 +3,7 @@
   //screen-xpv: 400px;//apple-6plus 竖屏
   //@screen-xpvx:420px;//apple-6plus 竖屏
   .appple-6plus-v(@element;@prepery){
-    @media (min-width: @screen-xpv) and (max-width: @screen-xpvx){
+    @media (min-width: @screen-xpv) and (max-width: @screen-xpvx) and  (-webkit-min-device-pixel-ratio : 3){
       @{element}:@prepery;
       background-color: @content-v-background-color;
 
@@ -11,7 +11,7 @@
   }
 
   .appple-6plus-v-imp(@element;@prepery){
-    @media (min-width: @screen-xpv) and (max-width: @screen-xpvx){
+    @media (min-width: @screen-xpv) and (max-width: @screen-xpvx) and  (-webkit-min-device-pixel-ratio : 3){
         @{element}:@prepery !important;
       background-color: @content-v-background-color;
 

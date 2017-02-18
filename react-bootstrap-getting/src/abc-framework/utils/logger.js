@@ -5,7 +5,7 @@
 // }
 
 export default function info(...infoLog) {
-    console.log("info\n",infoLog)
+    // console.log("info\n",infoLog)
 }
 
 export function error(err) {

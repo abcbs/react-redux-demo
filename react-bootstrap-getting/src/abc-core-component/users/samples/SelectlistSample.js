@@ -1,6 +1,6 @@
 'use strict';
 import React, { Component, PropTypes } from 'react'
-
+import {AbcPanel,AbcRow,AbcFormHorizontal} from '../../../abc-ui/abc-ui-index'
 import {ButtonGroup,Button,Checkbox,Col,Row ,Panel} from '../../../abc-bootstrap'
 var RW          = require('react-widgets');
 
@@ -12,7 +12,8 @@ var list = [
         { label: 'maroon', id: 4 },
         { label: 'purple', id: 5 },
         { label: 'mauve',  id: 6 },
-        { label: 'mauve',  id: 7 }
+        { label: '李四',  id: 7 },
+        { label: '赵武',  id: 8 }
 
       ];
 
@@ -31,7 +32,7 @@ var SelectListApi = React.createClass({
 
     return (
       <div className='example' role='application'>
-        <div className='row'>
+        <AbcRow>
           <div className='col-md-6 col-lg-7 demo'>
             <div className='form-group'>
               <RW.SelectList
@@ -49,23 +50,25 @@ var SelectListApi = React.createClass({
             </div>
           </div>
           <div className='col-md-6 col-lg-5 api-panel'>
-            <div className='form-group'>
-              <label className='checkbox-inline'>
-                <input type='checkbox'
-                  checked={!!this.state.isRtl}
-                  onChange={this._set.bind(null, 'isRtl', !this.state.isRtl)}/>
-                  Right to Left
-              </label>
+              <div className="inline-form-abc">
+                <div className='form-group' style={{marginLeft:"10px"}}>
+                  <label className='checkbox-inline'>
+                    <input type='checkbox'
+                      checked={!!this.state.isRtl}
+                      onChange={this._set.bind(null, 'isRtl', !this.state.isRtl)}/>
+                      Right to Left
+                  </label>
+                </div>
+                <div className='form-group' style={{marginLeft:"10px"}}>
+                  <label className='checkbox-inline'>
+                    <input type='checkbox'
+                      checked={!!this.state.multiple}
+                      onChange={this._set.bind(null, 'multiple', !this.state.multiple)}/>
+                      Is Multiple
+                  </label>
+              </div>
             </div>
-            <div className='form-group'>
-              <label className='checkbox-inline'>
-                <input type='checkbox'
-                  checked={!!this.state.multiple}
-                  onChange={this._set.bind(null, 'multiple', !this.state.multiple)}/>
-                  Is Multiple
-              </label>
-            </div>
-            <div className='form-group'>
+            <div className='form-group' style={{marginLeft:"10px"}}>
               <ButtonGroup>
                 <Button
                   active={this.state.disabled === 'disabled'}
@@ -84,6 +87,8 @@ var SelectListApi = React.createClass({
                 Busy
               </Button>
             </div>
+          </div>
+          <div className='col-md-6 col-lg-5 api-panel'>
             <div className='form-group'>
               <label className='form-label'>Disable Values</label>
               <RW.Multiselect
@@ -95,7 +100,7 @@ var SelectListApi = React.createClass({
                   onChange={this._set.bind(null, 'disabled')}/>
             </div>
           </div>
-        </div>
+        </AbcRow>
       </div>
     );
   },
