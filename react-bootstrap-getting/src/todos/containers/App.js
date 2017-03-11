@@ -38,52 +38,10 @@ const messages = defineMessages
         }
     }
 )
-const getVisibleTodos = (state, filter) => {
 
-    let todos=state.todos;
-    switch (filter) {
-        case 'SHOW_ALL':
-            return state
-        case 'SHOW_COMPLETED':
-            return state.filter(t => t.completed)
-        case 'SHOW_ACTIVE':
-            return state.filter(t => !t.completed)
-        default:
-            throw new Error('Unknown filter: ' + filter)
-    }
-}
-
-/**
- * 提交之后
- * @param state
- * @returns {*}
- */
-const getFormInfo = (actions,state) => {
-    let action=actions&&actions.splice&&actions.splice(-1,1);
-    let todo=action[0];
-    if(!action[0]||!todo){
-        return '';
-    }else{
-        let act=todo.action;
-        if(todo.text&&state.visibilityFilter){
-            actions.push(todo)
-        }
-        return todo.text||act.text;
-    }
-}
-const getTodoVerfiy = (todos) => {
-    return todos.addTodoVerfiy;
-}
-
-function mapStateToProps(state,ownProps) {
-    var visibleTodos=visibleTodosSelector;
-    const todos=state.todos||state.default.todos
+function mapStateToProps(state,props) {
     return {
-        verfiedResult:getTodoVerfiy(state),
-        visibilityFilter:state.visibilityFilter||state.default.visibilityFilter,
-        submitResult:getFormInfo( todos.present,state||state.default),
-        todos:getVisibleTodos(todos.present, state.visibilityFilter||state.default.visibilityFilter)
-
+        visibleTodos:visibleTodosSelector(state, props)
     }
 }
 
@@ -94,13 +52,11 @@ function mapDispatchToProps(dispatch) {
         //而它使用的动作为completeTodo的数据为索引index
         completeTodoAction:bindActionCreators(completeTodo, dispatch),
         setVisibilityFilterAtion:bindActionCreators(setVisibilityFilter, dispatch),
-        //submmitTodoAction:bindActionCreators(submmitTodo, dispatch)
-        //addTodoVerfiyAction:bindActionCreators(addTodoVerfiy, dispatch),
     };
 }
 
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-@connect(visibleTodosSelector,mapDispatchToProps)
+@connect(mapStateToProps,mapDispatchToProps)
 @international()
 @container({title:messages.title, subTitle:messages.subTitle})
 export default class App extends React.Component {
@@ -116,7 +72,7 @@ export default class App extends React.Component {
                 <AddTodo
                     onAddClick={addTodoAction} 
                     onAddTodoVerfiy={addTodoVerfiyAction}
-                    verfiedResult={verfiedResult}
+                    // verfiedResult={verfiedResult}
                     submitResult={submitResult}
                     submmitTodo={submmitTodoAction}
                     />
@@ -144,7 +100,5 @@ App.propTypes = {
         'SHOW_COMPLETED',
         'SHOW_ACTIVE'
     ]),
-    // verfiedResult:PropTypes.string,
-    // submitResult:PropTypes.string
 };
 

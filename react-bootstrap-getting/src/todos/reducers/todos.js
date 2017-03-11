@@ -6,8 +6,6 @@ import undoable,{excludeAction} from 'redux-undo'
 
 function reducer(state = [], action) {
     switch (action.type) {
-        // case ADD_TODO:
-        //     return  action;
         case ADD_TODO:
             return [//在Redux中加入数据，实际的显示数据
                 ...state,
@@ -16,15 +14,6 @@ function reducer(state = [], action) {
                     completed: false
                 }
             ]
-        // case SUBMMIT_TODO:
-        //     info("action.text",action.text);
-        //     return [//在Redux中加入数据
-        //         ...state,
-        //         {
-        //             text: action.text,
-        //             completed: false
-        //         }
-        //     ]
         case COMPLETE_TODO:
             return [//过滤已经完成数据
                 ...state.slice(0, action.index),//索引之前的数据
@@ -42,6 +31,4 @@ const undoableTodos = undoable(reducer);
 //     return action.type === ADD_TODO_VERFIY; // only add to history if action is SOME_ACTION
 // });
 // const undoableTodos=undoable(reducer, { filter: excludeAction(ADD_TODO_VERFIY,SET_VISIBILITY_FILTER) })
-
-
 export default undoableTodos

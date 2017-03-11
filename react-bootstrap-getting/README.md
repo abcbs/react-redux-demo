@@ -52,3 +52,5 @@ Yes please! See the [contributing guidelines][contributing] for details.
 
 [discord-badge]: https://img.shields.io/badge/Discord-Join%20chat%20%E2%86%92-738bd7.svg
 [discord]: https://discord.gg/0ZcbPKXt5bXLs9XK
+
+https://github.com/halt-hammerzeit/react-isomorphic-render

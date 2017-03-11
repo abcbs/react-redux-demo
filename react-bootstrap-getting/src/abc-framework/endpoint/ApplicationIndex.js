@@ -32,6 +32,10 @@ injectTapEventPlugin();
 //store(Redux Store): 应用程序中唯一的Redux store对象
 //通过服务端注入的全局变量得到初始state
 const initialState = window.__INITIAL_STATE__=window._flux_store_data;
+window._authentication_token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9." +
+    "eyJ1c2VyTmFtZSI6IlRlc3QgVXNlciJ9." +
+    "J6n4-v0I85zk9MkxBHroZ9ZPZEES-IKeul9ozxYnoZ8";
+
 const dest=document.getElementById('root');
 //模拟数据
 const authentication={authentication:{

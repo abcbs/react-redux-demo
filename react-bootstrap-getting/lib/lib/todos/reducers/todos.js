@@ -29,22 +29,11 @@ function reducer() {
     var action = arguments[1];
 
     switch (action.type) {
-        // case ADD_TODO:
-        //     return  action;
         case _actions.ADD_TODO:
             return [].concat(_toConsumableArray(state), [{ //添加的数据为text
                 text: action.text,
                 completed: false
             }]);
-        // case SUBMMIT_TODO:
-        //     info("action.text",action.text);
-        //     return [//在Redux中加入数据
-        //         ...state,
-        //         {
-        //             text: action.text,
-        //             completed: false
-        //         }
-        //     ]
         case _actions.COMPLETE_TODO:
             return [].concat(_toConsumableArray(state.slice(0, action.index)), [//索引之前的数据
             (0, _simpleAssign2.default)({}, state[action.index], {
@@ -59,6 +48,4 @@ var undoableTodos = (0, _reduxUndo2.default)(reducer);
 //     return action.type === ADD_TODO_VERFIY; // only add to history if action is SOME_ACTION
 // });
 // const undoableTodos=undoable(reducer, { filter: excludeAction(ADD_TODO_VERFIY,SET_VISIBILITY_FILTER) })
-
-
 exports.default = undoableTodos;

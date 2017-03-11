@@ -31,6 +31,8 @@ var build=path.join(repoRoot, '/build');
 
 //创建服务端代理
 const {middleware} = proxy('/api',targetUrl)
+// const {wsMiddleware} = proxy('/ws',targetUrl)
+
 // server.use(middleware);
 // Create webpage rendering server
 const server = webpageServer
@@ -153,7 +155,21 @@ const server = webpageServer
     },
 
     authentication: {
-            cookie: 'authentication'
+        // If this parameter is set,
+        // then the page rendering server
+        // will try to extract JWT authentication token
+        // from this cookie (if present),
+        // and then it will always pass the token as part of the
+        // "Authorization: Bearer {token}" HTTP header
+        // when using `http` utility inside Redux actions.
+        cookie: 'jwt-cookie-name',
+        // cookie: 'authentication',
+        // (optional)
+        // The HTTP header containing authentication token
+        // (e.g. "Authorization: Bearer {token}").
+        // Is "Authorization" by default.
+        header: 'Authorization'
+
        },
     },
     settings);

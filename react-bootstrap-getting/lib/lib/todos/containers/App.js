@@ -77,56 +77,10 @@ var messages = (0, _reactIntl.defineMessages)({
         defaultMessage: '新增产品，可以撤销'
     }
 });
-var getVisibleTodos = function getVisibleTodos(state, filter) {
 
-    var todos = state.todos;
-    switch (filter) {
-        case 'SHOW_ALL':
-            return state;
-        case 'SHOW_COMPLETED':
-            return state.filter(function (t) {
-                return t.completed;
-            });
-        case 'SHOW_ACTIVE':
-            return state.filter(function (t) {
-                return !t.completed;
-            });
-        default:
-            throw new Error('Unknown filter: ' + filter);
-    }
-};
-
-/**
- * 提交之后
- * @param state
- * @returns {*}
- */
-var getFormInfo = function getFormInfo(actions, state) {
-    var action = actions && actions.splice && actions.splice(-1, 1);
-    var todo = action[0];
-    if (!action[0] || !todo) {
-        return '';
-    } else {
-        var act = todo.action;
-        if (todo.text && state.visibilityFilter) {
-            actions.push(todo);
-        }
-        return todo.text || act.text;
-    }
-};
-var getTodoVerfiy = function getTodoVerfiy(todos) {
-    return todos.addTodoVerfiy;
-};
-
-function mapStateToProps(state, ownProps) {
-    var visibleTodos = _TodoSelectors.visibleTodosSelector;
-    var todos = state.todos || state.default.todos;
+function mapStateToProps(state, props) {
     return {
-        verfiedResult: getTodoVerfiy(state),
-        visibilityFilter: state.visibilityFilter || state.default.visibilityFilter,
-        submitResult: getFormInfo(todos.present, state || state.default),
-        todos: getVisibleTodos(todos.present, state.visibilityFilter || state.default.visibilityFilter)
-
+        visibleTodos: (0, _TodoSelectors.visibleTodosSelector)(state, props)
     };
 }
 
@@ -141,7 +95,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-var App = (_dec = (0, _reactRedux.connect)(_TodoSelectors.visibleTodosSelector, mapDispatchToProps), _dec2 = (0, _internationalize2.default)(), _dec3 = (0, _AbcContainerPage2.default)({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = function (_React$Component) {
+var App = (_dec = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps), _dec2 = (0, _internationalize2.default)(), _dec3 = (0, _AbcContainerPage2.default)({ title: messages.title, subTitle: messages.subTitle }), _dec(_class = _dec2(_class = _dec3(_class = function (_React$Component) {
     _inherits(App, _React$Component);
 
     function App() {
@@ -171,9 +125,9 @@ var App = (_dec = (0, _reactRedux.connect)(_TodoSelectors.visibleTodosSelector, 
                 null,
                 _react2.default.createElement(_AddTodo2.default, {
                     onAddClick: addTodoAction,
-                    onAddTodoVerfiy: addTodoVerfiyAction,
-                    verfiedResult: verfiedResult,
-                    submitResult: submitResult,
+                    onAddTodoVerfiy: addTodoVerfiyAction
+                    // verfiedResult={verfiedResult}
+                    , submitResult: submitResult,
                     submmitTodo: submmitTodoAction
                 }),
                 _react2.default.createElement(_UndoRedo2.default, null),
